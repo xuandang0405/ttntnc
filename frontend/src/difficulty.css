@@ -1,0 +1,16 @@
+.difficulty-picker{border:0;padding:0;margin:0 auto 18px;width:285px;max-width:100%;min-width:0}
+.difficulty-picker legend{margin:0 auto 9px;font-size:7px;letter-spacing:1.5px;color:#a8bec9}
+.difficulty-picker>div{display:flex;gap:8px}
+.difficulty-picker button{flex:1;min-width:0;display:grid;gap:4px;padding:10px 5px;border:1px solid #496071;background:#101c29e8;border-radius:5px;color:#a5b8c8;transition:border-color .18s,background .18s}
+.difficulty-picker button strong{font-size:12px;font-weight:600}
+.difficulty-picker button span{font-size:8px}
+.difficulty-picker button[aria-pressed=true]{border-color:#80c9b0;background:#1b3c35e8;color:#d9f6e9;box-shadow:inset 0 0 0 1px #80c9b018}
+.difficulty-picker button:hover{border-color:#a1d4c2}
+.difficulty-picker .nightmare-choice[aria-pressed=true]{border-color:#f0a5a8;background:#512731e8;color:#ffe1e3;box-shadow:inset 0 0 0 1px #f0a5a820}
+.difficulty-picker .nightmare-choice:hover{border-color:#f0a5a8}
+.difficulty.nightmare-badge{color:#f5b4b7;border-color:#95555c;background:#4d29354d}
+.difficulty-picker button:focus-visible{outline:2px solid #c1f4de;outline-offset:3px}
+.difficulty-picker>p{font-size:8px;line-height:1.6;margin:9px 0 0;color:#9fb9c3}
+.menu-content .menu-logo{max-width:630px}
+.menu-content .menu-tagline{margin-bottom:17px}
+@media(max-width:740px){.difficulty-picker{width:265px}.menu-content .menu-logo{max-width:420px}.difficulty-picker button{padding:9px 6px}}
