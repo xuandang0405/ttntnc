@@ -1,0 +1,102 @@
+{
+  "4": {
+    "Steepest asc. HC": {
+      "avg_time": 7.191799997599446e-05,
+      "avg_h": 0.77,
+      "pct_optimal": 37.0,
+      "avg_evals": 25.2
+    },
+    "Ineff. Stochastic HC": {
+      "avg_time": 8.948099995905068e-05,
+      "avg_h": 0.75,
+      "pct_optimal": 35.0,
+      "avg_evals": 31.68
+    },
+    "Efficient Stochastic HC": {
+      "avg_time": 0.00016483699990203605,
+      "avg_h": 0.89,
+      "pct_optimal": 28.000000000000004,
+      "avg_evals": 49.61
+    },
+    "Simulated Annealing (Geometric)": {
+      "avg_time": 0.00018125000005966285,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 59.37
+    },
+    "Simulated Annealing (Linear)": {
+      "avg_time": 0.00035299800001666883,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 118.64
+    },
+    "Random Restart (Steepest)": {
+      "avg_time": 0.00020485099999859813,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 69.72
+    },
+    "Random Restart (Ineff. Sto)": {
+      "avg_time": 0.00027825499997561563,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 94.44
+    },
+    "Random Restart (Eff. Sto)": {
+      "avg_time": 0.0005386820001331217,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 157.53
+    }
+  },
+  "8": {
+    "Steepest asc. HC": {
+      "avg_time": 0.0010821710000163875,
+      "avg_h": 1.3,
+      "pct_optimal": 13.0,
+      "avg_evals": 235.2
+    },
+    "Ineff. Stochastic HC": {
+      "avg_time": 0.0015157800000451971,
+      "avg_h": 1.28,
+      "pct_optimal": 16.0,
+      "avg_evals": 336.56
+    },
+    "Efficient Stochastic HC": {
+      "avg_time": 0.0012869259999206406,
+      "avg_h": 1.2,
+      "pct_optimal": 18.0,
+      "avg_evals": 251.84
+    },
+    "Simulated Annealing (Geometric)": {
+      "avg_time": 0.003144827999913105,
+      "avg_h": 0.08,
+      "pct_optimal": 92.0,
+      "avg_evals": 653.59
+    },
+    "Simulated Annealing (Linear)": {
+      "avg_time": 0.008417670000071667,
+      "avg_h": 0.52,
+      "pct_optimal": 48.0,
+      "avg_evals": 1671.83
+    },
+    "Random Restart (Steepest)": {
+      "avg_time": 0.007262607000011485,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 1501.36
+    },
+    "Random Restart (Ineff. Sto)": {
+      "avg_time": 0.013783573000018805,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 2855.44
+    },
+    "Random Restart (Eff. Sto)": {
+      "avg_time": 0.010199433999841858,
+      "avg_h": 0.0,
+      "pct_optimal": 100.0,
+      "avg_evals": 1995.46
+    }
+  }
+}
