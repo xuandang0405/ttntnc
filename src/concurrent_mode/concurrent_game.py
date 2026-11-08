@@ -6,9 +6,9 @@ import chess
 from checkpoints import Experiment
 from concurrent_mode.concurrent_agent import ConcurrentAgent, device
 from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES
-from config import DRAW_REWARD, MAX_PLIES
+from config import MAX_PLIES
 from encoding import material_balance
- 
+from metrics import TrainingMetrics, summarize_game
  
 class Slot: 
     def __init__(self):
@@ -38,6 +38,9 @@ class ConcurrentSelfPlay:
         self.recent_len = deque(maxlen=100)
         self.history = []                     # (white_rate, black_rate, draw_rate, avg_len)
         self.last_result = "-"
+        self.metrics = TrainingMetrics()
+        self.white.metrics = self.metrics
+        self.black.metrics = self.metrics
  
     def step(self):
         by_agent = ((self.white, [i for i, s in enumerate(self.slots) if s.board.turn == chess.WHITE]),
@@ -49,6 +52,7 @@ class ConcurrentSelfPlay:
             for i, mv in zip(ids, moves):
                 self.slots[i].board.push(mv)
                 self.slots[i].last_move = mv
+            self.metrics.add_plies(len(moves))
         for i, s in enumerate(self.slots):
             outcome = s.board.outcome(claim_draw=True)
             if outcome is not None or len(s.board.move_stack) >= MAX_PLIES:
@@ -56,14 +60,8 @@ class ConcurrentSelfPlay:
  
     def finish(self, i, outcome):
         board = self.slots[i].board
-        winner = outcome.winner if outcome else None
-        if winner is None:
-            tw = tb = DRAW_REWARD
-            label = "Draw"
-        elif winner == chess.WHITE:
-            tw, tb, label = 1.0, -1.0, "White"
-        else:
-            tw, tb, label = -1.0, 1.0, "Black"
+        label, reason, feats, tw, tb = summarize_game(board, outcome)
+        self.metrics.record_game(reason, feats)
         self.white.finish_episode(i, material_balance(board, chess.WHITE), tw)
         self.black.finish_episode(i, material_balance(board, chess.BLACK), tb)
  
@@ -79,6 +77,9 @@ class ConcurrentSelfPlay:
                              self.recent.count("Draw") / n, sum(self.recent_len) / n))
         self.slots[i] = Slot()
  
+    def metrics_snapshot(self, max_age=0.0):
+        return self.metrics.snapshot((self.white, self.black), max_age)
+
     def save_models(self):
         if self.unsaved_games == 0:
             print("Nothing new to save.")

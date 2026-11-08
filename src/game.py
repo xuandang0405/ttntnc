@@ -4,8 +4,9 @@ import chess
  
 from agent import Agent
 from checkpoints import Experiment
-from config import DRAW_REWARD, MAX_PLIES
+from config import MAX_PLIES
 from encoding import material_balance
+from metrics import TrainingMetrics, summarize_game
 from model import device
  
  
@@ -25,6 +26,9 @@ class SelfPlay:
         self.recent_len = deque(maxlen=100)
         self.history = []                     # (white_rate, black_rate, draw_rate, avg_len)
         self.last_result = "-"
+        self.metrics = TrainingMetrics()
+        self.white.metrics = self.metrics
+        self.black.metrics = self.metrics
  
     def new_game(self):
         self.board = chess.Board()
@@ -37,19 +41,14 @@ class SelfPlay:
         mv = agent.act(self.board)
         self.board.push(mv)
         self.last_move = mv
+        self.metrics.add_plies(1)
         outcome = self.board.outcome(claim_draw=True)
         if outcome is not None or len(self.board.move_stack) >= MAX_PLIES:
             self.finish(outcome)
  
     def finish(self, outcome):
-        winner = outcome.winner if outcome else None
-        if winner is None:
-            tw = tb = DRAW_REWARD
-            label = "Draw"
-        elif winner == chess.WHITE:
-            tw, tb, label = 1.0, -1.0, "White"
-        else:
-            tw, tb, label = -1.0, 1.0, "Black"
+        label, reason, feats, tw, tb = summarize_game(self.board, outcome)
+        self.metrics.record_game(reason, feats)
         self.white.learn(material_balance(self.board, chess.WHITE), tw)
         self.black.learn(material_balance(self.board, chess.BLACK), tb)
  
@@ -64,6 +63,9 @@ class SelfPlay:
         self.history.append((self.recent.count("White") / n, self.recent.count("Black") / n,
                              self.recent.count("Draw") / n, sum(self.recent_len) / n))
         self.new_game()
+ 
+    def metrics_snapshot(self, max_age=0.0):
+        return self.metrics.snapshot((self.white, self.black), max_age)
  
     def save_models(self):
         if self.unsaved_games == 0:

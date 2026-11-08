@@ -10,8 +10,7 @@ import torch
 from config import CKPT_DIR, DRAW_REWARD, GAMMA, LR, MAX_PLIES, SHAPING
  
 PREFIX = "exp_"
- 
-# finding checkpoints
+
 def list_experiments():
     if not os.path.isdir(CKPT_DIR):
         return []
@@ -76,7 +75,7 @@ def base_hyperparameters():
  
 # the experiment
 class Experiment:
-
+    # One training session = one timestamped folder.
     def __init__(self):
         self.started = time.time()
         self.id = datetime.fromtimestamp(self.started).strftime(PREFIX + "%Y%m%d_%H%M%S")
@@ -85,7 +84,6 @@ class Experiment:
         self.saves = 0
  
     def load_latest(self, white, black):
-        # Load the newest saved models into both agents. Returns True on success.
         if white.load() and black.load():
             self.resumed_from = os.path.basename(os.path.dirname(white.loaded_from)) or "legacy"
             return True
@@ -124,6 +122,7 @@ class Experiment:
                        "Black": model_info(game.black, black_path)},
             "hyperparameters": {**base_hyperparameters(), **(extra_hyper or {})},
             "training": training_stats(game),
+            "metrics": game.metrics.snapshot((game.white, game.black)),
         }
         out = os.path.join(self.dir, "metrics.json")
         with open(out + ".tmp", "w") as f:

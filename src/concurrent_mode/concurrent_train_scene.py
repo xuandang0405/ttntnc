@@ -4,6 +4,7 @@ import pygame
  
 from concurrent_mode.concurrent_game import ConcurrentSelfPlay
 from concurrent_mode.concurrent_renderer import draw_concurrent_panel, draw_games_grid
+from renderer import draw_metrics_panel
 from config import BG
 from scene import Scene
  
@@ -14,6 +15,7 @@ class ConcurrentTrainScene(Scene):
         if self.game.load_models():
             print("Loaded saved models.")
         self.paused, self.fast, self.delay = False, False, 300
+        self.show_metrics = False
         self.last_step, self.last_save = 0, time.time()
  
     def handle_event(self, e):
@@ -25,6 +27,8 @@ class ConcurrentTrainScene(Scene):
             self.next = MenuScene(self.fonts)
         elif e.key == pygame.K_SPACE:
             self.paused = not self.paused
+        elif e.key == pygame.K_m:
+            self.show_metrics = not self.show_metrics
         elif e.key == pygame.K_f:
             self.fast = not self.fast
         elif e.key == pygame.K_UP:
@@ -41,7 +45,7 @@ class ConcurrentTrainScene(Scene):
  
     def update(self):
         if not self.paused:
-            if self.fast:
+            if self.fast:   # as many steps as fit in ~25 ms so the window stays responsive
                 t0 = time.time()
                 while time.time() - t0 < 0.025:
                     self.game.step()
@@ -57,7 +61,10 @@ class ConcurrentTrainScene(Scene):
     def draw(self, screen):
         screen.fill(BG)
         draw_games_grid(screen, self.fonts, self.game.slots)
-        draw_concurrent_panel(screen, self.fonts, self.game, self.paused, self.fast, self.delay)
+        if self.show_metrics:
+            draw_metrics_panel(screen, self.fonts, self.game)
+        else:
+            draw_concurrent_panel(screen, self.fonts, self.game, self.paused, self.fast, self.delay)
  
     def on_exit(self):
         self.game.save_models()

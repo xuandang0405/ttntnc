@@ -82,7 +82,7 @@ def draw_games_grid(screen, fonts, slots):
 
 def draw_concurrent_panel(screen, fonts, game, paused, fast, delay):
     x0, st, line = _panel(screen, fonts)
-    line("Tự học Cờ vua (RL)", "title", dy=36)
+    line("Tự học cờ vua (RL)", "title", dy=36)
     mode = "ĐÃ TẠM DỪNG" if paused else ("HUẤN LUYỆN NHANH" if fast else f"XEM ({delay} ms/bước)")
     line(f"Chế độ: {mode}", color=(255, 200, 90))
     line(f"Số ván song song: {game.k}   Thiết bị: {game.device_name}")

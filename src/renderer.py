@@ -192,3 +192,61 @@ def draw_train_panel(screen, fonts, game, paused, fast, delay):
     for t in ("SPACE tạm dừng   F chế độ nhanh", "UP/DOWN tốc độ   S lưu   L tải",
               "R đặt lại thống kê   ESC menu"):
         line(t, "small", (170, 170, 180), 18)
+
+def draw_metrics_panel(screen, fonts, game):
+    m = game.metrics_snapshot(0.5)
+    x0 = BOARD_PX
+    pygame.draw.rect(screen, PANEL_BG, (x0, 0, PANEL_W, H))
+    state = {"y": 8}
+ 
+    def put(txt, x, color=TEXT):
+        screen.blit(fonts["small"].render(txt, True, color), (x0 + x, state["y"]))
+ 
+    def head(txt):
+        put(txt, 12, (160, 200, 255))
+        state["y"] += 17
+ 
+    def pair(a, b=""):
+        put(a, 12)
+        put(b, 196)
+        state["y"] += 16
+ 
+    def na(v, fmt="{:.0f}"):
+        return "k/c" if v is None else fmt.format(v)
+ 
+    t, d, q, r, s = m["throughput"], m["draw_reasons"], m["game_quality"], m["rewards"], m["system"]
+    head("CHỈ SỐ HUẤN LUYỆN   (Nhấn M để đóng)")
+    pair(f"ván/s {t['games_per_second']:.3f}", f"nước/s {t['plies_per_second']:.1f}")
+    pair(f"cập nhật {t['training_updates']}", f"cpu {na(s['cpu_percent'])}%   gpu {na(s['gpu_utilization_percent'])}%")
+    head(f"Nguyên nhân hòa")
+    pair(f"lặp lại cờ {d['draw_by_repetition']}", f"50 nước {d['draw_by_fifty_moves']}")
+    pair(f"hết nước đi {d['draw_by_stalemate']}", f"thiếu quân {d['draw_by_insufficient_material']}")
+    pair(f"tối đa nước {d['draw_by_max_plies']}", f"khác {d['draw_by_other']}")
+    head(f"Chất lượng ván đấu ({q['window_games']} ván gần nhất)")
+    pair(f"tỷ lệ lặp {q['repetition_rate']:.3f}", f"lặp 3 lần {q['threefold_repetition_rate']:.3f}")
+    pair(f"vị trí lặp {q['repeated_position_count']:.1f}", f"nước lặp {q['repeated_move_count']:.1f}")
+    pair(f"trì trệ {q['stagnation_rate']:.3f}", f"đảo chiều {q['reversal_move_rate']:.3f}")
+    pair(f"tỷ lệ độc đáo {q['unique_position_ratio']:.3f}", f"độc đáo TB {q['avg_unique_positions']:.1f}")
+    head(f"Phần thưởng ({r['window_episodes']} tập gần nhất)")
+    pair(f"tập {r['mean_episode_reward']:+.3f}", f"bước {r['mean_step_reward']:+.4f}")
+    pair(f"kết thúc {r['terminal_reward_mean']:+.3f}", f"chất liệu {r['material_reward_mean']:+.3f}")
+    pair(f"hòa {r['draw_reward_mean']:+.3f}", f"phạt lặp {r['repetition_penalty_mean']:+.3f}")
+    pair(f"độ lệch c. {r['reward_std']:.3f}", f"bước dương {r['positive_reward_ratio']:.3f}")
+    pair(f"bước âm {r['negative_reward_ratio']:.3f}")
+    head("Tối ưu hóa (cập nhật gần đây)")
+    put("Trắng", 170, (240, 240, 240)); put("Đen", 270, (170, 190, 255))
+    state["y"] += 16
+    w, b = m["optimization"]["White"], m["optimization"]["Black"]
+    rows = [("actor_loss", "actor_loss"), ("critic_loss", "critic_loss"), ("total_loss", "total_loss"),
+            ("policy_entropy", "policy_entropy"), ("mean_advantage", "mean_advantage"),
+            ("std_advantage", "std_advantage"), ("mean_return", "mean_return"), ("mean_value", "mean_value"),
+            ("explained_var", "value_explained_variance"), ("gradient_norm", "gradient_norm"),
+            ("grad_clip_frac", "gradient_clip_fraction"), ("weight_update_norm", "weight_update_norm")]
+    for label, key in rows:
+        put(label, 12)
+        put(f"{w[key]:+.4f}", 170)
+        put(f"{b[key]:+.4f}", 270)
+        state["y"] += 16
+    put("policy_updates", 12)
+    put(str(w["policy_update_count"]), 170)
+    put(str(b["policy_update_count"]), 270)

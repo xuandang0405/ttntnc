@@ -1,6 +1,5 @@
 import numpy as np
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
  
 from agent import Agent
@@ -43,14 +42,16 @@ class ConcurrentAgent(Agent):
         return moves
  
     # learning
-    def finish_episode(self, game_id, final_balance, terminal_reward):
+    def finish_episode(self, game_id, final_balance, terminal):
         ep = self.episodes.pop(game_id, None)
         if not ep or not ep["a"]:
             return
         n = len(ep["a"])
         bals = ep["bal"] + [final_balance]
         rewards = [SHAPING * (bals[i + 1] - bals[i]) for i in range(n)]
-        rewards[-1] += terminal_reward
+        material = sum(rewards)
+        rewards[-1] += sum(terminal.values())
+        self._log_episode(rewards, material, terminal)
         returns, g = [], 0.0
         for r in reversed(rewards):
             g = r + GAMMA * g
@@ -81,14 +82,4 @@ class ConcurrentAgent(Agent):
         safe = logp_all.masked_fill(~mask, 0.0)
         entropy = -(safe.exp() * safe).sum(-1).mean()
  
-        adv = (returns - values).detach()
-        if len(adv) > 1:
-            adv = (adv - adv.mean()) / (adv.std() + 1e-6)
-        loss = (-(logps * adv).mean()
-                + 0.5 * F.mse_loss(values, returns.clamp(-1.5, 1.5))
-                - ENTROPY_COEF * entropy)
-        self.opt.zero_grad()
-        loss.backward()
-        nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
-        self.opt.step()
-        self.last_loss = loss.item()
+        self._optimize(logps, values, returns, entropy, ENTROPY_COEF)
