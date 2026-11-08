@@ -1,43 +1,41 @@
-"""RL agent: picks moves, stores its trajectory, and learns after each game."""
 import os
-
+ 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
-from config import CKPT_DIR, GAMMA, LR, SHAPING
+ 
+from checkpoints import latest_checkpoint
+from config import GAMMA, LR, SHAPING
 from encoding import encode, legal_moves_map, material_balance
 from model import PolicyValueNet, device
-
-def checkpoint_path(name):
-    return os.path.join(CKPT_DIR, f"{name.lower()}.pt")
-
-
+ 
+ 
 def models_available():
-    return {n: os.path.exists(checkpoint_path(n)) for n in ("White", "Black")}
-
-
+    return {n: latest_checkpoint(n) is not None for n in ("White", "Black")}
+ 
+ 
 def load_policy(name):
     net = PolicyValueNet().to(device)
-    path = checkpoint_path(name)
-    trained = os.path.exists(path)
+    path = latest_checkpoint(name)      # newest experiment
+    trained = path is not None
     if trained:
         net.load_state_dict(torch.load(path, map_location=device)["net"])
     net.eval()
     return net, trained
-
-
+ 
+ 
 class Agent:
     def __init__(self, color, name):
         self.color, self.name = color, name
         self.net = PolicyValueNet().to(device)
         self.opt = torch.optim.Adam(self.net.parameters(), lr=LR)
         self.last_loss = 0.0
+        self.loaded_from = None
         self.reset_episode()
-
+ 
     def reset_episode(self):
         self.logps, self.values, self.entropies, self.balances = [], [], [], []
-
+ 
     def act(self, board):
         moves = legal_moves_map(board, self.color)
         idx = list(moves.keys())
@@ -49,7 +47,7 @@ class Agent:
         self.values.append(value[0])
         self.balances.append(material_balance(board, self.color))
         return moves[idx[choice.item()]]
-
+ 
     def learn(self, final_balance, terminal_reward):
         n = len(self.logps)
         if n == 0:
@@ -62,7 +60,7 @@ class Agent:
             g = r + GAMMA * g
             returns.append(g)
         returns = torch.tensor(returns[::-1], dtype=torch.float32, device=device)
-
+ 
         logps = torch.stack(self.logps)
         values = torch.stack(self.values)
         ent = torch.stack(self.entropies).mean()
@@ -78,18 +76,20 @@ class Agent:
         self.opt.step()
         self.last_loss = loss.item()
         self.reset_episode()
-
-    def path(self):
-        return checkpoint_path(self.name)
-
-    def save(self):
-        os.makedirs(CKPT_DIR, exist_ok=True)
-        torch.save({"net": self.net.state_dict(), "opt": self.opt.state_dict()}, self.path())
-
+ 
+    # checkpoints
+    def save(self, directory):
+        os.makedirs(directory, exist_ok=True)
+        path = os.path.join(directory, f"{self.name.lower()}.pt")
+        torch.save({"net": self.net.state_dict(), "opt": self.opt.state_dict()}, path)
+        return path
+ 
     def load(self):
-        if os.path.exists(self.path()):
-            ck = torch.load(self.path(), map_location=device)
-            self.net.load_state_dict(ck["net"])
-            self.opt.load_state_dict(ck["opt"])
-            return True
-        return False
+        path = latest_checkpoint(self.name)
+        if path is None:
+            return False
+        ck = torch.load(path, map_location=device)
+        self.net.load_state_dict(ck["net"])
+        self.opt.load_state_dict(ck["opt"])
+        self.loaded_from = path
+        return True

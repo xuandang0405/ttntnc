@@ -1,11 +1,11 @@
 import time
+ 
 import pygame
-
+ 
 from config import BG
 from game import SelfPlay
 from renderer import draw_board, draw_train_panel
 from scene import Scene
-
 
 class TrainScene(Scene):
     def __init__(self, fonts):
@@ -15,7 +15,7 @@ class TrainScene(Scene):
             print("Loaded saved models.")
         self.paused, self.fast, self.delay = False, False, 300
         self.last_step, self.last_save = 0, time.time()
-
+ 
     def handle_event(self, e):
         if e.type != pygame.KEYDOWN:
             return
@@ -32,13 +32,13 @@ class TrainScene(Scene):
         elif e.key == pygame.K_DOWN:
             self.delay = min(2000, self.delay + 50)
         elif e.key == pygame.K_s:
-            g.save_models(); print("Saved.")
+            g.save_models()
         elif e.key == pygame.K_l:
             if g.load_models():
                 print("Loaded.")
         elif e.key == pygame.K_r:
             g.stats_reset()
-
+ 
     def update(self):
         if not self.paused:
             if self.fast:
@@ -53,11 +53,11 @@ class TrainScene(Scene):
         if time.time() - self.last_save > 120:
             self.game.save_models()
             self.last_save = time.time()
-
+ 
     def draw(self, screen):
         screen.fill(BG)
         draw_board(screen, self.fonts, self.game.board, self.game.last_move)
         draw_train_panel(screen, self.fonts, self.game, self.paused, self.fast, self.delay)
-
+ 
     def on_exit(self):
         self.game.save_models()

@@ -1,18 +1,25 @@
+import random
 from collections import deque
+ 
 import chess
-
+ 
+from checkpoints import Experiment
 from concurrent_mode.concurrent_agent import ConcurrentAgent, device
-from concurrent_mode.concurrent_config import NUM_GAMES
+from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES
 from config import DRAW_REWARD, MAX_PLIES
 from encoding import material_balance
-
-
-class Slot:
+ 
+ 
+class Slot: 
     def __init__(self):
         self.board = chess.Board()
-        self.last_move = None
-
-
+        for _ in range(random.randint(*RANDOM_OPENING_PLIES)):
+            self.board.push(random.choice(list(self.board.legal_moves)))
+            if self.board.outcome(claim_draw=True) is not None:   # never start an already-ended game
+                self.board.pop()
+                break
+        self.last_move = self.board.peek() if self.board.move_stack else None
+ 
 class ConcurrentSelfPlay:
     def __init__(self, k=NUM_GAMES):
         self.k = k
@@ -20,8 +27,10 @@ class ConcurrentSelfPlay:
         self.white = ConcurrentAgent(chess.WHITE, "White")
         self.black = ConcurrentAgent(chess.BLACK, "Black")
         self.slots = [Slot() for _ in range(k)]
+        self.experiment = Experiment()   # timestamped folder for this session
+        self.unsaved_games = 0
         self.stats_reset()
-
+ 
     def stats_reset(self):
         self.games = 0
         self.wins = {"White": 0, "Black": 0, "Draw": 0}
@@ -29,9 +38,8 @@ class ConcurrentSelfPlay:
         self.recent_len = deque(maxlen=100)
         self.history = []                     # (white_rate, black_rate, draw_rate, avg_len)
         self.last_result = "-"
-
+ 
     def step(self):
-        """Advance every game by one ply using one batched forward pass per agent."""
         by_agent = ((self.white, [i for i, s in enumerate(self.slots) if s.board.turn == chess.WHITE]),
                     (self.black, [i for i, s in enumerate(self.slots) if s.board.turn == chess.BLACK]))
         for agent, ids in by_agent:
@@ -45,7 +53,7 @@ class ConcurrentSelfPlay:
             outcome = s.board.outcome(claim_draw=True)
             if outcome is not None or len(s.board.move_stack) >= MAX_PLIES:
                 self.finish(i, outcome)
-
+ 
     def finish(self, i, outcome):
         board = self.slots[i].board
         winner = outcome.winner if outcome else None
@@ -58,9 +66,10 @@ class ConcurrentSelfPlay:
             tw, tb, label = -1.0, 1.0, "Black"
         self.white.finish_episode(i, material_balance(board, chess.WHITE), tw)
         self.black.finish_episode(i, material_balance(board, chess.BLACK), tb)
-
+ 
         plies = len(board.move_stack)
         self.games += 1
+        self.unsaved_games += 1
         self.wins[label] += 1
         self.recent.append(label)
         self.recent_len.append(plies)
@@ -69,10 +78,16 @@ class ConcurrentSelfPlay:
         self.history.append((self.recent.count("White") / n, self.recent.count("Black") / n,
                              self.recent.count("Draw") / n, sum(self.recent_len) / n))
         self.slots[i] = Slot()
-
+ 
     def save_models(self):
-        self.white.save()
-        self.black.save()
-
+        if self.unsaved_games == 0:
+            print("Nothing new to save.")
+            return False
+        self.experiment.save(self, self.device_name,
+                             {"parallel_games": self.k, "episodes_per_update": EPISODES_PER_UPDATE})
+        self.unsaved_games = 0
+        print(f"Saved -> {self.experiment.dir}")
+        return True
+ 
     def load_models(self):
-        return self.white.load() and self.black.load()
+        return self.experiment.load_latest(self.white, self.black)

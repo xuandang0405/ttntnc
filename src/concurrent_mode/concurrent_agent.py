@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
  
 from agent import Agent
-from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, USE_CUDA
+from concurrent_mode.concurrent_config import ENTROPY_COEF, EPISODES_PER_UPDATE, USE_CUDA
 from config import GAMMA, LR, SHAPING
 from encoding import encode, legal_moves_map, material_balance
  
@@ -18,6 +18,7 @@ class ConcurrentAgent(Agent):
         self.episodes = {}   # game slot id -> in-progress trajectory
         self.buffer = []
  
+    # acting: one batched forward pass for all games where it is this agent's turn
     @torch.no_grad()
     def act_batch(self, game_ids, boards):
         maps = [legal_moves_map(b, self.color) for b in boards]
@@ -43,7 +44,6 @@ class ConcurrentAgent(Agent):
  
     # learning
     def finish_episode(self, game_id, final_balance, terminal_reward):
-
         ep = self.episodes.pop(game_id, None)
         if not ep or not ep["a"]:
             return
@@ -86,11 +86,9 @@ class ConcurrentAgent(Agent):
             adv = (adv - adv.mean()) / (adv.std() + 1e-6)
         loss = (-(logps * adv).mean()
                 + 0.5 * F.mse_loss(values, returns.clamp(-1.5, 1.5))
-                - 0.01 * entropy)
-    
+                - ENTROPY_COEF * entropy)
         self.opt.zero_grad()
         loss.backward()
-
         nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
         self.opt.step()
         self.last_loss = loss.item()
