@@ -6,9 +6,17 @@ from play_scene import PlayScene
 from players import PLAYER_CHOICES
 from scene import QUIT, Scene
 from train_scene import TrainScene
+from concurrent_mode.concurrent_config import NUM_GAMES
+from concurrent_mode.concurrent_train_scene import ConcurrentTrainScene
 from ui import Button
 
-MODES = ["Người vs Người", "Người vs AI", "AI vs AI", "Huấn luyện AI"]
+MODES = [
+    "Người vs Người",
+    "Người vs AI",
+    "AI vs AI",
+    "HL: 1 ván",
+    f"HL: {NUM_GAMES} ván",
+]
 CHOICES = {
     "Bạn chơi": ["Trắng", "Đen"],
     "Đối thủ": PLAYER_CHOICES,
@@ -16,13 +24,19 @@ CHOICES = {
     "Người chơi Đen": PLAYER_CHOICES,
     "Kiểu AI": ["Lấy mẫu (đa dạng)", "Tham lam (mạnh nhất)"],
 }
-
-ROWS = {0: [], 1: ["Bạn chơi", "Đối thủ", "Kiểu AI"], 2: ["Người chơi Trắng", "Người chơi Đen", "Kiểu AI"], 3: []}
+ROWS = {
+    0: [],
+    1: ["Bạn chơi", "Đối thủ", "Kiểu AI"],
+    2: ["Người chơi Trắng", "Người chơi Đen", "Kiểu AI"],
+    3: [],
+    4: [],
+}
 DESCRIPTIONS = {
     0: "Hai người chơi chung trên màn hình này. Nhấp vào một quân cờ, sau đó nhấp vào ô được đánh dấu.",
     1: "Chơi với mô hình đã huấn luyện (hoặc đối thủ di chuyển ngẫu nhiên).",
     2: "Xem hai mô hình (hoặc đối thủ di chuyển ngẫu nhiên) thi đấu với nhau.",
-    3: "Để hai mô hình Trắng và Đen tự học bằng cách đấu với nhau.",
+    3: "Huấn luyện hai mô hình Trắng và Đen bằng cách tự chơi từng ván một.",
+    4: f"Huấn luyện các mô hình trên {NUM_GAMES} ván tự chơi song song (dùng GPU nếu có).",
 }
 
 
@@ -66,12 +80,15 @@ class MenuScene(Scene):
         if self.mode == 3:
             self.next = TrainScene(self.fonts)
             return
+        if self.mode == 4:
+            self.next = ConcurrentTrainScene(self.fonts)
+            return
         greedy = self.sel["Kiểu AI"] == 1
         pick = lambda k: CHOICES[k][self.sel[k]]
         if self.mode == 0:
             white, black = "Human", "Human"
         elif self.mode == 1:
-            white, black = ("Human", pick("Đối thủ")) if pick("Bạn chơi") == "White" \
+            white, black = ("Human", pick("Đối thủ")) if pick("Bạn chơi") == "Trắng" \
                 else (pick("Đối thủ"), "Human")
         else:
             white, black = pick("Người chơi Trắng"), pick("Người chơi Đen")
@@ -79,7 +96,7 @@ class MenuScene(Scene):
 
     def draw(self, screen):
         screen.fill(BG)
-        t = self.fonts["big"].render("Cờ vua Học Tăng cường", True, TEXT)
+        t = self.fonts["big"].render("Cờ vua học tăng cường", True, TEXT)
         screen.blit(t, t.get_rect(center=(W // 2, 58)))
         for i, b in enumerate(self.mode_btns):
             b.draw(screen, self.fonts["main"], active=(i == self.mode))
@@ -94,6 +111,6 @@ class MenuScene(Scene):
         av = models_available()
 
         msg = ("Mô hình đã lưu: " + "   ".join(f"{n} {'đã có' + (' (màu Trắng)' if n=='white' else ' (màu Đen)' if n=='black' else '') if ok else 'thiếu'}" for n, ok in av.items())
-                + ("" if all(av.values()) else "   (hãy dùng 'Huấn luyện AI' trước; mô hình chưa có sẽ đi ngẫu nhiên)"))
+                + ("" if all(av.values()) else "   (hãy dùng chế độ Huấn luyện trước; mô hình chưa có sẽ đi ngẫu nhiên)"))
         m = self.fonts["small"].render(msg, True, (140, 140, 150))
         screen.blit(m, m.get_rect(center=(W // 2, H - 30)))

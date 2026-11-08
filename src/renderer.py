@@ -22,6 +22,13 @@ PIECE_FILES = {
 
 _PIECE_IMAGES = {}
 
+def get_texture(piece):
+    """Lấy ảnh quân cờ từ cache."""
+    load_piece_images()
+
+    key = (piece.symbol().lower(), piece.color)
+    return _PIECE_IMAGES.get(key)
+
 def load_piece_images():
     global _PIECE_IMAGES
     if _PIECE_IMAGES:

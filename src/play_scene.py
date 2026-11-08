@@ -28,7 +28,7 @@ class PlayScene(Scene):
         self.popup = None
         self.last_ai_move = pygame.time.get_ticks()
 
-    # ---- input ----
+    # input
     def handle_event(self, e):
         if self.popup:
             action = self.popup.handle_event(e)
