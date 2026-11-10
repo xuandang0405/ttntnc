@@ -75,7 +75,6 @@ def base_hyperparameters():
  
 # the experiment
 class Experiment:
-    # One training session = one timestamped folder.
     def __init__(self):
         self.started = time.time()
         self.id = datetime.fromtimestamp(self.started).strftime(PREFIX + "%Y%m%d_%H%M%S")
@@ -90,7 +89,6 @@ class Experiment:
         return False
  
     def save(self, game, device_name, extra_hyper=None):
-        # Write white.pt, black.pt and metrics.json into this experiment's folder.
         os.makedirs(self.dir, exist_ok=True)
         white_path = game.white.save(self.dir)
         black_path = game.black.save(self.dir)
@@ -128,4 +126,7 @@ class Experiment:
         with open(out + ".tmp", "w") as f:
             json.dump(metrics, f, indent=2)
         os.replace(out + ".tmp", out)       # atomic: never leaves a half-written file
+
+        game.log.maybe_record(game, force=True)          # final row, then write the plot-friendly log
+        game.log.save(os.path.join(self.dir, "training_log.json"), self)
         return metrics

@@ -7,6 +7,7 @@ from checkpoints import Experiment
 from config import MAX_PLIES
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
+from plot_logging.training_log import TrainingLog
 from model import device
  
  
@@ -16,6 +17,7 @@ class SelfPlay:
         self.black = Agent(chess.BLACK, "Black")
         self.experiment = Experiment()   # timestamped folder for this session
         self.unsaved_games = 0
+        self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
         self.new_game()
  
@@ -45,6 +47,7 @@ class SelfPlay:
         outcome = self.board.outcome(claim_draw=True)
         if outcome is not None or len(self.board.move_stack) >= MAX_PLIES:
             self.finish(outcome)
+        self.log.maybe_record(self)
  
     def finish(self, outcome):
         label, reason, feats, tw, tb = summarize_game(self.board, outcome)

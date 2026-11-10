@@ -9,8 +9,10 @@ from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RA
 from config import MAX_PLIES
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
+from plot_logging.training_log import TrainingLog
  
-class Slot: 
+class Slot:
+
     def __init__(self):
         self.board = chess.Board()
         for _ in range(random.randint(*RANDOM_OPENING_PLIES)):
@@ -29,6 +31,7 @@ class ConcurrentSelfPlay:
         self.slots = [Slot() for _ in range(k)]
         self.experiment = Experiment()   # timestamped folder for this session
         self.unsaved_games = 0
+        self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
  
     def stats_reset(self):
@@ -57,6 +60,7 @@ class ConcurrentSelfPlay:
             outcome = s.board.outcome(claim_draw=True)
             if outcome is not None or len(s.board.move_stack) >= MAX_PLIES:
                 self.finish(i, outcome)
+        self.log.maybe_record(self)
  
     def finish(self, i, outcome):
         board = self.slots[i].board
