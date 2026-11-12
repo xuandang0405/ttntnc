@@ -9,8 +9,8 @@ from algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
 from encoding import encode, legal_moves_map
 from model import PolicyValueNet
- 
- 
+
+
 class BaseAgent:
     algorithm = "base"    # lower-case key used in file names, e.g. white_ppo.pt
     label = "Base"        # name shown in the UI

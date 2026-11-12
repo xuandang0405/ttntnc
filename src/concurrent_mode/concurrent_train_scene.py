@@ -9,11 +9,13 @@ from config import BG
 from scene import Scene
  
 class ConcurrentTrainScene(Scene):
-    def __init__(self, fonts):
+    def __init__(self, fonts, white_cfg=None, black_cfg=None):
         super().__init__(fonts)
-        self.game = ConcurrentSelfPlay()
-        if self.game.load_models():
-            print("Loaded saved models.")
+        self.game = ConcurrentSelfPlay(white_cfg, black_cfg)
+
+        # if self.game.load_models():
+        #     print("Loaded saved models.")
+
         self.paused, self.fast, self.delay = False, False, 300
         self.show_metrics = False
         self.last_step, self.last_save = 0, time.time()

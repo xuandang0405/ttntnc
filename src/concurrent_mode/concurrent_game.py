@@ -2,14 +2,19 @@ import random
 from collections import deque
  
 import chess
+import torch
  
+from algorithms import build_agent, load_agent
 from checkpoints import Experiment
-from concurrent_mode.concurrent_agent import ConcurrentAgent, device
-from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES
+from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES, USE_CUDA
 from config import MAX_PLIES
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
 from plot_logging.training_log import TrainingLog
+ 
+DEFAULT_CFG = {"algorithm": "A2C", "path": None}
+device = torch.device("cuda" if USE_CUDA and torch.cuda.is_available() else "cpu")
+ 
  
 class Slot:
 
@@ -21,15 +26,19 @@ class Slot:
                 self.board.pop()
                 break
         self.last_move = self.board.peek() if self.board.move_stack else None
+
  
 class ConcurrentSelfPlay:
-    def __init__(self, k=NUM_GAMES):
+    def __init__(self, white_cfg=None, black_cfg=None, k=NUM_GAMES):
+        white_cfg, black_cfg = white_cfg or DEFAULT_CFG, black_cfg or DEFAULT_CFG
         self.k = k
         self.device_name = str(device)
-        self.white = ConcurrentAgent(chess.WHITE, "White")
-        self.black = ConcurrentAgent(chess.BLACK, "Black")
+        self.white = build_agent(white_cfg, chess.WHITE, device, EPISODES_PER_UPDATE)
+        self.black = build_agent(black_cfg, chess.BLACK, device, EPISODES_PER_UPDATE)
         self.slots = [Slot() for _ in range(k)]
-        self.experiment = Experiment()   # timestamped folder for this session
+        self.experiment = Experiment()
+        loaded = {n: c["path"] for n, c in (("White", white_cfg), ("Black", black_cfg)) if c.get("path")}
+        self.experiment.resumed_from = loaded or None
         self.unsaved_games = 0
         self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
@@ -83,7 +92,20 @@ class ConcurrentSelfPlay:
  
     def metrics_snapshot(self, max_age=0.0):
         return self.metrics.snapshot((self.white, self.black), max_age)
-
+ 
+    def load_model(self, color, path):
+        agent = load_agent(path, color, device, EPISODES_PER_UPDATE)
+        agent.metrics = self.metrics
+        if color == chess.WHITE:
+            self.white = agent
+        else:
+            self.black = agent
+        self.experiment.resumed_from = {**(self.experiment.resumed_from or {}),
+                                        "White" if color == chess.WHITE else "Black": path}
+        self.white.eps.clear()                             # drop half-played games of the old setup
+        self.black.eps.clear()
+        self.slots = [Slot() for _ in range(self.k)]
+ 
     def save_models(self):
         if self.unsaved_games == 0:
             print("Nothing new to save.")
@@ -93,6 +115,3 @@ class ConcurrentSelfPlay:
         self.unsaved_games = 0
         print(f"Saved -> {self.experiment.dir}")
         return True
- 
-    def load_models(self):
-        return self.experiment.load_latest(self.white, self.black)

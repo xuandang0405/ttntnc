@@ -56,9 +56,10 @@ class TrainingLog:
             "gpu_utilization_percent": sysm["gpu_utilization_percent"],
         })
  
-    def save(self, path, experiment):
+    def save(self, path, experiment, algorithm):
         data = {
             "experiment": experiment.id,
+            "algorithm": algorithm,
             "resumed_from": experiment.resumed_from,
             "started_at": datetime.fromtimestamp(self.started).isoformat(timespec="seconds"),
             "interval_seconds": self.interval,

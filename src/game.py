@@ -2,20 +2,25 @@ from collections import deque
  
 import chess
  
-from agent import Agent
+from algorithms import build_agent, load_agent
 from checkpoints import Experiment
 from config import MAX_PLIES
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
-from plot_logging.training_log import TrainingLog
 from model import device
+from plot_logging.training_log import TrainingLog
  
- 
+DEFAULT_CFG = {"algorithm": "A2C", "path": None}
+
+
 class SelfPlay:
-    def __init__(self):
-        self.white = Agent(chess.WHITE, "White")
-        self.black = Agent(chess.BLACK, "Black")
-        self.experiment = Experiment()   # timestamped folder for this session
+    def __init__(self, white_cfg=None, black_cfg=None):
+        white_cfg, black_cfg = white_cfg or DEFAULT_CFG, black_cfg or DEFAULT_CFG
+        self.white = build_agent(white_cfg, chess.WHITE, device, 1)    # 1 game -> update after every game
+        self.black = build_agent(black_cfg, chess.BLACK, device, 1)
+        self.experiment = Experiment()
+        loaded = {n: c["path"] for n, c in (("White", white_cfg), ("Black", black_cfg)) if c.get("path")}
+        self.experiment.resumed_from = loaded or None
         self.unsaved_games = 0
         self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
@@ -70,6 +75,17 @@ class SelfPlay:
     def metrics_snapshot(self, max_age=0.0):
         return self.metrics.snapshot((self.white, self.black), max_age)
  
+    def load_model(self, color, path):
+        agent = load_agent(path, color, device, 1)
+        agent.metrics = self.metrics
+        if color == chess.WHITE:
+            self.white = agent
+        else:
+            self.black = agent
+        self.experiment.resumed_from = {**(self.experiment.resumed_from or {}),
+                                        "White" if color == chess.WHITE else "Black": path}
+        self.new_game()
+ 
     def save_models(self):
         if self.unsaved_games == 0:
             print("Nothing new to save.")
@@ -78,6 +94,3 @@ class SelfPlay:
         self.unsaved_games = 0
         print(f"Saved -> {self.experiment.dir}")
         return True
- 
-    def load_models(self):
-        return self.experiment.load_latest(self.white, self.black)
