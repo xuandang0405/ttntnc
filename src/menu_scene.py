@@ -122,22 +122,24 @@ class MenuScene(Scene):
     def start(self):
         pick = lambda k: CHOICES[k][self.sel[k]]
         spec = lambda name: f"file:{self.paths[name]}" if self.paths.get(name) else "Người chơi ngẫu nhiên"
+
         try:
             if self.mode == 3:
-                self.next = TrainScene(self.fonts)
+                self.next = TrainScene(self.fonts, self.cfg("Trắng"), self.cfg("Đen"))
             elif self.mode == 4:
-                self.next = ConcurrentTrainScene(self.fonts)
+                self.next = ConcurrentTrainScene(self.fonts, self.cfg("Trắng"), self.cfg("Đen"))
             else:
                 greedy = self.sel["Kiểu AI Encoding"] == 1
                 if self.mode == 0:
                     white, black = "Human", "Human"
                 elif self.mode == 1:
-                    white, black = ("Human", spec("Đối thủ")) if pick("Bạn chơi") == "Trắng" \
-                        else (spec("Đối thủ"), "Human")
+                    white, black = (("Human", spec("Đối thủ"))
+                        if pick("Bạn chơi") == "Trắng" else (spec("Đối thủ"), "Human"))
                 else:
-                    white, black = spec("Người chơi Trắng"), spec("Người chơi Đen")
+                    white = spec("Người chơi Trắng")
+                    black = spec("Người chơi Đen")
                 self.next = PlayScene(self.fonts, white, black, greedy)
-        except Exception as ex:             # ví dụ: tệp mô hình không thể tải
+        except Exception as ex:
             self.next = None
             self.error = f"Không thể bắt đầu: {ex}"
  

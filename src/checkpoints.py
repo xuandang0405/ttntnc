@@ -76,9 +76,14 @@ class Experiment:
         self.saves += 1
         now = time.time()
         algorithms = {"White": game.white.algorithm, "Black": game.black.algorithm}
+        white_label = getattr(game.white, "label", game.white.algorithm.upper())
+        black_label = getattr(game.black, "label", game.black.algorithm.upper())
+        self.title = (f"{self.id}: So sánh giữa mô hình Trắng dùng {white_label} "
+                        f"và mô hình Đen dùng {black_label}")
  
         metrics = {
             "experiment": self.id,
+            "title": self.title,
             "started_at": datetime.fromtimestamp(self.started).isoformat(timespec="seconds"),
             "saved_at": datetime.fromtimestamp(now).isoformat(timespec="seconds"),
             "elapsed_seconds": round(now - self.started, 1),

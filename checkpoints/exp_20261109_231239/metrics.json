@@ -1,0 +1,151 @@
+{
+  "experiment": "exp_20261109_231239",
+  "started_at": "2026-11-09T23:12:39",
+  "saved_at": "2026-11-10T08:03:23",
+  "elapsed_seconds": 31843.7,
+  "save_count": 228,
+  "resumed_from": "exp_20261109_140833",
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 355.6,
+    "gpu_allocated_mb": 154.1,
+    "gpu_peak_mb": 233.8
+  },
+  "models": {
+    "White": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 0.1545380800962448
+    },
+    "Black": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 1.5273429155349731
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "reward_shaping": 0.05,
+    "draw_reward": -0.1,
+    "max_plies": 160,
+    "parallel_games": 128,
+    "episodes_per_update": 4
+  },
+  "training": {
+    "games_played": 225447,
+    "wins": {
+      "White": 25718,
+      "Black": 8060,
+      "Draw": 191669
+    },
+    "recent_window": 100,
+    "recent_rates": {
+      "White": 0.13,
+      "Black": 0.07,
+      "Draw": 0.8
+    },
+    "avg_game_length_plies": 114.3,
+    "last_result": "Draw (136 plies)"
+  },
+  "metrics": {
+    "throughput": {
+      "games_per_second": 7.1034,
+      "plies_per_second": 736.65,
+      "training_updates": 112711,
+      "total_games": 225447,
+      "total_plies": 22918144,
+      "elapsed_seconds": 31843.7
+    },
+    "draw_reasons": {
+      "draw_by_repetition": 122140,
+      "draw_by_fifty_moves": 21,
+      "draw_by_stalemate": 2501,
+      "draw_by_insufficient_material": 219,
+      "draw_by_max_plies": 66788,
+      "draw_by_other": 0
+    },
+    "game_quality": {
+      "window_games": 100,
+      "repetition_rate": 0.0353,
+      "threefold_repetition_rate": 0.0,
+      "repeated_position_count": 3.7,
+      "repeated_move_count": 43.71,
+      "stagnation_rate": 0.6875,
+      "reversal_move_rate": 0.2186,
+      "unique_position_ratio": 0.9647,
+      "avg_unique_positions": 110.62
+    },
+    "optimization": {
+      "White": {
+        "actor_loss": -0.0019,
+        "critic_loss": 0.2016,
+        "total_loss": 0.1989,
+        "policy_entropy": 0.0797,
+        "mean_advantage": 0.0444,
+        "std_advantage": 0.5689,
+        "mean_return": 0.0928,
+        "mean_value": 0.0485,
+        "value_explained_variance": 0.2939,
+        "gradient_norm": 66.7677,
+        "gradient_clip_fraction": 1.0,
+        "weight_update_norm": 0.0201,
+        "policy_update_count": 56358
+      },
+      "Black": {
+        "actor_loss": -15390.8433,
+        "critic_loss": 1.4508,
+        "total_loss": -15389.3924,
+        "policy_entropy": 0.0039,
+        "mean_advantage": -1.624,
+        "std_advantage": 0.6124,
+        "mean_return": -0.624,
+        "mean_value": 1.0,
+        "value_explained_variance": -0.0,
+        "gradient_norm": 1562943.7329,
+        "gradient_clip_fraction": 0.62,
+        "weight_update_norm": 0.0367,
+        "policy_update_count": 56353
+      }
+    },
+    "rewards": {
+      "window_episodes": 200,
+      "mean_episode_reward": -0.3572,
+      "mean_step_reward": -0.0065,
+      "terminal_reward_mean": -0.3575,
+      "material_reward_mean": 0.0002,
+      "draw_reward_mean": -0.08,
+      "repetition_penalty_mean": -0.2775,
+      "reward_std": 1.4053,
+      "positive_reward_ratio": 0.136,
+      "negative_reward_ratio": 0.1534
+    },
+    "system": {
+      "cpu_percent": 9.6,
+      "process_cpu_percent": 97.3,
+      "gpu_utilization_percent": 0.0
+    },
+    "parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    },
+    "trainable_parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    }
+  }
+}

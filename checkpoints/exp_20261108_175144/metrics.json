@@ -1,0 +1,63 @@
+{
+  "experiment": "exp_20261108_175144",
+  "started_at": "2026-11-08T17:51:44",
+  "saved_at": "2026-11-08T19:07:48",
+  "elapsed_seconds": 4564.3,
+  "save_count": 38,
+  "resumed_from": null,
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 965.1,
+    "gpu_allocated_mb": 155.1,
+    "gpu_peak_mb": 205.7
+  },
+  "models": {
+    "White": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 0.12290588766336441
+    },
+    "Black": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": -0.5202206373214722
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "reward_shaping": 0.05,
+    "draw_reward": -0.1,
+    "max_plies": 160,
+    "parallel_games": 128,
+    "episodes_per_update": 4
+  },
+  "training": {
+    "games_played": 50052,
+    "wins": {
+      "White": 1565,
+      "Black": 2206,
+      "Draw": 46281
+    },
+    "recent_window": 100,
+    "recent_rates": {
+      "White": 0.03,
+      "Black": 0.05,
+      "Draw": 0.92
+    },
+    "avg_game_length_plies": 118.7,
+    "last_result": "Draw (135 plies)"
+  }
+}

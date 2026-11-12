@@ -1,0 +1,151 @@
+{
+  "experiment": "exp_20261109_004149",
+  "started_at": "2026-11-09T00:41:49",
+  "saved_at": "2026-11-09T00:42:05",
+  "elapsed_seconds": 16.7,
+  "save_count": 1,
+  "resumed_from": "exp_20261108_222012",
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 1364.4,
+    "gpu_allocated_mb": 154.1,
+    "gpu_peak_mb": 217.0
+  },
+  "models": {
+    "White": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 0.6921535134315491
+    },
+    "Black": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": -0.15598946809768677
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "reward_shaping": 0.05,
+    "draw_reward": -0.1,
+    "max_plies": 160,
+    "parallel_games": 128,
+    "episodes_per_update": 4
+  },
+  "training": {
+    "games_played": 28,
+    "wins": {
+      "White": 8,
+      "Black": 6,
+      "Draw": 14
+    },
+    "recent_window": 28,
+    "recent_rates": {
+      "White": 0.286,
+      "Black": 0.214,
+      "Draw": 0.5
+    },
+    "avg_game_length_plies": 55.0,
+    "last_result": "White (103 plies)"
+  },
+  "metrics": {
+    "throughput": {
+      "games_per_second": 1.7707,
+      "plies_per_second": 804.55,
+      "training_updates": 14,
+      "total_games": 28,
+      "total_plies": 12928,
+      "elapsed_seconds": 16.7
+    },
+    "draw_reasons": {
+      "draw_by_repetition": 13,
+      "draw_by_fifty_moves": 0,
+      "draw_by_stalemate": 1,
+      "draw_by_insufficient_material": 0,
+      "draw_by_max_plies": 0,
+      "draw_by_other": 0
+    },
+    "game_quality": {
+      "window_games": 28,
+      "repetition_rate": 0.0214,
+      "threefold_repetition_rate": 0.0,
+      "repeated_position_count": 1.21,
+      "repeated_move_count": 5.36,
+      "stagnation_rate": 0.5493,
+      "reversal_move_rate": 0.0868,
+      "unique_position_ratio": 0.9786,
+      "avg_unique_positions": 53.82
+    },
+    "optimization": {
+      "White": {
+        "actor_loss": -0.0051,
+        "critic_loss": 0.557,
+        "total_loss": 0.5482,
+        "policy_entropy": 0.3733,
+        "mean_advantage": 0.505,
+        "std_advantage": 0.9343,
+        "mean_return": 0.1795,
+        "mean_value": -0.3254,
+        "value_explained_variance": -0.142,
+        "gradient_norm": 38.7294,
+        "gradient_clip_fraction": 1.0,
+        "weight_update_norm": 0.0218,
+        "policy_update_count": 7
+      },
+      "Black": {
+        "actor_loss": -0.0238,
+        "critic_loss": 0.4057,
+        "total_loss": 0.3669,
+        "policy_entropy": 1.501,
+        "mean_advantage": 0.0012,
+        "std_advantage": 0.7945,
+        "mean_return": -0.3861,
+        "mean_value": -0.3873,
+        "value_explained_variance": 0.0031,
+        "gradient_norm": 5.671,
+        "gradient_clip_fraction": 1.0,
+        "weight_update_norm": 0.0597,
+        "policy_update_count": 7
+      }
+    },
+    "rewards": {
+      "window_episodes": 56,
+      "mean_episode_reward": -0.1348,
+      "mean_step_reward": -0.0054,
+      "terminal_reward_mean": -0.1411,
+      "material_reward_mean": 0.0062,
+      "draw_reward_mean": -0.05,
+      "repetition_penalty_mean": -0.0911,
+      "reward_std": 1.3119,
+      "positive_reward_ratio": 0.201,
+      "negative_reward_ratio": 0.2268
+    },
+    "system": {
+      "cpu_percent": 7.7,
+      "process_cpu_percent": 96.2,
+      "gpu_utilization_percent": 10.0
+    },
+    "parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    },
+    "trainable_parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    }
+  }
+}

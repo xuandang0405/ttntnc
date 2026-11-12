@@ -1,0 +1,151 @@
+{
+  "experiment": "exp_20261109_140833",
+  "started_at": "2026-11-09T14:08:33",
+  "saved_at": "2026-11-09T14:09:45",
+  "elapsed_seconds": 71.3,
+  "save_count": 1,
+  "resumed_from": "exp_20261109_004149",
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 1451.0,
+    "gpu_allocated_mb": 154.1,
+    "gpu_peak_mb": 232.8
+  },
+  "models": {
+    "White": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 0.13532039523124695
+    },
+    "Black": {
+      "parameters": 4282561,
+      "trainable_parameters": 4282561,
+      "parameter_size_mb": 17.13,
+      "checkpoint_file_mb": 51.403,
+      "learning_rate": 0.0003,
+      "last_loss": 0.43696773052215576
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "reward_shaping": 0.05,
+    "draw_reward": -0.1,
+    "max_plies": 160,
+    "parallel_games": 128,
+    "episodes_per_update": 4
+  },
+  "training": {
+    "games_played": 440,
+    "wins": {
+      "White": 29,
+      "Black": 37,
+      "Draw": 374
+    },
+    "recent_window": 100,
+    "recent_rates": {
+      "White": 0.07,
+      "Black": 0.05,
+      "Draw": 0.88
+    },
+    "avg_game_length_plies": 144.0,
+    "last_result": "Draw (160 plies)"
+  },
+  "metrics": {
+    "throughput": {
+      "games_per_second": 8.1574,
+      "plies_per_second": 920.05,
+      "training_updates": 219,
+      "total_games": 440,
+      "total_plies": 62848,
+      "elapsed_seconds": 71.3
+    },
+    "draw_reasons": {
+      "draw_by_repetition": 93,
+      "draw_by_fifty_moves": 0,
+      "draw_by_stalemate": 5,
+      "draw_by_insufficient_material": 0,
+      "draw_by_max_plies": 276,
+      "draw_by_other": 0
+    },
+    "game_quality": {
+      "window_games": 100,
+      "repetition_rate": 0.0076,
+      "threefold_repetition_rate": 0.0,
+      "repeated_position_count": 0.8,
+      "repeated_move_count": 16.16,
+      "stagnation_rate": 0.7053,
+      "reversal_move_rate": 0.0665,
+      "unique_position_ratio": 0.9924,
+      "avg_unique_positions": 143.2
+    },
+    "optimization": {
+      "White": {
+        "actor_loss": -0.0069,
+        "critic_loss": 0.1114,
+        "total_loss": 0.0894,
+        "policy_entropy": 1.5042,
+        "mean_advantage": 0.0019,
+        "std_advantage": 0.3844,
+        "mean_return": -0.1013,
+        "mean_value": -0.1032,
+        "value_explained_variance": 0.2315,
+        "gradient_norm": 4.101,
+        "gradient_clip_fraction": 0.96,
+        "weight_update_norm": 0.0587,
+        "policy_update_count": 109
+      },
+      "Black": {
+        "actor_loss": -0.0539,
+        "critic_loss": 0.1151,
+        "total_loss": 0.0409,
+        "policy_entropy": 2.0203,
+        "mean_advantage": 0.008,
+        "std_advantage": 0.4218,
+        "mean_return": -0.0956,
+        "mean_value": -0.1036,
+        "value_explained_variance": 0.0933,
+        "gradient_norm": 2.1025,
+        "gradient_clip_fraction": 0.9,
+        "weight_update_norm": 0.0658,
+        "policy_update_count": 110
+      }
+    },
+    "rewards": {
+      "window_episodes": 200,
+      "mean_episode_reward": -0.1457,
+      "mean_step_reward": -0.0021,
+      "terminal_reward_mean": -0.148,
+      "material_reward_mean": 0.0022,
+      "draw_reward_mean": -0.088,
+      "repetition_penalty_mean": -0.06,
+      "reward_std": 0.6871,
+      "positive_reward_ratio": 0.1397,
+      "negative_reward_ratio": 0.1548
+    },
+    "system": {
+      "cpu_percent": 8.7,
+      "process_cpu_percent": 87.1,
+      "gpu_utilization_percent": 18.0
+    },
+    "parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    },
+    "trainable_parameters": {
+      "White": 4282561,
+      "Black": 4282561,
+      "total": 8565122
+    }
+  }
+}
