@@ -9,7 +9,8 @@ from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
 from encoding import encode, legal_moves_map
 from model import PolicyValueNet
-
+from strategy import StrategyLearner, lookahead_move
+ 
 
 class BaseAgent:
     algorithm = "base"    # lower-case key used in file names, e.g. white_ppo.pt
@@ -25,6 +26,7 @@ class BaseAgent:
         self.metrics = None      # TrainingMetrics, attached by the game
         self.eps = {}            # game id -> in-progress episode
         self.buffer = []         # finished episodes waiting for an update
+        self.strategy = StrategyLearner(self)   # opponent model + phase head (auxiliary learning)
  
     def act_batch(self, game_ids, boards):
         raise NotImplementedError
@@ -44,8 +46,18 @@ class BaseAgent:
     def load_extra(self, extra):
         pass
  
+    # play-time move choice
+    def supports_lookahead(self):
+        return self.algorithm != "alphazero" and self.strategy.ready
+ 
+    def choose_move(self, board, greedy=False, lookahead=False):
+        if lookahead and self.supports_lookahead():
+            return lookahead_move(self, board, greedy)
+        return self.select_move(board, greedy)
+ 
+    # single-game adapters
     def reset_episode(self):
-        self.eps.clear()
+        self.eps.clear()           # single-game mode: forget a half-played game
  
     def act(self, board):
         return self.act_batch([0], [board])[0]
@@ -53,6 +65,7 @@ class BaseAgent:
     def learn(self, final_balance, terminal):
         self.finish_episode(0, final_balance, terminal)
  
+    # batching helpers
     def encode_boards(self, boards):
         return torch.cat([encode(b, self.color) for b in boards])
  
@@ -121,18 +134,23 @@ class BaseAgent:
                 "gradient_clip_fraction": 1.0 if grad_norm > MAX_GRAD_NORM else 0.0,
                 "weight_update_norm": update_norm})
  
+    # checkpoints: <colour>_<algorithm>.pt
     def save(self, directory):
         os.makedirs(directory, exist_ok=True)
         path = os.path.join(directory, f"{self.name.lower()}_{self.algorithm}.pt")
         torch.save({"format": 2, "algorithm": self.algorithm, "name": self.name,
                     "net": self.net.state_dict(), "opt": self.opt.state_dict(),
-                    "extra": self.extra_state()}, path)
+                    "extra": {**self.extra_state(), "strategy": self.strategy.state()}}, path)
         return path
  
     def load_state(self, ck):
-        self.net.load_state_dict(ck["net"])
+        missing, unexpected = self.net.load_state_dict(ck["net"], strict=False)
+        if unexpected or any(not k.startswith(("opp.", "phase.")) for k in missing):
+            raise ValueError("checkpoint does not match this network")   # (older files lack the strategy heads)
         try:
             self.opt.load_state_dict(ck["opt"])
         except Exception:
             pass                       # keep a fresh optimizer if the saved one doesn't fit
-        self.load_extra(ck.get("extra", {}))
+        extra = ck.get("extra", {})
+        self.strategy.load(extra.get("strategy"))
+        self.load_extra(extra)

@@ -1,15 +1,15 @@
-import random
 from collections import deque
  
 import chess
 import torch
  
+import curriculum
 from algorithms.algorithms import build_agent, load_agent
 from checkpoints import Experiment
-from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES, USE_CUDA
-from config import MAX_PLIES
+from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, USE_CUDA
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
+from skill_eval import run_skill_evaluation
 from plot_logging.training_log import TrainingLog
  
 DEFAULT_CFG = {"algorithm": "A2C", "path": None}
@@ -19,13 +19,9 @@ device = torch.device("cuda" if USE_CUDA and torch.cuda.is_available() else "cpu
 class Slot:
 
     def __init__(self):
-        self.board = chess.Board()
-        for _ in range(random.randint(*RANDOM_OPENING_PLIES)):
-            self.board.push(random.choice(list(self.board.legal_moves)))
-            if self.board.outcome(claim_draw=True) is not None:   # never start an already-ended game
-                self.board.pop()
-                break
-        self.last_move = self.board.peek() if self.board.move_stack else None
+        self.kind, self.board = curriculum.new_start()
+        self.max_plies = curriculum.max_plies(self.kind)
+        self.last_move = None
 
  
 class ConcurrentSelfPlay:
@@ -40,6 +36,7 @@ class ConcurrentSelfPlay:
         loaded = {n: c["path"] for n, c in (("White", white_cfg), ("Black", black_cfg)) if c.get("path")}
         self.experiment.resumed_from = loaded or None
         self.unsaved_games = 0
+        self.skills = []                      # results of the skill tests (key E)
         self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
  
@@ -61,22 +58,26 @@ class ConcurrentSelfPlay:
             if not ids:
                 continue
             moves = agent.act_batch(ids, [self.slots[i].board for i in ids])
+            other = self.black if agent is self.white else self.white
             for i, mv in zip(ids, moves):
+                other.strategy.observe(self.slots[i].board, mv, agent.color)   # the opponent learns from it
                 self.slots[i].board.push(mv)
                 self.slots[i].last_move = mv
             self.metrics.add_plies(len(moves))
         for i, s in enumerate(self.slots):
             outcome = s.board.outcome(claim_draw=True)
-            if outcome is not None or len(s.board.move_stack) >= MAX_PLIES:
+            if outcome is not None or len(s.board.move_stack) >= s.max_plies:
                 self.finish(i, outcome)
         self.log.maybe_record(self)
  
     def finish(self, i, outcome):
         board = self.slots[i].board
         label, reason, feats, tw, tb = summarize_game(board, outcome)
-        self.metrics.record_game(reason, feats)
+        self.metrics.record_game(reason, feats, self.slots[i].kind, label)
         self.white.finish_episode(i, material_balance(board, chess.WHITE), tw)
         self.black.finish_episode(i, material_balance(board, chess.BLACK), tb)
+        self.white.strategy.train()
+        self.black.strategy.train()
  
         plies = len(board.move_stack)
         self.games += 1
@@ -92,6 +93,9 @@ class ConcurrentSelfPlay:
  
     def metrics_snapshot(self, max_age=0.0):
         return self.metrics.snapshot((self.white, self.black), max_age)
+ 
+    def evaluate_skills(self):
+        return run_skill_evaluation(self)
  
     def load_model(self, color, path):
         agent = load_agent(path, color, device, EPISODES_PER_UPDATE)

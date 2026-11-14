@@ -1,20 +1,23 @@
 import statistics
 import time
 from collections import Counter, deque
- 
+
 import chess
- 
+
 from config import DRAW_REWARD, REPETITION_PENALTY
- 
+
 DRAW_KEYS = ("draw_by_repetition", "draw_by_fifty_moves", "draw_by_stalemate",
              "draw_by_insufficient_material", "draw_by_max_plies", "draw_by_other")
+KINDS = ("opening", "middlegame", "endgame")
+STRATEGY_KEYS = ("opp_top1", "opp_top3", "phase_accuracy", "opp_loss", "phase_loss")
 OPT_KEYS = ("actor_loss", "critic_loss", "total_loss", "policy_entropy", "mean_advantage",
             "std_advantage", "mean_return", "mean_value", "value_explained_variance",
             "gradient_norm", "gradient_clip_fraction", "weight_update_norm")
- 
- 
+
+
 # per-game analysis
 def draw_reason(outcome):
+    # Map a drawn game to one of DRAW_KEYS (outcome None = hit the ply limit).
     if outcome is None:
         return "draw_by_max_plies"
     T = chess.Termination
@@ -28,10 +31,11 @@ def draw_reason(outcome):
     if t == T.INSUFFICIENT_MATERIAL:
         return "draw_by_insufficient_material"
     return "draw_by_other"
- 
- 
+
+
 def game_features(board):
-    replay = chess.Board()
+    # Replay a finished game and measure repetition / stagnation / reversals.
+    replay = board.root()                      # the game's starting position (may not be the standard one)
     seen = Counter([replay.epd()])
     post = set()
     repeated = repeated_moves = reversals = stagnant = 0
@@ -63,9 +67,11 @@ def game_features(board):
             "repetition_rate": repeated / n, "threefold": max_count >= 3,
             "repeated_moves": repeated_moves, "stagnation_rate": stagnant / n,
             "reversal_rate": reversals / n}
- 
- 
+
+
 def summarize_game(board, outcome):
+    # Returns (label, draw_reason or None, features, white_terminal, black_terminal).
+    # Terminal rewards are dicts of components: win_loss, draw, repetition.
     feats = game_features(board)
     rep = -REPETITION_PENALTY * feats["repeated_positions"]
     winner = outcome.winner if outcome else None
@@ -100,6 +106,8 @@ class TrainingMetrics:
         self.episodes = deque(maxlen=game_window * 2)  # per-episode reward records (both agents)
         self.updates = {"White": deque(maxlen=update_window), "Black": deque(maxlen=update_window)}
         self.update_counts = {"White": 0, "Black": 0}
+        self.strategy = {"White": deque(maxlen=50), "Black": deque(maxlen=50)}   # opponent-model stats
+        self.by_kind = {k: {"games": 0, "White": 0, "Black": 0, "Draw": 0, "plies": 0} for k in KINDS}
         self._cache, self._cache_t = None, 0.0
         self._sys, self._sys_t = {}, 0.0
         self._proc = None
@@ -110,41 +118,56 @@ class TrainingMetrics:
             psutil.cpu_percent(None)
         except ImportError:
             pass
- 
-    #  recording 
+
+    # recording
     def _sample(self, force=False):
         now = time.time()
         if force or not self.samples or now - self.samples[-1][0] >= 0.1:
             self.samples.append((now, self.total_plies, self.total_games))
         while len(self.samples) > 2 and self.samples[0][0] < self.samples[-1][0] - self.RATE_WINDOW_S:
             self.samples.popleft()
- 
+
     def add_plies(self, n=1):
         self.total_plies += n
         self._sample()
- 
-    def record_game(self, reason, features):
+
+    def record_game(self, reason, features, kind="opening", label="Draw"):
         self.total_games += 1
         if reason:
             self.draws[reason] += 1
+        row = self.by_kind[kind]
+        row["games"] += 1
+        row[label] += 1
+        row["plies"] += features["plies"]
         self.games.append(features)
         self._sample(force=True)
- 
+
     def record_episode(self, name, rec):
         self.episodes.append(rec)
- 
+
+    def record_strategy(self, name, stats):
+        self.strategy[name].append(stats)
+
     def record_update(self, name, stats):
         self.updates[name].append(stats)
         self.update_counts[name] += 1
- 
-    #  reporting 
+
+    # reporting
     def _rates(self):
         if len(self.samples) < 2:
             return 0.0, 0.0
         (t0, p0, g0), (t1, p1, g1) = self.samples[0], self.samples[-1]
         dt = t1 - t0
         return ((g1 - g0) / dt, (p1 - p0) / dt) if dt > 0 else (0.0, 0.0)
- 
+
+    @staticmethod
+    def _strategy_summary(hist):
+        out = {}
+        for key in STRATEGY_KEYS:
+            vals = [h[key] for h in hist if key in h]
+            out[key] = _r(_mean(vals)) if vals else None
+        return out
+
     def _system(self):
         now = time.time()
         if self._sys and now - self._sys_t < 1.0:
@@ -159,14 +182,14 @@ class TrainingMetrics:
         try:
             import torch
             if torch.cuda.is_available():
-                gpu = float(torch.cuda.utilization())
+                gpu = float(torch.cuda.utilization())   # needs pynvml; None if unavailable
         except Exception:
             gpu = None
         self._sys = {"cpu_percent": cpu, "process_cpu_percent": proc_cpu,
                      "gpu_utilization_percent": gpu}
         self._sys_t = now
         return self._sys
- 
+
     def snapshot(self, agents=(), max_age=0.0):
         now = time.time()
         if max_age and self._cache is not None and now - self._cache_t < max_age:
@@ -176,18 +199,18 @@ class TrainingMetrics:
         eps = list(self.episodes)
         steps = sum(e["steps"] for e in eps)
         ep_rewards = [e["reward"] for e in eps]
- 
+
         optimization = {}
         for name, hist in self.updates.items():
             d = {k: _r(_mean(s[k] for s in hist)) for k in OPT_KEYS}
             d["policy_update_count"] = self.update_counts[name]
             optimization[name] = d
- 
+
         params = {a.name: sum(p.numel() for p in a.net.parameters()) for a in agents}
         trainable = {a.name: sum(p.numel() for p in a.net.parameters() if p.requires_grad)
                      for a in agents}
         params["total"], trainable["total"] = sum(params.values()), sum(trainable.values())
- 
+
         snap = {
             "throughput": {
                 "games_per_second": _r(gps), "plies_per_second": _r(pps, 2),
@@ -206,6 +229,9 @@ class TrainingMetrics:
                 "unique_position_ratio": _r(_mean(x["unique_ratio"] for x in g)),
                 "avg_unique_positions": _r(_mean(x["unique_positions"] for x in g), 2)},
             "optimization": optimization,
+            "strategy": {name: self._strategy_summary(hist) for name, hist in self.strategy.items()},
+            "curriculum": {k: {**v, "avg_plies": round(v["plies"] / v["games"], 1) if v["games"] else 0.0}
+                           for k, v in self.by_kind.items()},
             "rewards": {
                 "window_episodes": len(eps),
                 "mean_episode_reward": _r(_mean(ep_rewards)),

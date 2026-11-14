@@ -55,7 +55,7 @@ class StrategyLearner:
 
     # data
     def observe(self, board, move, mover_color):
-        """Record a move made by this agent's OPPONENT (call before the move is pushed)."""
+        # Record a move made by this agent's OPPONENT (call before the move is pushed).
         if not STRATEGY_ENABLED:
             return
         legal = legal_moves_map(board, mover_color)

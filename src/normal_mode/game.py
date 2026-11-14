@@ -2,12 +2,14 @@ from collections import deque
  
 import chess
  
+import curriculum
 from algorithms.algorithms import build_agent, load_agent
 from checkpoints import Experiment
 from config import MAX_PLIES
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
 from model import device
+from skill_eval import run_skill_evaluation
 from plot_logging.training_log import TrainingLog
  
 DEFAULT_CFG = {"algorithm": "A2C", "path": None}
@@ -22,6 +24,7 @@ class SelfPlay:
         loaded = {n: c["path"] for n, c in (("White", white_cfg), ("Black", black_cfg)) if c.get("path")}
         self.experiment.resumed_from = loaded or None
         self.unsaved_games = 0
+        self.skills = []                      # results of the skill tests (key E)
         self.log = TrainingLog(self.experiment.started)   # time series for plotting
         self.stats_reset()
         self.new_game()
@@ -38,27 +41,32 @@ class SelfPlay:
         self.black.metrics = self.metrics
  
     def new_game(self):
-        self.board = chess.Board()
+        self.kind, self.board = curriculum.new_start()      # opening / middlegame / endgame start
+        self.max_plies = curriculum.max_plies(self.kind)
         self.last_move = None
         self.white.reset_episode()
         self.black.reset_episode()
  
     def step(self):
         agent = self.white if self.board.turn == chess.WHITE else self.black
+        other = self.black if agent is self.white else self.white
         mv = agent.act(self.board)
+        other.strategy.observe(self.board, mv, self.board.turn)   # the opponent learns from this move
         self.board.push(mv)
         self.last_move = mv
         self.metrics.add_plies(1)
         outcome = self.board.outcome(claim_draw=True)
-        if outcome is not None or len(self.board.move_stack) >= MAX_PLIES:
+        if outcome is not None or len(self.board.move_stack) >= self.max_plies:
             self.finish(outcome)
         self.log.maybe_record(self)
  
     def finish(self, outcome):
         label, reason, feats, tw, tb = summarize_game(self.board, outcome)
-        self.metrics.record_game(reason, feats)
+        self.metrics.record_game(reason, feats, self.kind, label)
         self.white.learn(material_balance(self.board, chess.WHITE), tw)
         self.black.learn(material_balance(self.board, chess.BLACK), tb)
+        self.white.strategy.train()
+        self.black.strategy.train()
  
         plies = len(self.board.move_stack)
         self.games += 1
@@ -74,6 +82,9 @@ class SelfPlay:
  
     def metrics_snapshot(self, max_age=0.0):
         return self.metrics.snapshot((self.white, self.black), max_age)
+ 
+    def evaluate_skills(self):
+        return run_skill_evaluation(self)
  
     def load_model(self, color, path):
         agent = load_agent(path, color, device, 1)

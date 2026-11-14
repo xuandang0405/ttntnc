@@ -1,3 +1,4 @@
+"""Playing a game: human vs human, human vs model, or model vs model."""
 import chess
 import pygame
 
@@ -10,17 +11,16 @@ from ui import GameOverPopup
 
 GREEN, RED, GREY = (90, 200, 120), (230, 90, 90), (190, 190, 200)
 
-
 class PlayScene(Scene):
-    def __init__(self, fonts, white_spec, black_spec, greedy):
+    def __init__(self, fonts, white_spec, black_spec, greedy, lookahead=False):
         super().__init__(fonts)
-        self.specs, self.greedy = (white_spec, black_spec), greedy
+        self.specs, self.greedy, self.lookahead = (white_spec, black_spec), greedy, lookahead
         self.ai_delay = AI_MOVE_DELAY
         self.new_match()
 
     def new_match(self):
-        white = make_player(self.specs[0], chess.WHITE, self.greedy)
-        black = make_player(self.specs[1], chess.BLACK, self.greedy)
+        white = make_player(self.specs[0], chess.WHITE, self.greedy, self.lookahead)
+        black = make_player(self.specs[1], chess.BLACK, self.greedy, self.lookahead)
         humans = [p.is_human for p in (white, black)]
         self.match = Match(white, black, max_plies=None if any(humans) else MAX_AI_PLIES)
         self.flipped = humans == [False, True]       # human plays Black -> Black at the bottom
@@ -75,7 +75,7 @@ class PlayScene(Scene):
         from menu_scene import MenuScene   # local import avoids a circular dependency
         self.next = MenuScene(self.fonts)
 
-    # result popup 
+    # result popup
     def make_popup(self):
         res, humans = self.match.result, self.match.humans()
         if res.winner is None:
@@ -83,11 +83,11 @@ class PlayScene(Scene):
         name = "White" if res.winner == chess.WHITE else "Black"
         if len(humans) == 1:
             won = humans[0] == res.winner
-            return GameOverPopup("Bạn đã thắng!" if won else "Bạn đã thua!", f"{res.reason} - {name} wins",
+            return GameOverPopup("Bạn đã thắng!" if won else "Bạn đã thua", f"{res.reason} - {name} thắng",
                                  GREEN if won else RED)
         return GameOverPopup(f"{name} đã thắng!", res.reason, GREEN)
 
-    # loop 
+    # loop
     def update(self):
         if self.popup:
             return

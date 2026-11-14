@@ -18,13 +18,14 @@ CHOICES = {
     "Thuật toán Trắng": ALGORITHM_NAMES,
     "Thuật toán Đen": ALGORITHM_NAMES,
     "Kiểu AI Encoding": ["Sampling", "Greedy"],
+    "Đoán nước đi": ["Tắt", "Bật"],
 }
 TRAIN_ROWS = [("cycle", "Thuật toán Trắng"), ("file", "Tệp mô hình Trắng"),
               ("cycle", "Thuật toán Đen"), ("file", "Tệp mô hình Đen")]
 ROWS = {
     0: [],
-    1: [("cycle", "Bạn chơi"), ("file", "Đối thủ"), ("cycle", "Kiểu AI Encoding")],
-    2: [("file", "Người chơi Trắng"), ("file", "Người chơi Đen"), ("cycle", "Kiểu AI Encoding")],
+    1: [("cycle", "Bạn chơi"), ("file", "Đối thủ"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
+    2: [("file", "Người chơi Trắng"), ("file", "Người chơi Đen"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
     3: TRAIN_ROWS,
     4: TRAIN_ROWS,
 }
@@ -130,6 +131,8 @@ class MenuScene(Scene):
                 self.next = ConcurrentTrainScene(self.fonts, self.cfg("Trắng"), self.cfg("Đen"))
             else:
                 greedy = self.sel["Kiểu AI Encoding"] == 1
+                lookahead = self.sel["Đoán nước đi"] == 1
+
                 if self.mode == 0:
                     white, black = "Human", "Human"
                 elif self.mode == 1:
@@ -138,7 +141,7 @@ class MenuScene(Scene):
                 else:
                     white = spec("Người chơi Trắng")
                     black = spec("Người chơi Đen")
-                self.next = PlayScene(self.fonts, white, black, greedy)
+                self.next = PlayScene(self.fonts, white, black, greedy, lookahead)
         except Exception as ex:
             self.next = None
             self.error = f"Không thể bắt đầu: {ex}"
