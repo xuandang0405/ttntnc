@@ -5,8 +5,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from algo_base import BaseAgent
-from algo_config import (DQN_BATCH, DQN_BUFFER, DQN_EPS_DECAY_STEPS, DQN_EPS_END, DQN_EPS_START,
+from algorithms.algo_base import BaseAgent
+from algorithms.algo_config import (DQN_BATCH, DQN_BUFFER, DQN_EPS_DECAY_STEPS, DQN_EPS_END, DQN_EPS_START,
                          DQN_PLAY_TEMPERATURE, DQN_TARGET_SYNC, DQN_TRAIN_EVERY, DQN_WARMUP)
 from config import GAMMA
 from encoding import legal_moves_map, encode, material_balance

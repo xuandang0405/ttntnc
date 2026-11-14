@@ -3,10 +3,10 @@ import os
 import chess
 import torch
 
-from algo_a2c import A2CAgent
-from algo_alphazero import AlphaZeroAgent
-from algo_dqn import DQNAgent
-from algo_ppo import PPOAgent
+from algorithms.algo_a2c import A2CAgent
+from algorithms.algo_alphazero import AlphaZeroAgent
+from algorithms.algo_dqn import DQNAgent
+from algorithms.algo_ppo import PPOAgent
 
 ALGORITHMS = {"A2C": A2CAgent, "PPO": PPOAgent, "DQN": DQNAgent, "AlphaZero": AlphaZeroAgent}
 ALGORITHM_NAMES = list(ALGORITHMS)

@@ -4,7 +4,7 @@ import pygame
 from config import AI_MOVE_DELAY, BG, MAX_AI_PLIES
 from match import Match
 from players import make_player
-from renderer import draw_board, draw_play_panel, px_to_sq
+from normal_mode.renderer import draw_board, draw_play_panel, px_to_sq
 from scene import Scene
 from ui import GameOverPopup
 

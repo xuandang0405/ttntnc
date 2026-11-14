@@ -4,7 +4,7 @@ import pygame
  
 from concurrent_mode.concurrent_game import ConcurrentSelfPlay
 from concurrent_mode.concurrent_renderer import draw_concurrent_panel, draw_games_grid
-from renderer import draw_metrics_panel
+from normal_mode.renderer import draw_metrics_panel
 from config import BG
 from scene import Scene
  

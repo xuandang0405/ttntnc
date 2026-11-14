@@ -5,8 +5,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from algo_base import BaseAgent
-from algo_config import (AZ_BATCH, AZ_BUFFER, AZ_C_PUCT, AZ_DIRICHLET_ALPHA, AZ_MIN_SAMPLES, AZ_NOISE_FRAC,
+from algorithms.algo_base import BaseAgent
+from algorithms.algo_config import (AZ_BATCH, AZ_BUFFER, AZ_C_PUCT, AZ_DIRICHLET_ALPHA, AZ_MIN_SAMPLES, AZ_NOISE_FRAC,
                          AZ_PLAY_SIMULATIONS, AZ_SIMULATIONS, AZ_TEMP_PLIES, AZ_TRAIN_STEPS)
 from config import LR
 from encoding import encode, legal_moves_map, material_balance

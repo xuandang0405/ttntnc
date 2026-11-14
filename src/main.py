@@ -2,7 +2,7 @@ import pygame
  
 from config import H, W
 from menu_scene import MenuScene
-from renderer import make_fonts
+from normal_mode.renderer import make_fonts
 from scene import QUIT
 
 def main():

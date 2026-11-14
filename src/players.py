@@ -1,7 +1,7 @@
 import os
 import random
 
-from algorithms import load_agent
+from algorithms.algorithms import load_agent
 from model import device
  
 class Player:

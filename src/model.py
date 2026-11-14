@@ -14,10 +14,19 @@ class PolicyValueNet(nn.Module):
         self.fc = nn.Linear(64 * 64, 512)
         self.pi = nn.Linear(512, 4096)
         self.v = nn.Linear(512, 1)
+        self.opp = nn.Linear(512, 4096)    # strategy head: opponent's next move
+        self.phase = nn.Linear(512, 3)     # strategy head: opening / middlegame / endgame
 
-    def forward(self, x):
+    def trunk(self, x):
         x = F.relu(self.c1(x))
         x = F.relu(self.c2(x))
         x = F.relu(self.c3(x))
-        x = F.relu(self.fc(x.flatten(1)))
-        return self.pi(x), torch.tanh(self.v(x)).squeeze(-1)
+        return F.relu(self.fc(x.flatten(1)))
+
+    def forward(self, x):
+        h = self.trunk(x)
+        return self.pi(h), torch.tanh(self.v(h)).squeeze(-1)
+
+    def forward_aux(self, x):
+        h = self.trunk(x)
+        return self.opp(h), self.phase(h)

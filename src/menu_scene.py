@@ -2,14 +2,14 @@ import os
  
 import pygame
  
-from algorithms import ALGORITHM_NAMES, read_checkpoint_info
+from algorithms.algorithms import ALGORITHM_NAMES, read_checkpoint_info
 from concurrent_mode.concurrent_config import NUM_GAMES
 from concurrent_mode.concurrent_train_scene import ConcurrentTrainScene
 from config import BG, H, TEXT, W
 from file_dialog import pick_model_file
 from play_scene import PlayScene
 from scene import QUIT, Scene
-from train_scene import TrainScene
+from normal_mode.train_scene import TrainScene
 from ui import Button
  
 MODES = ["Người vs Người", "Người vs AI", "AI vs AI", "Huấn luyện: 1 ván", f"Huấn luyện: {NUM_GAMES} ván"]

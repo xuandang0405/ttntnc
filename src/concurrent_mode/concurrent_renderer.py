@@ -4,7 +4,7 @@ import chess
 import pygame
 
 from config import BOARD_PX, DARK, HILITE, LIGHT, PANEL_W
-from renderer import _panel, get_texture
+from normal_mode.renderer import _panel, get_texture
 
 _scaled = {} 
 _fonts = {}   

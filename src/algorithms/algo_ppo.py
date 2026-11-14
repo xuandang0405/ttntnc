@@ -2,8 +2,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from algo_base import BaseAgent
-from algo_config import ENTROPY_COEF, GAE_LAMBDA, PPO_CLIP, PPO_EPOCHS, PPO_MINIBATCH
+from algorithms.algo_base import BaseAgent
+from algorithms.algo_config import ENTROPY_COEF, GAE_LAMBDA, PPO_CLIP, PPO_EPOCHS, PPO_MINIBATCH
 from config import GAMMA
 from encoding import material_balance
 

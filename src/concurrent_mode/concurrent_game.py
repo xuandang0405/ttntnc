@@ -4,7 +4,7 @@ from collections import deque
 import chess
 import torch
  
-from algorithms import build_agent, load_agent
+from algorithms.algorithms import build_agent, load_agent
 from checkpoints import Experiment
 from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, RANDOM_OPENING_PLIES, USE_CUDA
 from config import MAX_PLIES

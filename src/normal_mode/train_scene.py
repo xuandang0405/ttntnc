@@ -3,8 +3,8 @@ import time
 import pygame
  
 from config import BG
-from game import SelfPlay
-from renderer import draw_board, draw_metrics_panel, draw_train_panel
+from normal_mode.game import SelfPlay
+from normal_mode.renderer import draw_board, draw_metrics_panel, draw_train_panel
 from scene import Scene
 
 class TrainScene(Scene):

@@ -2,7 +2,7 @@ from collections import deque
  
 import chess
  
-from algorithms import build_agent, load_agent
+from algorithms.algorithms import build_agent, load_agent
 from checkpoints import Experiment
 from config import MAX_PLIES
 from encoding import material_balance

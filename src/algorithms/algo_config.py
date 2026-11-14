@@ -20,13 +20,13 @@ DQN_EPS_DECAY_STEPS = 20000
 DQN_PLAY_TEMPERATURE = 0.1  # "Sampled" style at play time samples softmax(Q / T)
 
 # AlphaZero (MCTS + policy/value network)
-AZ_SIMULATIONS = 25        # MCTS simulations per move during self-play
-AZ_PLAY_SIMULATIONS = 50   # ... when a human / other agent plays against the model
+AZ_SIMULATIONS = 128        # MCTS simulations per move during self-play
+AZ_PLAY_SIMULATIONS = 256   # ... when a human / other agent plays against the model
 AZ_C_PUCT = 1.5
 AZ_DIRICHLET_ALPHA = 0.3   # root exploration noise (self-play only)
 AZ_NOISE_FRAC = 0.25
 AZ_TEMP_PLIES = 30         # sample moves by visit count for this many plies, then pick the best
-AZ_BUFFER = 20000          # training positions kept
+AZ_BUFFER = 40000          # training positions kept
 AZ_BATCH = 128
 AZ_TRAIN_STEPS = 20        # gradient steps per update
 AZ_MIN_SAMPLES = 256       # positions needed before the first update

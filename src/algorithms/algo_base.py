@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torch.nn.utils import parameters_to_vector
  
-from algo_config import MAX_GRAD_NORM
+from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
 from encoding import encode, legal_moves_map
 from model import PolicyValueNet

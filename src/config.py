@@ -1,10 +1,10 @@
 import chess
 
-MAX_PLIES = 160         
+MAX_PLIES = 600         
 GAMMA = 0.99             
 LR = 3e-4                
-SHAPING = 0.05           
-DRAW_REWARD = -0.1    
+SHAPING = 0.01         
+DRAW_REWARD = 0.0  
 CKPT_DIR = "checkpoints"
 
 PIECE_VALUE = {chess.PAWN: 1, chess.KNIGHT: 3, chess.BISHOP: 3,
@@ -19,7 +19,7 @@ LIGHT, DARK = (238, 238, 210), (118, 150, 86)
 HILITE = (246, 246, 105)
 BG, PANEL_BG, TEXT = (30, 30, 34), (40, 40, 46), (230, 230, 230)
 
-AI_MOVE_DELAY = 450     
-MAX_AI_PLIES = 300
-REPETITION_PENALTY = 0.075  
+AI_MOVE_DELAY = 550     
+MAX_AI_PLIES = 600
+REPETITION_PENALTY = 0.01  
 LOG_INTERVAL_SECONDS = 2.0   
