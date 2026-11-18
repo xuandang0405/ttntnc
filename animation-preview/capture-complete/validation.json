@@ -1,0 +1,1354 @@
+{
+  "status": "passed",
+  "generatedAtlases": 19,
+  "legacyPngsReplaced": 23,
+  "legacyPngsPreserved": 40,
+  "standardizedSheets": 38,
+  "logicalStates": {
+    "move": 12,
+    "idle": 12,
+    "die": 12,
+    "attack": 12,
+    "impact": 2
+  },
+  "uniqueFrames": 152,
+  "legalMovementProfilesInPreviews": 12,
+  "kingVictimsInPreviews": 0,
+  "gifs": [
+    {
+      "file": "move-and-capture-white.gif",
+      "frames": 28,
+      "durationMs": 2150,
+      "loop": 0
+    },
+    {
+      "file": "move-and-capture-black.gif",
+      "frames": 28,
+      "durationMs": 2150,
+      "loop": 0
+    }
+  ],
+  "replacedFiles": [
+    "img/trắng/attack_hậu_trắng.png",
+    "img/trắng/attack_mã_trắng.png",
+    "img/trắng/attack_tượng_trắng.png",
+    "img/trắng/attack_tốt_trắng.png",
+    "img/trắng/attack_vua_trắng.png",
+    "img/trắng/attack_xe_trắng.png",
+    "img/trắng/defeat_mã_trắng.png",
+    "img/trắng/defeat_xe_trắng.png",
+    "img/trắng/die_mã_trắng.png",
+    "img/trắng/die_xe_trắng.png",
+    "img/đen/attack_hậu_đen.png",
+    "img/đen/attack_mã_đen.png",
+    "img/đen/attack_tượng_đen.png",
+    "img/đen/attack_tốt_đen.png",
+    "img/đen/attack_vua_đen.png",
+    "img/đen/attack_xe_den.png",
+    "img/đen/defeat_mã_đen.png",
+    "img/đen/defeat_tốt_đen.png",
+    "img/đen/defeat_xe_đen.png",
+    "img/đen/die_mã_đen.png",
+    "img/đen/die_tốt_đen.png",
+    "img/đen/die_xe_den.png",
+    "img/đen/die_xe_đen.png"
+  ],
+  "sheets": [
+    {
+      "file": "white/move_king.png",
+      "action": "move",
+      "alphaMass": [
+        26782.7,
+        27977.3,
+        29000.7,
+        25962.5
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          159.0,
+          310
+        ],
+        [
+          160.0,
+          303
+        ],
+        [
+          159.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        270,
+        264,
+        268,
+        260
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_king.png",
+      "action": "die",
+      "alphaMass": [
+        28625.6,
+        28093.9,
+        23107.9,
+        334.1
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        270
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/move_queen.png",
+      "action": "move",
+      "alphaMass": [
+        23560.4,
+        23029.4,
+        22386.8,
+        22362.2
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ],
+        [
+          161.0,
+          309
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          160.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        260,
+        257,
+        254,
+        252
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_queen.png",
+      "action": "die",
+      "alphaMass": [
+        25272.4,
+        26962.6,
+        26694.5,
+        404.4
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        260
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_king.png",
+      "action": "move",
+      "alphaMass": [
+        27422.8,
+        28495.5,
+        28206.9,
+        26651.4
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          160.0,
+          310
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          160.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        269,
+        274,
+        269,
+        267
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_king.png",
+      "action": "die",
+      "alphaMass": [
+        29999.8,
+        33333.2,
+        32395.6,
+        719.5
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        270
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_queen.png",
+      "action": "move",
+      "alphaMass": [
+        25069.6,
+        24927.5,
+        24869.0,
+        24474.1
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          315
+        ],
+        [
+          161.0,
+          310
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          161.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        259,
+        254,
+        252,
+        255
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_queen.png",
+      "action": "die",
+      "alphaMass": [
+        29255.6,
+        27398.0,
+        25664.2,
+        320.7
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        260
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_bishop.png",
+      "action": "die",
+      "alphaMass": [
+        19643.1,
+        21240.1,
+        21923.9,
+        199.0
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        250
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_bishop.png",
+      "action": "die",
+      "alphaMass": [
+        19696.9,
+        20290.2,
+        18573.7,
+        192.2
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        250
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_rook.png",
+      "action": "move",
+      "alphaMass": [
+        29067.9,
+        27706.3,
+        28199.4,
+        27725.5
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          159.0,
+          309
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          159.5,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        225,
+        223,
+        224,
+        225
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_pawn.png",
+      "action": "die",
+      "alphaMass": [
+        19238.3,
+        19762.8,
+        18950.7,
+        87.6
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        210
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/move_knight.png",
+      "action": "move",
+      "alphaMass": [
+        34028.9,
+        35605.7,
+        35379.1,
+        33795.7
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ],
+        [
+          160.0,
+          310
+        ],
+        [
+          161.0,
+          304
+        ],
+        [
+          161.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        250,
+        250,
+        252,
+        247
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/move_bishop.png",
+      "action": "move",
+      "alphaMass": [
+        21099.6,
+        22216.6,
+        22800.3,
+        21625.0
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ],
+        [
+          161.0,
+          310
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          160.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        250,
+        251,
+        250,
+        253
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/move_pawn.png",
+      "action": "move",
+      "alphaMass": [
+        19774.2,
+        19718.1,
+        19735.9,
+        19462.4
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ],
+        [
+          160.0,
+          310
+        ],
+        [
+          159.0,
+          304
+        ],
+        [
+          159.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        210,
+        213,
+        211,
+        209
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/move_rook.png",
+      "action": "move",
+      "alphaMass": [
+        29281.5,
+        30340.1,
+        30935.5,
+        28669.1
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          160.0,
+          310
+        ],
+        [
+          160.0,
+          303
+        ],
+        [
+          159.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        225,
+        225,
+        224,
+        223
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_knight.png",
+      "action": "move",
+      "alphaMass": [
+        34193.4,
+        36526.7,
+        34266.5,
+        32981.6
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          159.0,
+          310
+        ],
+        [
+          161.0,
+          304
+        ],
+        [
+          161.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        250,
+        245,
+        237,
+        238
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_bishop.png",
+      "action": "move",
+      "alphaMass": [
+        20569.6,
+        20845.2,
+        21468.1,
+        20184.7
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ],
+        [
+          160.0,
+          310
+        ],
+        [
+          160.0,
+          304
+        ],
+        [
+          160.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        250,
+        251,
+        258,
+        248
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/move_pawn.png",
+      "action": "move",
+      "alphaMass": [
+        19398.6,
+        20226.2,
+        20286.3,
+        19256.7
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ],
+        [
+          161.0,
+          310
+        ],
+        [
+          159.0,
+          303
+        ],
+        [
+          160.0,
+          310
+        ]
+      ],
+      "solidBodyHeights": [
+        210,
+        211,
+        210,
+        207
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_pawn.png",
+      "action": "attack",
+      "alphaMass": [
+        19993.3,
+        18532.8,
+        19498.4,
+        18243.1
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ],
+        [
+          162.0,
+          315
+        ],
+        [
+          166.0,
+          316
+        ],
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        210,
+        207,
+        207,
+        205
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_knight.png",
+      "action": "attack",
+      "alphaMass": [
+        32555.5,
+        33733.5,
+        33716.4,
+        32004.0
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          165.0,
+          316
+        ],
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        250,
+        244,
+        244,
+        250
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_bishop.png",
+      "action": "attack",
+      "alphaMass": [
+        21063.8,
+        21109.4,
+        21955.7,
+        20823.5
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          164.0,
+          316
+        ],
+        [
+          160.0,
+          315
+        ]
+      ],
+      "solidBodyHeights": [
+        251,
+        246,
+        245,
+        253
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_rook.png",
+      "action": "attack",
+      "alphaMass": [
+        27699.1,
+        27902.8,
+        29439.2,
+        27906.9
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          164.0,
+          316
+        ],
+        [
+          165.0,
+          315
+        ],
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        224,
+        225,
+        223,
+        225
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_queen.png",
+      "action": "attack",
+      "alphaMass": [
+        23466.2,
+        23530.9,
+        24252.2,
+        23286.2
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          165.0,
+          316
+        ],
+        [
+          159.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        260,
+        258,
+        256,
+        261
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/attack_king.png",
+      "action": "attack",
+      "alphaMass": [
+        25754.0,
+        26752.2,
+        27030.1,
+        25896.6
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          315
+        ],
+        [
+          162.0,
+          315
+        ],
+        [
+          165.0,
+          315
+        ],
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        269,
+        262,
+        260,
+        270
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_pawn.png",
+      "action": "attack",
+      "alphaMass": [
+        19655.4,
+        20225.0,
+        19742.1,
+        19269.9
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          166.0,
+          316
+        ],
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        209,
+        206,
+        204,
+        209
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_knight.png",
+      "action": "attack",
+      "alphaMass": [
+        35147.4,
+        34169.3,
+        35299.6,
+        33793.8
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ],
+        [
+          164.0,
+          316
+        ],
+        [
+          165.0,
+          316
+        ],
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        249,
+        244,
+        243,
+        247
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_bishop.png",
+      "action": "attack",
+      "alphaMass": [
+        20366.7,
+        20630.8,
+        20761.5,
+        19954.7
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          317
+        ],
+        [
+          162.0,
+          316
+        ],
+        [
+          164.0,
+          316
+        ],
+        [
+          160.0,
+          315
+        ]
+      ],
+      "solidBodyHeights": [
+        251,
+        250,
+        241,
+        248
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_rook.png",
+      "action": "attack",
+      "alphaMass": [
+        28731.3,
+        30121.2,
+        31342.5,
+        28666.0
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          165.0,
+          316
+        ],
+        [
+          159.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        224,
+        233,
+        231,
+        229
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_queen.png",
+      "action": "attack",
+      "alphaMass": [
+        24260.2,
+        23982.3,
+        24081.1,
+        23639.9
+      ],
+      "registeredRoots": [
+        [
+          160.5,
+          316
+        ],
+        [
+          163.0,
+          316
+        ],
+        [
+          166.0,
+          316
+        ],
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        259,
+        251,
+        250,
+        260
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/attack_king.png",
+      "action": "attack",
+      "alphaMass": [
+        27424.5,
+        28020.2,
+        30116.6,
+        27053.6
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ],
+        [
+          164.0,
+          316
+        ],
+        [
+          167.0,
+          316
+        ],
+        [
+          161.0,
+          315
+        ]
+      ],
+      "solidBodyHeights": [
+        270,
+        265,
+        263,
+        270
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_knight.png",
+      "action": "die",
+      "alphaMass": [
+        32743.9,
+        32452.5,
+        27431.5,
+        225.1
+      ],
+      "registeredRoots": [
+        [
+          164.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        250
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_knight.png",
+      "action": "die",
+      "alphaMass": [
+        36438.4,
+        35477.0,
+        33037.6,
+        566.2
+      ],
+      "registeredRoots": [
+        [
+          159.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        250
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "white/die_rook.png",
+      "action": "die",
+      "alphaMass": [
+        28345.8,
+        30889.6,
+        29067.7,
+        240.6
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        225
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_rook.png",
+      "action": "die",
+      "alphaMass": [
+        27013.6,
+        28300.7,
+        26866.9,
+        167.6
+      ],
+      "registeredRoots": [
+        [
+          160.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        225
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "black/die_pawn.png",
+      "action": "die",
+      "alphaMass": [
+        19251.3,
+        20597.8,
+        19816.5,
+        272.3
+      ],
+      "registeredRoots": [
+        [
+          161.0,
+          316
+        ]
+      ],
+      "solidBodyHeights": [
+        210
+      ],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "effects/capture_impact_white.png",
+      "action": "impact",
+      "alphaMass": [
+        2063.0,
+        5173.0,
+        3376.4,
+        492.2
+      ],
+      "registeredRoots": [],
+      "solidBodyHeights": [],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "effects/capture_impact_black.png",
+      "action": "impact",
+      "alphaMass": [
+        2972.9,
+        5945.2,
+        4247.7,
+        396.4
+      ],
+      "registeredRoots": [],
+      "solidBodyHeights": [],
+      "edgePixelsAbove64": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

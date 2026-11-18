@@ -1,0 +1,178 @@
+{
+  "createdOn": "2026-10-24",
+  "generator": "image_gen__imagegen (built-in)",
+  "jobs": [
+    {
+      "id": "move_vua_trang",
+      "target": "img/trắng/move_vua_trắng.png",
+      "reference": "img/trắng/idel_vua_trắng.png",
+      "action": "move",
+      "subject": "WHITE KING: ivory body, rich gold trim, gold cross on the distinctive heart-shaped crown, amber diamond on crown and base, soft golden magic",
+      "color": "trắng",
+      "piece": "vua",
+      "prompt": "Use case: identity-preserve. Asset type: production chess game animation sprite sheet. The supplied local image is ONLY the identity/style reference showing 4 idle variations of one chess piece. Create ONE clean animation sheet for exactly that same WHITE KING: ivory body, rich gold trim, gold cross on the distinctive heart-shaped crown, amber diamond on crown and base, soft golden magic. Preserve its silhouette, crown, proportions, ornaments, gemstone shapes, glossy painterly 2D fantasy rendering and dark brown outlines. No redesign and no other chess piece.\nMANDATORY LAYOUT: square canvas, a precise 2 by 2 grid of four equal square cells, reading order top left, top right, bottom left, bottom right. No drawn grid lines, borders, numbers, text, UI, watermark or labels. Each cell is an isolated full sprite on genuine alpha TRANSPARENT background, not black or a colored/opaque backdrop. Keep every pixel of each sprite/effect inside its cell with at least 10 percent clear padding. Same fixed camera and same scale/registration in all cells, center x at 50% and base at 85% of cell. Do not let glows or fragments touch adjacent cells.\nANIMATION: four coherent consecutive frames of a calm floating/sliding locomotion loop. Frame 1: upright at neutral height, faint gold ring tight around base. Frame 2: gently rises by 3% of cell, leans only 3 degrees toward right, thin short gold trailing wisps near base. Frame 3: at highest point 5% up, returns almost upright, wisps subtly shifted. Frame 4: settles toward frame 1 height, upright, ring fading. It stays intact in all frames. This is quiet movement: NO attack, NO big swoosh, NO impact starburst, NO explosion, NO cracks, NO cut body. Keep full body recognizable in every cell.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-ecfaa4c6-0130-4297-bbff-3efb41827251.png",
+      "source": "asset-source/animation-fix-2026-10-24/move_vua_trang-atlas.png",
+      "aliases": []
+    },
+    {
+      "id": "die_vua_trang",
+      "target": "img/trắng/die_vua_trắng.png",
+      "reference": "img/trắng/idel_vua_trắng.png",
+      "action": "die",
+      "subject": "WHITE KING: ivory body, rich gold trim, gold cross on the distinctive heart-shaped crown, amber diamond on crown and base, soft golden magic",
+      "color": "trắng",
+      "piece": "vua",
+      "prompt": "Use case: identity-preserve. Asset type: production chess game animation sprite sheet. The supplied local image is ONLY the identity/style reference showing 4 idle variations of one chess piece. Create ONE clean animation sheet for exactly that same WHITE KING: ivory body, rich gold trim, gold cross on the distinctive heart-shaped crown, amber diamond on crown and base, soft golden magic. Preserve its silhouette, crown, proportions, ornaments, gemstone shapes, glossy painterly 2D fantasy rendering and dark brown outlines. No redesign and no other chess piece.\nMANDATORY LAYOUT: square canvas, a precise 2 by 2 grid of four equal square cells, reading order top left, top right, bottom left, bottom right. No drawn grid lines, borders, numbers, text, UI, watermark or labels. Each cell is an isolated full sprite on genuine alpha TRANSPARENT background, not black or a colored/opaque backdrop. Keep every pixel of each sprite/effect inside its cell with at least 10 percent clear padding. Same fixed camera and same scale/registration in all cells, center x at 50% and base at 85% of cell. Do not let glows or fragments touch adjacent cells.\nANIMATION: four consecutive frames of being captured and disappearing, with irreversible progressive destruction. Frame 1: FULL upright king intact, initial fine glowing gold cracks in its ivory body, a few tiny chips only, no impact burst. Frame 2: SAME king still upright and in the same position and scale with a branching crack network and small gold-edged ivory fragments starting to detach, about 80% solid body remaining. Frame 3: SAME king visibly breaks into recognizable matching ivory/gold crown, stem and base fragments falling apart, about 35% body remaining, small gold dust drifting upwards. Frame 4: ONLY a sparse handful of tiny fading golden motes low in the cell, almost completely vanished; no intact body. No return to idle after a destroyed frame. No unrelated smoke/cloud sprite, no random geometric black cutouts, no horizontal slice erasure, no sweeping attack trail, no foreign objects.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-9edbdf99-ba1d-46a9-8a56-9de9eb33ae19.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_vua_trang-atlas.png",
+      "aliases": [
+        "img/trắng/defeat_vua_trắng.png"
+      ]
+    },
+    {
+      "id": "move_hau_trang",
+      "target": "img/trắng/move_hậu_trắng.png",
+      "reference": "img/trắng/idel_hậu_trắng.png",
+      "action": "move",
+      "subject": "WHITE QUEEN, ivory porcelain and rich gold trim; royal pointed crown with round finials and central upright amber diamond, narrow tapering stem, flared round base with amber diamond; only warm soft GOLD magic",
+      "color": "trắng",
+      "piece": "hậu",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. WHITE QUEEN, ivory porcelain and rich gold trim; royal pointed crown with round finials and central upright amber diamond, narrow tapering stem, flared round base with amber diamond; only warm soft GOLD magic\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: a quiet, smooth floating/sliding locomotion loop, NOT combat. All four poses show the complete intact upright piece. Frame1 neutral upright with one tight faint magic ring at base. Frame2 floats up 3% of cell height with a gentle 3 degree rightward lean and two short thin base-level wisps. Frame3 floats at 5% up, nearly upright, base wisps shifted a little left. Frame4 lowers toward neutral, upright, the wisps subside. Small coherent differences, matching silhouette and scale; do not exaggerate. NO attack, NO impact flash, NO big curved sweeping slash, NO explosion, NO cracks or broken body. Keep glows quiet and much smaller than the piece.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-a48dd339-8732-4a43-a746-6bfeb18a976d.png",
+      "source": "asset-source/animation-fix-2026-10-24/move_hau_trang-atlas.png",
+      "aliases": []
+    },
+    {
+      "id": "die_hau_trang",
+      "target": "img/trắng/die_hậu_trắng.png",
+      "reference": "img/trắng/idel_hậu_trắng.png",
+      "action": "die",
+      "subject": "WHITE QUEEN, ivory porcelain and rich gold trim; royal pointed crown with round finials and central upright amber diamond, narrow tapering stem, flared round base with amber diamond; only warm soft GOLD magic",
+      "color": "trắng",
+      "piece": "hậu",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. WHITE QUEEN, ivory porcelain and rich gold trim; royal pointed crown with round finials and central upright amber diamond, narrow tapering stem, flared round base with amber diamond; only warm soft GOLD magic\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-0bc73e9c-9775-4bd8-a451-b4841d695e10.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_hau_trang-atlas.png",
+      "aliases": [
+        "img/trắng/defeat_hậu_trắng.png"
+      ]
+    },
+    {
+      "id": "move_vua_den",
+      "target": "img/đen/move_vua_đen.png",
+      "reference": "img/đen/idel_vua_đen.png",
+      "action": "move",
+      "subject": "BLACK KING, glossy obsidian/charcoal body and rich gold trim; distinctive heart-shaped crown topped with gold-edged purple CROSS, faceted purple diamond on crown and base; PURPLE/violet magic only",
+      "color": "đen",
+      "piece": "vua",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK KING, glossy obsidian/charcoal body and rich gold trim; distinctive heart-shaped crown topped with gold-edged purple CROSS, faceted purple diamond on crown and base; PURPLE/violet magic only\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: a quiet, smooth floating/sliding locomotion loop, NOT combat. All four poses show the complete intact upright piece. Frame1 neutral upright with one tight faint magic ring at base. Frame2 floats up 3% of cell height with a gentle 3 degree rightward lean and two short thin base-level wisps. Frame3 floats at 5% up, nearly upright, base wisps shifted a little left. Frame4 lowers toward neutral, upright, the wisps subside. Small coherent differences, matching silhouette and scale; do not exaggerate. NO attack, NO impact flash, NO big curved sweeping slash, NO explosion, NO cracks or broken body. Keep glows quiet and much smaller than the piece.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-c8d7177d-1067-422d-b819-74d36477dfcf.png",
+      "source": "asset-source/animation-fix-2026-10-24/move_vua_den-atlas.png",
+      "aliases": []
+    },
+    {
+      "id": "die_vua_den",
+      "target": "img/đen/die_vua_đen.png",
+      "reference": "img/đen/idel_vua_đen.png",
+      "action": "die",
+      "subject": "BLACK KING, glossy obsidian/charcoal body and rich gold trim; distinctive heart-shaped crown topped with gold-edged purple CROSS, faceted purple diamond on crown and base; PURPLE/violet magic only, shards must be dark obsidian with gold trim, not white porcelain",
+      "color": "đen",
+      "piece": "vua",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK KING, glossy obsidian/charcoal body and rich gold trim; distinctive heart-shaped crown topped with gold-edged purple CROSS, faceted purple diamond on crown and base; PURPLE/violet magic only, shards must be dark obsidian with gold trim, not white porcelain\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-81805152-a28e-4bb7-845e-23ff658fad4f.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_vua_den-atlas.png",
+      "aliases": [
+        "img/đen/defeat_vua_đen.png"
+      ]
+    },
+    {
+      "id": "move_hau_den",
+      "target": "img/đen/move_hậu_đen.png",
+      "reference": "img/đen/idel_hậu_đen.png",
+      "action": "move",
+      "subject": "BLACK QUEEN, glossy obsidian/charcoal body, polished gold trim, pointed crown with round purple finials and central upright violet gemstone, slender stem and round base with violet diamond; PURPLE magic only",
+      "color": "đen",
+      "piece": "hậu",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK QUEEN, glossy obsidian/charcoal body, polished gold trim, pointed crown with round purple finials and central upright violet gemstone, slender stem and round base with violet diamond; PURPLE magic only\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: a quiet, smooth floating/sliding locomotion loop, NOT combat. All four poses show the complete intact upright piece. Frame1 neutral upright with one tight faint magic ring at base. Frame2 floats up 3% of cell height with a gentle 3 degree rightward lean and two short thin base-level wisps. Frame3 floats at 5% up, nearly upright, base wisps shifted a little left. Frame4 lowers toward neutral, upright, the wisps subside. Small coherent differences, matching silhouette and scale; do not exaggerate. NO attack, NO impact flash, NO big curved sweeping slash, NO explosion, NO cracks or broken body. Keep glows quiet and much smaller than the piece.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-595cb077-353a-4e11-af15-76f6f7429abe.png",
+      "source": "asset-source/animation-fix-2026-10-24/move_hau_den-atlas.png",
+      "aliases": []
+    },
+    {
+      "id": "die_hau_den",
+      "target": "img/đen/die_hậu_đen.png",
+      "reference": "img/đen/idel_hậu_đen.png",
+      "action": "die",
+      "subject": "BLACK QUEEN, glossy obsidian/charcoal body, polished gold trim, pointed crown with round purple finials and central upright violet gemstone, slender stem and round base with violet diamond; PURPLE magic only; all fragments are matching dark obsidian and gold",
+      "color": "đen",
+      "piece": "hậu",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK QUEEN, glossy obsidian/charcoal body, polished gold trim, pointed crown with round purple finials and central upright violet gemstone, slender stem and round base with violet diamond; PURPLE magic only; all fragments are matching dark obsidian and gold\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst. Final cell should contain less than 10 percent of the solid painted area of the first cell, mostly totally empty transparency.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-163b8283-b4ad-4cf6-9014-03d0037b7563.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_hau_den-atlas.png",
+      "aliases": [
+        "img/đen/defeat_hậu_đen.png"
+      ]
+    },
+    {
+      "id": "die_tuong_trang",
+      "target": "img/trắng/die_tượng_trắng.png",
+      "reference": "img/trắng/idel_tượng_trắng.png",
+      "action": "die",
+      "subject": "WHITE BISHOP exactly like the reference: ivory porcelain bishop, closed pointed teardrop/mitre head with GOLD CROSS embossed on its front, small AMBER DIAMOND finial above its head, gold diagonal ribbon collar around stem, round gold-trimmed base with amber diamond. NO king crown. Warm GOLD magic only. Remove the reference background entirely.",
+      "color": "trắng",
+      "piece": "tượng",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. WHITE BISHOP exactly like the reference: ivory porcelain bishop, closed pointed teardrop/mitre head with GOLD CROSS embossed on its front, small AMBER DIAMOND finial above its head, gold diagonal ribbon collar around stem, round gold-trimmed base with amber diamond. NO king crown. Warm GOLD magic only. Remove the reference background entirely.\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst. Final cell should contain less than 10 percent of the solid painted area of the first cell, mostly totally empty transparency.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-1fcd3bc3-be80-4c3f-aa29-3c3a5e4aca71.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_tuong_trang-atlas.png",
+      "aliases": [
+        "img/trắng/defeat_tượng_trắng.png"
+      ]
+    },
+    {
+      "id": "die_tuong_den",
+      "target": "img/đen/die_tượng_đen.png",
+      "reference": "img/đen/idel_tượng_đen.png",
+      "action": "die",
+      "subject": "BLACK BISHOP exactly like the reference: glossy obsidian bishop, closed pointed teardrop/mitre head with GOLD CROSS embossed on its front, small PURPLE DIAMOND finial above its head, violet-edged diagonal ribbon collar around stem, round gold-trimmed base with violet diamond. NO king crown. PURPLE magic only. All fragments matching black obsidian/gold/violet. Remove the reference background entirely.",
+      "color": "đen",
+      "piece": "tượng",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK BISHOP exactly like the reference: glossy obsidian bishop, closed pointed teardrop/mitre head with GOLD CROSS embossed on its front, small PURPLE DIAMOND finial above its head, violet-edged diagonal ribbon collar around stem, round gold-trimmed base with violet diamond. NO king crown. PURPLE magic only. All fragments matching black obsidian/gold/violet. Remove the reference background entirely.\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst. Final cell should contain less than 10 percent of the solid painted area of the first cell, mostly totally empty transparency.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-ef8a76ba-e0df-48d3-aeff-5500c1a7d5b7.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_tuong_den-atlas.png",
+      "aliases": [
+        "img/đen/defeat_tượng_đen.png"
+      ]
+    },
+    {
+      "id": "move_xe_den",
+      "target": "img/đen/move_xe_đen.png",
+      "reference": "img/đen/idel_xe_đen.png",
+      "action": "move",
+      "subject": "BLACK ROOK exactly like the reference: broad crenellated CASTLE/TOWER turret head, glossy dark charcoal obsidian body, gold edges on castle battlements and collar/base rings, broad round base with faceted violet diamond, PURPLE magic only. No king/queen crown.",
+      "color": "đen",
+      "piece": "xe",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. BLACK ROOK exactly like the reference: broad crenellated CASTLE/TOWER turret head, glossy dark charcoal obsidian body, gold edges on castle battlements and collar/base rings, broad round base with faceted violet diamond, PURPLE magic only. No king/queen crown.\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: a quiet, smooth floating/sliding locomotion loop, NOT combat. All four poses show the complete intact upright piece. Frame1 neutral upright with one tight faint magic ring at base. Frame2 floats up 3% of cell height with a gentle 3 degree rightward lean and two short thin base-level wisps. Frame3 floats at 5% up, nearly upright, base wisps shifted a little left. Frame4 lowers toward neutral, upright, the wisps subside. Small coherent differences, matching silhouette and scale; do not exaggerate. NO attack, NO impact flash, NO big curved sweeping slash, NO explosion, NO cracks or broken body. Keep glows quiet and much smaller than the piece.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-8183b254-c3f1-40d5-ad0f-fb7135cd1e24.png",
+      "source": "asset-source/animation-fix-2026-10-24/move_xe_den-atlas.png",
+      "aliases": [
+        "img/đen/move_xe_den.png"
+      ]
+    },
+    {
+      "id": "die_tot_trang",
+      "target": "img/trắng/die_tốt_trắng.png",
+      "reference": "img/trắng/idel_tốt_trắng.png",
+      "action": "die",
+      "subject": "WHITE PAWN exactly like the reference: large smooth round IVORY SPHERE head with a fine gold edge, gold collar ring, short tapered ivory stem, broad round gold-trimmed ivory base with centered amber diamond, warm GOLD magic only. No crown, no cross, no other chess piece.",
+      "color": "trắng",
+      "piece": "tốt",
+      "prompt": "Use case: identity-preserve. Asset type: chess game animation sprite sheet. Reference image is ONLY an identity/style guide with repeated idle poses of ONE chess piece. Preserve that exact piece design, silhouette, ornaments, palette, glossy painterly 2D fantasy style and dark outlines. WHITE PAWN exactly like the reference: large smooth round IVORY SPHERE head with a fine gold edge, gold collar ring, short tapered ivory stem, broad round gold-trimmed ivory base with centered amber diamond, warm GOLD magic only. No crown, no cross, no other chess piece.\nMANDATORY: a square canvas with an EXACT 2 by 2 grid of FOUR equal square cells in reading order TOP LEFT -> TOP RIGHT -> BOTTOM LEFT -> BOTTOM RIGHT. No lines, labels, text, borders or numbers. Genuine transparent alpha background throughout all empty space, not a painted background. Every sprite/effect stays entirely in its own cell with at least 10% clear margins and a transparent gutter. Fixed camera, consistent scale and position, x center 50%, base around 85% cell height. Never mix in another chess piece or foreign artwork.\nACTION: ONE progressive being-captured animation. Frame1 the full upright piece develops fine glowing cracks, almost fully intact; no attacker or attack trail. Frame2 the same upright piece in exactly the same place and scale, more branching cracks and several small material-matching chips begin to break away, about 80% solid body remains. Frame3 the recognizable crown/head, stem and base fracture into matching shards with irregular physical fracture edges and small magic dust, about 35% solid body remains. Frame4 ONLY a few sparse tiny fading magic motes and a couple of minuscule matching chips near the base, nearly transparent and vanished; NO recognizable body or giant cloud. Destruction must increase in chronological order with NO later restored/intact pose. No arbitrary straight black cutouts/erasure, no sliced rectangular holes, no unrelated smoke clipart, no attack slash, no impact starburst. Final cell must be at least 95 percent empty transparent space with only 5-10 tiny motes near the base, no cloud or tall trail.",
+      "generatedPath": "C:\\Users\\BiKiMC\\.codex\\generated_images\\01a16d1b-f944-7881-802e-6fd850b984fa\\exec-27992f60-5508-46e1-bf2f-a8cedafff65a.png",
+      "source": "asset-source/animation-fix-2026-10-24/die_tot_trang-atlas.png",
+      "aliases": [
+        "img/trắng/defeat_tốt_trắng.png"
+      ]
+    }
+  ]
+}

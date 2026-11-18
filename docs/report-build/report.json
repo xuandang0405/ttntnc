@@ -1,0 +1,237 @@
+{
+  "chapters": [
+    {
+      "title": "TỔNG QUAN ĐỀ TÀI",
+      "sections": [
+        {"title": "Tên đề tài và mục đích báo cáo", "paragraphs": [
+          "Tên đề tài: Xây dựng hệ thống Cờ Vua tích hợp trí tuệ nhân tạo và đánh giá các phương pháp lựa chọn nước đi. Báo cáo này trình bày kế hoạch thực hiện của nhóm bốn thành viên, gồm khảo sát tài liệu, xác định bài toán, chuẩn bị dữ liệu, lựa chọn độ đo, thiết kế hệ thống và phân công công việc.",
+          "Nhóm dự kiến xây dựng ứng dụng chơi cờ vua trên trình duyệt với backend FastAPI và frontend React. Mức Dễ sử dụng thuật toán chọn ngẫu nhiên trong tập nước đi hợp lệ. Các phương pháp tìm kiếm và học máy được triển khai theo từng giai đoạn để phục vụ nội dung học phần Trí tuệ nhân tạo nâng cao."
+        ]},
+        {"title": "Lý do lựa chọn đề tài", "paragraphs": [
+          "Cờ vua có luật chơi rõ ràng, thông tin công khai và mục tiêu đối kháng, phù hợp để nghiên cứu biểu diễn trạng thái, tìm kiếm trong không gian lớn và ra quyết định trong giới hạn thời gian. Các phương pháp có thể được so sánh trực tiếp bằng đối kháng trên cùng tập thế cờ và cùng ngân sách tính toán [1].",
+          "Đề tài kết hợp yêu cầu thuật toán với một sản phẩm có thể sử dụng: người chơi chọn quân, xem nước đi hợp lệ, thực hiện nước đi và quan sát phản hồi. Hoạt ảnh đứng yên, di chuyển và ăn quân giúp thể hiện diễn biến ván đấu; chất lượng thuật toán cần được đánh giá riêng bằng thực nghiệm."
+        ]},
+        {"title": "Mục tiêu thực hiện", "paragraphs": [
+          "Về sản phẩm, nhóm hoàn thiện bàn cờ 8 × 8, các thao tác điều khiển, lựa chọn chế độ chơi, lịch sử nước đi và thông báo kết thúc ván. Giao diện sử dụng tên Cờ Vua, hạn chế văn bản trên màn hình và thể hiện rõ lượt chơi, ô đang chọn, ô hợp lệ, ô vừa đi và trạng thái chiếu.",
+          "Về nghiên cứu, nhóm xây dựng giao diện dùng chung cho các tác tử, thiết lập Random làm đường cơ sở, sau đó khảo sát Rule-based, Alpha-beta, MCTS và các hướng học từ dữ liệu. Mỗi kết luận về sức mạnh hoặc tốc độ phải gắn với cấu hình, dữ liệu và kết quả đo có thể tái lập."
+        ]},
+        {"title": "Phạm vi và thứ tự ưu tiên", "paragraphs": [
+          "Phần cốt lõi gồm môi trường luật cờ, backend, giao diện chơi, RandomAgent, RuleBasedAgent, AlphaBetaAgent, MCTSAgent và bộ chạy thực nghiệm. Phần học máy gồm dữ liệu tự sinh, mô hình CNN, học giá trị bằng TD và tìm kiếm có hướng dẫn bởi mạng. Hai hướng AlphaGo-inspired và AlphaZero-inspired được tổ chức thành các bước mở rộng quy mô nhỏ, có đánh giá khả thi ở cuối tuần 4.",
+          "Tài liệu đặc tả ban đầu đề xuất tám tác tử [6]. Kế hoạch này giữ các hướng đó trong danh mục công việc, nhưng triển khai theo mức ưu tiên và ghi rõ phần hoàn thành trong báo cáo cuối kỳ. Nhóm không đặt mục tiêu tái tạo sức mạnh của AlphaZero gốc, không đưa chơi trực tuyến nhiều phòng hoặc hệ thống tài khoản vào phạm vi cơ bản."
+        ], "table": {"caption": "Bảng 1.1 Phạm vi và điều kiện bàn giao", "widths": [24,45,31], "headers": ["Hạng mục", "Nội dung", "Điều kiện bàn giao"], "rows": [
+          ["Game cơ bản", "Luật cờ; bàn cờ; nút điều khiển; mức Dễ Random", "Chơi được một ván; trạng thái đúng"],
+          ["Trải nghiệm", "Nền game; 4 nhãn độ khó; hoạt ảnh quân cờ", "Thao tác rõ; hiệu ứng đúng sự kiện"],
+          ["Nghiên cứu cốt lõi", "Random; Rule-based; Alpha-beta; MCTS", "Đối kháng chung; log và cấu hình"],
+          ["Học máy mở rộng", "CNN; TD; hai hướng mạng kết hợp cây", "Qua mốc khả thi; có dữ liệu và minh chứng"]
+        ]}}
+      ]
+    },
+    {
+      "title": "KHẢO SÁT ĐỀ TÀI VÀ CƠ SỞ LỰA CHỌN",
+      "sections": [
+        {"title": "Phương pháp khảo sát", "paragraphs": [
+          "Khảo sát được thực hiện qua bài báo gốc, tài liệu chính thức của thư viện và tài liệu đặc tả đề tài. Nhóm ghi lại bài toán mà từng phương pháp giải quyết, dữ liệu cần dùng, chi phí tính toán, khả năng giải thích và điều kiện áp dụng. Các nhận xét trong giai đoạn này là cơ sở thiết kế, chưa phải kết quả đối kháng của hệ thống.",
+          "Nhóm kiểm kê mã nguồn và tài nguyên hiện có để xác định phần có thể kế thừa. Bản mẫu trong thư mục dự án có cấu trúc backend FastAPI, frontend React và tài nguyên quân cờ. Cần kiểm tra lại tính đúng luật, đồng bộ giao diện và hoạt ảnh trước khi dùng làm nền cho thí nghiệm."
+        ]},
+        {"title": "Các hướng thuật toán liên quan", "paragraphs": [
+          "Random chọn đều một nước trong danh sách hợp lệ, không cần dữ liệu huấn luyện. Rule-based ưu tiên nước chiếu hết, ăn quân có lợi và cải thiện vị trí theo luật chấm điểm đã công bố. Hai phương pháp này tạo đường cơ sở để kiểm tra tính đúng đắn và đánh giá lợi ích của thuật toán phức tạp hơn.",
+          "Minimax xem hai bên lần lượt tối ưu mục tiêu đối nghịch. Alpha-beta loại các nhánh không ảnh hưởng đến quyết định trong cấu hình tìm kiếm tương ứng; hiệu quả phụ thuộc vào thứ tự xét nước. Đề tài khảo sát sắp xếp nước ăn quân theo MVV-LVA và tìm kiếm sâu dần để kiểm soát thời gian. Hàm đánh giá kết hợp vật chất và vị trí quân [1].",
+          "MCTS tích lũy kết quả từ các lần mô phỏng. UCT cân bằng việc khai thác nhánh đã có điểm tốt và khám phá nhánh ít được thăm [2]. Với cờ vua, mô phỏng ngắn có thể bỏ sót đòn chiến thuật, vì vậy nhóm cần kiểm tra số mô phỏng và chính sách kết thúc rollout thay vì mặc định MCTS mạnh hơn Alpha-beta.",
+          "Mạng học có giám sát học lựa chọn nước đi và đánh giá thế cờ từ dữ liệu tự sinh. Học tăng cường tiếp tục điều chỉnh qua tự chơi. AlphaZero kết hợp mạng chính sách–giá trị với tìm kiếm cây [3]; đề tài chỉ nghiên cứu nguyên lý và phiên bản nhỏ phù hợp tài nguyên của nhóm. TD học giá trị trạng thái và DQN học Q theo trạng thái–hành động là hai cách mô hình hóa khác nhau [4]."
+        ]},
+        {"title": "So sánh và quyết định lựa chọn", "paragraphs": [
+          "Các hướng được so sánh theo cùng các tiêu chí để xác định thứ tự triển khai. Bảng dưới thể hiện nhận định thiết kế, không biểu diễn thứ hạng sức mạnh đã được đo."
+        ], "table": {"caption": "Bảng 2.1 So sánh các hướng tiếp cận", "widths": [19,24,30,27], "headers": ["Hướng", "Dữ liệu", "Ưu điểm", "Vấn đề cần kiểm tra"], "rows": [
+          ["Random", "Không cần huấn luyện", "Đơn giản; tái lập bằng seed", "Chất lượng nước đi thấp"],
+          ["Rule-based", "Bộ quy tắc và trọng số", "Dễ giải thích quyết định", "Thiếu nhìn trước dài hạn"],
+          ["Alpha-beta", "Hàm đánh giá; bộ thế cờ", "Phù hợp tìm kiếm chiến thuật", "Chi phí tăng theo độ sâu"],
+          ["MCTS và UCT", "Mô phỏng ván; hàm đánh giá lá", "Điều chỉnh được số mô phỏng", "Nhạy với rollout và thời gian"],
+          ["CNN và TD", "Ván tự sinh; nhãn; checkpoint", "Học đặc trưng từ dữ liệu", "Rò rỉ dữ liệu; sai lệch nhãn"],
+          ["Mạng kết hợp PUCT", "Chính sách; giá trị; tự chơi", "Hướng dẫn phân bổ tìm kiếm", "Tốn tài nguyên; khó kiểm chứng"]
+        ]}},
+        {"title": "Khoảng trống và câu hỏi nghiên cứu", "paragraphs": [
+          "RQ1: Trong cùng giới hạn 100 ms cho một lượt lựa chọn, Alpha-beta và MCTS khác nhau thế nào về điểm đối kháng, độ trễ và tài nguyên sử dụng? RQ2: Alpha-beta và MVV-LVA giảm bao nhiêu nút so với Minimax ở cùng độ sâu và cùng tập thế cờ?",
+          "RQ3: Khi dùng cùng mạng và tập đánh giá, tìm kiếm được hướng dẫn bởi chính sách–giá trị có cải thiện điểm đối kháng so với chỉ dùng mạng hay không? Nhóm chỉ đưa ra câu trả lời trong phạm vi ngân sách, tập mở đầu và số ván thực tế đã chạy."
+        ]}
+      ]
+    },
+    {
+      "title": "XÁC ĐỊNH BÀI TOÁN VÀ DỮ LIỆU",
+      "sections": [
+        {"title": "Phát biểu bài toán", "paragraphs": [
+          "Đầu vào của tác tử là trạng thái cờ hợp lệ, bên đến lượt, lịch sử cần thiết để xác định hòa và giới hạn tính toán. Đầu ra là đúng một nước đi UCI thuộc tập hợp lệ cùng thông tin đo như thời gian, số nút hoặc số mô phỏng. Nếu ván đã kết thúc, tác tử trả trạng thái kết thúc thay vì sinh nước đi.",
+          "Mục tiêu đối kháng là tối đa hóa kết quả của bên mà tác tử điều khiển. Quy ước đánh giá toàn cục: Trắng thắng nhận +1, hòa nhận 0, Đen thắng nhận −1. Khi mạng hoặc cây dùng giá trị theo bên đến lượt, mã nguồn phải chuyển dấu nhất quán sau mỗi ply. Một ply là một lượt đi của một bên, khác với một cặp nước Trắng–Đen."
+        ]},
+        {"title": "Trạng thái hành động và điều kiện kết thúc", "paragraphs": [
+          "Trạng thái đầy đủ được lưu bằng FEN kèm lịch sử nước đi. FEN mô tả vị trí quân, bên đến lượt, quyền nhập thành, ô bắt tốt qua đường và bộ đếm liên quan; riêng kiểm tra lặp lại cần lịch sử. Khi clone môi trường, nhóm giữ ngăn xếp nước đi để không làm sai điều kiện hòa. python-chess được sử dụng cho sinh nước hợp lệ và xử lý luật, còn nhóm tự xây dựng lớp môi trường và các tác tử [5].",
+          "Hành động biểu diễn theo UCI, ví dụ e2e4 hoặc e7e8q. Môi trường xác nhận nước đi trước khi cập nhật. Các trường hợp nhập thành, bắt tốt qua đường, phong cấp, chiếu hết, hết nước hợp lệ và hòa cần có ca kiểm tra riêng. Trong cờ vua, vua không bị bắt; ứng dụng kết thúc bằng chiếu hết hoặc điều kiện kết thúc khác. Hiệu ứng defeat của vua chỉ minh họa kết quả ván.",
+          "Trong thí nghiệm rút gọn, đề xuất giới hạn 80 ply theo đặc tả [6]. Nếu chưa kết thúc tự nhiên, hệ thống phân xử bằng chênh lệch vật chất: từ +300 centipawn cho Trắng, từ −300 cho Đen, còn lại hòa; không tính vua vào chênh lệch. Đây là quy ước riêng của thí nghiệm. Log phải phân biệt kết thúc đúng luật với kết quả phân xử và có phép kiểm tra độ nhạy khi thay ngưỡng hoặc giới hạn ply."
+        ]},
+        {"title": "Nguồn dữ liệu và biểu diễn", "paragraphs": [
+          "Dữ liệu phục vụ luật cờ gồm FEN và chuỗi nước đi cho các tình huống thông thường, đặc biệt và kết thúc ván. Dữ liệu đánh giá gồm bộ mở đầu dùng chung, 50 thế trung cuộc cho khảo sát tìm kiếm và các cấu hình seed. Nhóm lưu nguồn hoặc cách sinh của từng mẫu, kiểm tra FEN hợp lệ và phiên bản hóa bộ dữ liệu.",
+          "Dữ liệu học có giám sát dự kiến được tự sinh từ 800 ván Alpha-beta độ sâu 2 đối đầu Rule-based, có tỷ lệ khám phá ban đầu 15%. Mỗi bản ghi gồm game_id, ply, FEN, tập hành động hợp lệ, nước được chọn, kết quả và cấu hình sinh. Nhãn nước đi là lựa chọn của tác tử sinh dữ liệu, không được coi là nước tối ưu tuyệt đối.",
+          "Biểu diễn ban đầu dùng tensor 14 × 8 × 8: 12 kênh quân theo loại và màu, một kênh lượt đi và một kênh ply đã chuẩn hóa. Cách này chưa chứa toàn bộ quyền nhập thành, bắt tốt qua đường và lịch sử hòa. Môi trường vẫn dùng trạng thái đầy đủ để tạo mặt nạ nước hợp lệ; nhóm khảo sát bổ sung đặc trưng nếu mô hình học bị ảnh hưởng.",
+          "Tài nguyên ảnh nền và sprite được quản lý riêng với dữ liệu huấn luyện. Mỗi sprite cần có loại quân, màu, trạng thái, số khung hình, kích thước khung và tốc độ phát. Nhóm ghi lại nguồn sử dụng tài nguyên và quyền sử dụng trước khi đóng gói sản phẩm."
+        ]},
+        {"title": "Tiền xử lý chia tập và kiểm soát chất lượng", "paragraphs": [
+          "Dữ liệu 800 ván được chia theo game_id với tỷ lệ 70% huấn luyện, 15% xác thực và 15% kiểm tra, tương ứng mục tiêu 560, 120 và 120 ván. Không chia ngẫu nhiên từng thế cờ vì các thế liên tiếp của cùng ván có quan hệ rất gần. Các vị trí trùng giữa các tập cần được phát hiện và xử lý theo chính sách đã ghi lại.",
+          "Nhóm kiểm tra nước đi có thuộc tập hợp lệ, nhãn kết quả có khớp lịch sử và dữ liệu có thiếu trường hay không. Chỉ dùng tập xác thực để chọn cấu hình và checkpoint; giữ tập kiểm tra đến bước đánh giá cuối. Các ván tự chơi bổ sung phải được gắn phiên bản, không nhập nhầm vào tập đối kháng cuối kỳ."
+        ]}
+      ]
+    },
+    {
+      "title": "ĐỘ ĐO VÀ THIẾT KẾ THỰC NGHIỆM",
+      "sections": [
+        {"title": "Hệ thống độ đo", "paragraphs": [
+          "Nhóm sử dụng đồng thời độ đo chất lượng chơi, chi phí tính toán, chất lượng mô hình và chất lượng ứng dụng. Mục tiêu là xác định lợi ích và chi phí của từng phương pháp trong điều kiện đã công bố; không dùng cảm nhận từ vài ván chơi để khẳng định một tác tử mạnh hơn."
+        ], "table": {"caption": "Bảng 4.1 Độ đo và cách thu thập", "widths": [24,43,33], "headers": ["Nhóm độ đo", "Cách xác định", "Ý nghĩa"], "rows": [
+          ["Kết quả đối kháng", "Số thắng W, hòa D, thua L; N = W + D + L", "Giữ nguyên ba loại kết quả"],
+          ["Điểm đối kháng", "Score = (W + 0,5 × D) / N", "Tính cả giá trị của hòa"],
+          ["Độ trễ", "Trung bình, trung vị, p95; tỷ lệ vượt hạn", "Khả năng đáp ứng mỗi nước"],
+          ["Chi phí tìm kiếm", "Số nút, số mô phỏng; RAM/VRAM đỉnh", "Hiệu quả sử dụng tài nguyên"],
+          ["Mô hình học", "Accuracy chọn nước hợp lệ; loss policy/value", "Chất lượng trên tập giữ lại"],
+          ["Tính đúng chức năng", "Tỷ lệ ca kiểm thử đạt; lỗi nước bất hợp lệ", "Độ tin cậy luật và API"],
+          ["Trải nghiệm chơi", "Tỷ lệ hoàn thành thao tác; lỗi hoạt ảnh; FPS", "Độ rõ ràng và mượt giao diện"]
+        ]}},
+        {"title": "Thiết lập so sánh công bằng", "paragraphs": [
+          "Mỗi cặp tác tử dùng cùng bộ mở đầu và đổi màu theo từng cặp ván. Đề xuất 10 chuỗi mở đầu cố định, kết hợp nhiều seed cho các tác tử có ngẫu nhiên; tập này tách với nguồn sinh dữ liệu học. Lưu cấu hình CPU, GPU nếu có, RAM, hệ điều hành, phiên bản thư viện và chế độ chạy.",
+          "Thí nghiệm cùng ngân sách đặt mục tiêu 100 ms cho mỗi quyết định, tính cả mã hóa trạng thái và suy luận mô hình, không tính thời gian hoạt ảnh. Giới hạn thời gian phải có điểm kiểm tra trong vòng tìm kiếm; nếu vượt hạn, ghi riêng số lần và mức vượt. Một thí nghiệm khác dùng cấu hình mặc định của từng tác tử được báo cáo riêng.",
+          "Với mỗi cặp trọng tâm, dự kiến 100–200 ván, cân bằng màu. Bước chạy thử dùng 20 ván mỗi cặp để kiểm tra lỗi và ước lượng thời gian. Nếu chạy đủ tám tác tử, có 28 cặp; 200 ván mỗi cặp tương ứng 5.600 ván. Với trần 80 ply và 100 ms mỗi quyết định, riêng thời gian quyết định tuần tự có thể tới khoảng 12,4 giờ, chưa tính chi phí khác. Nhóm cần đo pilot trước khi chốt số ván."
+        ]},
+        {"title": "Các thí nghiệm thành phần", "paragraphs": [
+          "Thí nghiệm 1 so sánh Minimax, Alpha-beta và Alpha-beta có MVV-LVA trên 50 thế trung cuộc ở độ sâu 2, 3 và 4. Dùng cùng hàm đánh giá, cùng quy tắc xử lý hòa và kiểm tra điểm trả về nhất quán. Báo cáo số nút, thời gian và tỷ lệ giảm nút; lượt bị ngắt do hết thời gian được ghi riêng.",
+          "Thí nghiệm 2 khảo sát MCTS với 25, 50, 100 và 200 mô phỏng. So sánh rollout ngẫu nhiên với rollout ngắn 8 ply có ưu tiên ăn quân, rồi đánh giá lá. Nhóm kiểm tra dấu giá trị khi lan truyền ngược để tránh cây chọn nước có lợi cho đối thủ.",
+          "Thí nghiệm 3 dành cho giai đoạn học máy: so sánh mạng chọn nước trực tiếp, MCTS cơ bản và cây có prior/giá trị học được trên cùng bộ đối kháng. Với tự chơi, so sánh checkpoint mới và checkpoint đang giữ bằng đấu đổi màu; chỉ thay mô hình tốt nhất theo tiêu chí đã chốt trước khi chạy."
+        ]},
+        {"title": "Xử lý kết quả và giới hạn kết luận", "paragraphs": [
+          "Mỗi nước ghi agent_id, phiên bản mã nguồn, seed, FEN trước nước, UCI, thời gian, số nút hoặc mô phỏng, điểm đánh giá và trạng thái quá hạn. Mỗi ván ghi kết quả, nguyên nhân kết thúc, giới hạn ply và đường dẫn PGN. Dữ liệu thô được giữ để có thể tính lại bảng kết quả.",
+          "Đối với Score có hòa, đề xuất khoảng tin cậy 95% bằng bootstrap theo cụm cặp ván cùng mở đầu, seed và đổi màu. Không xem các nước trong cùng ván là mẫu đối kháng độc lập. Tách kết quả tự nhiên khỏi kết quả phân xử ở trần ply; nếu số mẫu nhỏ hoặc khoảng tin cậy rộng, kết luận cần nêu rõ chưa đủ bằng chứng."
+        ]}
+      ]
+    },
+    {
+      "title": "THIẾT KẾ HỆ THỐNG VÀ PHƯƠNG ÁN TRIỂN KHAI",
+      "sections": [
+        {"title": "Kiến trúc tổng thể", "paragraphs": [
+          "Hệ thống được tổ chức thành giao diện React, dịch vụ FastAPI, môi trường cờ, tập tác tử và bộ lưu trữ/thực nghiệm. Frontend gửi yêu cầu thao tác; backend kiểm tra lượt và nước hợp lệ, cập nhật trạng thái rồi trả dữ liệu ván cùng sự kiện cần hiển thị. Backend là nguồn xác nhận trạng thái ván.",
+          "Node.js dùng cho công cụ phát triển và đóng gói frontend React. FastAPI là backend nghiệp vụ. Các tác vụ tìm kiếm nặng cần được tách khỏi luồng xử lý bất đồng bộ chính bằng worker phù hợp; không để một lượt AI làm treo mọi yêu cầu giao diện."
+        ], "table": {"caption": "Bảng 5.1 Các mô đun và giao tiếp", "widths": [25,43,32], "headers": ["Mô đun", "Trách nhiệm", "Dữ liệu giao tiếp"], "rows": [
+          ["Frontend React", "Bàn cờ; nút bấm; hoạt ảnh; cài đặt", "JSON trạng thái và sự kiện"],
+          ["API FastAPI", "Tạo ván; kiểm tra yêu cầu; điều phối lượt", "game_id; revision; UCI"],
+          ["ChessEnv", "Luật; lịch sử; clone; mã hóa trạng thái", "FEN; legal_actions; result"],
+          ["Agent", "Lựa chọn nước đi theo cấu hình", "UCI và telemetry"],
+          ["Lưu trữ", "Ván chơi; cấu hình; lịch sử; checkpoint", "SQLite; PGN; JSON/CSV"],
+          ["Bộ thực nghiệm", "Chạy đối kháng; tổng hợp và xuất số đo", "Seed; manifest; kết quả thô"]
+        ]}},
+        {"title": "Thiết kế môi trường và tác tử", "paragraphs": [
+          "ChessEnv cung cấp reset, legal_actions, step, is_terminal, result, clone/undo, encode_tensor và render_json. Các tác tử dùng chung select_action(env, time_limit_ms) và trả nước UCI kèm telemetry. Môi trường dùng cho API và môi trường dùng cho đối kháng phải có cùng logic luật, tránh hai bản triển khai cho kết quả khác nhau.",
+          "Danh mục tám tác tử dự kiến gồm RandomAgent, RuleBasedAgent, AlphaBetaAgent, MCTSAgent, SupervisedNNAgent, TDValueAgent, AlphaGoInspiredAgent và AlphaZeroInspiredAgent. Hướng AlphaGo-inspired kết hợp prior, giá trị mạng và rollout ngắn; hướng AlphaZero-inspired dùng PUCT, đánh giá lá bằng mạng và vòng lặp tự chơi, không dùng rollout. Đây là hai hướng thử nghiệm thu nhỏ, có thể dùng chung cấu trúc cây.",
+          "Mức Dễ luôn ánh xạ tới RandomAgent như yêu cầu. Các nhãn Bình thường, Khó và Ác mộng được ánh xạ qua cấu hình có phiên bản; có thể sử dụng heuristic, Alpha-beta và cấu hình tìm kiếm cao hơn. Nhóm không đồng nhất bốn nhãn giao diện với tám tác tử nghiên cứu và không khẳng định độ khó tăng dần khi chưa đo.",
+          "Với CNN, đầu chính sách chấm điểm các nước hợp lệ và đầu giá trị dự báo kết quả. Nếu dùng hai đầu from/to, phải bổ sung cách phân biệt phong cấp vì nhiều nước có cùng ô đi–đến nhưng quân phong cấp khác nhau. Giai đoạn học tăng cường ưu tiên TD(0) học giá trị trạng thái; chỉ gọi phương pháp là DQN khi có Q(s,a), mục tiêu TD và kiến trúc hành động phù hợp."
+        ]},
+        {"title": "Luồng chơi và hoạt ảnh", "paragraphs": [
+          "Người chơi chọn quân và ô đích, frontend gửi UCI cùng phiên bản trạng thái. Backend trả trạng thái đã xác nhận và thông tin di chuyển, quân bị ăn, nhập thành hoặc phong cấp. Frontend khóa thao tác gửi nước tiếp theo trong lúc chờ, sau đó chạy hoạt ảnh theo hàng đợi và đồng bộ trạng thái cuối.",
+          "Hoạt ảnh có các trạng thái idle, move, attack và die/defeat với manifest thống nhất cho từng loại quân và màu. Nước thường phát move trong khi quân đi từ ô nguồn đến ô đích. Nước ăn quân thể hiện tiếp cận, đòn đánh, tác động lên quân bị ăn rồi mới loại quân đó. Bắt tốt qua đường dùng đúng ô quân bị bắt; nhập thành có chuyển động của cả vua và xe.",
+          "Tài nguyên thiếu được xử lý bằng khung đứng yên cùng hiệu ứng dịch chuyển đơn giản. Khi lỗi mạng, tải lại ván hoặc người dùng chọn giảm chuyển động, giao diện vẫn phản ánh đúng trạng thái do server xác nhận. Cần kiểm tra đủ 12 tổ hợp loại quân–màu, tránh ghép nhầm khung ảnh vào chuỗi chuyển động."
+        ]}
+      ]
+    },
+    {
+      "title": "PHÂN CÔNG CÔNG VIỆC CHO BỐN THÀNH VIÊN",
+      "sections": [
+        {"title": "Nguyên tắc phân công và phối hợp", "paragraphs": [
+          "Nhóm phân công theo bốn mảng: môi trường và backend; thuật toán tìm kiếm; dữ liệu và mô hình học; frontend và tổng hợp thực nghiệm. Mỗi gói việc có người chủ trì, người phối hợp, sản phẩm và điều kiện nghiệm thu. Thành viên chủ trì chịu trách nhiệm tích hợp và giải trình; người kiểm tra chéo xác nhận trước khi đóng việc.",
+          "Tỷ lệ đóng góp dự kiến là 25% cho mỗi thành viên, dùng làm cơ sở cân đối kế hoạch, không thay thế đánh giá đóng góp thực tế. Nhóm cập nhật giờ làm, sản phẩm và phần hỗ trợ hằng tuần. Khi khối lượng học máy tăng, Thành viên 2 phụ trách phần cây PUCT, Thành viên 1 hỗ trợ pipeline/log, Thành viên 4 hỗ trợ chạy và phân tích kết quả."
+        ]},
+        {"title": "Thành viên 1 phụ trách môi trường và backend", "paragraphs": [
+          "Họ tên: ..................................................    Mã số sinh viên: ..........................",
+          "Thành viên 1 điều phối tích hợp, quản lý giao diện dữ liệu giữa các mảng và bảo đảm trạng thái ván thống nhất. Phần điều phối gồm theo dõi mốc và tổng hợp trở ngại; mỗi thành viên vẫn tự viết nội dung chuyên môn của mình."
+        ], "table": {"caption": "Bảng 6.1 Công việc của Thành viên 1", "widths": [13,42,29,16], "headers": ["Mã", "Công việc và thời gian", "Sản phẩm cần bàn giao", "Kiểm tra"], "rows": [
+          ["CV01", "Tuần 1–2: chuẩn hóa ChessEnv, FEN/UCI và lịch sử hòa", "Môi trường; bộ ca kiểm tra luật", "TV2"],
+          ["CV02", "Tuần 2–3: API tạo ván, đi quân, lượt AI, hoàn tác và trạng thái", "API; schema; tài liệu gọi API", "TV4"],
+          ["CV03", "Tuần 3–5: giao diện Agent; Random; log và lưu ván", "RandomAgent có seed; PGN/CSV mẫu", "TV2"],
+          ["CV04", "Tuần 5–7: tích hợp tác tử; hỗ trợ pipeline và xử lý lỗi", "Bản tích hợp; log lỗi đã xử lý", "TV3"],
+          ["CV05", "Tuần 8: hướng dẫn chạy và tổng hợp kiến trúc", "Chương thiết kế; bộ cài/chạy thử", "TV4"]
+        ]}},
+        {"title": "Thành viên 2 phụ trách tìm kiếm và cây quyết định", "paragraphs": [
+          "Họ tên: ..................................................    Mã số sinh viên: ..........................",
+          "Thành viên 2 chịu trách nhiệm các tác tử truyền thống và cấu trúc cây của hướng mở rộng. Hàm đánh giá, quy tắc sắp xếp nước và giới hạn thời gian cần được ghi rõ để các phép so sánh có thể lặp lại."
+        ], "table": {"caption": "Bảng 6.2 Công việc của Thành viên 2", "widths": [13,42,29,16], "headers": ["Mã", "Công việc và thời gian", "Sản phẩm cần bàn giao", "Kiểm tra"], "rows": [
+          ["CV06", "Tuần 1–3: Rule-based, Minimax, Alpha-beta và MVV-LVA", "Tác tử; cấu hình; mô tả thuật toán", "TV1"],
+          ["CV07", "Tuần 3–4: MCTS/UCT, rollout và kiểm tra lan truyền giá trị", "MCTSAgent; ca kiểm tra dấu", "TV3"],
+          ["CV08", "Tuần 4–6: cây có prior và PUCT, phối hợp mạng của TV3", "Mô đun cây; giao diện policy/value", "TV3"],
+          ["CV09", "Tuần 6–7: ablation tìm kiếm trên bộ 50 thế", "CSV nút/thời gian; phân tích RQ2", "TV4"],
+          ["CV10", "Tuần 8: hoàn thiện tài liệu và phần trình bày tìm kiếm", "Chương thuật toán; demo tác tử", "TV1"]
+        ]}, "afterparagraphs": ["Điều kiện bàn giao của mảng tìm kiếm: các tác tử trả nước hợp lệ, tôn trọng giới hạn đã đặt và ghi đủ số nút hoặc mô phỏng. Minimax và Alpha-beta phải cho điểm nhất quán khi tìm hết cùng độ sâu; các lượt hết thời gian được đánh dấu. Thành viên 2 cung cấp cấu hình cố định để Thành viên 4 chạy đối kháng và kiểm tra lại."]},
+        {"title": "Thành viên 3 phụ trách dữ liệu và mô hình học", "paragraphs": [
+          "Họ tên: ..................................................    Mã số sinh viên: ..........................",
+          "Thành viên 3 thiết kế dữ liệu, huấn luyện CNN và thử nghiệm TD, đồng thời cung cấp policy/value cho cây do Thành viên 2 xây dựng. Không giao toàn bộ học tăng cường, PUCT và chạy đối kháng cho một người."
+        ], "table": {"caption": "Bảng 6.3 Công việc của Thành viên 3", "widths": [13,42,29,16], "headers": ["Mã", "Công việc và thời gian", "Sản phẩm cần bàn giao", "Kiểm tra"], "rows": [
+          ["CV11", "Tuần 1–3: schema dữ liệu; encoder; bộ sinh và chia tập", "Data manifest; split theo ván; kiểm tra trùng", "TV1"],
+          ["CV12", "Tuần 3–5: CNN chính sách–giá trị; xử lý phong cấp", "Mã huấn luyện; checkpoint; log loss", "TV2"],
+          ["CV13", "Tuần 5–6: TD(0) tự chơi quy mô thử; giới hạn tài nguyên", "Tác tử TD; seed; nhật ký huấn luyện", "TV1"],
+          ["CV14", "Tuần 6–7: ghép mạng vào cây; đánh giá checkpoint", "Log đối kháng; phân tích RQ3", "TV2"],
+          ["CV15", "Tuần 8: phân tích dữ liệu và giới hạn mô hình", "Chương dữ liệu/học máy; model card", "TV4"]
+        ]}, "afterparagraphs": ["Điều kiện bàn giao của mảng học máy: dữ liệu có nguồn sinh và split theo ván; checkpoint kèm cấu hình, seed và nhật ký huấn luyện. Mô hình phải chấm điểm được nước phong cấp và che nước bất hợp lệ. Thành viên 3 bàn giao hàm suy luận cho Thành viên 2 và kết quả trên tập giữ lại cho Thành viên 4."]},
+        {"title": "Thành viên 4 phụ trách frontend và báo cáo thực nghiệm", "paragraphs": [
+          "Họ tên: ..................................................    Mã số sinh viên: ..........................",
+          "Thành viên 4 hoàn thiện trải nghiệm chơi và tổng hợp kết quả từ log chuẩn hóa do các thành viên cùng cung cấp. Mỗi người tự chạy kiểm tra mô đun của mình; Thành viên 4 không chịu trách nhiệm thay cho việc kiểm thử toàn bộ thuật toán."
+        ], "table": {"caption": "Bảng 6.4 Công việc của Thành viên 4", "widths": [13,42,29,16], "headers": ["Mã", "Công việc và thời gian", "Sản phẩm cần bàn giao", "Kiểm tra"], "rows": [
+          ["CV16", "Tuần 1–3: màn hình game, bàn cờ, nút và kết nối API", "Giao diện React; chọn 4 độ khó", "TV1"],
+          ["CV17", "Tuần 3–5: chuẩn hóa sprite; idle/move/attack/die", "Manifest; hoạt ảnh 12 tổ hợp quân–màu", "TV1"],
+          ["CV18", "Tuần 5–6: biểu mẫu đo; bộ tổng hợp và biểu đồ đơn sắc", "Script thống kê; mẫu bảng kết quả", "TV3"],
+          ["CV19", "Tuần 6–7: đối kháng cùng TV1–3; kiểm thử người dùng", "Log tổng; danh sách lỗi; phân tích RQ1", "TV2"],
+          ["CV20", "Tuần 8: biên tập Word, slide và kịch bản trình bày", "Báo cáo; slide; bộ hồ sơ nộp", "TV1–3"]
+        ]}},
+        {"title": "Quy trình bàn giao và kiểm tra chéo", "paragraphs": [
+          "Một công việc được coi là hoàn thành khi có tệp sản phẩm, hướng dẫn chạy hoặc đọc, bằng chứng kiểm tra và xác nhận của người kiểm tra. Thuật toán phải dùng đúng giao diện chung và trả nước hợp lệ; dữ liệu có manifest và split; giao diện chạy được luồng tương ứng; nội dung báo cáo phải truy ngược được đến mã nguồn hoặc log.",
+          "Nhóm họp ngắn mỗi tuần một lần, cập nhật ba nội dung: việc đã bàn giao, trở ngại và việc tuần tới. Mọi thay đổi ảnh hưởng đến schema, quy ước dấu, điều kiện hòa hoặc cấu hình thực nghiệm phải được thông báo cho các thành viên liên quan trước khi tích hợp."
+        ]}
+      ]
+    },
+    {
+      "title": "TIẾN ĐỘ TRIỂN KHAI VÀ ĐIỀU KIỆN HOÀN THÀNH",
+      "sections": [
+        {"title": "Kế hoạch tám tuần", "paragraphs": [
+          "Tiến độ sử dụng tuần tương đối tính từ ngày nhóm bắt đầu triển khai chính thức. Nhóm điền ngày thực tế sau khi có lịch học phần. Các mốc ưu tiên chạy được hệ thống cơ bản trước, sau đó mới mở rộng mô hình và tăng số lượng thí nghiệm."
+        ], "table": {"caption": "Bảng 7.1 Kế hoạch triển khai theo tuần", "widths": [10,42,28,20], "headers": ["Tuần", "Nội dung trọng tâm", "Mốc bàn giao", "Chủ trì"], "rows": [
+          ["1", "Khảo sát; yêu cầu; kiểm kê mã nguồn và ảnh; thống nhất schema", "Kế hoạch được rà soát; danh mục nguồn", "Cả nhóm"],
+          ["2", "Môi trường luật; API; Random; giao diện bàn cờ", "M1: Chơi được mức Dễ với nước hợp lệ", "TV1, TV4"],
+          ["3", "Rule-based; Alpha-beta; dữ liệu pilot; hoạt ảnh", "M2: Luồng chơi hoàn chỉnh; tác tử nền", "TV2, TV4"],
+          ["4", "MCTS; encoder; chia tập; đo thời gian và tài nguyên", "M3: Pilot; chốt phạm vi phần học máy", "TV2, TV3"],
+          ["5", "CNN; hoàn thiện sprite; cây có prior; sửa lỗi tích hợp", "M4: Checkpoint và dữ liệu có phiên bản", "TV3, TV2"],
+          ["6", "TD tự chơi; tích hợp PUCT; bộ chạy đối kháng", "M5: Đóng băng cấu hình so sánh", "TV1–3"],
+          ["7", "Đối kháng chính; ablation; phân tích và kiểm thử giao diện", "M6: Dữ liệu thô và bảng kết quả", "Cả nhóm"],
+          ["8", "Viết; kiểm chứng; đóng gói; chạy lại demo và bảo vệ", "M7: Bộ hồ sơ nộp hoàn chỉnh", "Cả nhóm"]
+        ]}},
+        {"title": "Phụ thuộc và mốc điều chỉnh", "paragraphs": [
+          "API và frontend cùng phụ thuộc vào schema trạng thái ở tuần 1. Sinh dữ liệu phụ thuộc vào môi trường đã kiểm tra và tác tử nguồn ổn định. Huấn luyện phụ thuộc vào split đã đóng băng; PUCT phụ thuộc vào giao diện policy/value; đối kháng chính phụ thuộc vào tất cả tác tử tham gia đã vượt kiểm tra nước hợp lệ và giới hạn thời gian.",
+          "Cuối tuần 4, nhóm dùng số đo pilot để xác định phần học máy khả thi. CNN có giám sát là bước đầu; tiếp theo thử TD, ghép mạng vào cây và tối đa ba chu kỳ tự chơi–huấn luyện–đấu kiểm tra cho hướng AlphaZero-inspired nếu tài nguyên cho phép. Mục tiêu 1.500 tập tự chơi chỉ được chốt sau khi đo thời gian mỗi tập. Nếu phải giảm phạm vi, nhóm nêu rõ với giảng viên và ưu tiên chất lượng phần cốt lõi."
+        ]},
+        {"title": "Rủi ro và phương án xử lý", "table": {"caption": "Bảng 7.2 Rủi ro triển khai", "widths": [29,43,28], "headers": ["Rủi ro", "Biện pháp xử lý", "Theo dõi"], "rows": [
+          ["Huấn luyện hoặc đối kháng quá lâu", "Chạy pilot; giảm cấu hình theo kế hoạch; lưu checkpoint", "TV3; đánh giá tuần 4"],
+          ["Luật đặc biệt hoặc hòa bị sai", "Kiểm tra FEN và lịch sử; so với python-chess", "TV1; trước tích hợp"],
+          ["Nhầm dấu giá trị trong tìm kiếm", "Thế cờ thắng/thua đơn giản; kiểm tra đổi lượt", "TV2; trước đối kháng"],
+          ["Trùng dữ liệu hoặc nhãn lỗi", "Split theo ván; kiểm tra trùng; giữ test độc lập", "TV3; mỗi bản dữ liệu"],
+          ["Sprite sai hoặc lệch trạng thái", "Manifest; kiểm tra từng quân/màu; fallback ảnh", "TV4; mỗi lần đổi ảnh"],
+          ["Công việc dồn vào một người", "Rà soát giờ làm; chia việc cây, mạng và chạy đo", "Cả nhóm; hằng tuần"],
+          ["Thiếu minh chứng khi viết báo cáo", "Lưu log, seed, cấu hình và kết quả từ đầu", "Cả nhóm; mỗi mốc"]
+        ]}},
+        {"title": "Tiêu chí nghiệm thu và hồ sơ nộp", "paragraphs": [
+          "Về chức năng, các ca luật và API đã thống nhất phải đạt, tác tử không trả nước bất hợp lệ trong bộ kiểm tra, mức Dễ dùng Random và các thao tác cơ bản hoạt động. Hoạt ảnh phải thể hiện đúng loại quân, màu và sự kiện; trạng thái cuối khớp backend. Các lỗi ngăn hoàn thành ván hoặc làm sai luật phải được xử lý trước khi bàn giao.",
+          "Về nghiên cứu, nhóm nộp danh sách tác tử thực tế hoàn thành, cấu hình chạy, dữ liệu thô, bảng thắng–hòa–thua, Score, độ trễ và các ablation đã thực hiện. Mỗi bảng kết quả phải có số mẫu, nguyên nhân kết thúc và mô tả ngân sách. Hướng mở rộng chưa đủ điều kiện cần được trình bày như công việc tiếp theo.",
+          "Hồ sơ gồm: báo cáo Word có trang bìa và mục lục; bản phân công bốn thành viên; mã nguồn và tệp phụ thuộc; hướng dẫn cài đặt/chạy; dữ liệu và manifest; cấu hình thực nghiệm; mô hình nếu có; log, PGN và bảng phân tích; slide và kịch bản demo. Các thành viên cùng rà soát họ tên, mã số sinh viên và thông tin học phần trước khi nộp.",
+          "Kết quả dự kiến là một ứng dụng Cờ Vua sử dụng được và một quy trình đánh giá có thể tái lập. Giá trị của đề tài được thể hiện qua tính đúng đắn, cách tổ chức thực nghiệm và khả năng giải thích kết quả, kể cả khi một phương pháp nâng cao chưa cải thiện so với đường cơ sở."
+        ]}
+      ]
+    }
+  ],
+  "references": [
+    "[1] C. E. Shannon, Programming a Computer for Playing Chess, Philosophical Magazine, tập 41, số 314, tr. 256–275, 1950. Bản lưu bài gốc: https://www.computerhistory.org/chess/doc-431614f453dde/",
+    "[2] L. Kocsis và C. Szepesvári, Bandit Based Monte-Carlo Planning, Machine Learning ECML 2006, LNCS 4212, tr. 282–293, 2006. DOI: https://doi.org/10.1007/11871842_29",
+    "[3] D. Silver và cộng sự, Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm, arXiv:1712.01815, 2017. https://arxiv.org/abs/1712.01815",
+    "[4] V. Mnih và cộng sự, Human-level control through deep reinforcement learning, Nature, tập 518, tr. 529–533, 2015. DOI: https://doi.org/10.1038/nature14236",
+    "[5] python-chess, Core documentation. Tài liệu về Board, legal_moves, UCI, kết thúc ván và sao chép lịch sử. https://python-chess.readthedocs.io/en/latest/core.html. Truy cập ngày 02/11/2026.",
+    "[6] Tài liệu đặc tả đề tài do nhóm cung cấp, Báo Cáo Đề Tài Cờ Vua AI – TTNT Nâng Cao, PDF 5 trang, bản lưu trong thư mục dự án. Các chỉ tiêu số lượng dữ liệu và cấu hình trong tài liệu được dùng làm mục tiêu khởi đầu để khảo sát khả thi."
+  ]
+}

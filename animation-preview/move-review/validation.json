@@ -1,0 +1,223 @@
+{
+  "status": "passed",
+  "reviewedMoveSheets": 12,
+  "replacedSheets": 7,
+  "moveFilesIncludingAlias": 13,
+  "checkedMoveFrames": 48,
+  "preservedOtherPngFiles": 56,
+  "replacedFiles": [
+    "img/trắng/move_mã_trắng.png",
+    "img/trắng/move_tượng_trắng.png",
+    "img/trắng/move_tốt_trắng.png",
+    "img/trắng/move_xe_trắng.png",
+    "img/đen/move_mã_đen.png",
+    "img/đen/move_tượng_đen.png",
+    "img/đen/move_tốt_đen.png"
+  ],
+  "gif": {
+    "frames": 4,
+    "loop": 0,
+    "durationsMs": [
+      120,
+      120,
+      120,
+      120
+    ]
+  },
+  "animations": [
+    {
+      "file": "img/trắng/move_vua_trắng.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0764,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/move_hậu_trắng.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0509,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_vua_đen.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0526,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_hậu_đen.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0443,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_xe_đen.png",
+      "dimensions": [
+        1254,
+        320
+      ],
+      "solidAreaRatio": 1.0544,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": [
+        "img/đen/move_xe_den.png"
+      ]
+    },
+    {
+      "file": "img/trắng/move_mã_trắng.png",
+      "dimensions": [
+        1254,
+        320
+      ],
+      "solidAreaRatio": 1.0378,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/move_tượng_trắng.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0469,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/move_tốt_trắng.png",
+      "dimensions": [
+        1254,
+        333
+      ],
+      "solidAreaRatio": 1.017,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/move_xe_trắng.png",
+      "dimensions": [
+        1254,
+        318
+      ],
+      "solidAreaRatio": 1.0501,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_mã_đen.png",
+      "dimensions": [
+        1254,
+        320
+      ],
+      "solidAreaRatio": 1.0884,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_tượng_đen.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.06,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    },
+    {
+      "file": "img/đen/move_tốt_đen.png",
+      "dimensions": [
+        1254,
+        330
+      ],
+      "solidAreaRatio": 1.0365,
+      "edgePixelsAboveAlpha64": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fourDistinctFrames": true,
+      "aliases": []
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "status": "passed",
+  "checkedFiles": 20,
+  "animationSheets": 12,
+  "gif": {
+    "frames": 6,
+    "loop": 0,
+    "durationsMs": [
+      160,
+      160,
+      180,
+      230,
+      450,
+      300
+    ]
+  },
+  "animations": [
+    {
+      "file": "img/trắng/move_vua_trắng.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 24262.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25346.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 26273.0,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 23520.0,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/die_vua_trắng.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25529.9,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25054.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20603.2,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 42,
+          "alphaMass": 298.0,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/trắng/defeat_vua_trắng.png"
+      ]
+    },
+    {
+      "file": "img/trắng/move_hậu_trắng.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21777.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21286.9,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20693.8,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20670.5,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "file": "img/trắng/die_hậu_trắng.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 23928.8,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25528.5,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25275.1,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 42,
+          "alphaMass": 383.0,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/trắng/defeat_hậu_trắng.png"
+      ]
+    },
+    {
+      "file": "img/đen/move_vua_đen.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21484.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 22325.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 22099.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20881.1,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "file": "img/đen/die_vua_đen.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25310.9,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 28122.6,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 27332.2,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 41,
+          "alphaMass": 606.9,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/đen/defeat_vua_đen.png"
+      ]
+    },
+    {
+      "file": "img/đen/move_hậu_đen.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21540.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21416.6,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21367.6,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21027.5,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "file": "img/đen/die_hậu_đen.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 28808.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 26977.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25271.0,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 42,
+          "alphaMass": 315.5,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/đen/defeat_hậu_đen.png"
+      ]
+    },
+    {
+      "file": "img/trắng/die_tượng_trắng.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 18864.5,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20397.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21053.6,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 42,
+          "alphaMass": 190.9,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/trắng/defeat_tượng_trắng.png"
+      ]
+    },
+    {
+      "file": "img/đen/die_tượng_đen.png",
+      "size": [
+        1254,
+        330
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 20491.5,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21101.4,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 19317.7,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 43,
+          "alphaMass": 199.2,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/đen/defeat_tượng_đen.png"
+      ]
+    },
+    {
+      "file": "img/đen/move_xe_đen.png",
+      "size": [
+        1254,
+        320
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 25079.6,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 23906.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 24332.3,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 23921.2,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/đen/move_xe_den.png"
+      ]
+    },
+    {
+      "file": "img/trắng/die_tốt_trắng.png",
+      "size": [
+        1254,
+        333
+      ],
+      "frames": [
+        {
+          "maxAlpha": 255,
+          "alphaMass": 22280.2,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 22889.8,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 255,
+          "alphaMass": 21950.8,
+          "edgeAbove64": 0
+        },
+        {
+          "maxAlpha": 43,
+          "alphaMass": 101.1,
+          "edgeAbove64": 0
+        }
+      ],
+      "aliases": [
+        "img/trắng/defeat_tốt_trắng.png"
+      ]
+    }
+  ]
+}

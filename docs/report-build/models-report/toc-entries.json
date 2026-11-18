@@ -1,0 +1,157 @@
+[
+  {
+    "Title": "CH\u01AF\u01A0NG 1 PH\u1EA0M VI V\u00C0 C\u1EA4U TR\u00DAC B\u1ED8 M\u00C3",
+    "Bookmark": "ch1",
+    "Level": 0
+  },
+  {
+    "Title": "1.1 C\u00E1c th\u00E0nh ph\u1EA7n \u0111\u00E3 tri\u1EC3n khai",
+    "Bookmark": "s1_1",
+    "Level": 1
+  },
+  {
+    "Title": "1.2 T\u1ED5 ch\u1EE9c m\u00E3 ngu\u1ED3n",
+    "Bookmark": "s1_2",
+    "Level": 1
+  },
+  {
+    "Title": "1.3 Quy \u01B0\u1EDBc xuy\u00EAn su\u1ED1t ch\u01B0\u01A1ng tr\u00ECnh",
+    "Bookmark": "s1_3",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 2 M\u00C3 H\u00D3A TR\u1EA0NG TH\u00C1I V\u00C0 H\u00C0NH \u0110\u1ED8NG",
+    "Bookmark": "ch2",
+    "Level": 0
+  },
+  {
+    "Title": "2.1 Tensor \u0111\u1EA7u v\u00E0o hai m\u01B0\u01A1i k\u00EAnh",
+    "Bookmark": "s2_1",
+    "Level": 1
+  },
+  {
+    "Title": "2.2 M\u00E3 h\u00E0nh \u0111\u1ED9ng v\u00E0 phong c\u1EA5p",
+    "Bookmark": "s2_2",
+    "Level": 1
+  },
+  {
+    "Title": "2.3 M\u1EB7t n\u1EA1 v\u00E0 th\u00F4ng tin l\u1ECBch s\u1EED",
+    "Bookmark": "s2_3",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 3 C\u00C0I \u0110\u1EB6T C\u00C1C KI\u1EBEN TR\u00DAC M\u1EA0NG",
+    "Bookmark": "ch3",
+    "Level": 0
+  },
+  {
+    "Title": "3.1 C\u1EA5u h\u00ECnh v\u00E0 m\u00F4 h\u00ECnh MLP",
+    "Bookmark": "s3_1",
+    "Level": 1
+  },
+  {
+    "Title": "3.2 Th\u00E2n CNN v\u00E0 c\u00E1c \u0111\u1EA7u d\u1EF1 \u0111o\u00E1n",
+    "Bookmark": "s3_2",
+    "Level": 1
+  },
+  {
+    "Title": "3.3 Forward v\u00E0 l\u01B0u tr\u1ECDng s\u1ED1",
+    "Bookmark": "s3_3",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 4 SINH D\u1EEE LI\u1EC6U V\u00C0 HU\u1EA4N LUY\u1EC6N C\u00D3 GI\u00C1M S\u00C1T",
+    "Bookmark": "ch4",
+    "Level": 0
+  },
+  {
+    "Title": "4.1 Ngu\u1ED3n nh\u00E3n v\u00E0 c\u1EA5u tr\u00FAc m\u1EABu",
+    "Bookmark": "s4_1",
+    "Level": 1
+  },
+  {
+    "Title": "4.2 Chia t\u1EADp theo v\u00E1n v\u00E0 l\u1ECDc v\u1ECB tr\u00ED tr\u00F9ng",
+    "Bookmark": "s4_2",
+    "Level": 1
+  },
+  {
+    "Title": "4.3 H\u00E0m m\u1EA5t m\u00E1t v\u00E0 c\u1EADp nh\u1EADt tham s\u1ED1",
+    "Bookmark": "s4_3",
+    "Level": 1
+  },
+  {
+    "Title": "4.4 Ch\u1ECDn checkpoint v\u00E0 \u0111\u1ECDc c\u00E1c t\u1EC7p \u0111\u1EA7u ra",
+    "Bookmark": "s4_4",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 5 SUY LU\u1EACN V\u00C0 H\u1ECCC QUA T\u1EF0 CH\u01A0I",
+    "Bookmark": "ch5",
+    "Level": 0
+  },
+  {
+    "Title": "5.1 Ch\u1ECDn n\u01B0\u1EDBc b\u1EB1ng policy ho\u1EB7c value",
+    "Bookmark": "s5_1",
+    "Level": 1
+  },
+  {
+    "Title": "5.2 Alpha-beta s\u1EED d\u1EE5ng h\u00E0m \u0111\u00E1nh gi\u00E1 h\u1ECDc \u0111\u01B0\u1EE3c",
+    "Bookmark": "s5_2",
+    "Level": 1
+  },
+  {
+    "Title": "5.3 Tinh ch\u1EC9nh \u0111\u1EA7u gi\u00E1 tr\u1ECB b\u1EB1ng TD(0)",
+    "Bookmark": "s5_3",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 6 C\u00C0I \u0110\u1EB6T V\u00C0 CH\u1EA0Y CH\u01AF\u01A0NG TR\u00CCNH",
+    "Bookmark": "ch6",
+    "Level": 0
+  },
+  {
+    "Title": "6.1 Chu\u1EA9n b\u1ECB m\u00F4i tr\u01B0\u1EDDng CPU ho\u1EB7c CUDA",
+    "Bookmark": "s6_1",
+    "Level": 1
+  },
+  {
+    "Title": "6.2 Sinh d\u1EEF li\u1EC7u v\u00E0 hu\u1EA5n luy\u1EC7n hai ki\u1EBFn tr\u00FAc",
+    "Bookmark": "s6_2",
+    "Level": 1
+  },
+  {
+    "Title": "6.3 Ki\u1EC3m tra n\u01B0\u1EDBc \u0111i, t\u1EF1 ch\u01A1i v\u00E0 \u0111\u1ED1i kh\u00E1ng",
+    "Bookmark": "s6_3",
+    "Level": 1
+  },
+  {
+    "Title": "6.4 \u0110i\u1EC3m k\u1EBFt n\u1ED1i v\u1EDBi backend",
+    "Bookmark": "s6_4",
+    "Level": 1
+  },
+  {
+    "Title": "CH\u01AF\u01A0NG 7 KI\u1EC2M TH\u1EEC V\u00C0 \u0110\u1ECCC K\u1EBET QU\u1EA2",
+    "Bookmark": "ch7",
+    "Level": 0
+  },
+  {
+    "Title": "7.1 C\u00E1c ki\u1EC3m tra b\u1EAFt bu\u1ED9c tr\u01B0\u1EDBc th\u1EF1c nghi\u1EC7m",
+    "Bookmark": "s7_1",
+    "Level": 1
+  },
+  {
+    "Title": "7.2 K\u1EBFt qu\u1EA3 c\u1EE7a \u0111\u1EE3t ch\u1EA1y k\u1EF9 thu\u1EADt nh\u1ECF",
+    "Bookmark": "s7_2",
+    "Level": 1
+  },
+  {
+    "Title": "7.3 C\u00E1ch m\u1EDF r\u1ED9ng sau khi lu\u1ED3ng m\u00E3 \u1ED5n \u0111\u1ECBnh",
+    "Bookmark": "s7_3",
+    "Level": 1
+  },
+  {
+    "Title": "T\u00C0I LI\u1EC6U THAM KH\u1EA2O",
+    "Bookmark": "references",
+    "Level": 0
+  }
+]

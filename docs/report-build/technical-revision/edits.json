@@ -1,0 +1,104 @@
+{
+  "replacements": [
+    {
+      "starts_with": "Trạng thái ván đấu được lưu bằng FEN cùng lịch sử nước đi.",
+      "paragraphs": [
+        "Trạng thái ván đấu được lưu bằng FEN cùng lịch sử nước đi. FEN chứa bố trí quân, bên đến lượt, quyền nhập thành, ô bắt tốt qua đường và các bộ đếm. Hai bàn cờ có bố trí quân giống nhau vẫn có thể có tập nước hợp lệ khác nhau. Lịch sử trước gốc tìm kiếm được giữ để xác định hòa do lặp lại; trong cây, trạng thái được cập nhật bằng push() và khôi phục bằng pop(), tránh sao chép toàn bộ môi trường ở từng nút [5]."
+      ]
+    },
+    {
+      "starts_with": "Bộ đối kháng rút gọn áp dụng trần 80 ply",
+      "paragraphs": [
+        "Theo đặc tả yêu cầu của môn học, cấu hình đối kháng rút gọn đặt trần 80 ply, tương đương 40 lượt đi của mỗi bên. Khi ván chưa kết thúc đúng luật tại trần, chênh lệch vật chất được dùng để phân xử: tốt 100, mã 320, tượng 330, xe 500 và hậu 900 centipawn; vua không tham gia tổng này. Chênh lệch từ +300 xử Trắng thắng, từ −300 trở xuống xử Đen thắng, còn lại hòa. Kết thúc đúng luật được kiểm tra trước giới hạn ply, nên một ván chiếu hết ngay ở ply 80 vẫn thuộc nhóm kết thúc tự nhiên.",
+        "Quy tắc phân xử có thể ưu tiên tác tử tích lũy vật chất hơn tác tử đang theo đuổi biến thể chiếu hết dài. Tỷ lệ ván chạm trần được đo cho từng cặp đấu; Score theo cấu hình 80 ply luôn đi kèm số ván và cơ cấu nguyên nhân kết thúc. Kết quả này mô tả hiệu quả trong quy ước rút gọn, còn ảnh hưởng của giới hạn ván được kiểm tra bằng thí nghiệm độ nhạy."
+      ]
+    },
+    {
+      "starts_with": "Tập học có giám sát dự kiến được sinh từ 800 ván",
+      "paragraphs": [
+        "Tập học có giám sát ban đầu dự kiến được sinh từ 800 ván giữa Alpha-beta độ sâu 2 và Rule-based, với tỷ lệ khám phá 15%. Nguồn nhãn này phục vụ khảo sát học bắt chước và tốc độ suy luận của CNN. Độ sâu 2 chỉ xét nước đi và một nước đáp trả, nên nhãn có thể bỏ sót chiến thuật dài hơn. Accuracy cao biểu thị mức khớp với tác tử sinh nhãn; cải thiện sức mạnh chơi phải được xác định bằng đối kháng.",
+        "Mỗi bản ghi lưu mã ván, FEN, nguồn nhãn, nước đề xuất, nước thực hiện và cấu hình tìm kiếm. Nước khám phá được lưu riêng để giữ nhãn đề xuất. Đối với đầu giá trị, đánh giá centipawn được chuyển sang phía đến lượt và chuẩn hóa bằng tanh(cp/600). Kết quả cuối ván và nguyên nhân dừng là metadata riêng, giúp tránh dùng kết quả phân xử như một kết quả thắng thua tự nhiên.",
+        "Một tập thế cờ đối chứng riêng sẽ được gán nhãn ở độ sâu 3–4 để kiểm tra mức bất đồng với nguồn nông. Tập này được chọn theo giai đoạn ván và tình huống chiến thuật, tách khỏi tập dùng để chọn mô hình. Chương trình ghi độ sâu hoàn tất và thời gian; mẫu bị ngắt sớm được nhận diện riêng. Việc tăng ngân sách sinh nhãn được quyết định từ chi phí đo được, không gộp các cấu hình teacher thành một nguồn không phân biệt."
+      ]
+    },
+    {
+      "starts_with": "Đầu vào CNN ban đầu là tensor 14 × 8 × 8",
+      "paragraphs": [
+        "Cấu hình huấn luyện sử dụng tensor 20 × 8 × 8 theo encoder planes20-v1. Mười hai kênh biểu diễn quân theo loại và màu; một kênh biểu diễn bên đến lượt; bốn kênh lưu quyền nhập thành; một kênh đánh dấu ô en passant khi có nước bắt hợp lệ; hai kênh còn lại lưu halfmove clock chuẩn hóa và đặc trưng lặp lại. Cấu hình 14 kênh ban đầu chỉ được dùng làm đối chứng khi khảo sát ảnh hưởng của thông tin bổ sung.",
+        "Halfmove clock được chia cho 150 và chặn tại 1. Đặc trưng lặp lại nhận 0 khi chưa lặp hai lần, 0,5 khi đã lặp hai lần và 1 khi đã lặp ba lần. Đây là thông tin tóm tắt cho mạng; luật hòa vẫn được kiểm tra trên board có lịch sử. FEN không chứa lịch sử lặp nên mẫu lưu thêm đặc trưng này khi sinh dữ liệu. Một tensor float32 20 kênh chiếm 5.120 byte, tăng 1.536 byte so với 14 kênh; chi phí toàn bộ batch và mạng được đo riêng."
+      ]
+    },
+    {
+      "starts_with": "Kết quả đối kháng được tổng hợp theo số ván thắng W, hòa D và thua L.",
+      "paragraphs": [
+        "Kết quả đối kháng gồm số ván thắng W, hòa D, thua L và tổng số ván N. Điểm Score = (W + 0,5 × D) / N được trình bày cùng cỡ mẫu và nguyên nhân kết thúc để nhận diện ảnh hưởng của quy tắc phân xử."
+      ]
+    },
+    {
+      "starts_with": "Thời gian lựa chọn nước đi được đo trên toàn bộ quá trình quyết định.",
+      "paragraphs": [
+        "Thời gian được đo trên toàn bộ quá trình quyết định, tổng hợp theo trung bình, p95 và tỷ lệ quá hạn. Trên cùng FEN và ngân sách 100 ms, phép đo ghi thêm nút mỗi giây, lượt sao chép và chi phí kiểm tra hòa. Nút duyệt và lượt mô phỏng được phân tích riêng cho từng thuật toán."
+      ]
+    },
+    {
+      "starts_with": "Khoảng tin cậy 95% của Score được ước lượng bằng bootstrap",
+      "paragraphs": [
+        "Khoảng tin cậy 95% của Score được ước lượng bằng bootstrap theo cụm gồm cặp ván cùng mở đầu, seed và đổi màu. Hai ván trong cặp có liên hệ nên được lấy mẫu cùng nhau. Kết quả kết thúc tự nhiên và phân xử được tổng hợp riêng, kèm cỡ mẫu. Score chỉ trên các ván tự nhiên có tính mô tả vì nhóm ván này không phải mẫu ngẫu nhiên của toàn bộ đối kháng.",
+        "Báo cáo tổng kết sẽ có biểu đồ cột tỷ lệ ván chạm trần 80 ply theo từng cặp tác tử. Tỷ lệ được tính bằng số ván phải phân xử chia tổng số ván của cặp, nhân 100%; mỗi cột ghi cả số ván để thể hiện quy mô đo. Các cấu hình độ nhạy ở 120 và 160 ply dùng cùng mở đầu, đổi màu và ngân sách mỗi nước. Kết quả từng giới hạn được trình bày riêng để kiểm tra kết luận về thứ hạng có phụ thuộc vào trần ván hay không."
+      ]
+    },
+    {
+      "starts_with": "ChessEnv cung cấp khởi tạo ván, liệt kê nước hợp lệ",
+      "paragraphs": [
+        "ChessEnv cung cấp khởi tạo ván, liệt kê nước hợp lệ, thực hiện và hoàn tác nước, sao chép trạng thái, kiểm tra kết thúc và mã hóa đầu vào. Các tác tử cùng sử dụng select_action(env, time_limit_ms), trả về nước UCI và thông tin đo. Logic luật được dùng chung giữa ứng dụng và thực nghiệm; mỗi worker sử dụng bàn làm việc riêng để quá trình tìm kiếm không làm thay đổi trạng thái chính thức.",
+        "Trong Alpha-beta, lịch sử được sao chép một lần bằng board.copy(stack=True) ở gốc. Duyệt nhánh dùng push() rồi pop() trong khối finally, kể cả khi hết thời gian. MCTS dự kiến cũng dùng một bàn làm việc: nút lưu nước đi, số lượt thăm và giá trị; khi xét một đường đi, chương trình đẩy các nước rồi hoàn tác về gốc. Kiểm thử đối chiếu FEN và move_stack trước và sau mỗi quyết định.",
+        "copy(stack=False) chỉ được xét khi có cơ chế giữ lịch sử tương đương bên ngoài. Khóa Zobrist hỗ trợ bộ đếm lặp theo nhánh nhưng không tự biểu diễn được các lần xuất hiện trước gốc. Cơ chế thay thế phải giữ đúng bên đến lượt, quyền nhập thành, en passant, bộ đếm hòa và thông tin lặp; đồng thời phân biệt lặp hiện tại với quyền yêu cầu hòa sau một nước hợp lệ [5]. Chi phí kiểm tra hòa được đo cùng thao tác sao chép trước khi kết luận về hiệu năng."
+      ]
+    },
+    {
+      "starts_with": "CNN gồm đầu chính sách chấm điểm nước đi và đầu giá trị dự đoán kết quả.",
+      "paragraphs": [
+        "CNN dùng chung thân mạng và có hai đầu ra. Policy head là một vector logits chung gồm 64 × 64 × 5 = 20.480 phần tử, mã hóa đồng thời ô đi, ô đến và loại phong cấp. Năm lựa chọn là không phong cấp, mã, tượng, xe và hậu. Vì vậy a7a8n, a7a8b, a7a8r và a7a8q có các chỉ số khác nhau; mô hình không dự đoán độc lập hai phân phối 64 ô.",
+        "Mặt nạ lấy từ tập nước hợp lệ loại logits bất hợp lệ trước softmax và cross-entropy. Phân phối chính sách được chuẩn hóa trên các hành động còn lại. Đầu value trả một giá trị trong [−1, 1] theo bên đến lượt; ở bước học có giám sát, mục tiêu là đánh giá teacher đã chuẩn hóa, chưa được diễn giải là xác suất thắng.",
+        "TDValueAgent học V(s) từ sai khác giữa các dự đoán liên tiếp [8], còn DQN học Q(s,a) [4]. Phương án của đề tài dùng TD(0): khi ván chưa kết thúc, giá trị trạng thái kế tiếp được đổi dấu vì đã sang lượt đối thủ; khi kết thúc đúng luật, mục tiêu dùng kết quả ván theo phía đang xét. Tác tử đánh giá các trạng thái con hợp lệ để chọn nước."
+      ]
+    },
+    {
+      "starts_with": "Cuối tuần 4, số đo chạy thử được dùng để ước lượng thời gian sinh 800 ván",
+      "paragraphs": [
+        "Cuối tuần 4, số đo chạy thử được dùng để ước lượng thời gian sinh 800 ván, gán nhãn sâu trên tập đối chứng, huấn luyện và đối kháng. Theo đặc tả yêu cầu của môn học, mục tiêu 1.500 tập tự chơi cùng tối đa ba chu kỳ tự chơi–huấn luyện–đấu kiểm tra được xem xét trên cơ sở chi phí thực tế. Nếu nguồn lực không đáp ứng toàn bộ, số tác tử học mở rộng hoặc số chu kỳ được giảm; môi trường và các phép so sánh cốt lõi vẫn được hoàn thành."
+      ]
+    },
+    {
+      "starts_with": "[5] python-chess, Core documentation.",
+      "paragraphs": [
+        "[5] python-chess, Core documentation. Tài liệu về Board, copy, push, pop và các điều kiện hòa. https://python-chess.readthedocs.io/en/latest/core.html. Truy cập ngày 03/11/2026."
+      ]
+    },
+    {
+      "starts_with": "[6] Báo Cáo Đề Tài Cờ Vua AI",
+      "paragraphs": []
+    }
+  ],
+  "table_additions": [
+    {
+      "header": "Nhóm độ đo",
+      "after": "Điểm đối kháng",
+      "cells": [
+        "Chạm trần 80 ply",
+        "Tỷ lệ ván phải phân xử trên tổng số ván của từng cặp",
+        "Đo ảnh hưởng của quy tắc giới hạn ván"
+      ]
+    }
+  ],
+  "cell_replacements": [
+    {
+      "old": "Thế cờ kiểm thử; giữ lịch sử khi sao chép",
+      "new": "Giữ lịch sử gốc; push/pop; kiểm tra lặp và hoàn tác"
+    },
+    {
+      "old": "Chia theo ván; so trùng; tách nước khám phá",
+      "new": "Chia theo ván; so trùng; ghi nguồn nhãn và độ sâu hoàn tất"
+    }
+  ]
+}

@@ -1,0 +1,4366 @@
+{
+  "frameWidth": 320,
+  "frameHeight": 360,
+  "anchor": {
+    "x": 160,
+    "y": 316
+  },
+  "jobs": [
+    {
+      "source": "img/trắng/move_vua_trắng.png",
+      "target": "img/animations/white/move_king.png",
+      "color": "white",
+      "piece": "king",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -9.143968871595348,
+          "drawY": -0.2256809338521748,
+          "scale": 1.0505836575875487,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 301,
+            "bodyHeight": 257,
+            "bodyBounds": [
+              71,
+              44,
+              251,
+              301
+            ],
+            "contentBounds": [
+              66,
+              43,
+              255,
+              302
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 3.4630350194552477,
+          "drawY": 0.07782101167316569,
+          "scale": 1.0505836575875487,
+          "geometry": {
+            "rootX": 149.0,
+            "rootY": 295,
+            "bodyHeight": 251,
+            "bodyBounds": [
+              54,
+              44,
+              244,
+              295
+            ],
+            "contentBounds": [
+              46,
+              43,
+              249,
+              297
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -8.093385214007782,
+          "drawY": 7.735408560311271,
+          "scale": 1.0505836575875487,
+          "geometry": {
+            "rootX": 160.0,
+            "rootY": 282,
+            "bodyHeight": 256,
+            "bodyBounds": [
+              69,
+              26,
+              250,
+              282
+            ],
+            "contentBounds": [
+              64,
+              25,
+              254,
+              282
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 1.3618677042801437,
+          "drawY": 8.482490272373525,
+          "scale": 1.0505836575875487,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 287,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              62,
+              39,
+              239,
+              287
+            ],
+            "contentBounds": [
+              58,
+              38,
+              243,
+              288
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/die_vua_trắng.png",
+      "target": "img/animations/white/die_king.png",
+      "color": "white",
+      "piece": "king",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -12.588235294117652,
+          "drawY": 1.5294117647058556,
+          "scale": 1.0588235294117647,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 297,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              77,
+              42,
+              250,
+              297
+            ],
+            "contentBounds": [
+              73,
+              41,
+              254,
+              298
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -12.588235294117652,
+          "drawY": 1.5294117647058556,
+          "scale": 1.0588235294117647,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 297,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              77,
+              42,
+              250,
+              297
+            ],
+            "contentBounds": [
+              73,
+              41,
+              254,
+              298
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -12.588235294117652,
+          "drawY": 1.5294117647058556,
+          "scale": 1.0588235294117647,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 297,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              77,
+              42,
+              250,
+              297
+            ],
+            "contentBounds": [
+              73,
+              41,
+              254,
+              298
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -12.588235294117652,
+          "drawY": 1.5294117647058556,
+          "scale": 1.0588235294117647,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 297,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              77,
+              42,
+              250,
+              297
+            ],
+            "contentBounds": [
+              73,
+              41,
+              254,
+              298
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/trắng/move_hậu_trắng.png",
+      "target": "img/animations/white/move_queen.png",
+      "color": "white",
+      "piece": "queen",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -13.680000000000007,
+          "drawY": 7.1200000000000045,
+          "scale": 1.04,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 297,
+            "bodyHeight": 250,
+            "bodyBounds": [
+              82,
+              47,
+              251,
+              297
+            ],
+            "contentBounds": [
+              79,
+              46,
+              255,
+              298
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 2.960000000000008,
+          "drawY": 2.159999999999968,
+          "scale": 1.04,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 296,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              70,
+              48,
+              226,
+              296
+            ],
+            "contentBounds": [
+              66,
+              47,
+              245,
+              296
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -11.599999999999994,
+          "drawY": 16.95999999999998,
+          "scale": 1.04,
+          "geometry": {
+            "rootX": 165.0,
+            "rootY": 276,
+            "bodyHeight": 244,
+            "bodyBounds": [
+              94,
+              32,
+              234,
+              276
+            ],
+            "contentBounds": [
+              84,
+              31,
+              248,
+              277
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -5.360000000000014,
+          "drawY": 18.80000000000001,
+          "scale": 1.04,
+          "geometry": {
+            "rootX": 159.0,
+            "rootY": 280,
+            "bodyHeight": 243,
+            "bodyBounds": [
+              90,
+              37,
+              234,
+              280
+            ],
+            "contentBounds": [
+              73,
+              36,
+              239,
+              281
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/die_hậu_trắng.png",
+      "target": "img/animations/white/die_queen.png",
+      "color": "white",
+      "piece": "queen",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 4.822134387351781,
+          "drawY": 22.086956521739125,
+          "scale": 1.0276679841897234,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 286,
+            "bodyHeight": 253,
+            "bodyBounds": [
+              76,
+              33,
+              234,
+              286
+            ],
+            "contentBounds": [
+              72,
+              32,
+              242,
+              287
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 4.822134387351781,
+          "drawY": 22.086956521739125,
+          "scale": 1.0276679841897234,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 286,
+            "bodyHeight": 253,
+            "bodyBounds": [
+              76,
+              33,
+              234,
+              286
+            ],
+            "contentBounds": [
+              72,
+              32,
+              242,
+              287
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 4.822134387351781,
+          "drawY": 22.086956521739125,
+          "scale": 1.0276679841897234,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 286,
+            "bodyHeight": 253,
+            "bodyBounds": [
+              76,
+              33,
+              234,
+              286
+            ],
+            "contentBounds": [
+              72,
+              32,
+              242,
+              287
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 4.822134387351781,
+          "drawY": 22.086956521739125,
+          "scale": 1.0276679841897234,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 286,
+            "bodyHeight": 253,
+            "bodyBounds": [
+              76,
+              33,
+              234,
+              286
+            ],
+            "contentBounds": [
+              72,
+              32,
+              242,
+              287
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/move_vua_đen.png",
+      "target": "img/animations/black/move_king.png",
+      "color": "black",
+      "piece": "king",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -16.23430962343096,
+          "drawY": -11.615062761506238,
+          "scale": 1.1297071129707112,
+          "geometry": {
+            "rootX": 156.0,
+            "rootY": 290,
+            "bodyHeight": 239,
+            "bodyBounds": [
+              70,
+              51,
+              240,
+              290
+            ],
+            "contentBounds": [
+              66,
+              50,
+              244,
+              291
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -12.845188284518827,
+          "drawY": -7.447698744769866,
+          "scale": 1.1297071129707112,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 281,
+            "bodyHeight": 243,
+            "bodyBounds": [
+              71,
+              38,
+              243,
+              281
+            ],
+            "contentBounds": [
+              67,
+              37,
+              248,
+              282
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -15.10460251046024,
+          "drawY": 4.6276150627614925,
+          "scale": 1.1297071129707112,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 265,
+            "bodyHeight": 238,
+            "bodyBounds": [
+              78,
+              27,
+              226,
+              265
+            ],
+            "contentBounds": [
+              75,
+              26,
+              253,
+              266
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -13.974895397489519,
+          "drawY": -4.058577405857704,
+          "scale": 1.1297071129707112,
+          "geometry": {
+            "rootX": 154.0,
+            "rootY": 278,
+            "bodyHeight": 236,
+            "bodyBounds": [
+              85,
+              42,
+              225,
+              278
+            ],
+            "contentBounds": [
+              71,
+              41,
+              239,
+              279
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/die_vua_đen.png",
+      "target": "img/animations/black/die_king.png",
+      "color": "black",
+      "piece": "king",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -15.282258064516128,
+          "drawY": 0.2741935483871316,
+          "scale": 1.0887096774193548,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 290,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              77,
+              42,
+              249,
+              290
+            ],
+            "contentBounds": [
+              73,
+              41,
+              252,
+              291
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -15.282258064516128,
+          "drawY": 0.2741935483871316,
+          "scale": 1.0887096774193548,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 290,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              77,
+              42,
+              249,
+              290
+            ],
+            "contentBounds": [
+              73,
+              41,
+              252,
+              291
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -15.282258064516128,
+          "drawY": 0.2741935483871316,
+          "scale": 1.0887096774193548,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 290,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              77,
+              42,
+              249,
+              290
+            ],
+            "contentBounds": [
+              73,
+              41,
+              252,
+              291
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -15.282258064516128,
+          "drawY": 0.2741935483871316,
+          "scale": 1.0887096774193548,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 290,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              77,
+              42,
+              249,
+              290
+            ],
+            "contentBounds": [
+              73,
+              41,
+              252,
+              291
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/move_hậu_đen.png",
+      "target": "img/animations/black/move_queen.png",
+      "color": "black",
+      "piece": "queen",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -9.377593360995832,
+          "drawY": -2.2572614107883737,
+          "scale": 1.0788381742738589,
+          "geometry": {
+            "rootX": 157.0,
+            "rootY": 295,
+            "bodyHeight": 241,
+            "bodyBounds": [
+              72,
+              54,
+              242,
+              295
+            ],
+            "contentBounds": [
+              67,
+              53,
+              247,
+              296
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -8.29875518672199,
+          "drawY": -3.9419087136929534,
+          "scale": 1.0788381742738589,
+          "geometry": {
+            "rootX": 156.0,
+            "rootY": 291,
+            "bodyHeight": 236,
+            "bodyBounds": [
+              67,
+              55,
+              232,
+              291
+            ],
+            "contentBounds": [
+              62,
+              54,
+              249,
+              292
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -5.062240663900411,
+          "drawY": 15.950207468879682,
+          "scale": 1.0788381742738589,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 267,
+            "bodyHeight": 234,
+            "bodyBounds": [
+              72,
+              33,
+              240,
+              267
+            ],
+            "contentBounds": [
+              65,
+              32,
+              244,
+              268
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -7.219917012448121,
+          "drawY": 12.240663900414972,
+          "scale": 1.0788381742738589,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 276,
+            "bodyHeight": 236,
+            "bodyBounds": [
+              75,
+              40,
+              240,
+              276
+            ],
+            "contentBounds": [
+              71,
+              39,
+              243,
+              277
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/die_hậu_đen.png",
+      "target": "img/animations/black/die_queen.png",
+      "color": "black",
+      "piece": "queen",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -5.2713178294573595,
+          "drawY": 14.682170542635674,
+          "scale": 1.0077519379844961,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 299,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              72,
+              41,
+              261,
+              299
+            ],
+            "contentBounds": [
+              67,
+              40,
+              267,
+              300
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -5.2713178294573595,
+          "drawY": 14.682170542635674,
+          "scale": 1.0077519379844961,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 299,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              72,
+              41,
+              261,
+              299
+            ],
+            "contentBounds": [
+              67,
+              40,
+              267,
+              300
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -5.2713178294573595,
+          "drawY": 14.682170542635674,
+          "scale": 1.0077519379844961,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 299,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              72,
+              41,
+              261,
+              299
+            ],
+            "contentBounds": [
+              67,
+              40,
+              267,
+              300
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -5.2713178294573595,
+          "drawY": 14.682170542635674,
+          "scale": 1.0077519379844961,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 299,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              72,
+              41,
+              261,
+              299
+            ],
+            "contentBounds": [
+              67,
+              40,
+              267,
+              300
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/trắng/die_tượng_trắng.png",
+      "target": "img/animations/white/die_bishop.png",
+      "color": "white",
+      "piece": "bishop",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -4.285714285714278,
+          "drawY": 25.18367346938777,
+          "scale": 1.0204081632653061,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 285,
+            "bodyHeight": 245,
+            "bodyBounds": [
+              100,
+              40,
+              221,
+              285
+            ],
+            "contentBounds": [
+              87,
+              39,
+              242,
+              286
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -4.285714285714278,
+          "drawY": 25.18367346938777,
+          "scale": 1.0204081632653061,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 285,
+            "bodyHeight": 245,
+            "bodyBounds": [
+              100,
+              40,
+              221,
+              285
+            ],
+            "contentBounds": [
+              87,
+              39,
+              242,
+              286
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -4.285714285714278,
+          "drawY": 25.18367346938777,
+          "scale": 1.0204081632653061,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 285,
+            "bodyHeight": 245,
+            "bodyBounds": [
+              100,
+              40,
+              221,
+              285
+            ],
+            "contentBounds": [
+              87,
+              39,
+              242,
+              286
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -4.285714285714278,
+          "drawY": 25.18367346938777,
+          "scale": 1.0204081632653061,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 285,
+            "bodyHeight": 245,
+            "bodyBounds": [
+              100,
+              40,
+              221,
+              285
+            ],
+            "contentBounds": [
+              87,
+              39,
+              242,
+              286
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/die_tượng_đen.png",
+      "target": "img/animations/black/die_bishop.png",
+      "color": "black",
+      "piece": "bishop",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 5.098039215686271,
+          "drawY": 21.882352941176464,
+          "scale": 0.9803921568627451,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 300,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              83,
+              45,
+              237,
+              300
+            ],
+            "contentBounds": [
+              81,
+              44,
+              239,
+              301
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 5.098039215686271,
+          "drawY": 21.882352941176464,
+          "scale": 0.9803921568627451,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 300,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              83,
+              45,
+              237,
+              300
+            ],
+            "contentBounds": [
+              81,
+              44,
+              239,
+              301
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 5.098039215686271,
+          "drawY": 21.882352941176464,
+          "scale": 0.9803921568627451,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 300,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              83,
+              45,
+              237,
+              300
+            ],
+            "contentBounds": [
+              81,
+              44,
+              239,
+              301
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 5.098039215686271,
+          "drawY": 21.882352941176464,
+          "scale": 0.9803921568627451,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 300,
+            "bodyHeight": 255,
+            "bodyBounds": [
+              83,
+              45,
+              237,
+              300
+            ],
+            "contentBounds": [
+              81,
+              44,
+              239,
+              301
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/move_xe_đen.png",
+      "target": "img/animations/black/move_rook.png",
+      "color": "black",
+      "piece": "rook",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -21.9377990430622,
+          "drawY": 15.64114832535887,
+          "scale": 1.076555023923445,
+          "geometry": {
+            "rootX": 169.0,
+            "rootY": 279,
+            "bodyHeight": 209,
+            "bodyBounds": [
+              78,
+              70,
+              262,
+              279
+            ],
+            "contentBounds": [
+              73,
+              69,
+              266,
+              281
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -6.8660287081339675,
+          "drawY": 16.100478468899553,
+          "scale": 1.076555023923445,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 273,
+            "bodyHeight": 208,
+            "bodyBounds": [
+              66,
+              65,
+              241,
+              273
+            ],
+            "contentBounds": [
+              62,
+              64,
+              245,
+              273
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -24.090909090909093,
+          "drawY": 33.78468899521533,
+          "scale": 1.076555023923445,
+          "geometry": {
+            "rootX": 171.0,
+            "rootY": 251,
+            "bodyHeight": 208,
+            "bodyBounds": [
+              87,
+              43,
+              259,
+              251
+            ],
+            "contentBounds": [
+              81,
+              42,
+              264,
+              252
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -5.78947368421052,
+          "drawY": 22.55980861244018,
+          "scale": 1.076555023923445,
+          "geometry": {
+            "rootX": 154.0,
+            "rootY": 267,
+            "bodyHeight": 209,
+            "bodyBounds": [
+              65,
+              58,
+              242,
+              267
+            ],
+            "contentBounds": [
+              62,
+              57,
+              245,
+              268
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/die_tốt_trắng.png",
+      "target": "img/animations/white/die_pawn.png",
+      "color": "white",
+      "piece": "pawn",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 333,
+          "drawX": 15.973451327433622,
+          "drawY": 49.318584070796476,
+          "scale": 0.9292035398230089,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 287,
+            "bodyHeight": 226,
+            "bodyBounds": [
+              82,
+              61,
+              230,
+              287
+            ],
+            "contentBounds": [
+              64,
+              60,
+              252,
+              288
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 333,
+          "drawX": 15.973451327433622,
+          "drawY": 49.318584070796476,
+          "scale": 0.9292035398230089,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 287,
+            "bodyHeight": 226,
+            "bodyBounds": [
+              82,
+              61,
+              230,
+              287
+            ],
+            "contentBounds": [
+              64,
+              60,
+              252,
+              288
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 333,
+          "drawX": 15.973451327433622,
+          "drawY": 49.318584070796476,
+          "scale": 0.9292035398230089,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 287,
+            "bodyHeight": 226,
+            "bodyBounds": [
+              82,
+              61,
+              230,
+              287
+            ],
+            "contentBounds": [
+              64,
+              60,
+              252,
+              288
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 333,
+          "drawX": 15.973451327433622,
+          "drawY": 49.318584070796476,
+          "scale": 0.9292035398230089,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 287,
+            "bodyHeight": 226,
+            "bodyBounds": [
+              82,
+              61,
+              230,
+              287
+            ],
+            "contentBounds": [
+              64,
+              60,
+              252,
+              288
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/trắng/move_mã_trắng.png",
+      "target": "img/animations/white/move_knight.png",
+      "color": "white",
+      "piece": "knight",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -6.3306451612903345,
+          "drawY": 27.69354838709677,
+          "scale": 1.0080645161290323,
+          "geometry": {
+            "rootX": 165.0,
+            "rootY": 286,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              72,
+              38,
+              258,
+              286
+            ],
+            "contentBounds": [
+              65,
+              37,
+              268,
+              293
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -1.290322580645153,
+          "drawY": 24.7177419354839,
+          "scale": 1.0080645161290323,
+          "geometry": {
+            "rootX": 160.0,
+            "rootY": 283,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              48,
+              34,
+              247,
+              283
+            ],
+            "contentBounds": [
+              43,
+              33,
+              259,
+              290
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -7.338709677419359,
+          "drawY": 34.84677419354841,
+          "scale": 1.0080645161290323,
+          "geometry": {
+            "rootX": 166.0,
+            "rootY": 267,
+            "bodyHeight": 250,
+            "bodyBounds": [
+              70,
+              17,
+              258,
+              267
+            ],
+            "contentBounds": [
+              65,
+              16,
+              269,
+              273
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": 4.758064516129025,
+          "drawY": 37.82258064516128,
+          "scale": 1.0080645161290323,
+          "geometry": {
+            "rootX": 154.0,
+            "rootY": 270,
+            "bodyHeight": 245,
+            "bodyBounds": [
+              59,
+              25,
+              248,
+              270
+            ],
+            "contentBounds": [
+              54,
+              24,
+              252,
+              276
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/move_tượng_trắng.png",
+      "target": "img/animations/white/move_bishop.png",
+      "color": "white",
+      "piece": "bishop",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 9.806201550387613,
+          "drawY": 28.209302325581405,
+          "scale": 0.9689922480620154,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 297,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              72,
+              39,
+              241,
+              297
+            ],
+            "contentBounds": [
+              68,
+              38,
+              245,
+              298
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 11.74418604651163,
+          "drawY": 24.14728682170545,
+          "scale": 0.9689922480620154,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 295,
+            "bodyHeight": 259,
+            "bodyBounds": [
+              71,
+              36,
+              237,
+              295
+            ],
+            "contentBounds": [
+              54,
+              35,
+              241,
+              296
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 9.806201550387613,
+          "drawY": 29.775193798449607,
+          "scale": 0.9689922480620154,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 283,
+            "bodyHeight": 258,
+            "bodyBounds": [
+              78,
+              25,
+              238,
+              283
+            ],
+            "contentBounds": [
+              73,
+              24,
+              253,
+              284
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 9.806201550387613,
+          "drawY": 24.14728682170545,
+          "scale": 0.9689922480620154,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 295,
+            "bodyHeight": 261,
+            "bodyBounds": [
+              72,
+              34,
+              241,
+              295
+            ],
+            "contentBounds": [
+              69,
+              33,
+              245,
+              296
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/move_tốt_trắng.png",
+      "target": "img/animations/white/move_pawn.png",
+      "color": "white",
+      "piece": "pawn",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 333,
+          "drawX": 1.3333333333333428,
+          "drawY": 30.399999999999977,
+          "scale": 0.9333333333333333,
+          "geometry": {
+            "rootX": 170.0,
+            "rootY": 306,
+            "bodyHeight": 225,
+            "bodyBounds": [
+              96,
+              81,
+              246,
+              306
+            ],
+            "contentBounds": [
+              74,
+              80,
+              267,
+              307
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 333,
+          "drawX": 19.066666666666663,
+          "drawY": 29.066666666666663,
+          "scale": 0.9333333333333333,
+          "geometry": {
+            "rootX": 151.0,
+            "rootY": 301,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              72,
+              72,
+              232,
+              301
+            ],
+            "contentBounds": [
+              67,
+              71,
+              239,
+              302
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 333,
+          "drawX": 1.3333333333333428,
+          "drawY": 54.79999999999998,
+          "scale": 0.9333333333333333,
+          "geometry": {
+            "rootX": 170.0,
+            "rootY": 267,
+            "bodyHeight": 226,
+            "bodyBounds": [
+              95,
+              41,
+              246,
+              267
+            ],
+            "contentBounds": [
+              83,
+              40,
+              257,
+              268
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 333,
+          "drawX": 17.19999999999999,
+          "drawY": 53.333333333333314,
+          "scale": 0.9333333333333333,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 275,
+            "bodyHeight": 224,
+            "bodyBounds": [
+              79,
+              51,
+              229,
+              275
+            ],
+            "contentBounds": [
+              58,
+              51,
+              250,
+              276
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/move_xe_trắng.png",
+      "target": "img/animations/white/move_rook.png",
+      "color": "white",
+      "piece": "rook",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": 13.138075313807548,
+          "drawY": 51.46025104602512,
+          "scale": 0.9414225941422594,
+          "geometry": {
+            "rootX": 156.0,
+            "rootY": 281,
+            "bodyHeight": 239,
+            "bodyBounds": [
+              51,
+              42,
+              264,
+              281
+            ],
+            "contentBounds": [
+              46,
+              41,
+              267,
+              285
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": 0.8995815899581601,
+          "drawY": 46.40167364016736,
+          "scale": 0.9414225941422594,
+          "geometry": {
+            "rootX": 169.0,
+            "rootY": 280,
+            "bodyHeight": 239,
+            "bodyBounds": [
+              50,
+              41,
+              248,
+              280
+            ],
+            "contentBounds": [
+              46,
+              40,
+              269,
+              284
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": 14.079497907949786,
+          "drawY": 52.64016736401675,
+          "scale": 0.9414225941422594,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 267,
+            "bodyHeight": 239,
+            "bodyBounds": [
+              49,
+              28,
+              263,
+              267
+            ],
+            "contentBounds": [
+              45,
+              27,
+              266,
+              268
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": 10.313807531380746,
+          "drawY": 54.87447698744771,
+          "scale": 0.9414225941422594,
+          "geometry": {
+            "rootX": 159.0,
+            "rootY": 271,
+            "bodyHeight": 237,
+            "bodyBounds": [
+              55,
+              34,
+              259,
+              271
+            ],
+            "contentBounds": [
+              50,
+              33,
+              264,
+              273
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/move_mã_đen.png",
+      "target": "img/animations/black/move_knight.png",
+      "color": "black",
+      "piece": "knight",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": 0.0383141762452226,
+          "drawY": 28.643678160919535,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 300,
+            "bodyHeight": 261,
+            "bodyBounds": [
+              69,
+              39,
+              267,
+              300
+            ],
+            "contentBounds": [
+              58,
+              38,
+              283,
+              302
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": 0.0383141762452226,
+          "drawY": 27.43295019157091,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 295,
+            "bodyHeight": 256,
+            "bodyBounds": [
+              36,
+              39,
+              255,
+              295
+            ],
+            "contentBounds": [
+              30,
+              38,
+              269,
+              301
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -17.203065134099603,
+          "drawY": 47.29501915708812,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 185.0,
+            "rootY": 268,
+            "bodyHeight": 248,
+            "bodyBounds": [
+              79,
+              20,
+              281,
+              268
+            ],
+            "contentBounds": [
+              67,
+              19,
+              290,
+              270
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": 9.616858237547888,
+          "drawY": 48.5057471264368,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 157.0,
+            "rootY": 273,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              54,
+              24,
+              252,
+              273
+            ],
+            "contentBounds": [
+              46,
+              24,
+              267,
+              275
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/move_tượng_đen.png",
+      "target": "img/animations/black/move_bishop.png",
+      "color": "black",
+      "piece": "bishop",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 8.659003831417635,
+          "drawY": 22.896551724137964,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 306,
+            "bodyHeight": 261,
+            "bodyBounds": [
+              73,
+              45,
+              242,
+              306
+            ],
+            "contentBounds": [
+              70,
+              44,
+              244,
+              307
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 21.111111111111114,
+          "drawY": 23.601532567049787,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 145.0,
+            "rootY": 299,
+            "bodyHeight": 262,
+            "bodyBounds": [
+              66,
+              37,
+              221,
+              299
+            ],
+            "contentBounds": [
+              64,
+              36,
+              240,
+              300
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 5.785440613026822,
+          "drawY": 25.264367816091976,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 161.0,
+            "rootY": 291,
+            "bodyHeight": 269,
+            "bodyBounds": [
+              82,
+              22,
+              241,
+              291
+            ],
+            "contentBounds": [
+              80,
+              21,
+              244,
+              292
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 17.27969348659005,
+          "drawY": 29.348659003831415,
+          "scale": 0.9578544061302682,
+          "geometry": {
+            "rootX": 149.0,
+            "rootY": 293,
+            "bodyHeight": 259,
+            "bodyBounds": [
+              65,
+              34,
+              232,
+              293
+            ],
+            "contentBounds": [
+              62,
+              33,
+              235,
+              294
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/move_tốt_đen.png",
+      "target": "img/animations/black/move_pawn.png",
+      "color": "black",
+      "piece": "pawn",
+      "action": "move",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -2.5806451612903345,
+          "drawY": 30.51612903225805,
+          "scale": 0.967741935483871,
+          "geometry": {
+            "rootX": 168.0,
+            "rootY": 295,
+            "bodyHeight": 217,
+            "bodyBounds": [
+              98,
+              78,
+              238,
+              295
+            ],
+            "contentBounds": [
+              78,
+              77,
+              258,
+              296
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": 14.83870967741936,
+          "drawY": 27.419354838709694,
+          "scale": 0.967741935483871,
+          "geometry": {
+            "rootX": 150.0,
+            "rootY": 292,
+            "bodyHeight": 218,
+            "bodyBounds": [
+              72,
+              74,
+              222,
+              292
+            ],
+            "contentBounds": [
+              68,
+              73,
+              238,
+              293
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -3.5483870967742064,
+          "drawY": 49.48387096774192,
+          "scale": 0.967741935483871,
+          "geometry": {
+            "rootX": 169.0,
+            "rootY": 263,
+            "bodyHeight": 218,
+            "bodyBounds": [
+              98,
+              45,
+              240,
+              263
+            ],
+            "contentBounds": [
+              81,
+              44,
+              258,
+              263
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": 10.967741935483872,
+          "drawY": 51.61290322580646,
+          "scale": 0.967741935483871,
+          "geometry": {
+            "rootX": 154.0,
+            "rootY": 267,
+            "bodyHeight": 214,
+            "bodyBounds": [
+              83,
+              53,
+              229,
+              267
+            ],
+            "contentBounds": [
+              66,
+              52,
+              242,
+              268
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_tốt_trắng.png",
+      "target": "img/animations/white/attack_pawn.png",
+      "color": "white",
+      "piece": "pawn",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 289,
+          "drawX": -9.65517241379311,
+          "drawY": 46.0,
+          "scale": 1.0344827586206897,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 261,
+            "bodyHeight": 203,
+            "bodyBounds": [
+              86,
+              58,
+              250,
+              261
+            ],
+            "contentBounds": [
+              83,
+              57,
+              253,
+              262
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 289,
+          "drawX": -6.65517241379311,
+          "drawY": 39.79310344827587,
+          "scale": 1.0344827586206897,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 267,
+            "bodyHeight": 201,
+            "bodyBounds": [
+              51,
+              66,
+              226,
+              267
+            ],
+            "contentBounds": [
+              40,
+              65,
+              227,
+              267
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 289,
+          "drawX": -23.275862068965523,
+          "drawY": 51.17241379310343,
+          "scale": 1.0344827586206897,
+          "geometry": {
+            "rootX": 182.0,
+            "rootY": 256,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              100,
+              56,
+              254,
+              256
+            ],
+            "contentBounds": [
+              99,
+              55,
+              268,
+              257
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 289,
+          "drawX": 1.7241379310344769,
+          "drawY": 53.241379310344826,
+          "scale": 1.0344827586206897,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 254,
+            "bodyHeight": 199,
+            "bodyBounds": [
+              89,
+              55,
+              216,
+              254
+            ],
+            "contentBounds": [
+              76,
+              55,
+              229,
+              255
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_mã_trắng.png",
+      "target": "img/animations/white/attack_knight.png",
+      "color": "white",
+      "piece": "knight",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 312,
+          "drawX": -26.681222707423586,
+          "drawY": 15.781659388646233,
+          "scale": 1.091703056768559,
+          "geometry": {
+            "rootX": 171.0,
+            "rootY": 275,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              77,
+              46,
+              262,
+              275
+            ],
+            "contentBounds": [
+              76,
+              45,
+              265,
+              277
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 312,
+          "drawX": -10.580786026200883,
+          "drawY": 13.59825327510913,
+          "scale": 1.091703056768559,
+          "geometry": {
+            "rootX": 159.0,
+            "rootY": 277,
+            "bodyHeight": 224,
+            "bodyBounds": [
+              29,
+              53,
+              258,
+              277
+            ],
+            "contentBounds": [
+              25,
+              53,
+              259,
+              279
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 312,
+          "drawX": -14.039301310043697,
+          "drawY": 29.973799126637516,
+          "scale": 1.091703056768559,
+          "geometry": {
+            "rootX": 164.0,
+            "rootY": 262,
+            "bodyHeight": 224,
+            "bodyBounds": [
+              77,
+              38,
+              260,
+              262
+            ],
+            "contentBounds": [
+              76,
+              37,
+              283,
+              263
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 312,
+          "drawX": -7.030567685589546,
+          "drawY": 28.882096069868965,
+          "scale": 1.091703056768559,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 263,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              61,
+              34,
+              242,
+              263
+            ],
+            "contentBounds": [
+              57,
+              33,
+              246,
+              265
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_tượng_trắng.png",
+      "target": "img/animations/white/attack_bishop.png",
+      "color": "white",
+      "piece": "bishop",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 268,
+          "height": 246,
+          "drawX": -44.411764705882376,
+          "drawY": 10.117647058823536,
+          "scale": 1.4705882352941178,
+          "geometry": {
+            "rootX": 139.0,
+            "rootY": 208,
+            "bodyHeight": 170,
+            "bodyBounds": [
+              85,
+              38,
+              195,
+              208
+            ],
+            "contentBounds": [
+              82,
+              37,
+              198,
+              209
+            ]
+          }
+        },
+        {
+          "x": 268,
+          "y": 0,
+          "width": 268,
+          "height": 246,
+          "drawX": -35.529411764705884,
+          "drawY": 5.70588235294116,
+          "scale": 1.4705882352941178,
+          "geometry": {
+            "rootX": 135.0,
+            "rootY": 211,
+            "bodyHeight": 167,
+            "bodyBounds": [
+              49,
+              44,
+              183,
+              211
+            ],
+            "contentBounds": [
+              47,
+              43,
+              184,
+              212
+            ]
+          }
+        },
+        {
+          "x": 536,
+          "y": 0,
+          "width": 268,
+          "height": 246,
+          "drawX": -46.764705882352956,
+          "drawY": 14.529411764705856,
+          "scale": 1.4705882352941178,
+          "geometry": {
+            "rootX": 144.0,
+            "rootY": 205,
+            "bodyHeight": 167,
+            "bodyBounds": [
+              81,
+              38,
+              197,
+              205
+            ],
+            "contentBounds": [
+              78,
+              37,
+              216,
+              206
+            ]
+          }
+        },
+        {
+          "x": 804,
+          "y": 0,
+          "width": 268,
+          "height": 246,
+          "drawX": -32.64705882352942,
+          "drawY": 13.058823529411768,
+          "scale": 1.4705882352941178,
+          "geometry": {
+            "rootX": 131.0,
+            "rootY": 206,
+            "bodyHeight": 173,
+            "bodyBounds": [
+              80,
+              33,
+              184,
+              206
+            ],
+            "contentBounds": [
+              76,
+              32,
+              187,
+              207
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_xe_trắng.png",
+      "target": "img/animations/white/attack_rook.png",
+      "color": "white",
+      "piece": "rook",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": -28.60294117647061,
+          "drawY": 13.794117647058783,
+          "scale": 1.1029411764705883,
+          "geometry": {
+            "rootX": 171.0,
+            "rootY": 274,
+            "bodyHeight": 204,
+            "bodyBounds": [
+              81,
+              70,
+              262,
+              274
+            ],
+            "contentBounds": [
+              78,
+              70,
+              265,
+              275
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": -23.39705882352942,
+          "drawY": 10.485294117647015,
+          "scale": 1.1029411764705883,
+          "geometry": {
+            "rootX": 169.0,
+            "rootY": 277,
+            "bodyHeight": 204,
+            "bodyBounds": [
+              51,
+              73,
+              260,
+              277
+            ],
+            "contentBounds": [
+              43,
+              72,
+              261,
+              278
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": -40.14705882352942,
+          "drawY": 32.54411764705878,
+          "scale": 1.1029411764705883,
+          "geometry": {
+            "rootX": 186.0,
+            "rootY": 257,
+            "bodyHeight": 203,
+            "bodyBounds": [
+              64,
+              54,
+              270,
+              257
+            ],
+            "contentBounds": [
+              56,
+              53,
+              271,
+              257
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": -13.161764705882376,
+          "drawY": 35.85294117647055,
+          "scale": 1.1029411764705883,
+          "geometry": {
+            "rootX": 157.0,
+            "rootY": 254,
+            "bodyHeight": 204,
+            "bodyBounds": [
+              67,
+              50,
+              249,
+              254
+            ],
+            "contentBounds": [
+              64,
+              49,
+              251,
+              255
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_hậu_trắng.png",
+      "target": "img/animations/white/attack_queen.png",
+      "color": "white",
+      "piece": "queen",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 312,
+          "drawX": -16.709956709956714,
+          "drawY": 15.480519480519433,
+          "scale": 1.1255411255411256,
+          "geometry": {
+            "rootX": 157.0,
+            "rootY": 267,
+            "bodyHeight": 231,
+            "bodyBounds": [
+              81,
+              36,
+              237,
+              267
+            ],
+            "contentBounds": [
+              78,
+              35,
+              240,
+              268
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 312,
+          "drawX": -23.839826839826856,
+          "drawY": 16.606060606060566,
+          "scale": 1.1255411255411256,
+          "geometry": {
+            "rootX": 166.0,
+            "rootY": 266,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              47,
+              37,
+              253,
+              266
+            ],
+            "contentBounds": [
+              43,
+              36,
+              254,
+              267
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 312,
+          "drawX": -22.96536796536799,
+          "drawY": 17.7316017316017,
+          "scale": 1.1255411255411256,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 265,
+            "bodyHeight": 228,
+            "bodyBounds": [
+              90,
+              37,
+              256,
+              265
+            ],
+            "contentBounds": [
+              89,
+              37,
+              261,
+              266
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 312,
+          "drawX": -15.58441558441561,
+          "drawY": 17.7316017316017,
+          "scale": 1.1255411255411256,
+          "geometry": {
+            "rootX": 156.0,
+            "rootY": 265,
+            "bodyHeight": 232,
+            "bodyBounds": [
+              81,
+              33,
+              221,
+              265
+            ],
+            "contentBounds": [
+              78,
+              32,
+              236,
+              266
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/attack_vua_trắng.png",
+      "target": "img/animations/white/attack_king.png",
+      "color": "white",
+      "piece": "king",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 322,
+          "drawX": -67.30232558139534,
+          "drawY": -14.279069767441854,
+          "scale": 1.255813953488372,
+          "geometry": {
+            "rootX": 181.0,
+            "rootY": 263,
+            "bodyHeight": 215,
+            "bodyBounds": [
+              119,
+              48,
+              256,
+              263
+            ],
+            "contentBounds": [
+              99,
+              47,
+              259,
+              263
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 322,
+          "drawX": -36.67441860465115,
+          "drawY": -11.767441860465112,
+          "scale": 1.255813953488372,
+          "geometry": {
+            "rootX": 159.0,
+            "rootY": 261,
+            "bodyHeight": 210,
+            "bodyBounds": [
+              48,
+              51,
+              226,
+              261
+            ],
+            "contentBounds": [
+              34,
+              51,
+              227,
+              262
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 322,
+          "drawX": -76.11627906976744,
+          "drawY": -8.0,
+          "scale": 1.255813953488372,
+          "geometry": {
+            "rootX": 192.0,
+            "rootY": 258,
+            "bodyHeight": 208,
+            "bodyBounds": [
+              96,
+              50,
+              262,
+              258
+            ],
+            "contentBounds": [
+              81,
+              49,
+              285,
+              258
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 322,
+          "drawX": -35.90697674418604,
+          "drawY": -4.232558139534888,
+          "scale": 1.255813953488372,
+          "geometry": {
+            "rootX": 156.0,
+            "rootY": 255,
+            "bodyHeight": 215,
+            "bodyBounds": [
+              97,
+              40,
+              216,
+              255
+            ],
+            "contentBounds": [
+              78,
+              39,
+              236,
+              256
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_tốt_đen.png",
+      "target": "img/animations/black/attack_pawn.png",
+      "color": "black",
+      "piece": "pawn",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 323,
+          "drawX": -11.287878787878782,
+          "drawY": 23.27272727272731,
+          "scale": 1.0606060606060606,
+          "geometry": {
+            "rootX": 161.5,
+            "rootY": 276,
+            "bodyHeight": 198,
+            "bodyBounds": [
+              100,
+              78,
+              232,
+              276
+            ],
+            "contentBounds": [
+              80,
+              78,
+              253,
+              277
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 323,
+          "drawX": -12.0,
+          "drawY": 22.212121212121247,
+          "scale": 1.0606060606060606,
+          "geometry": {
+            "rootX": 165.0,
+            "rootY": 277,
+            "bodyHeight": 195,
+            "bodyBounds": [
+              41,
+              82,
+              232,
+              277
+            ],
+            "contentBounds": [
+              38,
+              82,
+              233,
+              278
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 323,
+          "drawX": -28.03030303030303,
+          "drawY": 31.75757575757575,
+          "scale": 1.0606060606060606,
+          "geometry": {
+            "rootX": 182.0,
+            "rootY": 268,
+            "bodyHeight": 193,
+            "bodyBounds": [
+              97,
+              75,
+              252,
+              268
+            ],
+            "contentBounds": [
+              96,
+              74,
+              269,
+              269
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 323,
+          "drawX": -2.272727272727252,
+          "drawY": 34.93939393939394,
+          "scale": 1.0606060606060606,
+          "geometry": {
+            "rootX": 153.0,
+            "rootY": 265,
+            "bodyHeight": 197,
+            "bodyBounds": [
+              87,
+              68,
+              218,
+              265
+            ],
+            "contentBounds": [
+              71,
+              67,
+              235,
+              266
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_mã_đen.png",
+      "target": "img/animations/black/attack_knight.png",
+      "color": "black",
+      "piece": "knight",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 322,
+          "drawX": -4.634146341463435,
+          "drawY": 16.20325203252031,
+          "scale": 1.016260162601626,
+          "geometry": {
+            "rootX": 162.0,
+            "rootY": 295,
+            "bodyHeight": 246,
+            "bodyBounds": [
+              65,
+              49,
+              258,
+              295
+            ],
+            "contentBounds": [
+              60,
+              48,
+              268,
+              296
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 322,
+          "drawX": 16.65853658536585,
+          "drawY": 16.20325203252031,
+          "scale": 1.016260162601626,
+          "geometry": {
+            "rootX": 144.0,
+            "rootY": 295,
+            "bodyHeight": 240,
+            "bodyBounds": [
+              30,
+              55,
+              243,
+              295
+            ],
+            "contentBounds": [
+              16,
+              54,
+              265,
+              296
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 322,
+          "drawX": 0.36585365853656526,
+          "drawY": 32.46341463414632,
+          "scale": 1.016260162601626,
+          "geometry": {
+            "rootX": 162.0,
+            "rootY": 279,
+            "bodyHeight": 239,
+            "bodyBounds": [
+              64,
+              40,
+              262,
+              279
+            ],
+            "contentBounds": [
+              59,
+              39,
+              287,
+              280
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 322,
+          "drawX": 5.52845528455282,
+          "drawY": 32.46341463414632,
+          "scale": 1.016260162601626,
+          "geometry": {
+            "rootX": 152.0,
+            "rootY": 279,
+            "bodyHeight": 243,
+            "bodyBounds": [
+              59,
+              36,
+              248,
+              279
+            ],
+            "contentBounds": [
+              56,
+              35,
+              257,
+              280
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_tượng_đen.png",
+      "target": "img/animations/black/attack_bishop.png",
+      "color": "black",
+      "piece": "bishop",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 272,
+          "height": 255,
+          "drawX": -23.937823834196877,
+          "drawY": 23.25388601036269,
+          "scale": 1.2953367875647668,
+          "geometry": {
+            "rootX": 142.0,
+            "rootY": 226,
+            "bodyHeight": 193,
+            "bodyBounds": [
+              82,
+              33,
+              207,
+              226
+            ],
+            "contentBounds": [
+              80,
+              32,
+              210,
+              227
+            ]
+          }
+        },
+        {
+          "x": 272,
+          "y": 0,
+          "width": 272,
+          "height": 255,
+          "drawX": -15.75647668393782,
+          "drawY": 18.072538860103634,
+          "scale": 1.2953367875647668,
+          "geometry": {
+            "rootX": 138.0,
+            "rootY": 230,
+            "bodyHeight": 193,
+            "bodyBounds": [
+              58,
+              37,
+              182,
+              230
+            ],
+            "contentBounds": [
+              52,
+              36,
+              186,
+              231
+            ]
+          }
+        },
+        {
+          "x": 544,
+          "y": 0,
+          "width": 272,
+          "height": 255,
+          "drawX": -35.77720207253884,
+          "drawY": 31.025906735751335,
+          "scale": 1.2953367875647668,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 220,
+            "bodyHeight": 186,
+            "bodyBounds": [
+              90,
+              34,
+              209,
+              220
+            ],
+            "contentBounds": [
+              75,
+              33,
+              223,
+              221
+            ]
+          }
+        },
+        {
+          "x": 816,
+          "y": 0,
+          "width": 272,
+          "height": 255,
+          "drawX": -12.27979274611397,
+          "drawY": 28.43523316062175,
+          "scale": 1.2953367875647668,
+          "geometry": {
+            "rootX": 133.0,
+            "rootY": 222,
+            "bodyHeight": 193,
+            "bodyBounds": [
+              72,
+              29,
+              193,
+              222
+            ],
+            "contentBounds": [
+              70,
+              29,
+              195,
+              222
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_xe_den.png",
+      "target": "img/animations/black/attack_rook.png",
+      "color": "black",
+      "piece": "rook",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -23.461538461538453,
+          "drawY": -5.923076923076906,
+          "scale": 1.1538461538461537,
+          "geometry": {
+            "rootX": 159.0,
+            "rootY": 279,
+            "bodyHeight": 195,
+            "bodyBounds": [
+              73,
+              84,
+              251,
+              279
+            ],
+            "contentBounds": [
+              71,
+              84,
+              255,
+              280
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -55.076923076923066,
+          "drawY": -17.461538461538453,
+          "scale": 1.1538461538461537,
+          "geometry": {
+            "rootX": 189.0,
+            "rootY": 289,
+            "bodyHeight": 202,
+            "bodyBounds": [
+              53,
+              87,
+              273,
+              289
+            ],
+            "contentBounds": [
+              50,
+              86,
+              274,
+              290
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -57.69230769230768,
+          "drawY": -9.384615384615358,
+          "scale": 1.1538461538461537,
+          "geometry": {
+            "rootX": 193.0,
+            "rootY": 282,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              60,
+              82,
+              277,
+              282
+            ],
+            "contentBounds": [
+              56,
+              81,
+              278,
+              283
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -18.84615384615384,
+          "drawY": 4.46153846153851,
+          "scale": 1.1538461538461537,
+          "geometry": {
+            "rootX": 155.0,
+            "rootY": 270,
+            "bodyHeight": 199,
+            "bodyBounds": [
+              68,
+              71,
+              242,
+              270
+            ],
+            "contentBounds": [
+              65,
+              71,
+              245,
+              271
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_hậu_đen.png",
+      "target": "img/animations/black/attack_queen.png",
+      "color": "black",
+      "piece": "queen",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 311,
+          "drawX": -18.25327510917029,
+          "drawY": 3.7729257641921663,
+          "scale": 1.1353711790393013,
+          "geometry": {
+            "rootX": 157.0,
+            "rootY": 275,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              76,
+              46,
+              238,
+              275
+            ],
+            "contentBounds": [
+              73,
+              45,
+              241,
+              276
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 311,
+          "drawX": -31.148471615720524,
+          "drawY": 0.36681222707426286,
+          "scale": 1.1353711790393013,
+          "geometry": {
+            "rootX": 171.0,
+            "rootY": 278,
+            "bodyHeight": 221,
+            "bodyBounds": [
+              55,
+              57,
+              266,
+              278
+            ],
+            "contentBounds": [
+              50,
+              56,
+              267,
+              279
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 311,
+          "drawX": -30.283842794759835,
+          "drawY": 2.6375545851528273,
+          "scale": 1.1353711790393013,
+          "geometry": {
+            "rootX": 172.0,
+            "rootY": 276,
+            "bodyHeight": 220,
+            "bodyBounds": [
+              91,
+              56,
+              270,
+              276
+            ],
+            "contentBounds": [
+              90,
+              55,
+              270,
+              277
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 311,
+          "drawX": -19.3886462882096,
+          "drawY": 4.9082969432314485,
+          "scale": 1.1353711790393013,
+          "geometry": {
+            "rootX": 158.0,
+            "rootY": 274,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              94,
+              45,
+              235,
+              274
+            ],
+            "contentBounds": [
+              75,
+              44,
+              240,
+              275
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/đen/attack_vua_đen.png",
+      "target": "img/animations/black/attack_king.png",
+      "color": "black",
+      "piece": "king",
+      "action": "attack",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 306,
+          "drawX": -37.76315789473682,
+          "drawY": -14.39473684210526,
+          "scale": 1.1842105263157894,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 279,
+            "bodyHeight": 228,
+            "bodyBounds": [
+              88,
+              51,
+              247,
+              279
+            ],
+            "contentBounds": [
+              85,
+              50,
+              251,
+              280
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 306,
+          "drawX": -37.13157894736841,
+          "drawY": -16.76315789473682,
+          "scale": 1.1842105263157894,
+          "geometry": {
+            "rootX": 169.0,
+            "rootY": 281,
+            "bodyHeight": 224,
+            "bodyBounds": [
+              57,
+              57,
+              245,
+              281
+            ],
+            "contentBounds": [
+              53,
+              56,
+              246,
+              282
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 306,
+          "drawX": -49.34210526315789,
+          "drawY": -15.57894736842104,
+          "scale": 1.1842105263157894,
+          "geometry": {
+            "rootX": 181.0,
+            "rootY": 280,
+            "bodyHeight": 222,
+            "bodyBounds": [
+              65,
+              58,
+              258,
+              280
+            ],
+            "contentBounds": [
+              62,
+              57,
+              266,
+              281
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 306,
+          "drawX": -22.36842105263156,
+          "drawY": -13.210526315789423,
+          "scale": 1.1842105263157894,
+          "geometry": {
+            "rootX": 154.0,
+            "rootY": 278,
+            "bodyHeight": 229,
+            "bodyBounds": [
+              77,
+              49,
+              231,
+              278
+            ],
+            "contentBounds": [
+              75,
+              48,
+              234,
+              278
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        90,
+        90,
+        80,
+        140
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "source": "img/trắng/die_mã_trắng.png",
+      "target": "img/animations/white/die_knight.png",
+      "color": "white",
+      "piece": "knight",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -9.791666666666686,
+          "drawY": 24.333333333333314,
+          "scale": 1.0416666666666667,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 280,
+            "bodyHeight": 240,
+            "bodyBounds": [
+              82,
+              40,
+              245,
+              280
+            ],
+            "contentBounds": [
+              77,
+              39,
+              263,
+              281
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -9.791666666666686,
+          "drawY": 24.333333333333314,
+          "scale": 1.0416666666666667,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 280,
+            "bodyHeight": 240,
+            "bodyBounds": [
+              82,
+              40,
+              245,
+              280
+            ],
+            "contentBounds": [
+              77,
+              39,
+              263,
+              281
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -9.791666666666686,
+          "drawY": 24.333333333333314,
+          "scale": 1.0416666666666667,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 280,
+            "bodyHeight": 240,
+            "bodyBounds": [
+              82,
+              40,
+              245,
+              280
+            ],
+            "contentBounds": [
+              77,
+              39,
+              263,
+              281
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -9.791666666666686,
+          "drawY": 24.333333333333314,
+          "scale": 1.0416666666666667,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 280,
+            "bodyHeight": 240,
+            "bodyBounds": [
+              82,
+              40,
+              245,
+              280
+            ],
+            "contentBounds": [
+              77,
+              39,
+              263,
+              281
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/die_mã_đen.png",
+      "target": "img/animations/black/die_knight.png",
+      "color": "black",
+      "piece": "knight",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -15.702811244979927,
+          "drawY": 23.8313253012048,
+          "scale": 1.0040160642570282,
+          "geometry": {
+            "rootX": 175.0,
+            "rootY": 291,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              64,
+              42,
+              269,
+              291
+            ],
+            "contentBounds": [
+              61,
+              41,
+              280,
+              292
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -15.702811244979927,
+          "drawY": 23.8313253012048,
+          "scale": 1.0040160642570282,
+          "geometry": {
+            "rootX": 175.0,
+            "rootY": 291,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              64,
+              42,
+              269,
+              291
+            ],
+            "contentBounds": [
+              61,
+              41,
+              280,
+              292
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -15.702811244979927,
+          "drawY": 23.8313253012048,
+          "scale": 1.0040160642570282,
+          "geometry": {
+            "rootX": 175.0,
+            "rootY": 291,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              64,
+              42,
+              269,
+              291
+            ],
+            "contentBounds": [
+              61,
+              41,
+              280,
+              292
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -15.702811244979927,
+          "drawY": 23.8313253012048,
+          "scale": 1.0040160642570282,
+          "geometry": {
+            "rootX": 175.0,
+            "rootY": 291,
+            "bodyHeight": 249,
+            "bodyBounds": [
+              64,
+              42,
+              269,
+              291
+            ],
+            "contentBounds": [
+              61,
+              41,
+              280,
+              292
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/trắng/die_xe_trắng.png",
+      "target": "img/animations/white/die_rook.png",
+      "color": "white",
+      "piece": "rook",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": -23.375,
+          "drawY": 13.375,
+          "scale": 1.125,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 269,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              75,
+              69,
+              252,
+              269
+            ],
+            "contentBounds": [
+              72,
+              68,
+              257,
+              273
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": -23.375,
+          "drawY": 13.375,
+          "scale": 1.125,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 269,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              75,
+              69,
+              252,
+              269
+            ],
+            "contentBounds": [
+              72,
+              68,
+              257,
+              273
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 318,
+          "drawX": -23.375,
+          "drawY": 13.375,
+          "scale": 1.125,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 269,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              75,
+              69,
+              252,
+              269
+            ],
+            "contentBounds": [
+              72,
+              68,
+              257,
+              273
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 318,
+          "drawX": -23.375,
+          "drawY": 13.375,
+          "scale": 1.125,
+          "geometry": {
+            "rootX": 163.0,
+            "rootY": 269,
+            "bodyHeight": 200,
+            "bodyBounds": [
+              75,
+              69,
+              252,
+              269
+            ],
+            "contentBounds": [
+              72,
+              68,
+              257,
+              273
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/die_xe_đen.png",
+      "target": "img/animations/black/die_rook.png",
+      "color": "black",
+      "piece": "rook",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -30.736040609137063,
+          "drawY": 9.908629441624385,
+          "scale": 1.1421319796954315,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 268,
+            "bodyHeight": 197,
+            "bodyBounds": [
+              81,
+              71,
+              253,
+              268
+            ],
+            "contentBounds": [
+              79,
+              70,
+              256,
+              269
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -30.736040609137063,
+          "drawY": 9.908629441624385,
+          "scale": 1.1421319796954315,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 268,
+            "bodyHeight": 197,
+            "bodyBounds": [
+              81,
+              71,
+              253,
+              268
+            ],
+            "contentBounds": [
+              79,
+              70,
+              256,
+              269
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 320,
+          "drawX": -30.736040609137063,
+          "drawY": 9.908629441624385,
+          "scale": 1.1421319796954315,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 268,
+            "bodyHeight": 197,
+            "bodyBounds": [
+              81,
+              71,
+              253,
+              268
+            ],
+            "contentBounds": [
+              79,
+              70,
+              256,
+              269
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 320,
+          "drawX": -30.736040609137063,
+          "drawY": 9.908629441624385,
+          "scale": 1.1421319796954315,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 268,
+            "bodyHeight": 197,
+            "bodyBounds": [
+              81,
+              71,
+              253,
+              268
+            ],
+            "contentBounds": [
+              79,
+              70,
+              256,
+              269
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "source": "img/đen/die_tốt_đen.png",
+      "target": "img/animations/black/die_pawn.png",
+      "color": "black",
+      "piece": "pawn",
+      "action": "die",
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -10.242718446601941,
+          "drawY": 32.60194174757282,
+          "scale": 1.0194174757281553,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 278,
+            "bodyHeight": 206,
+            "bodyBounds": [
+              101,
+              72,
+              234,
+              278
+            ],
+            "contentBounds": [
+              83,
+              72,
+              252,
+              279
+            ]
+          }
+        },
+        {
+          "x": 314,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -10.242718446601941,
+          "drawY": 32.60194174757282,
+          "scale": 1.0194174757281553,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 278,
+            "bodyHeight": 206,
+            "bodyBounds": [
+              101,
+              72,
+              234,
+              278
+            ],
+            "contentBounds": [
+              83,
+              72,
+              252,
+              279
+            ]
+          }
+        },
+        {
+          "x": 627,
+          "y": 0,
+          "width": 313,
+          "height": 330,
+          "drawX": -10.242718446601941,
+          "drawY": 32.60194174757282,
+          "scale": 1.0194174757281553,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 278,
+            "bodyHeight": 206,
+            "bodyBounds": [
+              101,
+              72,
+              234,
+              278
+            ],
+            "contentBounds": [
+              83,
+              72,
+              252,
+              279
+            ]
+          }
+        },
+        {
+          "x": 940,
+          "y": 0,
+          "width": 314,
+          "height": 330,
+          "drawX": -10.242718446601941,
+          "drawY": 32.60194174757282,
+          "scale": 1.0194174757281553,
+          "geometry": {
+            "rootX": 167.0,
+            "rootY": 278,
+            "bodyHeight": 206,
+            "bodyBounds": [
+              101,
+              72,
+              234,
+              278
+            ],
+            "contentBounds": [
+              83,
+              72,
+              252,
+              279
+            ]
+          }
+        }
+      ],
+      "frameDurationsMs": [
+        140,
+        160,
+        180,
+        200
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    }
+  ]
+}

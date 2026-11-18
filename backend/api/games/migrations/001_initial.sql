@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS games (
+    id TEXT PRIMARY KEY,
+    token_hash TEXT NOT NULL,
+    version INTEGER NOT NULL DEFAULT 0,
+    body TEXT NOT NULL,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+PRAGMA user_version = 1;

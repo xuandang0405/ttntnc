@@ -1,0 +1,254 @@
+{
+  "img/Bàn cờ.png": {
+    "sha256": "3df9422fbe80f9aab60b617d514c06cd1388cd5e67e0bec3bdc99b84be9ef8fc",
+    "bytes": 2672612
+  },
+  "img/trắng/attack_hậu_trắng.png": {
+    "sha256": "6e0fdbe13736be03e8847a519dcea1492f793ccc64a343eba1f54741c565990b",
+    "bytes": 732644
+  },
+  "img/trắng/attack_mã_trắng.png": {
+    "sha256": "ce526fa2dac6b928899bdd3d5703b67b12030f4733ee659a8301984a79ded30d",
+    "bytes": 809193
+  },
+  "img/trắng/attack_tượng_trắng.png": {
+    "sha256": "3e907fb6831ddf0b632c1cb3707b33c17f2b151d38932ed52e378b17998f08e1",
+    "bytes": 505838
+  },
+  "img/trắng/attack_tốt_trắng.png": {
+    "sha256": "38907a5c29f58ef22b171a7c104da249f1a75091be89605d47955e2aa4966ee3",
+    "bytes": 559354
+  },
+  "img/trắng/attack_vua_trắng.png": {
+    "sha256": "c2a69b2e003bb6b3cb8c57e2bc74400698b2aa1c2f87c86db9b3faa924d056df",
+    "bytes": 791564
+  },
+  "img/trắng/attack_xe_trắng.png": {
+    "sha256": "55df614b84e6cd87b4f6b802276acf7fcd33e857f1bc4e43930c138984244c21",
+    "bytes": 756486
+  },
+  "img/trắng/defeat_hậu_trắng.png": {
+    "sha256": "9ee4ba30afad14f0b5f50580298bf89f725b8f2d54ab621da819967cbe847d05",
+    "bytes": 428581
+  },
+  "img/trắng/defeat_mã_trắng.png": {
+    "sha256": "8f2e03cc08852eeb5371fc44266088cda3773bd1208a66339be437e0ab2dd995",
+    "bytes": 453813
+  },
+  "img/trắng/defeat_tượng_trắng.png": {
+    "sha256": "c49615a1f0abcb877887af25c7563d1db5ac4793bef4ddb4cfe46484c841bf7a",
+    "bytes": 321986
+  },
+  "img/trắng/defeat_tốt_trắng.png": {
+    "sha256": "6b0ff9c6b180396b1e65a1096be563591c39e05a33d4fe4e61a160b73e75ddcc",
+    "bytes": 352868
+  },
+  "img/trắng/defeat_vua_trắng.png": {
+    "sha256": "147001da0c452764e3690e38e6a20291b0d4ac849e0e8d633ecc817d6b51efd5",
+    "bytes": 374584
+  },
+  "img/trắng/defeat_xe_trắng.png": {
+    "sha256": "0961dfab9e77726922b33a665d1018dd1aab3de4e65a17da5a10cbc38d44c809",
+    "bytes": 562337
+  },
+  "img/trắng/die_hậu_trắng.png": {
+    "sha256": "9ee4ba30afad14f0b5f50580298bf89f725b8f2d54ab621da819967cbe847d05",
+    "bytes": 428581
+  },
+  "img/trắng/die_mã_trắng.png": {
+    "sha256": "8f2e03cc08852eeb5371fc44266088cda3773bd1208a66339be437e0ab2dd995",
+    "bytes": 453813
+  },
+  "img/trắng/die_tượng_trắng.png": {
+    "sha256": "c49615a1f0abcb877887af25c7563d1db5ac4793bef4ddb4cfe46484c841bf7a",
+    "bytes": 321986
+  },
+  "img/trắng/die_tốt_trắng.png": {
+    "sha256": "6b0ff9c6b180396b1e65a1096be563591c39e05a33d4fe4e61a160b73e75ddcc",
+    "bytes": 352868
+  },
+  "img/trắng/die_vua_trắng.png": {
+    "sha256": "147001da0c452764e3690e38e6a20291b0d4ac849e0e8d633ecc817d6b51efd5",
+    "bytes": 374584
+  },
+  "img/trắng/die_xe_trắng.png": {
+    "sha256": "0961dfab9e77726922b33a665d1018dd1aab3de4e65a17da5a10cbc38d44c809",
+    "bytes": 562337
+  },
+  "img/trắng/idel_hậu_trắng.png": {
+    "sha256": "01035b391c84c1b6271e9282fcf34e363284674abb8e91907fd9746b1bcfe518",
+    "bytes": 664949
+  },
+  "img/trắng/idel_mã_trắng.png": {
+    "sha256": "c520a6ab28a40f94b6581436cb651a164570835a4ad9d1453d797950123d0fe6",
+    "bytes": 713959
+  },
+  "img/trắng/idel_tượng_trắng.png": {
+    "sha256": "cd2418e5531b6bca2099316a64295c1a99bbe836612416d34da1585843716cd4",
+    "bytes": 388061
+  },
+  "img/trắng/idel_tốt_trắng.png": {
+    "sha256": "50e34264a65195858b39fb8931f4675f925fe5669498a77683fe2bfdda9184c6",
+    "bytes": 454796
+  },
+  "img/trắng/idel_vua_trắng.png": {
+    "sha256": "1ed2d6beb8f25636d742753a0ca4c53d6d5d1aedaf1b9736758a5e6e49e9e46f",
+    "bytes": 686743
+  },
+  "img/trắng/idel_xe_trắng.png": {
+    "sha256": "60848205a4245a98edb8eda3da93ec748166f31850cf2bae02d897a0b0ff22ff",
+    "bytes": 666475
+  },
+  "img/trắng/move_hậu_trắng.png": {
+    "sha256": "2ff4da7734cc4a4bc8f195b396eb5a76ff494aca928dccdb697babca6f6d00a3",
+    "bytes": 356210
+  },
+  "img/trắng/move_mã_trắng.png": {
+    "sha256": "2d314ff14c9dddfedc250302a2b0a73237cd172a2eff0e6b9064b120e34cecc7",
+    "bytes": 608423
+  },
+  "img/trắng/move_tượng_trắng.png": {
+    "sha256": "000fe6bdf472955e4548e4f5da369eef1c18424f6f8daa8cc7dec71a60dac8f4",
+    "bytes": 383426
+  },
+  "img/trắng/move_tốt_trắng.png": {
+    "sha256": "efdb7f4d3c57416197f94fe0b4773120a836853aa53be0b48bdb0241ca542cc2",
+    "bytes": 370884
+  },
+  "img/trắng/move_vua_trắng.png": {
+    "sha256": "6387cf85d1be36000f4c37c23173fdc97d85f3c8b6a9250349e7cccb18f4e9a7",
+    "bytes": 455320
+  },
+  "img/trắng/move_xe_trắng.png": {
+    "sha256": "ca7c02beb86529aab244ac35827a8194f84ea5202e5b26340fca040f0f5b5203",
+    "bytes": 595709
+  },
+  "img/đen/attack_hậu_đen.png": {
+    "sha256": "1f5c5e0a95a3b8ee639f07e679f6886bf565411d893bcf07a33a9ccbae8eb6e8",
+    "bytes": 772911
+  },
+  "img/đen/attack_mã_đen.png": {
+    "sha256": "08b58def0865b10ca4c5ebd528ba1db19040264c0a234ad890e432e9c28f94b0",
+    "bytes": 828266
+  },
+  "img/đen/attack_tượng_đen.png": {
+    "sha256": "1a333443bd1deac7032116b7a42808ab7995f0ff97c0477b19c205b51fa247b0",
+    "bytes": 544575
+  },
+  "img/đen/attack_tốt_đen.png": {
+    "sha256": "7bfa6bdc1da46f2ed49bd9a2899d0ac87b5eb3b89ae79b3a3059b42516beb68b",
+    "bytes": 591494
+  },
+  "img/đen/attack_vua_đen.png": {
+    "sha256": "64e33802d18581088451a9b4d654b44a8dad26df0c5c90f8b33eaf67f19e61b7",
+    "bytes": 805564
+  },
+  "img/đen/attack_xe_den.png": {
+    "sha256": "99e2042d8658a1bb1ec892adfc276a1b0dc5ee9bf7fa71043dd5be9e956224e6",
+    "bytes": 784205
+  },
+  "img/đen/defeat_hậu_đen.png": {
+    "sha256": "0244b527c38f8f7185daca2ee722d9f3725518716824e8aadffae88fec866e86",
+    "bytes": 427626
+  },
+  "img/đen/defeat_mã_đen.png": {
+    "sha256": "3c0a4315aab247e8cb1603fd9506d0e2393ab66e0382bd2cbfb85534982f0ede",
+    "bytes": 400049
+  },
+  "img/đen/defeat_tượng_đen.png": {
+    "sha256": "e227367f733b19c6fca47bb4f4d8444f851171a4a40d8a21e600e74a07054190",
+    "bytes": 296815
+  },
+  "img/đen/defeat_tốt_đen.png": {
+    "sha256": "104019ac9f30ca5e021ba6b428b0b0ef15dccdd7296c4732e9893565d5ebaf72",
+    "bytes": 483227
+  },
+  "img/đen/defeat_vua_đen.png": {
+    "sha256": "4d8b822ec44a54ad19db0bc6d722d1d382302b2847bbe22a8a00bf1ec0a36a28",
+    "bytes": 416092
+  },
+  "img/đen/defeat_xe_đen.png": {
+    "sha256": "234423b2e71fd9a82304d971cf295e4f533a9f12965bbede7320d0f6abe82d59",
+    "bytes": 378180
+  },
+  "img/đen/die_hậu_đen.png": {
+    "sha256": "0244b527c38f8f7185daca2ee722d9f3725518716824e8aadffae88fec866e86",
+    "bytes": 427626
+  },
+  "img/đen/die_mã_đen.png": {
+    "sha256": "3c0a4315aab247e8cb1603fd9506d0e2393ab66e0382bd2cbfb85534982f0ede",
+    "bytes": 400049
+  },
+  "img/đen/die_tượng_đen.png": {
+    "sha256": "e227367f733b19c6fca47bb4f4d8444f851171a4a40d8a21e600e74a07054190",
+    "bytes": 296815
+  },
+  "img/đen/die_tốt_đen.png": {
+    "sha256": "104019ac9f30ca5e021ba6b428b0b0ef15dccdd7296c4732e9893565d5ebaf72",
+    "bytes": 483227
+  },
+  "img/đen/die_vua_đen.png": {
+    "sha256": "4d8b822ec44a54ad19db0bc6d722d1d382302b2847bbe22a8a00bf1ec0a36a28",
+    "bytes": 416092
+  },
+  "img/đen/die_xe_den.png": {
+    "sha256": "234423b2e71fd9a82304d971cf295e4f533a9f12965bbede7320d0f6abe82d59",
+    "bytes": 378180
+  },
+  "img/đen/die_xe_đen.png": {
+    "sha256": "234423b2e71fd9a82304d971cf295e4f533a9f12965bbede7320d0f6abe82d59",
+    "bytes": 378180
+  },
+  "img/đen/idel_hậu_đen.png": {
+    "sha256": "e147978647ad3c43f0189edd1f30d23e1288c6ae67b29bc560b26f5cc7838a21",
+    "bytes": 673789
+  },
+  "img/đen/idel_mã_đen.png": {
+    "sha256": "69ca4b949a155248ee60ff19a68e503dd1d0b7f12a24bae2f6584ee9c29439d8",
+    "bytes": 726594
+  },
+  "img/đen/idel_tượng_đen.png": {
+    "sha256": "7a5bdf912469ce384c205088dd3d8b90200d9fdb577ce675742eccbaff41d7c3",
+    "bytes": 398139
+  },
+  "img/đen/idel_tốt_đen.png": {
+    "sha256": "d34c0c4ceebab5d27350119e0fa5fbce7a11ebc8d7a9f79a17fffb07130a935d",
+    "bytes": 453446
+  },
+  "img/đen/idel_vua_đen.png": {
+    "sha256": "7d601dfa43a3c795cfeba83089a3201810724e3f2026eb98b130beabe9dbb6bc",
+    "bytes": 690440
+  },
+  "img/đen/idel_xe_đen.png": {
+    "sha256": "52731203efd5028cd021fd19cfb28bb53723b4bb7991763ce066ca700e673525",
+    "bytes": 672568
+  },
+  "img/đen/move_hậu_đen.png": {
+    "sha256": "4ebf7800b71cc20b40400f0460c53382f880119cab1be64b5972d13236fae518",
+    "bytes": 395187
+  },
+  "img/đen/move_mã_đen.png": {
+    "sha256": "91429d913f83093c8ee2fd90c9466fd3c1f3f8bc108c11fa8ab95800c30a29dd",
+    "bytes": 610362
+  },
+  "img/đen/move_tượng_đen.png": {
+    "sha256": "6e6ee2467245fdfe74fda14a32784425fdd46a25b967a767684059f9eab097ec",
+    "bytes": 373686
+  },
+  "img/đen/move_tốt_đen.png": {
+    "sha256": "71f9a00654bf19234a6ae5870b3fb9587873a992635f645a09ab4d0da81c10fa",
+    "bytes": 350542
+  },
+  "img/đen/move_vua_đen.png": {
+    "sha256": "39fac1461fada0884fcf2aeebb068db241104be837729398c71e94fe9c1abcf2",
+    "bytes": 359016
+  },
+  "img/đen/move_xe_den.png": {
+    "sha256": "7fd4da9eca46db1c610771e7f79f1ca7bbcfdeae5f1c896b0e6c911659d81568",
+    "bytes": 395743
+  },
+  "img/đen/move_xe_đen.png": {
+    "sha256": "7fd4da9eca46db1c610771e7f79f1ca7bbcfdeae5f1c896b0e6c911659d81568",
+    "bytes": 395743
+  }
+}

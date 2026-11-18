@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "C0qH1QVI75U=",
+  "success": true,
+  "projectFilePath": "D:\\QUAN TRỌNG\\TTNTNC\\Cờ vua\\docs\\report-build\\ReportBuilder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BiKiMC\\.nuget\\packages\\documentformat.openxml\\3.5.1\\documentformat.openxml.3.5.1.nupkg.sha512",
+    "C:\\Users\\BiKiMC\\.nuget\\packages\\documentformat.openxml.framework\\3.5.1\\documentformat.openxml.framework.3.5.1.nupkg.sha512",
+    "C:\\Users\\BiKiMC\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

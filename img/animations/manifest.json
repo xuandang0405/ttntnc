@@ -1,0 +1,1159 @@
+{
+  "schemaVersion": 3,
+  "generatedWith": "imagegen built-in; deterministic sprite registration and packing",
+  "frameOrder": "left-to-right",
+  "animations": [
+    {
+      "file": "white/move_king.png",
+      "action": "move",
+      "piece": "king",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_king.png",
+      "action": "idle",
+      "piece": "king",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/die_king.png",
+      "action": "die",
+      "piece": "king",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "white/move_queen.png",
+      "action": "move",
+      "piece": "queen",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_queen.png",
+      "action": "idle",
+      "piece": "queen",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/die_queen.png",
+      "action": "die",
+      "piece": "queen",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/move_king.png",
+      "action": "move",
+      "piece": "king",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_king.png",
+      "action": "idle",
+      "piece": "king",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/die_king.png",
+      "action": "die",
+      "piece": "king",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/move_queen.png",
+      "action": "move",
+      "piece": "queen",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_queen.png",
+      "action": "idle",
+      "piece": "queen",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/die_queen.png",
+      "action": "die",
+      "piece": "queen",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "white/die_bishop.png",
+      "action": "die",
+      "piece": "bishop",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/die_bishop.png",
+      "action": "die",
+      "piece": "bishop",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/move_rook.png",
+      "action": "move",
+      "piece": "rook",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_rook.png",
+      "action": "idle",
+      "piece": "rook",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/die_pawn.png",
+      "action": "die",
+      "piece": "pawn",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "white/move_knight.png",
+      "action": "move",
+      "piece": "knight",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_knight.png",
+      "action": "idle",
+      "piece": "knight",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_bishop.png",
+      "action": "move",
+      "piece": "bishop",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_bishop.png",
+      "action": "idle",
+      "piece": "bishop",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_pawn.png",
+      "action": "move",
+      "piece": "pawn",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_pawn.png",
+      "action": "idle",
+      "piece": "pawn",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_rook.png",
+      "action": "move",
+      "piece": "rook",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/move_rook.png",
+      "action": "idle",
+      "piece": "rook",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_knight.png",
+      "action": "move",
+      "piece": "knight",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_knight.png",
+      "action": "idle",
+      "piece": "knight",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_bishop.png",
+      "action": "move",
+      "piece": "bishop",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_bishop.png",
+      "action": "idle",
+      "piece": "bishop",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_pawn.png",
+      "action": "move",
+      "piece": "pawn",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/move_pawn.png",
+      "action": "idle",
+      "piece": "pawn",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        240,
+        280,
+        240,
+        280
+      ],
+      "loop": true,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_pawn.png",
+      "action": "attack",
+      "piece": "pawn",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_knight.png",
+      "action": "attack",
+      "piece": "knight",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_bishop.png",
+      "action": "attack",
+      "piece": "bishop",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_rook.png",
+      "action": "attack",
+      "piece": "rook",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_queen.png",
+      "action": "attack",
+      "piece": "queen",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/attack_king.png",
+      "action": "attack",
+      "piece": "king",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_pawn.png",
+      "action": "attack",
+      "piece": "pawn",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_knight.png",
+      "action": "attack",
+      "piece": "knight",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_bishop.png",
+      "action": "attack",
+      "piece": "bishop",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_rook.png",
+      "action": "attack",
+      "piece": "rook",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_queen.png",
+      "action": "attack",
+      "piece": "queen",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "black/attack_king.png",
+      "action": "attack",
+      "piece": "king",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        140,
+        140,
+        140,
+        180
+      ],
+      "loop": false,
+      "hideAfterPlayback": false
+    },
+    {
+      "file": "white/die_knight.png",
+      "action": "die",
+      "piece": "knight",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/die_knight.png",
+      "action": "die",
+      "piece": "knight",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "white/die_rook.png",
+      "action": "die",
+      "piece": "rook",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/die_rook.png",
+      "action": "die",
+      "piece": "rook",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "black/die_pawn.png",
+      "action": "die",
+      "piece": "pawn",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 360,
+      "frameCount": 4,
+      "anchor": {
+        "y": 316,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        170,
+        200,
+        230,
+        260
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "effects/capture_impact_white.png",
+      "action": "impact",
+      "piece": "effect",
+      "color": "white",
+      "frameWidth": 320,
+      "frameHeight": 320,
+      "frameCount": 4,
+      "anchor": {
+        "y": 192,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        70,
+        90,
+        120,
+        160
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    },
+    {
+      "file": "effects/capture_impact_black.png",
+      "action": "impact",
+      "piece": "effect",
+      "color": "black",
+      "frameWidth": 320,
+      "frameHeight": 320,
+      "frameCount": 4,
+      "anchor": {
+        "y": 192,
+        "x": 160
+      },
+      "frameDurationsMs": [
+        70,
+        90,
+        120,
+        160
+      ],
+      "loop": false,
+      "hideAfterPlayback": true
+    }
+  ],
+  "motion": {
+    "bishop": "diagonal",
+    "rook": "straight",
+    "easing": "easeInOutCubic",
+    "queen": "straight-or-diagonal",
+    "king": "one-square",
+    "durationMs": 700,
+    "knightArcHeightInSquares": 0.45,
+    "pawnCapture": "diagonal",
+    "pawnMove": "forward",
+    "minDurationMs": 650,
+    "maxDurationMs": 1100
+  },
+  "capture": {
+    "victimDieStartMs": 760,
+    "impactMs": 760,
+    "captureSquare": "explicit; defaults to targetSquare",
+    "attackerArrivesMs": 1160,
+    "completeMs": 1760,
+    "victimHiddenMs": 1620,
+    "attackStartMs": 480,
+    "victimMayBeKing": false,
+    "travelMs": 480
+  },
+  "notes": [
+    "Render sprite origin at board anchor minus animation.anchor; use the same anchor for every state.",
+    "Only the attacker stays intact; play the victim die once, then remove it.",
+    "Castling animates king and rook together; en passant removes the victim at captureSquare; promotion swaps the piece after arrival.",
+    "Idle loops all four registered move frames with its own timing; the game adds breathing, base aura and slow motes without changing piece identity."
+  ]
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "attackerColor": "white",
+    "attacker": "pawn",
+    "victimColor": "black",
+    "victim": "knight",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      2,
+      2
+    ]
+  },
+  {
+    "attackerColor": "white",
+    "attacker": "knight",
+    "victimColor": "black",
+    "victim": "rook",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      3,
+      2
+    ]
+  },
+  {
+    "attackerColor": "white",
+    "attacker": "bishop",
+    "victimColor": "black",
+    "victim": "bishop",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      3,
+      1
+    ]
+  },
+  {
+    "attackerColor": "white",
+    "attacker": "rook",
+    "victimColor": "black",
+    "victim": "queen",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      3,
+      3
+    ]
+  },
+  {
+    "attackerColor": "white",
+    "attacker": "queen",
+    "victimColor": "black",
+    "victim": "pawn",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      3,
+      1
+    ]
+  },
+  {
+    "attackerColor": "white",
+    "attacker": "king",
+    "victimColor": "black",
+    "victim": "rook",
+    "from": [
+      1,
+      3
+    ],
+    "to": [
+      2,
+      2
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "pawn",
+    "victimColor": "white",
+    "victim": "knight",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      2,
+      2
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "knight",
+    "victimColor": "white",
+    "victim": "rook",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      3,
+      2
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "bishop",
+    "victimColor": "white",
+    "victim": "bishop",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      3,
+      3
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "rook",
+    "victimColor": "white",
+    "victim": "queen",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      3,
+      1
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "queen",
+    "victimColor": "white",
+    "victim": "pawn",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      3,
+      3
+    ]
+  },
+  {
+    "attackerColor": "black",
+    "attacker": "king",
+    "victimColor": "white",
+    "victim": "rook",
+    "from": [
+      1,
+      1
+    ],
+    "to": [
+      2,
+      2
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+.venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+data/*.sqlite3*
+.env
+*.log
+test-results/
+.venv-ai/
+experiments/
+data/training/

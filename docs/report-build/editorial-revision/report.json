@@ -1,0 +1,474 @@
+{
+  "keep_tables": false,
+  "chapters": [
+    {
+      "title": "TỔNG QUAN VÀ PHẠM VI NGHIÊN CỨU",
+      "sections": [
+        {
+          "title": "Định hướng đề tài",
+          "paragraphs": [
+            "Đề tài xây dựng ứng dụng Cờ Vua trên trình duyệt và khảo sát cách lựa chọn nước đi trong thời gian hữu hạn. Giao diện sử dụng React; máy chủ FastAPI quản lý ván và gọi thuật toán. Mỗi thuật toán là một tác tử nhận trạng thái và trả nước hợp lệ, nhờ đó nhóm có thể thay phương pháp mà vẫn giữ nguyên môi trường chơi.",
+            "Trọng tâm nghiên cứu là mối quan hệ giữa chất lượng quyết định và chi phí tính toán. Xét nhiều nhánh hơn chưa chắc đem lại kết quả tốt hơn nếu hàm đánh giá chưa phù hợp hoặc việc xử lý trạng thái chiếm quá nhiều thời gian. Nhóm kết hợp khảo sát thuật toán, xây dựng dữ liệu và đối kháng trong cùng hệ thống đo để tìm nguyên nhân chênh lệch."
+          ]
+        },
+        {
+          "title": "Vấn đề nghiên cứu",
+          "paragraphs": [
+            "Cờ vua có luật xác định và cho phép hai bên quan sát toàn bộ bàn cờ, nhưng số biến thể tăng nhanh sau mỗi lượt khiến việc xét hết các diễn biến trở nên không khả thi. Chương trình thường phải dừng ở một độ sâu giới hạn rồi ước lượng mức thuận lợi của thế cờ. Cách tiếp cận này đã xuất hiện trong công trình của Shannon [1] và vẫn đặt ra một vấn đề thực tế: nên dành thời gian để tìm sâu hơn, đánh giá chính xác hơn hay chọn lọc các nhánh cần khảo sát?",
+            "Nhóm khảo sát vấn đề trên với ngân sách 100 mili giây cho một quyết định. Giới hạn này gắn với yêu cầu phản hồi của trò chơi và giúp bộc lộ chi phí thuật toán. Do chương trình chỉ kiểm tra thời hạn tại những điểm nhất định, phép đo phải ghi cả các lượt vượt hạn và thời gian thực tế, như trình bày ở Chương 4."
+          ]
+        },
+        {
+          "title": "Mục tiêu và sản phẩm",
+          "paragraphs": [
+            "Ứng dụng cần duy trì ván cờ đúng luật, kể cả nhập thành, bắt tốt qua đường và phong cấp. Giao diện cho người chơi nhận biết lượt, chọn quân và theo dõi diễn biến bằng hoạt ảnh dựa trên trạng thái máy chủ đã xác nhận. Mọi nước đi và hiệu ứng đều phải kết thúc ở cùng một trạng thái.",
+            "Trên nền đó, nhóm xây dựng tác tử dùng quy tắc, tìm kiếm và mạng học rồi tổ chức đối kháng có kiểm soát. Sản phẩm nghiên cứu gồm mã nguồn, dữ liệu có thể truy nguyên, mô hình và nhật ký thực nghiệm. Các bằng chứng này phục vụ việc trả lời câu hỏi nghiên cứu trong báo cáo cuối kỳ."
+          ]
+        },
+        {
+          "title": "Phạm vi thực hiện",
+          "paragraphs": [
+            "Nhóm hoàn thành môi trường luật, tác tử ngẫu nhiên và bộ chạy đối kháng trước khi mở rộng tìm kiếm cùng học máy. Bảng 1.1 phân biệt phần nền tảng với phần mở rộng để việc điều chỉnh quy mô vẫn giữ được các phép so sánh chính.",
+            "Phạm vi là cờ vua tiêu chuẩn trên bàn 8 × 8, với mô hình nhỏ phù hợp tài nguyên của nhóm. Báo cáo phân biệt cấu hình hiện có với phương án dự kiến, đồng thời chỉ sử dụng kết quả từ những bản đã triển khai và kiểm tra."
+          ],
+          "table": {
+            "caption": "Bảng 1.1 Phạm vi và sản phẩm của đề tài",
+            "headers": ["Hạng mục", "Nội dung", "Sản phẩm kiểm chứng"],
+            "widths": [24, 43, 33],
+            "keep_together": true,
+            "rows": [
+              ["Nền tảng", "Luật cờ, quản lý ván, giao diện, tác tử ngẫu nhiên", "Ván chơi hoàn chỉnh và bộ kiểm tra luật"],
+              ["Tìm kiếm", "Quy tắc, Minimax, Alpha-beta, MCTS", "Tác tử và nhật ký đối kháng"],
+              ["Học máy", "Dữ liệu tự sinh, CNN có giám sát, học TD", "Tập dữ liệu, mô hình và nhật ký học"],
+              ["Mở rộng", "Mạng hướng dẫn tìm kiếm và các phép so sánh thành phần", "Cấu hình kết hợp và phân tích chi phí"]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "KHẢO SÁT VÀ LỰA CHỌN PHƯƠNG PHÁP",
+      "sections": [
+        {
+          "title": "Các hướng tiếp cận",
+          "paragraphs": [
+            "Minimax mô hình hóa việc hai bên lần lượt chọn phương án có lợi nhất cho mình. Alpha-beta giữ nguyên nguyên tắc đó nhưng loại bỏ những nhánh không còn khả năng thay đổi kết quả ở nút đang xét; hiệu quả cắt tỉa phụ thuộc đáng kể vào thứ tự duyệt nước [2]. Đây là cặp phương pháp phù hợp để khảo sát một cải tiến thuật toán có làm giảm chi phí mà vẫn giữ kết quả tìm kiếm ở cùng độ sâu hay không.",
+            "Tìm kiếm cây Monte Carlo (MCTS) phân bổ lượt khảo sát dựa trên kết quả đã quan sát thay vì duyệt đồng đều mọi nhánh. Quy tắc UCT kết hợp mức lợi ích ước lượng với mức ưu tiên khám phá những nhánh còn ít mẫu [3]. Tuy nhiên, trong cờ vua, một chính sách mô phỏng quá yếu có thể bỏ qua đòn chiến thuật bắt buộc. Vì thế, đề tài cần so sánh cả số lượt mô phỏng lẫn cách đánh giá tại điểm dừng, chứ không chỉ tăng số mẫu.",
+            "Mạng nơ-ron tích chập (CNN) cho phép học đặc trưng từ các kênh biểu diễn bàn cờ, còn học sai phân thời gian (TD) cập nhật giá trị dự đoán từ chênh lệch giữa hai trạng thái liên tiếp [5]. Công trình AlphaZero [4] cho thấy khả năng kết hợp mạng với tìm kiếm và tự chơi, nhưng kết quả đó đi kèm thiết kế cùng nguồn lực riêng. Đề tài chỉ chọn một số thành phần có thể khảo sát độc lập trên mô hình nhỏ, không suy rộng kết quả của hệ thống lớn sang bản cài đặt của nhóm."
+          ]
+        },
+        {
+          "title": "Vai trò của từng phương pháp trong đề tài",
+          "paragraphs": [
+            "Tác tử chọn ngẫu nhiên giúp kiểm tra luồng chơi và tạo mốc so sánh ban đầu. Từ mốc này, tác tử dùng quy tắc cho thấy lợi ích của tri thức đánh giá đơn giản; Minimax và Alpha-beta bổ sung khả năng xét phản ứng của đối thủ. Nhóm đưa MCTS và mạng học vào sau để xác định liệu cách phân bổ tìm kiếm hoặc thông tin rút ra từ dữ liệu có đem lại lợi ích tương xứng với chi phí hay không. Bảng 2.1 tổng hợp vai trò và giới hạn của các nhóm phương pháp.",
+            "Các tác tử cùng sử dụng một môi trường luật và một giao diện quyết định, nhưng không nhất thiết có chi phí mỗi nút giống nhau. Do đó, nhóm thực hiện riêng phép so sánh ở cùng độ sâu, cùng số mô phỏng và cùng thời gian. Việc giữ các điều kiện này tách biệt giúp giải thích nguyên nhân chênh lệch thay vì gộp mọi kết quả thành một bảng xếp hạng duy nhất."
+          ],
+          "table": {
+            "caption": "Bảng 2.1 Vai trò của các phương pháp khảo sát",
+            "headers": ["Phương pháp", "Cách chọn nước", "Nội dung cần khảo sát"],
+            "widths": [24, 39, 37],
+            "rows": [
+              ["Ngẫu nhiên", "Lấy mẫu đều từ tập nước hợp lệ", "Mốc ban đầu và tính đúng của luồng chơi"],
+              ["Dùng quy tắc", "Chọn theo hàm đánh giá thủ công", "Lợi ích và giới hạn của tri thức đặt trước"],
+              ["Minimax và Alpha-beta", "Tìm kiếm đối kháng đến độ sâu giới hạn", "Cắt tỉa, thứ tự nước và chi phí duyệt"],
+              ["MCTS", "Chọn, mở rộng, mô phỏng và lan truyền giá trị", "Số mẫu và chất lượng đánh giá tại lá"],
+              ["CNN có giám sát", "Học nước đi và giá trị từ tác tử sinh nhãn", "Khả năng học bắt chước và chi phí suy luận"],
+              ["Học TD và tìm kiếm có mạng", "Cập nhật giá trị qua tự chơi; dùng mạng trong cây", "Ổn định học và lợi ích của việc kết hợp"]
+            ]
+          }
+        },
+        {
+          "title": "Câu hỏi nghiên cứu",
+          "paragraphs": [
+            "Câu hỏi thứ nhất (RQ1) là các phương pháp đạt kết quả đối kháng như thế nào khi mỗi nước có cùng ngân sách 100 mili giây. Ngoài điểm đối kháng, nhóm xem xét tỷ lệ vượt hạn và nguyên nhân kết thúc ván để biết một tác tử có được lợi từ quy tắc phân xử hoặc từ việc sử dụng nhiều thời gian hơn dự kiến hay không.",
+            "Câu hỏi thứ hai (RQ2) tập trung vào Alpha-beta: cắt tỉa và sắp xếp nước giảm được bao nhiêu nút so với Minimax ở cùng độ sâu, cùng thế cờ và cùng hàm đánh giá? Phép đo này cần đối chiếu cả điểm tại gốc để phát hiện lỗi cài đặt; khác biệt về nước được chọn vẫn có thể hợp lệ khi nhiều nước có cùng điểm.",
+            "Câu hỏi thứ ba (RQ3) xem xét vai trò của mạng học trong quyết định. Nhóm so sánh một mô hình chọn nước trực tiếp với chính mô hình đó khi tham gia tìm kiếm, đồng thời theo dõi số lần gọi mạng và tổng độ trễ. Nếu chi phí vượt ngân sách, phạm vi kết luận phải phản ánh giới hạn ấy, kể cả khi cấu hình không giới hạn thời gian có kết quả đối kháng tốt hơn."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "BÀI TOÁN VÀ DỮ LIỆU",
+      "sections": [
+        {
+          "title": "Trạng thái và quyết định của tác tử",
+          "paragraphs": [
+            "Đầu vào của tác tử gồm vị trí các quân, bên đến lượt, quyền nhập thành, khả năng bắt tốt qua đường, đồng hồ nửa nước và lịch sử cần thiết để xét lặp lại thế cờ. Đầu ra là một nước thuộc tập hợp lệ do môi trường cung cấp. Nhóm dùng ký hiệu UCI để trao đổi nước đi, chẳng hạn e2e4 hoặc e7e8q khi phong cấp Hậu; cách ghi này xác định rõ ô xuất phát, ô đến và loại quân phong cấp.",
+            "Một ply là một lượt đi của một bên, vì vậy 80 ply tương ứng tối đa 40 lượt của Trắng và 40 lượt của Đen. Khi mạng dự đoán giá trị V(s), dấu dương biểu thị lợi thế cho bên đến lượt tại trạng thái s. Quy ước này khác với hàm đánh giá thủ công lấy Trắng làm phía dương; tại chỗ kết nối hai thành phần, chương trình phải đổi dấu theo lượt. Nếu không thống nhất quy ước, một tác tử có thể chủ động chọn nước có lợi cho đối thủ dù mọi phép tính riêng lẻ vẫn chạy bình thường."
+          ]
+        },
+        {
+          "title": "Luật kết thúc và giới hạn độ dài ván",
+          "paragraphs": [
+            "Môi trường sử dụng python-chess để sinh nước hợp lệ và kiểm tra kết thúc [6]. Theo luật FIDE, người chơi có thể yêu cầu hòa khi thỏa điều kiện 50 nước hoặc ba lần lặp lại, còn 75 nước và năm lần lặp lại thuộc các trường hợp hòa tự động; chiếu hết được ưu tiên khi nước cuối đồng thời chạm mốc 75 nước [7]. Trong đối kháng tự động, nhóm chọn quy ước chấp nhận ngay yêu cầu hòa hợp lệ và lưu quy ước này cùng cấu hình. Thư viện cũng xét khả năng yêu cầu hòa sau một nước hợp lệ kế tiếp, không chỉ kiểm tra bộ đếm ở trạng thái hiện tại.",
+            "Theo đặc tả yêu cầu môn học, đợt đối kháng chính giới hạn ván ở 80 ply. Chương trình kiểm tra kết thúc theo luật trước, rồi mới áp dụng trần thực nghiệm. Nếu ván còn tiếp tục ở mốc này, điểm vật chất từ phía Trắng từ +300 centipawn trở lên cho kết quả Trắng thắng phân xử, từ −300 trở xuống cho Đen thắng phân xử; khoảng giữa được ghi hòa phân xử. Một centipawn bằng một phần trăm giá trị quy ước của quân Tốt. Điểm dùng tại đây chỉ tính vật chất, tách khỏi hàm đánh giá phục vụ tìm kiếm.",
+            "Kết quả tự nhiên và kết quả phân xử là hai loại bản ghi riêng vì trần 80 ply có thể cắt ngang một ván chưa ngã ngũ. Nhóm sẽ chạy thêm các mức 120 và 160 ply trên những cặp tác tử chính để kiểm tra mức phụ thuộc của kết luận vào giới hạn độ dài. Lịch sử ván phải đi cùng trạng thái khi xác định lặp lại; chuỗi mô tả trạng thái FEN không lưu diễn biến trước đó nên không thay thế được lịch sử. Cách tổ chức trạng thái trong quá trình tìm kiếm được trình bày tập trung ở mục 5.2."
+          ]
+        },
+        {
+          "title": "Nguồn dữ liệu và chất lượng nhãn",
+          "paragraphs": [
+            "Tập dữ liệu ban đầu dự kiến gồm 800 ván giữa Alpha-beta độ sâu 2 và tác tử dùng quy tắc, có đổi màu và thay đổi mã khởi tạo bộ sinh số ngẫu nhiên. Tỷ lệ khám phá 15% áp dụng khi chọn nước để tạo diễn biến ván, nhằm đưa vào những thế cờ ít xuất hiện nếu hai bên luôn chọn phương án đứng đầu. Với mỗi trạng thái được lấy làm mẫu, tác tử sinh nhãn vẫn đánh giá lại nước tốt nhất; bản ghi phân biệt nước đã chơi do khám phá với nước dùng làm nhãn, tránh biến lựa chọn ngẫu nhiên thành đáp án học có giám sát.",
+            "Mỗi mẫu gồm trạng thái, nước gợi ý, điểm đánh giá và thông tin bổ trợ như mã ván, lượt đi, cấu hình tác tử nguồn, độ sâu hoàn tất và nguồn gốc thế xuất phát. Điểm centipawn chuyển sang khoảng từ −1 đến 1 bằng hàm tanh sau khi chia cho thang 600 centipawn, rồi đổi về phía bên đến lượt. Đây là nhãn ước lượng từ hàm đánh giá; kết quả thắng, hòa, thua thật của cả ván được lưu ở trường khác để không đánh đồng hai loại tín hiệu.",
+            "Độ sâu 2 chỉ xét nước của bên hiện tại và một phản ứng của đối thủ, nên nhãn có thể bỏ sót đòn phối hợp dài hơn. Nhóm sử dụng tập này để khảo sát học bắt chước với chi phí sinh dữ liệu vừa phải, đồng thời dự kiến gán nhãn lại một tập thế cờ chọn trước bằng độ sâu 3 và 4. Phép so sánh giữ nguyên tập trạng thái và quy trình chia dữ liệu, ghi cả độ sâu thực sự hoàn tất nếu có giới hạn thời gian. Mục đích là xác định ảnh hưởng của chất lượng nhãn trước khi mở rộng số ván."
+          ]
+        },
+        {
+          "title": "Biểu diễn đầu vào của mạng",
+          "paragraphs": [
+            "Mạng nhận mảng đặc trưng ba chiều, thường gọi là tensor, có kích thước 20 × 8 × 8. Mười hai kênh đầu biểu diễn sáu loại quân của mỗi màu; các kênh còn lại bổ sung thông tin luật và lịch sử mà vị trí quân đơn thuần không thể hiện. Bảng 3.1 mô tả ý nghĩa từng nhóm kênh. Cách biểu diễn giữ hướng bàn cờ cố định theo tọa độ tuyệt đối, còn kênh lượt đi giúp mạng nhận biết bên cần ra quyết định.",
+            "Bản thử hiện tại chuẩn hóa đồng hồ nửa nước bằng h/150 và chặn ở 1, với h là số ply liên tiếp không có nước đi Tốt hoặc ăn quân. Cách chia này lấy mốc hòa tự động 75 nước làm thang đo; nó không thay thế ngưỡng 100 ply của điều kiện yêu cầu hòa 50 nước. Trong ván bắt đầu từ vị trí chuẩn và bị giới hạn 80 ply, đặc trưng này chỉ sử dụng phần đầu thang đo. Nhóm sẽ so sánh h/100 và h/150 trên cùng dữ liệu, kiến trúc và quy trình học để đánh giá ảnh hưởng của thang chuẩn hóa.",
+            "Kênh lặp lại chỉ cung cấp tín hiệu tổng hợp cho mạng, còn môi trường vẫn dựa vào lịch sử đầy đủ để phân xử. Khi lưu mẫu từ FEN, bản ghi phải kèm thông tin lặp lại lấy tại thời điểm sinh dữ liệu. Phiên bản biểu diễn và thứ tự kênh cũng đi cùng mô hình đã lưu, giúp phát hiện trường hợp nạp đúng kích thước nhưng sai ý nghĩa đầu vào."
+          ],
+          "table": {
+            "caption": "Bảng 3.1 Cấu trúc mảng đầu vào 20 × 8 × 8",
+            "headers": ["Nhóm thông tin", "Số kênh", "Cách biểu diễn"],
+            "widths": [30, 13, 57],
+            "rows": [
+              ["Vị trí quân", "12", "Mỗi loại quân và màu một kênh; ô có quân mang giá trị 1"],
+              ["Bên đến lượt", "1", "Toàn kênh bằng +1 khi Trắng đi, −1 khi Đen đi"],
+              ["Quyền nhập thành", "4", "Bốn quyền của hai màu; mỗi quyền là một kênh nhị phân"],
+              ["Bắt tốt qua đường", "1", "Đánh dấu ô đích khi có nước bắt hợp lệ tương ứng"],
+              ["Đồng hồ nửa nước", "1", "Giá trị chuẩn hóa phủ toàn kênh; bản thử dùng h/150"],
+              ["Lặp lại thế cờ", "1", "0, 0,5 hoặc 1 ứng với chưa lặp, lần hai hoặc ít nhất lần ba"]
+            ]
+          }
+        },
+        {
+          "title": "Chia tập và kiểm soát trùng lặp",
+          "paragraphs": [
+            "Nhóm chia 800 ván thành 560 ván huấn luyện, 120 ván xác thực và 120 ván kiểm tra trước khi trích các mẫu cuối cùng. Việc chia theo ván giữ các trạng thái liền kề trong cùng một tập, tránh để mạng gặp gần như cùng diễn biến ở cả giai đoạn học và kiểm tra. Tập xác thực phục vụ chọn cấu hình; tập kiểm tra chỉ dùng sau khi đã chốt mô hình.",
+            "Chia theo ván vẫn chưa loại được các thế chuyển vị giống nhau. Do đó, nhóm đối chiếu khóa trạng thái gồm vị trí quân, lượt đi, quyền nhập thành, khả năng bắt tốt qua đường và các đặc trưng bổ sung mà mạng thực sự nhận. Những mẫu trùng giữa các tập được loại hoặc gom về một tập theo quy tắc cố định trước khi huấn luyện. Các chuỗi mở đầu và mã khởi tạo dành cho đối kháng cuối kỳ cũng được giữ riêng để hạn chế việc đánh giá đúng trên những diễn biến đã dùng để điều chỉnh mô hình.",
+            "Báo cáo dữ liệu sẽ ghi số ván và số trạng thái còn lại sau từng bước lọc, phân bố độ dài ván, tỷ lệ mẫu khám phá và tỷ lệ các loại kết thúc. Những thống kê này giúp nhận ra tình huống dữ liệu tập trung quá nhiều ở khai cuộc hoặc ở các ván chạm trần, từ đó giải thích giới hạn của mô hình bằng đặc điểm nguồn dữ liệu."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PHƯƠNG PHÁP ĐÁNH GIÁ VÀ THỰC NGHIỆM",
+      "sections": [
+        {
+          "title": "Độ đo và cách diễn giải",
+          "table_after_paragraph": 1,
+          "paragraphs": [
+            "Kết quả thi đấu được tổng hợp bằng số ván thắng W, hòa D, thua L và điểm đối kháng, tính bằng (W + 0,5 × D)/N với N là tổng số ván. Nhóm luôn trình bày số mẫu cùng nguyên nhân kết thúc vì cùng một điểm số có thể xuất phát từ nhiều ván chiếu hết hoặc chủ yếu từ phân xử tại trần. Bảng 4.1 xác định các độ đo dùng xuyên suốt để kết quả giữa những phương pháp có thể đối chiếu được.",
+            "Đối với mô hình có giám sát, độ chính xác dự đoán nước đi là tỷ lệ chọn trùng nhãn sau khi đã loại các nước bất hợp lệ; sai số bình phương trung bình đo mức chênh lệch giữa giá trị dự đoán và giá trị đích. Hai số đo này cho biết mạng học lại tác tử sinh nhãn đến đâu. Muốn đánh giá khả năng thi đấu, nhóm vẫn phải cho mô hình đấu với những đối thủ cố định, bởi nhãn nguồn có thể sai hoặc có nhiều nước tốt gần tương đương.",
+            "Thời gian quyết định bao gồm mã hóa trạng thái, kiểm tra cần thiết trong thuật toán, tìm kiếm và suy luận mạng. Nhóm đo trung bình, trung vị, phân vị 95% và tỷ lệ vượt hạn; hoạt ảnh không nằm trong khoảng này. Số nút duyệt hoặc số mô phỏng dùng để giải thích hành vi của từng phương pháp, không phải đơn vị chi phí tương đương giữa Alpha-beta và MCTS."
+          ],
+          "table": {
+            "caption": "Bảng 4.1 Độ đo sử dụng trong thực nghiệm",
+            "headers": ["Nhóm", "Đại lượng ghi nhận", "Câu hỏi cần trả lời"],
+            "widths": [23, 39, 38],
+            "rows": [
+              ["Đối kháng", "W, D, L; điểm đối kháng; nguyên nhân kết thúc", "Tác tử đạt kết quả nào và do đâu?"],
+              ["Độ trễ", "Trung bình, trung vị, phân vị 95%; tỷ lệ quá 100 ms", "Quyết định có đáp ứng thời gian đặt ra?"],
+              ["Tìm kiếm", "Nút duyệt; độ sâu hoàn tất; số mô phỏng; số lần gọi mạng", "Thành phần nào làm thay đổi chi phí?"],
+              ["Tài nguyên", "RAM và VRAM đỉnh nếu có; thiết bị và số luồng", "Cấu hình cần nguồn lực bao nhiêu?"],
+              ["Học máy", "Tỷ lệ khớp nhãn; sai số giá trị; diễn biến mất mát", "Mô hình học và khái quát trên dữ liệu ra sao?"],
+              ["Ứng dụng", "Ca luật đạt; lỗi đồng bộ; lỗi hoạt ảnh", "Trải nghiệm có phản ánh đúng diễn biến ván?" ]
+            ]
+          }
+        },
+        {
+          "title": "Thiết lập đối kháng",
+          "paragraphs": [
+            "Mỗi cặp tác tử đấu hai ván từ cùng chuỗi mở đầu rồi đổi màu, với mã khởi tạo được lưu cho các lựa chọn ngẫu nhiên. Một đợt so sánh sử dụng cùng phần cứng, phiên bản thư viện, thiết bị suy luận và mức song song. Trước khi đo mạng, nhóm chạy làm nóng và đồng bộ thiết bị nếu dùng GPU để thời gian ghi nhận không chỉ là thời gian gửi lệnh tính toán.",
+            "Thí nghiệm trả lời RQ1 áp dụng cùng ngân sách 100 mili giây cho toàn bộ quyết định. Thuật toán trả nước tốt nhất đã có khi nhận biết hết hạn, nhưng một lần suy luận hoặc một đoạn xử lý không thể ngắt giữa chừng vẫn có thể làm vượt mốc. Nhóm giữ lại các lượt này trong thống kê và báo cả thời gian thực tế. Kết quả chạy theo độ sâu hoặc số mô phỏng cố định được đặt ở bảng riêng để tránh nhầm điều kiện so sánh.",
+            "Đợt chạy thử dự kiến 20 ván cho mỗi cặp ưu tiên, sau đó chọn 100–200 ván cho các cặp trực tiếp trả lời ba câu hỏi nghiên cứu. Nhóm chưa mở rộng ngay thành đối kháng mọi cặp: nếu có tám tác tử, 28 cặp với 200 ván mỗi cặp sẽ tạo 5.600 ván; ở trần 80 ply và 100 mili giây mỗi lượt, riêng thời gian quyết định tuần tự có thể xấp xỉ 12,4 giờ. Số liệu chạy thử là căn cứ để chốt quy mô, bao gồm cả chi phí lưu ván và tổng hợp kết quả."
+          ]
+        },
+        {
+          "title": "Các phép so sánh thành phần",
+          "paragraphs": [
+            "Để trả lời RQ2, nhóm dùng 50 thế trung cuộc và ba mức độ sâu 2, 3, 4 cho Minimax, Alpha-beta và Alpha-beta có sắp xếp nước theo ưu tiên giá trị quân bị bắt rồi quân đi bắt. Cả ba cấu hình dùng cùng hàm đánh giá ở mục 5.3 và cùng quy tắc kết thúc. Chỉ lượt tìm kiếm hoàn tất cùng độ sâu mới tham gia phép tính tỷ lệ giảm nút; những lượt dừng sớm vẫn được lưu nhưng phân tích riêng. Các tối ưu bổ sung như tìm kiếm tiếp chuỗi ăn quân phải tắt hoặc giữ giống nhau giữa các cấu hình.",
+            "Với MCTS, nhóm khảo sát 25, 50, 100 và 200 lượt mô phỏng; trong mỗi mức, chính sách mô phỏng ngẫu nhiên được so với mô phỏng ngắn tối đa 8 ply có ưu tiên ăn quân rồi đánh giá tại lá. Phép đo này tách ảnh hưởng của số mẫu khỏi ảnh hưởng của chất lượng đánh giá. Trước đối kháng, các thế có kết quả chiến thuật xác định được dùng để kiểm tra dấu giá trị khi lan truyền qua các lượt của hai bên.",
+            "Đối với RQ3, nhóm giữ nguyên trọng số mạng để so sánh chọn nước trực tiếp và tìm kiếm có mạng hướng dẫn. Các khảo sát về độ sâu tác tử sinh nhãn, thang chuẩn hóa đồng hồ nửa nước và cách mã hóa đầu ra được thực hiện riêng, chỉ thay một yếu tố mỗi lần. Nhóm không kết hợp toàn bộ yếu tố thành một số lượng lớn cấu hình khi dữ liệu chưa đủ; trước hết cần xác định phép đo nào giải thích được một thay đổi cụ thể."
+          ]
+        },
+        {
+          "title": "Tổng hợp kết quả và sai số ước lượng",
+          "paragraphs": [
+            "Bản ghi mỗi lượt chứa mã tác tử, cấu hình, trạng thái trước nước, nước UCI, thời gian, cờ quá hạn và các thống kê tìm kiếm. Bản ghi ván bổ sung chuỗi mở đầu, mã khởi tạo, PGN, kết quả và nguyên nhân kết thúc. Các bảng cùng biểu đồ được tính lại từ dữ liệu thô để có thể kiểm tra khi một kết quả bất thường xuất hiện.",
+            "Nhóm ước lượng khoảng tin cậy 95% của điểm đối kháng bằng cách lấy mẫu lặp lại theo cụm hai ván cùng mở đầu và đổi màu. Hai ván có liên hệ với nhau nên cần được lấy mẫu cùng nhau. Điểm tính riêng trên các ván kết thúc tự nhiên chỉ phản ánh nhóm ván đã chọn lọc này: việc loại ván chạm trần có thể loại nhiều hơn ở một tác tử, khiến tỷ lệ còn lại không còn đại diện cho toàn bộ đối kháng.",
+            "Báo cáo tổng kết sẽ có biểu đồ tỷ lệ ván chạm trần của từng cặp tác tử, đặt cạnh điểm đối kháng và tỷ lệ kết thúc theo luật. Các đợt ở 80, 120 và 160 ply cho biết kết luận thay đổi ra sao khi cho phép ván kéo dài. Nếu chênh lệch điểm nhỏ trong khi khoảng tin cậy rộng, nhóm sẽ trình bày mức bất định đó thay vì khẳng định thứ hạng; mọi nhận xét đều gắn với cấu hình, số ván và phần cứng đã đo."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "THIẾT KẾ HỆ THỐNG",
+      "sections": [
+        {
+          "title": "Kiến trúc ứng dụng và giao tiếp",
+          "paragraphs": [
+            "Hệ thống chia thành ba phần mã nguồn: frontend phụ trách bàn cờ và điều khiển; backend quản lý luật, phiên ván và dịch vụ gọi tác tử; model chứa quy trình sinh dữ liệu, huấn luyện và nạp mô hình. React là thư viện giao diện, còn Node.js phục vụ công cụ phát triển và xây dựng frontend. FastAPI tiếp nhận yêu cầu từ trình duyệt và giữ quyền quyết định cuối cùng về trạng thái ván, nhờ đó thay đổi thuật toán không làm thay đổi luật chơi.",
+            "Khi người chơi gửi nước đi, máy chủ kiểm tra lượt và tính hợp lệ rồi trả trạng thái mới cùng sự kiện cần hiển thị. Yêu cầu AI dùng một bản trạng thái riêng và mã phiên bản ván; kết quả đến muộn sau khi người chơi tạo ván khác hoặc hoàn tác sẽ bị loại. Nếu thuật toán cần xử lý lâu, tiến trình xử lý riêng tiếp nhận tác vụ để không chặn việc phục vụ các yêu cầu khác. Bảng 5.1 liệt kê thông tin tối thiểu trao đổi giữa các thành phần."
+          ],
+          "table": {
+            "caption": "Bảng 5.1 Thông tin giao tiếp của hệ thống",
+            "headers": ["Luồng", "Thông tin chính", "Kiểm tra cần có"],
+            "widths": [24, 43, 33],
+            "rows": [
+              ["Người chơi gửi nước", "Mã ván, phiên bản trạng thái, nước UCI", "Đúng lượt và thuộc tập hợp lệ"],
+              ["Máy chủ trả diễn biến", "Trạng thái mới, ô đi/đến, quân bị bắt, phong cấp", "Sự kiện khớp với trạng thái cuối"],
+              ["Gọi tác tử", "Bàn cờ riêng, cấu hình, thời hạn, mã khởi tạo", "Không sửa trực tiếp ván đang phục vụ"],
+              ["Nhận kết quả AI", "Nước chọn, phiên bản ván, thời gian và thống kê", "Loại kết quả cũ; kiểm tra lại nước"],
+              ["Lưu thực nghiệm", "Cấu hình, PGN, kết quả, nguyên nhân kết thúc", "Truy nguyên được từng đợt chạy"]
+            ]
+          }
+        },
+        {
+          "title": "Tổ chức trạng thái trong tìm kiếm",
+          "paragraphs": [
+            "Mỗi lần gọi tìm kiếm, chương trình tạo một bàn cờ riêng tại gốc và giữ lịch sử trước gốc để xét lặp lại. Trong cây, các nhánh dùng push() để thực hiện nước và pop() để khôi phục, với thao tác khôi phục đặt trong khối bảo đảm thực thi kể cả khi hết thời gian hoặc phát sinh lỗi. Bản cài đặt Alpha-beta hiện tại sử dụng cơ chế này. Với MCTS dự kiến triển khai, nút cây lưu thống kê và đường nước đi; mỗi lượt duyệt thực hiện đường đó trên bàn cờ riêng rồi hoàn tác khi kết thúc.",
+            "Cách tổ chức này tránh sao chép cả lịch sử ở từng nút, vì board.copy() mặc định giữ toàn bộ ngăn xếp nước đi của python-chess [6]. Tuy vậy, board.copy(stack=False) chỉ phù hợp nếu chương trình có một cơ chế khác bảo toàn thông tin cần xét hòa. Một khóa băm vị trí giúp nhận biết thế cờ nhưng riêng khóa hiện tại không cho biết những lần lặp đã xảy ra trước gốc. Nhóm sẽ đo chi phí sao chép gốc, sinh nước, kiểm tra hòa và đánh giá để xác định điểm nghẽn thực tế trước khi thêm cơ chế lưu đệm.",
+            "Tìm kiếm theo độ sâu tăng dần giữ lại kết quả của vòng đã hoàn tất để có phương án trả về khi chạm thời hạn. Trước khi mở rộng cây, tác tử chuẩn bị sẵn một nước hợp lệ dự phòng; nếu ngân sách không đủ hoàn thành vòng đầu, ứng dụng vẫn nhận được quyết định hợp lệ. Nhật ký phân biệt độ sâu đã hoàn tất với độ sâu đang xét, tránh ghi nhận quá mức khả năng tìm kiếm của một lượt.",
+            "Ở MCTS cơ sở, quy tắc UCT dùng giá trị trung bình của nhánh cùng phần thưởng khám phá phụ thuộc số lượt thăm; hằng số khám phá được chọn trên tập xác thực rồi giữ cố định khi chạy chính. Biến thể có mạng dự kiến dùng PUCT để đưa xác suất nước đi từ đầu chính sách vào mức ưu tiên khám phá, còn đầu giá trị thay cho phần mô phỏng ngẫu nhiên. Giá trị qua mỗi cạnh đổi dấu theo lượt, và mỗi lượt tính đến trạng thái kết thúc phải dùng kết quả thật thay cho dự đoán. Đây là phương án mở rộng, được đánh giá riêng với MCTS cơ sở."
+          ]
+        },
+        {
+          "title": "Hàm đánh giá thủ công",
+          "paragraphs": [
+            "Hàm đánh giá cơ sở lấy Trắng làm phía dương và cộng ba thành phần: chênh lệch vật chất, thưởng quân chiếm trung tâm và thưởng Tốt tiến lên. Bảng 5.2 mô tả đúng các thành phần hiện có trong mã nguồn. Điểm cuối bằng tổng của Trắng trừ tổng của Đen; Vua không tham gia phần chênh lệch vật chất vì chiếu hết và các kết thúc theo luật phải được xử lý trước khi gọi hàm này.",
+            "Phần vị trí hiện tại chỉ thưởng bốn ô trung tâm, chưa phải bảng điểm vị trí quân đầy đủ. Nó tạo khác biệt cho một số nước yên tĩnh, nhưng nhiều cách phát triển quân khác nhau vẫn có thể cùng điểm. Hàm cũng chưa xét cấu trúc Tốt, an toàn của Vua hay khả năng phối hợp quân. Nhóm sẽ phân tích những giới hạn này qua các thế cờ thất bại điển hình, qua đó xác định thành phần nào cần bổ sung trong biến thể tiếp theo.",
+            "Minimax, Alpha-beta và nhánh MCTS dùng đánh giá ở cuối mô phỏng ngắn sẽ dùng cùng phiên bản hàm này trong các phép so sánh cốt lõi. Nếu bổ sung bảng điểm vị trí quân hoặc thành phần an toàn Vua, nhóm sẽ xem đó là biến thể riêng và chạy lại với điều kiện giữ nguyên. Quy tắc phân xử bằng vật chất ở trần ván vẫn giữ độc lập, không tự động thay đổi theo cải tiến của hàm đánh giá."
+          ],
+          "table": {
+            "caption": "Bảng 5.2 Các thành phần của hàm đánh giá cơ sở",
+            "headers": ["Thành phần", "Quy tắc tính", "Đơn vị"],
+            "widths": [27, 57, 16],
+            "rows": [
+              ["Vật chất", "Tốt 100; Mã 320; Tượng 330; Xe 500; Hậu 900", "Centipawn"],
+              ["Chiếm trung tâm", "Mỗi quân trên d4, d5, e4 hoặc e5 nhận thêm 20", "Centipawn"],
+              ["Tốt tiến lên", "10 × chỉ số hàng từ phía mình; a1 là 0 với Trắng, a8 là 0 với Đen", "Centipawn"],
+              ["Ghép điểm", "Tổng điểm Trắng trừ tổng điểm Đen; đổi dấu khi cần theo bên đến lượt", "Centipawn"]
+            ]
+          },
+          "afterparagraphs": [
+            "Chẳng hạn, một Tốt Trắng ở a2 có 10 điểm tiến quân, còn ở a4 có 30 điểm; quy tắc cho Tốt Đen được phản chiếu theo hàng. Ví dụ này cho thấy phần thưởng khuyến khích tiến Tốt nhưng chưa đánh giá được nước tiến đó có làm yếu Vua hay tạo Tốt cô lập hay không. Đây là một giới hạn cụ thể để đối chiếu khi xem lại các ván thua."
+          ]
+        },
+        {
+          "title": "Kiến trúc CNN và mã hóa nước đi",
+          "table_after_paragraph": 1,
+          "paragraphs": [
+            "CNN cơ sở gồm hai lớp tích chập 3 × 3 giữ nguyên kích thước bàn cờ, lần lượt tạo 32 và 64 kênh đặc trưng, sau đó chuyển qua lớp ẩn 128 phần tử. Hai nhánh cuối là đầu chính sách, dùng để chấm điểm các nước đi, và đầu giá trị, dùng để ước lượng V(s). Bảng 5.3 trình bày kiến trúc này; bản cơ sở không sử dụng chuẩn hóa theo lô hoặc khối kết nối tắt. Nhánh ResNet trong mã thử được xem là mô hình khác và chỉ đưa vào so sánh nếu đủ dữ liệu cùng thời gian đo.",
+            "Bản thử hiện tại mã hóa nước bằng 64 × 64 × 5 = 20.480 phần tử, trong đó loại phong cấp được nhân cho mọi cặp ô. Cách này có thể loại nước sai luật trước khi chọn nhưng tạo nhiều chỉ số không bao giờ xuất hiện trong cờ vua tiêu chuẩn. Phương án sửa trong kế hoạch là lập danh mục chung gồm 1.792 cặp ô có hình học nước đi thông thường và 176 mã phong cấp, tổng cộng 1.968 mã UCI. Danh mục này bao phủ nhiều thế cờ; số nước hợp lệ ở một thế cụ thể chỉ là một tập con của nó.",
+            "Đầu chính sách trả một vector điểm số chưa chuẩn hóa cho toàn danh mục; trước khi tính xác suất hoặc chọn nước, chương trình loại các chỉ số không thuộc tập hợp lệ của thế đang xét. Như vậy, ô xuất phát, ô đến và quân phong cấp nằm trong cùng một mã nước, tránh ghép hai phân phối độc lập. AlphaZero sử dụng cách mã hóa theo hướng đi trên 8 × 8 × 73 = 4.672 vị trí [4]; nhóm chọn danh mục UCI cho bản nhỏ vì dễ kiểm tra đối chiếu với môi trường hiện tại.",
+            "Với lớp ẩn 128 phần tử, đầu ra 20.480 cần 2.641.920 tham số, trong khi đầu ra 1.968 cần 253.872 tham số; tổng mô hình tương ứng giảm từ 3.190.753 xuống 802.705 nếu giữ nguyên phần còn lại. Các con số này mô tả chi phí kiến trúc, chưa chứng minh độ trễ thực tế. Việc chuyển mã cần thay đầu ra, gán phiên bản danh mục và huấn luyện lại; mô hình cũ không thể nạp trực tiếp vào đầu mới. Nhóm sẽ đo suy luận trên phần cứng đích trước khi quyết định số lần gọi mạng trong ngân sách 100 mili giây."
+          ],
+          "table": {
+            "caption": "Bảng 5.3 Kiến trúc CNN cơ sở và đầu ra dự kiến",
+            "headers": ["Khối", "Cấu hình", "Kích thước đầu ra"],
+            "widths": [26, 46, 28],
+            "rows": [
+              ["Đầu vào", "20 kênh trạng thái", "20 × 8 × 8"],
+              ["Tích chập 1", "32 bộ lọc 3 × 3; bước 1; đệm 1; ReLU", "32 × 8 × 8"],
+              ["Tích chập 2", "64 bộ lọc 3 × 3; bước 1; đệm 1; ReLU", "64 × 8 × 8"],
+              ["Lớp ẩn", "Trải phẳng 4.096 phần tử; kết nối đầy đủ; ReLU", "128"],
+              ["Đầu chính sách", "Kết nối đầy đủ theo danh mục nước đi chung", "1.968, dự kiến"],
+              ["Đầu giá trị", "Kết nối đầy đủ và tanh; theo bên đến lượt", "1 giá trị từ −1 đến 1"]
+            ]
+          },
+          "afterparagraphs": [
+            "Huấn luyện có giám sát cộng mất mát phân loại nước đi với sai số bình phương của giá trị. Cấu hình xuất phát dùng AdamW, tốc độ học 0,001, suy giảm trọng số 0,0001, lô 64 mẫu và 10 lượt qua tập huấn luyện; hệ số phần giá trị bằng 1. Sau mỗi lượt, nhóm đo trên tập xác thực và giữ bản có tổng mất mát thấp nhất, rồi mới đánh giá tập kiểm tra. Khi chỉ cần giá trị cho tìm kiếm hoặc học TD, chương trình bỏ qua phép tính đầu chính sách; phép đo độ trễ phải ghi rõ nhánh nào đã chạy."
+          ]
+        },
+        {
+          "title": "Học giá trị qua tự chơi",
+          "paragraphs": [
+            "Tác tử học TD khởi tạo từ mô hình đã học có giám sát thay vì dùng trọng số ngẫu nhiên trong thí nghiệm chính. Bản tự chơi hiện tại yêu cầu tệp mô hình khởi tạo và sử dụng cơ chế khám phá với xác suất 0,2: ở những lượt đó, tác tử chọn đều một nước hợp lệ; các lượt còn lại chọn nước có giá trị trạng thái con tốt nhất sau khi đổi về phía người đang đi. Xác suất khám phá được giữ cố định trong đợt cơ sở để dễ tái lập, còn đối kháng đánh giá tắt khám phá và giữ nguyên mô hình trong suốt đợt.",
+            "Với trạng thái chưa kết thúc, TD(0) dùng mục tiêu là −γV(s tiếp theo) do lượt đi đã đổi sang đối thủ; hệ số chiết khấu γ bằng 1 trong bản cơ sở. Giá trị mục tiêu được tính từ một mạng đích cố định giữa các lần đồng bộ, không truyền đạo hàm qua mục tiêu. Cấu hình ban đầu dùng AdamW với tốc độ học 0,0001, chặn chuẩn gradient ở 1 và đồng bộ mạng đích sau mỗi 32 lần cập nhật. Mạng đích giúp giảm biến động của mục tiêu nhưng không bảo đảm hội tụ, nên các tham số này phải đi cùng nhật ký kiểm tra.",
+            "Khi ván kết thúc theo luật, mục tiêu nhận giá trị thắng, hòa hoặc thua từ phía người vừa đi. Một tập tự chơi giới hạn ở 200 ply, tách với trần 80 ply của đối kháng môn học. Nếu ván chỉ bị cắt vì đạt giới hạn huấn luyện, chương trình tiếp tục dùng giá trị ước lượng cho chuyển tiếp cuối thay vì gán hòa hoặc thưởng vật chất như một kết quả thật. Bản học cơ sở cập nhật trực tuyến từng chuyển tiếp, chưa dùng kho lưu chuyển tiếp để lấy mẫu lại.",
+            "Quy trình theo dõi sẽ bổ sung tỷ lệ ván kết thúc thật, tỷ lệ chạm trần, mức bao phủ thế cờ và trung bình cùng độ phân tán giá trị trên một tập trạng thái cố định. Mất mát nhỏ nhưng giá trị gần như hằng số là tín hiệu cần dừng để xem lại dữ liệu và cơ chế học. Vì các cập nhật TD làm thay đổi phần đặc trưng chung mà không huấn luyện lại chính sách, mô hình sau TD chỉ dùng nhánh giá trị hoặc tìm kiếm dựa trên giá trị; nhóm không mặc nhiên xem đầu chính sách cũ vẫn còn chất lượng. Chỉ kết quả đấu với đối thủ cố định mới là căn cứ để chấp nhận một bản mô hình mới."
+          ]
+        },
+        {
+          "title": "Giao diện và hoạt ảnh quân cờ",
+          "paragraphs": [
+            "Giao diện có tên Cờ Vua, cho chọn Dễ, Bình thường, Khó và Ác mộng. Dễ gọi tác tử ngẫu nhiên; ba mức còn lại gắn với các cấu hình đánh giá hoặc tìm kiếm đã vượt kiểm tra thời gian. Tên chế độ phục vụ người chơi, còn nhật ký lưu mã tác tử cùng tham số để đối chiếu hành vi thực tế. Màn hình ưu tiên bàn cờ, lựa chọn quân và các nút tạo ván, chơi lại, hoàn tác, đổi bên, âm thanh và trở về; các trạng thái đang chờ hoặc đã kết thúc cần thể hiện rõ bằng điều khiển và thông báo ngắn.",
+            "Tài nguyên giao diện gồm nền bàn chơi, hình quân và các dải khung hình cho trạng thái đứng chờ, di chuyển, tấn công và bị bắt. Đây là dữ liệu hiển thị, được quản lý trong frontend và tách khỏi tập dữ liệu học máy ở Chương 3. Mỗi dải hình cần thống nhất kích thước ô khung, vị trí chân quân, tỷ lệ nhân vật và thứ tự khung; nếu một khung chen tư thế khác hoặc lệch nền trong suốt, quân sẽ giật ngay cả khi bộ chạy hoạt ảnh đúng.",
+            "Khi nhận sự kiện hợp lệ, giao diện chuyển quân từ tâm ô xuất phát sang tâm ô đến bằng chuyển động liên tục, đồng thời phát chuỗi di chuyển phù hợp với quân đó. Với nước ăn, quân tấn công và quân bị bắt có trình tự riêng; sau khi hiệu ứng kết thúc, giao diện chốt theo trạng thái máy chủ. Sự kiện bắt tốt qua đường phải chỉ rõ ô quân bị bắt vì ô đó khác ô đến; nhập thành tạo chuyển động cho cả Vua và Xe, còn phong cấp thay hình quân sau khi hoàn tất nước.",
+            "Hoạt ảnh đứng chờ chạy lặp khi quân không có sự kiện khác, trong khi chuỗi bị bắt chỉ phát một lần rồi loại khỏi bàn. Người chơi có thể tắt âm thanh hoặc giảm hiệu ứng, nhưng các điều khiển vẫn phải phản ánh đúng lượt và kết quả. Bộ kiểm tra giao diện sẽ gồm nước thường, ăn quân, nhập thành, bắt tốt qua đường, phong cấp và hoàn tác giữa lúc chờ AI để phát hiện cả lỗi hình ảnh lẫn lỗi đồng bộ."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PHÂN CÔNG VÀ TỔ CHỨC THỰC HIỆN",
+      "sections": [
+        {
+          "title": "Nguyên tắc phối hợp",
+          "paragraphs": [
+            "Mỗi thành viên phụ trách một thành phần cùng bằng chứng kiểm tra. Phạm Minh Dương, Phạm Tấn Đạt, Đỗ Quốc Việt và Nguyễn Xuân Đăng được viết tắt lần lượt là TV1, TV2, TV3 và TV4 trong các bảng tiến độ.",
+            "Nhóm thống nhất nước UCI, dấu giá trị và cấu hình thời gian từ tuần đầu. Mỗi lần bàn giao có hướng dẫn chạy lại cùng kết quả mẫu; buổi họp hằng tuần đối chiếu các phụ thuộc và ghi lại thay đổi phạm vi trước khi tiếp tục tích hợp."
+          ]
+        },
+        {
+          "title": "Thành viên phụ trách môi trường và backend",
+          "paragraphs": [
+            "Phạm Minh Dương, mã số sinh viên 3123410065, phụ trách trạng thái ván, quy tắc kết thúc và giao tiếp với trình duyệt. Môi trường cần hoàn thành sớm để các thành viên còn lại có nền tảng đúng luật khi sinh dữ liệu và đối kháng. Bảng 6.1 xác định các đầu việc bàn giao."
+          ],
+          "table": {
+            "caption": "Bảng 6.1 Phân công cho Phạm Minh Dương",
+            "headers": ["Công việc", "Sản phẩm bàn giao", "Cách kiểm tra"],
+            "widths": [32, 36, 32],
+            "keep_together": true,
+            "rows": [
+              ["Xây dựng môi trường luật", "Trạng thái, nước hợp lệ và kết quả ván", "Ca luật thường và luật đặc biệt"],
+              ["Quản lý lịch sử và giới hạn ván", "Lặp lại, hòa theo luật, phân xử tách biệt", "Tái hiện ván từ nhật ký"],
+              ["Thiết kế API và phiên ván", "Tạo ván, gửi nước, hoàn tác, gọi AI", "Yêu cầu đúng, sai và kết quả đến muộn"],
+              ["Kết nối bộ đối kháng", "Cấu hình chạy và lưu kết quả thô", "Chạy lại một cặp đổi màu"]
+            ]
+          },
+          "afterparagraphs": [
+            "TV1 cùng TV2 kiểm tra trạng thái trước và sau tìm kiếm, cùng TV4 chốt sự kiện ăn quân và phong cấp. Trước chạy chính, backend phải loại được kết quả AI cũ và lưu đủ thông tin truy nguyên ván."
+          ]
+        },
+        {
+          "title": "Thành viên phụ trách thuật toán tìm kiếm",
+          "page_break_before": true,
+          "paragraphs": [
+            "Phạm Tấn Đạt, mã số sinh viên 3123410072, xây dựng các tác tử dùng quy tắc và tìm kiếm, đồng thời phụ trách RQ2. Trách nhiệm không chỉ là trả được một nước đi mà còn bảo đảm đúng dấu đánh giá, khôi phục trạng thái và ghi được chi phí tìm kiếm. Bảng 6.2 gắn từng tác tử với một điều kiện kiểm tra cụ thể."
+          ],
+          "table": {
+            "caption": "Bảng 6.2 Phân công cho Phạm Tấn Đạt",
+            "headers": ["Công việc", "Sản phẩm bàn giao", "Cách kiểm tra"],
+            "widths": [32, 36, 32],
+            "keep_together": true,
+            "rows": [
+              ["Tác tử cơ sở và hàm đánh giá", "Ngẫu nhiên, quy tắc và hàm đánh giá có phiên bản", "Nước hợp lệ; ví dụ tính điểm hai màu"],
+              ["Minimax và Alpha-beta", "Tìm kiếm, giới hạn thời gian, sắp xếp nước", "Cùng điểm ở độ sâu hoàn tất; trạng thái được khôi phục"],
+              ["MCTS", "Cây thống kê, mô phỏng và lan truyền giá trị", "Thế thắng/thua xác định; số mẫu và dấu giá trị"],
+              ["Tìm kiếm có mạng học", "Cấu hình gọi giá trị hoặc chính sách trong cây", "Đếm lần suy luận và đo tổng thời gian"]
+            ]
+          },
+          "afterparagraphs": [
+            "TV2 giữ nguyên hàm đánh giá và các tối ưu ngoài phạm vi khi chạy phép so sánh cắt tỉa, sau đó chuyển nhật ký cho TV4 để kiểm tra cách tổng hợp. Khi kết hợp mạng, TV2 cùng TV3 thống nhất dấu giá trị, ánh xạ nước và phiên bản mô hình trước khi tiến hành đối kháng."
+          ]
+        },
+        {
+          "title": "Thành viên phụ trách dữ liệu và mô hình",
+          "page_break_before": true,
+          "paragraphs": [
+            "Đỗ Quốc Việt, mã số sinh viên 3123410426, phụ trách toàn bộ đường đi của dữ liệu từ ván nguồn đến mô hình được nạp trong tác tử. TV3 phải lưu đủ cấu hình để xác định một thay đổi đến từ nhãn, cách biểu diễn hay thuật toán học. Các đầu việc ở Bảng 6.3 vì vậy bao gồm cả kiểm tra dữ liệu và kiểm tra hành vi mô hình, không chỉ chạy huấn luyện."
+          ],
+          "table": {
+            "caption": "Bảng 6.3 Phân công cho Đỗ Quốc Việt",
+            "headers": ["Công việc", "Sản phẩm bàn giao", "Cách kiểm tra"],
+            "widths": [32, 36, 32],
+            "keep_together": true,
+            "rows": [
+              ["Sinh và chia dữ liệu", "Dữ liệu 800 ván, nhãn và danh sách chia tập", "Nguồn mẫu; nhãn khám phá; trùng trạng thái"],
+              ["Mã hóa trạng thái và nước", "20 kênh; danh mục dự kiến 1.968 mã", "Mã hóa rồi giải mã mọi nước hợp lệ trong tập kiểm tra"],
+              ["Huấn luyện CNN", "Mô hình, cấu hình, nhật ký và bản đo suy luận", "Tập giữ riêng; số tham số; độ trễ thực tế"],
+              ["Học TD qua tự chơi", "Mô hình khởi tạo, nhật ký khám phá và cập nhật", "Tỷ lệ cắt ván; biến thiên giá trị; đấu đối thủ cố định"]
+            ]
+          },
+          "afterparagraphs": [
+            "TV3 ưu tiên một CNN cơ sở có thể chạy lại trước khi mở rộng kiến trúc. Việc đổi đầu ra được bàn giao cùng phiên bản danh mục và mô hình huấn luyện lại, tránh để TV2 nạp nhầm trọng số cũ. Các biểu hiện học không ổn định phải được ghi nhận và phân tích; một lần chạy mất mát giảm chưa đủ để xem mô hình mới là bản thay thế."
+          ]
+        },
+        {
+          "title": "Thành viên phụ trách giao diện và tổng hợp thực nghiệm",
+          "page_break_before": true,
+          "paragraphs": [
+            "Nguyễn Xuân Đăng, mã số sinh viên 3123410077, phụ trách trải nghiệm chơi và công cụ tổng hợp kết quả. Hai phần việc cùng cần đối chiếu với trạng thái thật của ván: giao diện phải hiển thị đúng diễn biến, còn bảng thực nghiệm phải phản ánh đúng nhật ký. Bảng 6.4 nêu các sản phẩm để nhóm có thể kiểm tra độc lập trước khi đưa vào báo cáo."
+          ],
+          "table": {
+            "caption": "Bảng 6.4 Phân công cho Nguyễn Xuân Đăng",
+            "headers": ["Công việc", "Sản phẩm bàn giao", "Cách kiểm tra"],
+            "widths": [32, 36, 32],
+            "keep_together": true,
+            "rows": [
+              ["Thiết kế màn hình game", "Bàn cờ, nền, chế độ và các nút điều khiển", "Luồng chơi từ tạo ván đến kết thúc"],
+              ["Tổ chức tài nguyên và hoạt ảnh", "Dải hình thống nhất; di chuyển và ăn quân", "Từng khung và các ca luật đặc biệt"],
+              ["Tổng hợp thực nghiệm", "Bảng điểm, độ trễ, khoảng tin cậy và biểu đồ chạm trần", "Đối chiếu một đợt mẫu với dữ liệu thô"],
+              ["Biên tập báo cáo và đóng gói", "Báo cáo, hướng dẫn và gói chạy mẫu", "Liên kết số liệu, cấu hình và sản phẩm"]
+            ]
+          },
+          "afterparagraphs": [
+            "TV4 cùng TV1 kiểm tra các yêu cầu đến muộn và hoàn tác trong lúc AI tính toán, cùng TV2 kiểm tra thống kê tìm kiếm, cùng TV3 xác nhận phiên bản mô hình trong bảng kết quả. Mỗi thành viên viết và chịu trách nhiệm chuyên môn cho phần mình; TV4 thống nhất thuật ngữ, bảng biểu và cách trình bày để báo cáo có một mạch lập luận chung."
+          ]
+        },
+        {
+          "title": "Kiểm tra chéo và quản lý phiên bản",
+          "paragraphs": [
+            "Mỗi đợt đối kháng lưu phiên bản mã nguồn, cấu hình và mô hình; dữ liệu cùng trọng số có mã kiểm tra và hướng dẫn tái tạo. TV1–TV2 kiểm tra chéo luật với tìm kiếm, TV2–TV3 kiểm tra giá trị và mã nước, TV1–TV4 kiểm tra sự kiện, còn TV3–TV4 đối chiếu bảng với dữ liệu thô. Khi có sai khác, nhóm lưu trường hợp tái hiện để sửa trước khi chạy mở rộng."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "KẾ HOẠCH TRIỂN KHAI VÀ KIỂM CHỨNG",
+      "sections": [
+        {
+          "title": "Tiến độ dự kiến",
+          "paragraphs": [
+            "Kế hoạch triển khai gồm tám tuần, trong đó môi trường và luồng chơi đi trước dữ liệu cùng mô hình. Nhóm dành riêng tuần cuối để kiểm tra lại và phân tích, vì kết quả chạy xong nhưng chưa đối chiếu chưa đủ dùng làm bằng chứng. Bảng 7.1 xác định mốc bàn giao theo tuần; ngày cụ thể sẽ được gắn với lịch học phần khi nhóm chốt thời gian thực hiện."
+          ],
+          "table": {
+            "caption": "Bảng 7.1 Tiến độ triển khai tám tuần",
+            "headers": ["Tuần", "Nội dung trọng tâm", "Mốc bàn giao", "Chủ trì"],
+            "widths": [10, 42, 29, 19],
+            "rows": [
+              ["1", "Khảo sát, chốt quy ước trạng thái và giao diện tác tử", "Đặc tả, phạm vi và phân công", "Cả nhóm"],
+              ["2", "Môi trường luật, API, bàn cờ và tác tử ngẫu nhiên", "Một ván chơi hoàn chỉnh", "TV1, TV4"],
+              ["3", "Hàm đánh giá, Alpha-beta, dữ liệu thử và hoạt ảnh", "Tác tử cơ sở và mẫu dữ liệu", "TV2–4"],
+              ["4", "MCTS, chia tập, đo thời gian và tài nguyên", "Kết quả thử; chốt quy mô", "TV1–3"],
+              ["5", "CNN, đầu ra gọn và kết nối suy luận", "Mô hình cơ sở có thể chạy lại", "TV2, TV3"],
+              ["6", "TD tự chơi, tìm kiếm có mạng và bộ đối kháng", "Cố định cấu hình chạy chính", "TV1–3"],
+              ["7", "Đối kháng và các phép so sánh ưu tiên", "Nhật ký, bảng và biểu đồ", "Cả nhóm"],
+              ["8", "Phân tích, kiểm tra chéo, hoàn thiện báo cáo và gói chạy", "Sản phẩm nộp và minh chứng", "Cả nhóm"]
+            ]
+          }
+        },
+        {
+          "title": "Phụ thuộc và điều chỉnh quy mô",
+          "paragraphs": [
+            "Sinh dữ liệu chỉ bắt đầu sau khi môi trường và tác tử nguồn vượt kiểm tra; huấn luyện chỉ bắt đầu khi cách chia tập đã cố định. Tìm kiếm có mạng cần giao diện suy luận ổn định, còn đối kháng chính cần cấu hình tác tử được khóa trong cả đợt. Chuỗi phụ thuộc này khiến việc thêm nhiều mô hình quá sớm dễ làm chậm toàn bộ đề tài, nên nhóm ưu tiên một phương án có đủ bằng chứng ở mỗi giai đoạn.",
+            "Cuối tuần 4, nhóm dùng số đo thử để dự tính chi phí sinh 800 ván, huấn luyện và đối kháng. Mục tiêu 1.500 tập tự chơi và tối đa ba chu kỳ tự chơi, huấn luyện, đấu kiểm tra theo định hướng môn học sẽ được phân bổ theo nguồn lực thực tế; số tập thực sự chạy phải xuất hiện trong nhật ký. Nếu thời gian không đủ, nhóm giảm số biến thể mở rộng hoặc số chu kỳ, đồng thời ghi phạm vi chưa hoàn thành, thay vì cắt các bước kiểm tra luật, dữ liệu và điều kiện so sánh.",
+            "Các mô hình trung gian được lưu theo mốc để một lần gián đoạn không buộc huấn luyện lại từ đầu. Trước khi chạy dài, nhóm kiểm tra một quy trình nhỏ đi hết từ sinh ván đến dựng bảng kết quả; bước này cho biết không chỉ thuật toán có chạy được mà toàn bộ đường đi của dữ liệu có thể kiểm tra lại hay không."
+          ]
+        },
+        {
+          "title": "Rủi ro và biện pháp xử lý",
+          "paragraphs": [
+            "Nhóm ưu tiên xử lý rủi ro làm sai kết luận trước rủi ro làm chậm tiến độ. Sai luật, nhầm dấu giá trị hoặc rò rỉ dữ liệu có thể làm kết quả đánh giá sai lệch ngay cả khi phần mềm chạy ổn định. Bảng 7.2 gắn các rủi ro chính với dấu hiệu cần theo dõi và thời điểm kiểm tra, để biện pháp xử lý được thực hiện trước đợt chạy chính."
+          ],
+          "table": {
+            "caption": "Bảng 7.2 Rủi ro và biện pháp kiểm soát",
+            "headers": ["Rủi ro", "Biện pháp", "Mốc kiểm tra"],
+            "widths": [28, 46, 26],
+            "rows": [
+              ["Sai luật hoặc mất lịch sử", "Thế cờ chuẩn; tái hiện ván; kiểm tra hòa", "TV1; trước sinh dữ liệu"],
+              ["Sai dấu hoặc khôi phục trạng thái", "Thế thắng/thua biết trước; so trạng thái trước và sau tìm kiếm", "TV2; trước đối kháng"],
+              ["Nhãn yếu hoặc trùng dữ liệu", "Tách khám phá; kiểm tra chuyển vị; khảo sát độ sâu nhãn", "TV3; trước huấn luyện"],
+              ["TD học giá trị gần hằng số", "Theo dõi phân tán giá trị, kết thúc thật và tỷ lệ cắt ván", "TV3; từng đợt tự chơi"],
+              ["Mạng hoặc tìm kiếm quá hạn", "Đo toàn quyết định; ghi quá hạn; giảm cấu hình nếu cần", "TV2, TV3; tuần 4–6"],
+              ["Hoạt ảnh lệch diễn biến", "Đối chiếu sự kiện và trạng thái cuối; kiểm tra từng khung", "TV1, TV4; khi tích hợp"],
+              ["Kết quả không tái lập", "Lưu cấu hình, mã khởi tạo, phiên bản và dữ liệu thô", "Cả nhóm; mọi đợt đo"]
+            ]
+          }
+        },
+        {
+          "title": "Điều kiện hoàn thành và sản phẩm nộp",
+          "paragraphs": [
+            "Ứng dụng hoàn thành khi người dùng có thể tạo ván, chọn chế độ, thực hiện nước, chờ AI, hoàn tác hoặc bắt đầu lại và theo dõi kết thúc đúng luật. Các trường hợp nhập thành, bắt tốt qua đường và phong cấp phải nhất quán giữa trạng thái với hình ảnh. Nhóm xử lý các lỗi làm sai ván hoặc dùng nhầm kết quả AI trước khi bàn giao, rồi kiểm tra một lần trên môi trường cài đặt lại.",
+            "Phần nghiên cứu hoàn thành khi mỗi kết luận có thể nối về cấu hình và nhật ký đã tạo ra nó. Báo cáo cần mô tả dữ liệu thực sự sử dụng, số ván đã chạy, độ trễ đo được và sai số ước lượng, đồng thời trả lời ba câu hỏi nghiên cứu trong phạm vi chứng cứ hiện có. Những thử nghiệm chưa đủ mẫu hoặc chưa triển khai được trình bày như giới hạn và công việc tiếp theo, không trộn vào kết quả đã kiểm chứng.",
+            "Hồ sơ bàn giao gồm kế hoạch và phân công, mã nguồn tổ chức theo frontend, backend, model, hướng dẫn chạy, cấu hình thực nghiệm, dữ liệu hoặc cách tái tạo dữ liệu, mô hình đã huấn luyện nếu có và báo cáo tổng kết. Một lệnh hoặc quy trình chạy mẫu phải tạo được ván cùng bảng kết quả từ đầu vào đã chỉ định, giúp giảng viên và các thành viên kiểm tra lại những phần quan trọng của đề tài."
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    "[1] C. E. Shannon, “Programming a Computer for Playing Chess”, Philosophical Magazine, tập 41, số 314, tr. 256–275, 1950. DOI: 10.1080/14786445008521796.",
+    "[2] D. E. Knuth và R. W. Moore, “An Analysis of Alpha-Beta Pruning”, Artificial Intelligence, tập 6, số 4, tr. 293–326, 1975. DOI: 10.1016/0004-3702(75)90019-3.",
+    "[3] L. Kocsis và C. Szepesvári, “Bandit Based Monte-Carlo Planning”, ECML 2006, Lecture Notes in Computer Science, tập 4212, tr. 282–293. DOI: 10.1007/11871842_29.",
+    "[4] D. Silver và cộng sự, “Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm”, 2017, arXiv:1712.01815. https://arxiv.org/abs/1712.01815. Truy cập ngày 03/11/2026.",
+    "[5] R. S. Sutton, “Learning to Predict by the Methods of Temporal Differences”, Machine Learning, tập 3, tr. 9–44, 1988. DOI: 10.1007/BF00115009.",
+    "[6] python-chess, “Core”, tài liệu chính thức về trạng thái, lịch sử, nước hợp lệ và kết thúc ván. https://python-chess.readthedocs.io/en/latest/core.html. Truy cập ngày 03/11/2026.",
+    "[7] FIDE, “FIDE Laws of Chess taking effect from 1 January 2023”, Điều 9 về ván hòa. https://handbook.fide.com/chapter/e012023. Truy cập ngày 03/11/2026."
+  ]
+}
