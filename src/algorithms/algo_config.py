@@ -9,7 +9,7 @@ PPO_MINIBATCH = 256
 GAE_LAMBDA = 0.95
 
 # DQN (double DQN with a replay buffer and a target network)
-DQN_BUFFER = 20000         # replay transitions kept
+DQN_BUFFER = 10000         # replay transitions kept
 DQN_BATCH = 64
 DQN_WARMUP = 1000          # transitions collected before learning starts
 DQN_TARGET_SYNC = 500      # gradient steps between target-network copies
@@ -20,13 +20,13 @@ DQN_EPS_DECAY_STEPS = 20000
 DQN_PLAY_TEMPERATURE = 0.1  # "Sampled" style at play time samples softmax(Q / T)
 
 # AlphaZero (MCTS + policy/value network)
-AZ_SIMULATIONS = 128        # MCTS simulations per move during self-play
-AZ_PLAY_SIMULATIONS = 256   # ... when a human / other agent plays against the model
+AZ_SIMULATIONS = 32        # MCTS simulations per move during self-play
+AZ_PLAY_SIMULATIONS = 64   # ... when a human / other agent plays against the model
 AZ_C_PUCT = 1.5
 AZ_DIRICHLET_ALPHA = 0.3   # root exploration noise (self-play only)
 AZ_NOISE_FRAC = 0.25
 AZ_TEMP_PLIES = 30         # sample moves by visit count for this many plies, then pick the best
-AZ_BUFFER = 40000          # training positions kept
-AZ_BATCH = 128
-AZ_TRAIN_STEPS = 20        # gradient steps per update
+AZ_BUFFER = 10000          # training positions kept
+AZ_BATCH = 32
+AZ_TRAIN_STEPS = 10        # gradient steps per update
 AZ_MIN_SAMPLES = 256       # positions needed before the first update

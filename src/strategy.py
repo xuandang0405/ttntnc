@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from encoding import encode, legal_moves_map, move_to_index
+from encoding import ACTION_SIZE, encode, legal_moves_map, move_to_index
 from strategy_config import (LOOKAHEAD_CANDIDATES, LOOKAHEAD_REPLIES, LOOKAHEAD_TEMPERATURE,
                              PHASE_ENDGAME_MATERIAL, PHASE_OPENING_MOVES, STRATEGY_BATCH,
                              STRATEGY_BUFFER, STRATEGY_ENABLED, STRATEGY_EVAL_SAMPLES,
@@ -26,7 +26,7 @@ def game_phase(board):
 
 
 def _mask(legal_lists):
-    mask = np.zeros((len(legal_lists), 4096), dtype=bool)
+    mask = np.zeros((len(legal_lists), ACTION_SIZE), dtype=bool)
     for r, legal in enumerate(legal_lists):
         mask[r, legal] = True
     return mask
@@ -62,7 +62,7 @@ class StrategyLearner:
         idx = move_to_index(move, mover_color)
         if idx not in legal:                                  # e.g. an under-promotion
             return
-        state = encode(board, mover_color).numpy().astype(np.uint8)[0]
+        state = encode(board, mover_color).numpy().astype(np.float16)[0]
         self.unseen.append((state, idx, np.fromiter(legal.keys(), dtype=np.int64), game_phase(board)))
         self.samples_seen += 1
 
@@ -135,10 +135,10 @@ def lookahead_move(agent, board, greedy=False):
 
     after, value = [], {}
     for n, m in enumerate(cands):
-        b2 = board.copy(stack=False)
+        b2 = board.copy(stack=True)
         b2.push(m)
         after.append(b2)
-        if b2.is_game_over():                         # our move ended the game: mate wins, otherwise a draw
+        if b2.is_game_over(claim_draw=True):                         # our move ended the game: mate wins, otherwise a draw
             value[n] = 1.0 if b2.is_checkmate() else 0.0
     live = [n for n in range(len(cands)) if n not in value]
 
@@ -155,7 +155,7 @@ def lookahead_move(agent, board, greedy=False):
             order = np.argsort(-p)[:LOOKAHEAD_REPLIES]
             total = float(p[order].sum()) or 1.0
             for o in order:
-                b3 = after[n].copy(stack=False)
+                b3 = after[n].copy(stack=True)
                 b3.push(maps[j][keys[o]])
                 replies.append(b3)
                 owner.append(n)
@@ -164,7 +164,7 @@ def lookahead_move(agent, board, greedy=False):
         vals = [0.0] * len(replies)
         to_eval = []
         for t, b3 in enumerate(replies):
-            if b3.is_game_over():                      # the reply mated us (-1) or drew
+            if b3.is_game_over(claim_draw=True):                      # the reply mated us (-1) or drew
                 vals[t] = -1.0 if b3.is_checkmate() else 0.0
             else:
                 to_eval.append(t)

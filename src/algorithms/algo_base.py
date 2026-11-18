@@ -7,7 +7,7 @@ from torch.nn.utils import parameters_to_vector
  
 from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
-from encoding import encode, legal_moves_map
+from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_moves_map
 from model import PolicyValueNet
 from strategy import StrategyLearner, lookahead_move
  
@@ -33,7 +33,8 @@ class BaseAgent:
  
     def finish_episode(self, game_id, final_balance, terminal):
         raise NotImplementedError
- 
+
+    @torch.inference_mode()
     def select_move(self, board, greedy=False):
         raise NotImplementedError
  
@@ -71,14 +72,14 @@ class BaseAgent:
  
     def legal_batch(self, boards):
         maps = [legal_moves_map(b, self.color) for b in boards]
-        mask = np.zeros((len(boards), 4096), dtype=bool)
+        mask = np.zeros((len(boards), ACTION_SIZE), dtype=bool)
         for i, m in enumerate(maps):
             mask[i, list(m.keys())] = True
         return maps, mask
  
     @staticmethod
     def mask_from_legal(legal_lists):
-        mask = np.zeros((len(legal_lists), 4096), dtype=bool)
+        mask = np.zeros((len(legal_lists), ACTION_SIZE), dtype=bool)
         for r, legal in enumerate(legal_lists):
             mask[r, legal] = True
         return mask
@@ -138,13 +139,21 @@ class BaseAgent:
     def save(self, directory):
         os.makedirs(directory, exist_ok=True)
         path = os.path.join(directory, f"{self.name.lower()}_{self.algorithm}.pt")
-        torch.save({"format": 2, "algorithm": self.algorithm, "name": self.name,
+        torch.save({"format": 3, "algorithm": self.algorithm, "name": self.name,
+                    "encoding": {"input_channels": INPUT_CHANNELS, "action_size": ACTION_SIZE, "history_length": HISTORY_LENGTH},
                     "net": self.net.state_dict(), "opt": self.opt.state_dict(),
                     "extra": {**self.extra_state(), "strategy": self.strategy.state()}}, path)
         return path
  
     def load_state(self, ck):
-        missing, unexpected = self.net.load_state_dict(ck["net"], strict=False)
+        try:
+            missing, unexpected = self.net.load_state_dict(ck["net"], strict=False)
+        except RuntimeError as exc:
+            raise ValueError(
+                "Checkpoint uses an incompatible network/encoding. The new 104-plane "
+                "Residual CNN and 20,480-action policy require fresh training; old "
+                "weights cannot be loaded directly."
+            ) from exc
         if unexpected or any(not k.startswith(("opp.", "phase.")) for k in missing):
             raise ValueError("checkpoint does not match this network")   # (older files lack the strategy heads)
         try:

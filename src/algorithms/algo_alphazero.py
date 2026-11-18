@@ -9,7 +9,7 @@ from algorithms.algo_base import BaseAgent
 from algorithms.algo_config import (AZ_BATCH, AZ_BUFFER, AZ_C_PUCT, AZ_DIRICHLET_ALPHA, AZ_MIN_SAMPLES, AZ_NOISE_FRAC,
                          AZ_PLAY_SIMULATIONS, AZ_SIMULATIONS, AZ_TEMP_PLIES, AZ_TRAIN_STEPS)
 from config import LR
-from encoding import encode, legal_moves_map, material_balance
+from encoding import ACTION_SIZE, encode, legal_moves_map, material_balance
 
 # MCTS
 class Node:
@@ -25,7 +25,7 @@ def _evaluate(net, boards, device):
     # Batch-evaluate positions from the side to move's view: (move maps, priors, values).
     states = torch.cat([encode(b, b.turn) for b in boards]).to(device)
     maps = [legal_moves_map(b, b.turn) for b in boards]
-    mask = np.zeros((len(boards), 4096), dtype=bool)
+    mask = np.zeros((len(boards), ACTION_SIZE), dtype=bool)
     for i, m in enumerate(maps):
         mask[i, list(m.keys())] = True
     logits, values = net(states)
@@ -63,21 +63,28 @@ def _backup(path, value):
 def run_mcts(net, boards, sims, device, noise):
     # Search every board in lock-step. Returns [(move indices, visit counts, idx->move)] per board.
     roots = [Node(1.0) for _ in boards]
-    maps, probs, _ = _evaluate(net, boards, device)
-    for root, m, p in zip(roots, maps, probs):
-        _expand(root, m, p, AZ_NOISE_FRAC if noise else 0.0)
+    active = [i for i, board in enumerate(boards) if board.outcome(claim_draw=True) is None]
+    if not active:
+        return [([], np.zeros(0, dtype=np.float64), {}) for _ in boards]
+    maps, probs, _ = _evaluate(net, [boards[i] for i in active], device)
+    for i, m, p in zip(active, maps, probs):
+        _expand(roots[i], m, p, AZ_NOISE_FRAC if noise else 0.0)
 
     for _ in range(sims):
         pending = []
         for root, board in zip(roots, boards):
-            node, b, path = root, board.copy(stack=False), [root]
+            if not root.children:
+                continue
+            node, b, path = root, board.copy(stack=True), [root]
             while node.children:
                 idx, child = _select(node)
                 b.push(node.moves[idx])
                 node = child
                 path.append(node)
-            if b.is_game_over():
-                _backup(path, -1.0 if b.is_checkmate() else 0.0)   # side to move is mated / drawn
+            outcome = b.outcome(claim_draw=True)
+            if outcome is not None:
+                terminal_value = 0.0 if outcome.winner is None else (1.0 if outcome.winner == b.turn else -1.0)
+                _backup(path, terminal_value)
             else:
                 pending.append((path, node, b))
         if pending:
@@ -88,8 +95,8 @@ def run_mcts(net, boards, sims, device, noise):
 
     out = []
     for root in roots:
-        idxs = list(root.children.keys())
-        out.append((idxs, np.array([root.children[i].visits for i in idxs], dtype=np.float64), root.moves))
+        idxs = list(root.children.keys()) if root.children else []
+        out.append((idxs, np.array([root.children[i].visits for i in idxs], dtype=np.float64), root.moves or {}))
     return out
 
 
@@ -111,10 +118,12 @@ class AlphaZeroAgent(BaseAgent):
 
     def act_batch(self, game_ids, boards):
         results = run_mcts(self.net, boards, AZ_SIMULATIONS, self.device, noise=True)
-        st = self.encode_boards(boards).numpy().astype(np.uint8)
+        st = self.encode_boards(boards).numpy().astype(np.float16)
         moves = []
         for i, (g, board) in enumerate(zip(game_ids, boards)):
             idxs, visits, mmap = results[i]
+            if not idxs:
+                raise RuntimeError("MCTS received a terminal position with no legal moves")
             probs = visits / max(visits.sum(), 1.0)
             if len(board.move_stack) < AZ_TEMP_PLIES:
                 choice = int(np.random.choice(len(idxs), p=probs))     # temperature 1: explore
@@ -154,7 +163,7 @@ class AlphaZeroAgent(BaseAgent):
             batch = random.sample(self.replay, min(AZ_BATCH, len(self.replay)))
             s = torch.from_numpy(np.stack([t[0] for t in batch])).float().to(dev)
             mask_np = self.mask_from_legal([t[1] for t in batch])
-            pi_np = np.zeros((len(batch), 4096), dtype=np.float32)
+            pi_np = np.zeros((len(batch), ACTION_SIZE), dtype=np.float32)
             for r, t in enumerate(batch):
                 pi_np[r, t[1]] = t[2]
             mask = torch.from_numpy(mask_np).to(dev)
@@ -172,11 +181,14 @@ class AlphaZeroAgent(BaseAgent):
             self._record(policy_loss, value_loss, loss, entropy, z - values.detach(), z, values,
                          grad_norm, update_norm)
 
-    @torch.no_grad()
     def select_move(self, board, greedy=False):
         idxs, visits, mmap = run_mcts(self.net, [board], AZ_PLAY_SIMULATIONS, self.device, noise=False)[0]
+        if not idxs:
+            raise RuntimeError("Cannot select a move from a terminal chess position")
         if greedy:
             choice = int(np.argmax(visits))
         else:
-            choice = int(np.random.choice(len(idxs), p=visits / visits.sum()))
+            total = float(visits.sum())
+            probs = visits / total if total > 0 else np.full(len(visits), 1.0 / len(visits))
+            choice = int(np.random.choice(len(idxs), p=probs))
         return mmap[idxs[choice]]

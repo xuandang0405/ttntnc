@@ -22,7 +22,7 @@ class A2CAgent(BaseAgent):
         logits, _ = self.net(states.to(self.device))
         logits = logits.masked_fill(~torch.from_numpy(mask).to(self.device), float("-inf"))
         actions = torch.distributions.Categorical(logits=logits).sample().cpu().numpy()
-        st = states.numpy().astype(np.uint8)
+        st = states.numpy().astype(np.float16)
         moves = []
         for i, (g, board) in enumerate(zip(game_ids, boards)):
             a = int(actions[i])

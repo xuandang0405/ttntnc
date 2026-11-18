@@ -1,31 +1,73 @@
-# Reinforcement Learning Chess (Cờ Vua Học Tăng Cường)
+# Cờ Vua Học Tăng Cường
 
-Dự án xây dựng môi trường trò chơi Cờ Vua hoàn chỉnh bằng **Pygame**, tích hợp các thuật toán **Học Tăng Cường (Reinforcement Learning - RL)** để huấn luyện các tác nhân (AI agents) thông qua cơ chế tự đấu (self-play), đánh giá hiệu năng và trực quan hóa quá trình học.
+Ứng dụng Cờ Vua bằng Pygame kết hợp luật cờ vua, huấn luyện tự đấu và nhiều thuật toán Reinforcement Learning:
+
+- **A2C** - Advantage Actor-Critic
+- **PPO** - Proximal Policy Optimization
+- **DQN** - Double Deep Q-Network
+- **AlphaZero** - mạng policy/value kết hợp Monte Carlo Tree Search
+
+Mã nguồn chính nằm trong thư mục `src/`. Mạng nơ-ron dùng phiên bản tác tử duy nhất cho cả hai phe, có đầu dự đoán:
+
+- policy cho các nước đi
+- value cho trạng thái bàn cờ
+- opponent policy
+- opening/middlegame/endgame phase
 
 ---
 
-## Tính năng nổi bật
+## Tính năng
 
-* **Đa dạng thuật toán RL:** Hỗ trợ nhiều kiến trúc và thuật toán học tăng cường phổ biến:
-  * **A2C** (`algo_a2c.py`) - Advantage Actor-Critic
-  * **PPO** (`algo_ppo.py`) - Proximal Policy Optimization
-  * **DQN** (`algo_dqn.py`) - Deep Q-Network
-  * **AlphaZero** (`algo_alphazero.py`) - Kết hợp mạng nơ-ron và tìm kiếm cây Monte Carlo (MCTS)
-* **5 Chế độ chơi & Huấn luyện linh hoạt:**
-  1. **Người vs Người (Human vs Human):** Hai người chơi trên cùng một màn hình.
-  2. **Người vs AI (Human vs AI):** Đối đầu trực tiếp với mô hình đã huấn luyện hoặc máy đánh ngẫu nhiên (Random mover).
-  3. **AI vs AI:** Quan sát hai mô hình AI tự đấu với nhau.
-  4. **Huấn luyện: 1 ván (Train: 1 game):** Tự đấu tuần tự từng ván một để quan sát trực tiếp nước đi và quá trình cập nhật trọng số.
-  5. **Huấn luyện song song (Train: N games):** Chạy đồng thời nhiều bàn cờ (`concurrent_mode`) tận dụng tối đa sức mạnh của GPU/CPU để tăng tốc độ thu thập dữ liệu và huấn luyện.
-* **Quản lý Checkpoint thông minh:**
-  * Lưu và nạp lại trạng thái mô hình bất cứ lúc nào thông qua hộp thoại chọn tệp (`file_dialog.py`).
-  * Tự động nhận diện thuật toán tương ứng từ tệp checkpoint đã lưu (`read_checkpoint_info`).
-* **Theo dõi & Vẽ biểu đồ huấn luyện (`plot_logging/`):**
-  * Tự động ghi log các chỉ số trong quá trình huấn luyện (`training_log.py`).
-  * Trực quan hóa đường cong học tập (loss, reward, tỷ lệ thắng/thua/hòa) bằng biểu đồ (`plot_training.py`).
-* **Tùy chỉnh phong cách chơi của AI:**
-  * **Sampled (Đa dạng):** Chọn nước đi theo phân phối xác suất của policy (phù hợp cho khám phá và tạo sự đa dạng).
-  * **Greedy (Tham lam):** Luôn chọn nước đi có xác suất/giá trị cao nhất (tối ưu sức mạnh khi thi đấu).
+### Chơi cờ
+
+- Người vs Người
+- Người vs AI
+- AI vs AI
+- Tải mô hình `.pt` bằng hộp thoại chọn tệp
+- Chơi bằng người ngẫu nhiên khi không chọn mô hình
+- Hai kiểu chọn nước đi:
+  - **Sampling**: lấy nước đi theo xác suất
+  - **Greedy**: luôn chọn nước đi được đánh giá cao nhất
+- **Opponent-aware lookahead**: dự đoán một số nước đáp trả có khả năng cao của đối thủ
+
+### Huấn luyện
+
+- Huấn luyện một ván dùng chế độ tự đấu tuần tự
+- Huấn luyện nhiều ván song song
+- 128 bàn cờ song song mặc định
+- Hỗ trợ mở đầu ngẫu nhiên, trung cuộc và tàn cuộc theo curriculum
+- Tiếp tục huấn luyện từ checkpoint cũ hoặc huấn luyện mô hình mới
+- Tự lưu checkpoint và chỉ số huấn luyện định kỳ
+- Kiểm tra kỹ năng mate-in-one, tránh chiếu hết, bắt quân tự do và chuyển đổi tàn cuộc
+- Ghi log và vẽ biểu đồ reward, loss, entropy, win/draw rate, throughput và draw reason
+
+---
+
+## Kiến trúc hiện tại
+
+Phiên bản mạng và checkpoint hiện tại là **v3**.
+
+| Thành phần | Giá trị |
+|---|---|
+| Lịch sử trạng thái | 8 bàn cờ |
+| Mặt nơ-ron bàn cờ | 12 mặt quân cờ cho mỗi lịch sử |
+| Mặt metadata | 8 mặt |
+| Kích thước đầu vào | `104 x 8 x 8` |
+| Không gian hành động | `20,480` |
+| Residual blocks | 6 |
+| Channels | 64 |
+| Kiến trúc | Policy/Value Residual CNN |
+| Ván tối đa mặc định | 600 nửa nước |
+
+Không gian hành động gồm:
+
+- `64 x 64 = 4,096` cặp ô đi - ô đến
+- 3 × `4,096` mặt hành động phong hậu, xe, tượng
+- 1 × `4,096` mặt hành động phong mã
+
+Toàn bộ trạng thái trong MCTS được sao chép kèm lịch sử nước đi để giữ repetition, halfmove clock và fullmove number. Dữ liệu replay được lưu dưới dạng `float16` và chuyển sang `float32` khi huấn luyện.
+
+> **Không tương thích checkpoint cũ:** checkpoint v1/v2 không thể nạp trực tiếp vào kiến trúc v3 vì số channel đầu vào và kích thước policy đều đã thay đổi. Hãy bắt đầu một phiên huấn luyện mới thay vì tải checkpoint cũ như checkpoint tương thích.
 
 ---
 
@@ -33,82 +75,163 @@ Dự án xây dựng môi trường trò chơi Cờ Vua hoàn chỉnh bằng **P
 
 ```text
 src/
-├── main.py                     # Điểm khởi chạy chính của ứng dụng
-├── config.py                   # Cấu hình chung (kích thước cửa sổ, màu sắc, FPS...)
-├── game.py                     # Logic cốt lõi của bàn cờ và luật chơi cờ vua
-├── encoding.py                 # Mã hóa trạng thái bàn cờ thành tensor đầu vào cho mạng nơ-ron
-├── model.py                    # Kiến trúc mạng nơ-ron (Neural Network)
-├── metrics.py                  # Tính toán các chỉ số đánh giá và phần thưởng (Reward)
+├── main.py                     # Khởi chạy Pygame
+├── config.py                   # Cửa sổ, màu sắc, reward và giới hạn ván
+├── menu_scene.py               # Chọn chế độ, thuật toán và checkpoint
+├── play_scene.py               # Luồng chơi người/người hoặc người/AI
+├── match.py                    # Quản lý một trận đấu
+├── players.py                  # Human, random và model players
+├── checkpoints.py              # Tạo experiment, lưu metrics và checkpoint
+├── encoding.py                 # Tensor trạng thái 104 x 8 x 8 và action mapping
+├── model.py                    # Residual policy/value network
+├── metrics.py                  # Thống kê ván, reward và kết quả huấn luyện
+├── curriculum.py               # Opening, middlegame và endgame positions
+├── strategy.py                 # Dự đoán đối thủ và opponent-aware lookahead
+├── strategy_config.py          # Tham số strategy và curriculum
+├── skill_eval.py               # Bộ kiểm tra kỹ năng cờ
 │
-├── algorithms.py               # Quản lý danh sách và khởi tạo các thuật toán
-├── algo_config.py              # Siêu tham số (hyperparameters) cho từng thuật toán
-├── algo_base.py                # Lớp cơ sở (Base class) cho các thuật toán RL
-├── algo_a2c.py                 # Cài đặt thuật toán A2C
-├── algo_ppo.py                 # Cài đặt thuật toán PPO
-├── algo_dqn.py                 # Cài đặt thuật toán DQN
-├── algo_alphazero.py           # Cài đặt thuật toán AlphaZero
-├── checkpoints.py              # Xử lý lưu/tải trọng số và metadata của mô hình
+├── algorithms/
+│   ├── algorithms.py           # Factory và nạp checkpoint theo thuật toán
+│   ├── algo_base.py            # Hành vi chung của tác tử
+│   ├── algo_a2c.py
+│   ├── algo_ppo.py
+│   ├── algo_dqn.py
+│   └── algo_alphazero.py
 │
-├── players.py                  # Định nghĩa các loại người chơi (Human, Random, AI Model)
-├── match.py                    # Quản lý luồng trận đấu giữa hai người chơi
-├── scene.py                    # Lớp cơ sở quản lý các màn hình (Scene)
-├── menu_scene.py               # Màn hình Menu chính chọn chế độ và cấu hình mô hình
-├── play_scene.py               # Màn hình chơi cờ trực quan
-├── train_scene.py              # Màn hình huấn luyện đơn luồng (1 ván)
-├── renderer.py                 # Vẽ bàn cờ, quân cờ và thông tin trạng thái
-├── ui.py                       # Các thành phần giao diện người dùng (Button...)
-├── file_dialog.py              # Hộp thoại hệ thống để chọn tệp mô hình
+├── normal_mode/
+│   ├── game.py                 # Tự đấu và huấn luyện tuần tự
+│   ├── train_scene.py          # Giao diện huấn luyện một ván
+│   └── renderer.py             # Bàn cờ và panel Pygame
 │
-├── concurrent_mode/            # Module huấn luyện đa bàn cờ song song
-│   ├── concurrent_config.py    # Cấu hình số lượng bàn cờ chạy song song (NUM_GAMES)
-│   ├── concurrent_game.py      # Quản lý trạng thái nhiều ván cờ cùng lúc
-│   ├── concurrent_train_scene.py # Giao diện và vòng lặp huấn luyện song song
-│   └── concurrent_renderer.py  # Hiển thị lưới nhiều bàn cờ thu nhỏ
+├── concurrent_mode/
+│   ├── concurrent_config.py    # Số ván, thiết bị và chu kỳ cập nhật
+│   ├── concurrent_game.py      # Tự đấu và huấn luyện nhiều ván
+│   ├── concurrent_train_scene.py
+│   └── concurrent_renderer.py
 │
-└── plot_logging/               # Module ghi log và vẽ đồ thị
-    ├── training_log.py         # Lưu lịch sử huấn luyện ra tệp log
-    └── plot_training.py        # Vẽ biểu đồ phân tích quá trình huấn luyện
+└── plot_logging/
+    ├── training_log.py          # Ghi training_log.json
+    └── plot_training.py         # Vẽ biểu đồ huấn luyện
+
+assets/
+└── chess_pieces/                # Hình quân cờ PNG
+
+checkpoints/
+└── exp_YYYYMMDD_HHMMSS/
+    ├── white_<algo>.pt
+    ├── black_<algo>.pt
+    ├── metrics.json
+    └── training_log.json
 ```
+
+`src2/` là bản sao/thư mục tích hợp thử nghiệm và không phải đường chạy chính của README. Hãy dùng `src/` cho phiên bản hiện tại.
 
 ---
 
-## Yêu cầu cài đặt
+## Yêu cầu
 
-Đảm bảo máy tính của bạn đã cài đặt **Python 3.10+** và các thư viện cần thiết:
+- Python 3.10 trở lên
+- Pygame
+- PyTorch
+- NumPy
+- python-chess
+- Matplotlib, pandas, seaborn để vẽ biểu đồ
+
+Tạo môi trường và cài thư viện:
 
 ```bash
-pip install pygame torch numpy matplotlib chess
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess
 ```
-*(Lưu ý: Nếu có GPU hỗ trợ CUDA, hãy cài đặt phiên bản `torch` tương ứng để tăng tốc độ huấn luyện ở chế độ song song).*
+
+Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn; ứng dụng có thể chạy bằng CPU.
 
 ---
 
-## Hướng dẫn sử dụng
+## Chạy ứng dụng
 
-### 1. Khởi chạy ứng dụng
-Di chuyển vào thư mục `src` và chạy tệp `main.py`:
+Luôn chạy từ thư mục gốc của repository để Pygame có thể tìm đúng thư mục `assets/`:
+
+```bash
+python src/main.py
+```
+
+Hoặc:
 
 ```bash
 cd src
 python main.py
 ```
 
-### 2. Thao tác trên Menu chính
-* **Chọn chế độ:** Nhấp chuột trái vào các nút chế độ ở hàng trên cùng (`Người vs Người`, `Người vs AI`, `AI vs AI`, `Huấn luyện: 1 ván`, `Huấn luyện: k ván`).
-* **Cấu hình tham số:**
-  * **Nhấp chuột trái** vào các hàng tùy chọn để chuyển sang lựa chọn tiếp theo hoặc mở hộp thoại chọn tệp mô hình (`.pt`).
-  * **Nhấp chuột phải** vào hàng tùy chọn để quay lại lựa chọn trước đó hoặc xóa tệp mô hình đã chọn (đưa về *Random mover* hoặc *Huấn luyện từ đầu*).
-* **Bắt đầu:** Nhấn nút **START** hoặc phím `Enter` để vào màn hình chơi/huấn luyện. Nhấn `ESC` để thoát.
-
-### 3. Xem biểu đồ huấn luyện
-Sau khi quá trình huấn luyện ghi lại dữ liệu log, bạn có thể chạy script vẽ biểu đồ để theo dõi sự tiến bộ của mô hình:
-
-```bash
-python plot_logging/plot_training.py
-```
+> Lưu ý: thư mục làm việc hợp lệ cho ứng dụng là repository root. Khi chạy lệnh dưới đây, vị trí hiện tại phải là thư mục gốc của dự án.
 
 ---
 
-## Lưu ý khi huấn luyện
-* Hệ thống **không tự động nạp mô hình cũ** khi khởi động để tránh ghi đè ngoài ý muốn. Nếu muốn huấn luyện tiếp (fine-tune) từ một checkpoint có sẵn, hãy chọn tệp tương ứng ở mục `White model file` / `Black model file` trước khi nhấn `START`.
-* Chế độ **Train: N games** được tối ưu hóa cho việc thu thập kinh nghiệm nhanh trên nhiều môi trường đồng thời, rất phù hợp khi huấn luyện các thuật toán như PPO hoặc A2C từ con số 0.
+## Điều khiển trong menu
+
+1. Chọn một trong 5 chế độ ở thanh nút phía trên.
+2. Cấu hình các hàng tùy chọn bằng chuột:
+   - **Nhấp trái**: chuyển sang lựa chọn tiếp theo hoặc mở hộp thoại mô hình.
+   - **Nhấp phải**: quay lại lựa chọn trước hoặc xóa mô hình đã chọn.
+3. Nhấn **BẮT ĐẦU** hoặc `Enter`.
+4. Nhấn `Esc` để thoát.
+
+Trong chế độ chơi và huấn luyện:
+
+- Nhấp quân cờ, sau đó nhấp ô được làm sáng để đi quân.
+- Trong màn hình huấn luyện:
+  - `Space`: tạm dừng/tiếp tục
+  - `F`: bật/tắt chế độ huấn luyện nhanh
+  - `Up` / `Down`: chỉnh độ trễ
+  - `S`: lưu checkpoint
+  - `L`: tải checkpoint
+  - `R`: đặt lại thống kê
+  - `M`: bật/tắt panel metrics
+  - `Esc`: quay lại menu
+
+---
+
+## Tải và tiếp tục huấn luyện
+
+Mở menu `Huấn luyện: 1 ván` hoặc `Huấn luyện: 128 ván`, sau đó chọn tệp ở hàng **Tệp mô hình Trắng** hoặc **Tệp mô hình Đen**.
+
+- Nhấp trái vào hàng tệp: chọn checkpoint `.pt`
+- Nhấp phải vào hàng tệp: bỏ checkpoint và huấn luyện mô hình mới
+- Thuật toán tương ứng được đọc tự động từ metadata checkpoint
+
+Checkpoint mới được lưu trong `checkpoints/exp_<thời gian>/` và tự lưu lại sau khoảng 120 giây. Khi thoát màn hình huấn luyện bằng `Esc`, ứng dụng cũng lưu checkpoint trước khi chuyển scene.
+
+Nếu chọn checkpoint cho một phe, phe còn lại có thể được khởi tạo với thuật toán đã chọn hoặc huấn luyện từ đầu tùy cấu hình tại menu.
+
+---
+
+## Xem kết quả huấn luyện
+
+Các chỉ số được lưu trong `metrics.json` và `training_log.json`.
+
+Vẽ biểu đồ từ checkpoint mới nhất:
+
+```bash
+python src/plot_logging/plot_training.py
+```
+
+Vẽ biểu đồ từ một log cụ thể:
+
+```bash
+python src/plot_logging/plot_training.py checkpoints/exp_YYYYMMDD_HHMMSS/training_log.json
+```
+
+Biểu đồ chứa win/draw rate, actor/critic loss, entropy, value explained variance, reward, repetition, độ dài ván, throughput, CPU/GPU utilization và nguyên nhân hòa.
+
+---
+
+## Kiểm tra mã nguồn
+
+Test import các module theo cấu trúc chạy của ứng dụng, nên chạy từ thư mục `src`:
+
+```bash
+cd src
+python -m compileall -q .
+python -m unittest discover -s tests -v
+```

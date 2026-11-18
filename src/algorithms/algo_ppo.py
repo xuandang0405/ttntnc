@@ -27,7 +27,7 @@ class PPOAgent(BaseAgent):
         actions = torch.multinomial(logp_all.exp(), 1).squeeze(1)
         logps = logp_all.gather(1, actions[:, None]).squeeze(1)
         actions, logps, values = actions.cpu().numpy(), logps.cpu().numpy(), values.cpu().numpy()
-        st = states.numpy().astype(np.uint8)
+        st = states.numpy().astype(np.float16)
         moves = []
         for i, (g, board) in enumerate(zip(game_ids, boards)):
             a = int(actions[i])

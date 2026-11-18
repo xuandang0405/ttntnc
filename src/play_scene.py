@@ -2,14 +2,15 @@
 import chess
 import pygame
 
-from config import AI_MOVE_DELAY, BG, MAX_AI_PLIES
+from config import AI_MOVE_DELAY, BG, MAX_AI_PLIES, BOARD_PX
 from match import Match
 from players import make_player
 from normal_mode.renderer import draw_board, draw_play_panel, px_to_sq
 from scene import Scene
-from ui import GameOverPopup
+from ui import GameOverPopup, Button
 
 GREEN, RED, GREY = (90, 200, 120), (230, 90, 90), (190, 190, 200)
+PROMOTION_CHOICES = [(chess.QUEEN, "Queen"), (chess.ROOK, "Rook"), (chess.BISHOP, "Bishop"), (chess.KNIGHT, "Knight")]
 
 class PlayScene(Scene):
     def __init__(self, fonts, white_spec, black_spec, greedy, lookahead=False):
@@ -25,8 +26,20 @@ class PlayScene(Scene):
         self.match = Match(white, black, max_plies=None if any(humans) else MAX_AI_PLIES)
         self.flipped = humans == [False, True]       # human plays Black -> Black at the bottom
         self.selected, self.targets = None, ()
+        self.promotion = None       
         self.popup = None
         self.last_ai_move = pygame.time.get_ticks()
+
+    def handle_promotion(self, e):
+        if e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:       # cancel: move not made
+            self.promotion = None
+        elif e.type == pygame.MOUSEBUTTONDOWN and e.button == 1:
+            for piece_type, button in self.promo_buttons:
+                if button.hit(e.pos):
+                    move = self.promotion[piece_type]
+                    self.promotion, self.selected, self.targets = None, None, ()
+                    self.play(move)
+                    return
 
     # input
     def handle_event(self, e):
@@ -36,6 +49,9 @@ class PlayScene(Scene):
                 self.new_match()
             elif action == "menu":
                 self.go_menu()
+            return
+        if self.promotion:                   # choosing the promotion piece blocks everything else
+            self.handle_promotion(e)
             return
         if e.type == pygame.KEYDOWN:
             if e.key == pygame.K_ESCAPE:
@@ -53,11 +69,17 @@ class PlayScene(Scene):
         if sq is None:
             return
         if self.selected is not None:
-            for mv in board.legal_moves:   # promotions auto-queen
-                if mv.from_square == self.selected and mv.to_square == sq and mv.promotion in (None, chess.QUEEN):
-                    self.selected, self.targets = None, ()
-                    self.play(mv)
-                    return
+            options = [mv for mv in board.legal_moves if mv.from_square == self.selected and mv.to_square == sq]
+            if len(options) == 1:
+                self.selected, self.targets = None, ()
+                self.play(options[0])
+                return
+            
+            if options:
+                self.promotion = {mv.promotion: mv for mv in options}
+                self.promo_buttons = [(pt, Button((48 + i * 128, BOARD_PX // 2 - 28, 120, 56), name))
+                                      for i, (pt, name) in enumerate(PROMOTION_CHOICES)]
+                return
         piece = board.piece_at(sq)
         if piece and piece.color == board.turn:
             self.selected = sq
@@ -101,11 +123,19 @@ class PlayScene(Scene):
         screen.fill(BG)
         draw_board(screen, self.fonts, self.match.board, self.match.last_move,
                    self.flipped, self.selected, self.targets)
-        hints = ["ESC: back to menu"]
+        hints = ["ESC: về menu"]
         if self.match.humans():
-            hints.insert(0, "Click a piece, then a blue square")
+            hints.insert(0, "Chọn quân cờ, sau đó chọn ô màu xanh")
         if len(self.match.humans()) < 2:
             hints.insert(0, f"UP/DOWN: AI delay ({self.ai_delay} ms)")
         draw_play_panel(screen, self.fonts, self.match, hints)
+        if self.promotion:
+            dim = pygame.Surface((BOARD_PX, BOARD_PX), pygame.SRCALPHA)
+            dim.fill((0, 0, 0, 150))
+            screen.blit(dim, (0, 0))
+            label = self.fonts["main"].render("Thăng tiến lên:  (Esc để thoát)", True, (240, 240, 240))
+            screen.blit(label, label.get_rect(center=(BOARD_PX // 2, BOARD_PX // 2 - 50)))
+            for _, button in self.promo_buttons:
+                button.draw(screen, self.fonts["main"])
         if self.popup:
             self.popup.draw(screen, self.fonts)

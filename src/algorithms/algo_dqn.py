@@ -48,7 +48,7 @@ class DQNAgent(BaseAgent):
         q, _ = self.net(states.to(self.device))
         q = q.masked_fill(~torch.from_numpy(mask).to(self.device), float("-inf"))
         greedy = q.argmax(dim=1).cpu().numpy()
-        st = states.numpy().astype(np.uint8)
+        st = states.numpy().astype(np.float16)
         eps = self.epsilon
         moves = []
         for i, (g, board) in enumerate(zip(game_ids, boards)):

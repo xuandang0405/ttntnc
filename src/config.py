@@ -1,6 +1,6 @@
 import chess
 
-MAX_PLIES = 600         
+MAX_PLIES = 300         
 GAMMA = 0.99             
 LR = 3e-4                
 SHAPING = 0.01         
@@ -20,6 +20,6 @@ HILITE = (246, 246, 105)
 BG, PANEL_BG, TEXT = (30, 30, 34), (40, 40, 46), (230, 230, 230)
 
 AI_MOVE_DELAY = 550     
-MAX_AI_PLIES = 600
+MAX_AI_PLIES = 300
 REPETITION_PENALTY = 0.01  
 LOG_INTERVAL_SECONDS = 2.0   
