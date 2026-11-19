@@ -4,10 +4,11 @@ build-backend = "maturin"
 
 [project]
 name = "algorithms-rs"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.10"
-description = "Optional Rust MCTS backend for the chess application"
+description = "Native Rust AlphaZero search for the chess application"
 
 [tool.maturin]
 bindings = "pyo3"
 module-name = "algorithms_rs"
+features = ["extension-module"]

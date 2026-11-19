@@ -2,13 +2,15 @@ import math
 import random
 import time
 
+import chess
 import numpy as np
 import torch
 import torch.nn.functional as F
 
 from algorithms.algo_base import BaseAgent
 from algorithms.algo_config import (AZ_BATCH, AZ_BUFFER, AZ_C_PUCT, AZ_DIRICHLET_ALPHA, AZ_MIN_SAMPLES, AZ_NOISE_FRAC,
-                         AZ_PLAY_SIMULATIONS, AZ_SIMULATIONS, AZ_TEMP_PLIES, AZ_TRAIN_STEPS, AZ_USE_RUST_MCTS)
+                         AZ_PLAY_SIMULATIONS, AZ_SIMULATIONS, AZ_TEMP_PLIES, AZ_TRAIN_STEPS, AZ_USE_RUST_MCTS,
+                         AZ_USE_RUST_SEARCH)
 from config import LR
 from encoding import ACTION_SIZE, encode, legal_moves_map, material_balance
 
@@ -102,6 +104,71 @@ def _backup(path, value):
 
 
 @torch.no_grad()
+def _evaluate_encoded(net, states, legal, device, timings):
+    """Run the network on states already encoded by Rust.
+
+    `legal` is (N, L) int32 of legal action indices padded with -1. Only the
+    logits of legal actions are gathered and soft-maxed, so no 20480-wide
+    masked softmax is needed. Returns priors (N, L) float32 and values (N,).
+    """
+    started = time.perf_counter()
+    x = torch.from_numpy(states).to(device)
+    idx = torch.from_numpy(legal).to(device).long()
+    pad = idx < 0
+    idx.clamp_(min=0)
+    timings["mcts_batch_prepare"] = (
+        timings.get("mcts_batch_prepare", 0.0) + time.perf_counter() - started
+    )
+
+    started = time.perf_counter()
+    logits, values = net(x)
+    chosen = logits.gather(1, idx).masked_fill(pad, float("-inf"))
+    priors = torch.softmax(chosen, dim=-1)
+    packed = torch.cat([priors, values.unsqueeze(1)], dim=1).float().cpu().numpy()   # one sync
+    timings["mcts_network_inference"] = (
+        timings.get("mcts_network_inference", 0.0) + time.perf_counter() - started
+    )
+    return np.ascontiguousarray(packed[:, :-1]), np.ascontiguousarray(packed[:, -1])
+
+
+def _run_native_search(net, boards, sims, device, noise, timings):
+    started = time.perf_counter()
+    fens = [b.root().fen() for b in boards]
+    histories = [[m.uci() for m in b.move_stack] for b in boards]
+    search = algorithms_rs.BatchSearch(
+        fens, histories, sims, AZ_C_PUCT,
+        AZ_NOISE_FRAC if noise else 0.0, AZ_DIRICHLET_ALPHA,
+        int(np.random.randint(0, 2 ** 62, dtype=np.int64)),
+    )
+    timings["mcts_batch_prepare"] = timings.get("mcts_batch_prepare", 0.0) + time.perf_counter() - started
+    timings.setdefault("mcts_position_encode", 0.0)
+    timings.setdefault("mcts_backup", 0.0)
+
+    while True:
+        started = time.perf_counter()
+        batch = search.next_batch()
+        timings["mcts_select_traverse"] = (
+            timings.get("mcts_select_traverse", 0.0) + time.perf_counter() - started
+        )
+        if batch is None:
+            break
+        states, legal = batch
+        priors, values = _evaluate_encoded(net, states, legal, device, timings)
+        started = time.perf_counter()
+        search.submit(priors, values)
+        timings["mcts_expand"] = timings.get("mcts_expand", 0.0) + time.perf_counter() - started
+
+    out = []
+    for idxs, visits, ucis in search.results():
+        out.append((
+            list(idxs),
+            np.asarray(visits, dtype=np.float64),
+            {i: chess.Move.from_uci(u) for i, u in zip(idxs, ucis)},
+        ))
+    return out
+
+
+@torch.no_grad()
 def run_mcts(net, boards, sims, device, noise, profile=None):
     timings = {}
     try:
@@ -113,6 +180,13 @@ def run_mcts(net, boards, sims, device, noise, profile=None):
 
 
 def _run_mcts_impl(net, boards, sims, device, noise, timings):
+    if AZ_USE_RUST_SEARCH:
+        if algorithms_rs is None or not hasattr(algorithms_rs, "BatchSearch"):
+            raise RuntimeError(
+                "Rust search was requested, but the algorithms_rs extension with BatchSearch "
+                "is not installed. Build it with `python -m pip install .` from src/algorithms-rs."
+            )
+        return _run_native_search(net, boards, sims, device, noise, timings)
     if AZ_USE_RUST_MCTS:
         if algorithms_rs is None:
             raise RuntimeError(

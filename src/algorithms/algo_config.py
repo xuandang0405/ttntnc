@@ -33,7 +33,13 @@ AZ_BATCH = 32
 AZ_TRAIN_STEPS = 10        # gradient steps per update
 AZ_MIN_SAMPLES = 256       # positions needed before the first update
 
-_RUST_MCTS_SETTING = os.environ.get("CHESS_AI_RUST_MCTS", "0").strip().lower()
+_RUST_MCTS_SETTING = os.environ.get("CHESS_AI_RUST_MCTS", "1").strip().lower()
 if _RUST_MCTS_SETTING not in {"0", "1"}:
     raise ValueError("CHESS_AI_RUST_MCTS must be set to '0' or '1'")
 AZ_USE_RUST_MCTS = _RUST_MCTS_SETTING == "1"
+
+# Full native search (chess rules + encoding + MCTS in Rust; Python only runs the network).
+_RUST_SEARCH_SETTING = os.environ.get("CHESS_AI_RUST_SEARCH", "1").strip().lower()
+if _RUST_SEARCH_SETTING not in {"0", "1"}:
+    raise ValueError("CHESS_AI_RUST_SEARCH must be set to '0' or '1'")
+AZ_USE_RUST_SEARCH = _RUST_SEARCH_SETTING == "1"

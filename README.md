@@ -40,6 +40,7 @@ Mã nguồn chính nằm trong thư mục `src/`. Mạng nơ-ron dùng phiên b�
 - Tự lưu checkpoint và chỉ số huấn luyện định kỳ
 - Kiểm tra kỹ năng mate-in-one, tránh chiếu hết, bắt quân tự do và chuyển đổi tàn cuộc
 - Ghi log và vẽ biểu đồ reward, loss, entropy, win/draw rate, throughput và draw reason
+- AlphaZero có thể chạy MCTS bằng native Rust để chuyển luật cờ, mã hóa trạng thái và cây tìm kiếm khỏi Python
 
 ---
 
@@ -100,6 +101,8 @@ src/
 │
 ├── algorithms-rs/              # Rust MCTS backend optional cho AlphaZero
 │   ├── Cargo.toml
+│   ├── pyproject.toml
+│   ├── README.md
 │   └── src/
 │
 ├── normal_mode/
@@ -151,21 +154,40 @@ python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess
 
 Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn; ứng dụng có thể chạy bằng CPU.
 
-AlphaZero dùng MCTS Python mặc định. Để cài backend Rust tùy chọn, chạy từ thư mục crate:
+AlphaZero có thể dùng MCTS native trong Rust. Hai backend Rust được hỗ trợ:
 
-```bash
-cd src/algorithms-rs
-python -m pip install .
-```
+| Biến môi trường | Backend |
+|---|---|
+| `CHESS_AI_RUST_SEARCH=1` | `BatchSearch` native: Rust xử lý luật cờ, mã hóa thế cờ, cây tìm kiếm, chọn nhánh và backup |
+| `CHESS_AI_RUST_MCTS=1` | Backend cây Rust cũ: chỉ một số bước PUCT/expand/backup chạy trong Rust |
 
-Sau đó bật biến môi trường trước khi khởi chạy để dùng Rust cho cây MCTS. Ví dụ trong PowerShell:
+Hai biến này mặc định là `1` trong cấu hình hiện tại. Để dùng MCTS thuần Python,
+đặt cả hai biến thành `0`:
 
 ```powershell
-$env:CHESS_AI_RUST_MCTS = "1"
+$env:CHESS_AI_RUST_SEARCH = "0"
+$env:CHESS_AI_RUST_MCTS = "0"
 python src\main.py
 ```
 
-Nếu không đặt biến này, Python backend hiện tại vẫn được dùng; khi yêu cầu Rust backend, extension phải được cài đặt.
+Để cài extension Rust, chạy từ thư mục crate:
+
+```bash
+cd src/algorithms-rs
+pip install maturin
+python -m pip install .
+```
+
+Sau đó khởi chạy với native search mặc định:
+
+```powershell
+python src\main.py
+```
+
+Nếu đặt `CHESS_AI_RUST_SEARCH=1` hoặc `CHESS_AI_RUST_MCTS=1` nhưng extension
+chưa được cài, ứng dụng sẽ báo lỗi rõ ràng thay vì tự động chuyển sang Python.
+Backend native lấy seed nhiễu và seed RNG của NumPy; thứ tự nước đi có thể khác
+nhưng visit counts và action parity được kiểm tra theo tập test của Rust.
 
 ---
 
@@ -254,4 +276,14 @@ Test import các module theo cấu trúc chạy của ứng dụng, nên chạy 
 cd src
 python -m compileall -q .
 python -m unittest discover -s tests -v
+```
+
+Nếu đã build extension Rust, cũng chạy test parity cho native search:
+
+```bash
+cd src/algorithms-rs
+cargo test
+
+cd ../
+python -m unittest tests.test_rust_search
 ```

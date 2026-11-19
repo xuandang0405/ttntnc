@@ -3,3 +3,10 @@
 training_log.json
 *.docx
 *.pptx
+target/
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.dll
+.venv/
