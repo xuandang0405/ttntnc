@@ -18,7 +18,7 @@ def save_training_plot(log_path, output_path=None, title=None):
     title = title or data.get("title") or data.get("experiment", "Training")
 
     sns.set_theme(style="darkgrid")
-    fig, axes = plt.subplots(5, 3, figsize=(19, 21), sharex=True)
+    fig, axes = plt.subplots(7, 3, figsize=(19, 29), sharex=True)
     axes = axes.flatten()
 
     panels = [
@@ -41,6 +41,35 @@ def save_training_plot(log_path, output_path=None, title=None):
          ["Repetition", "50-move", "Stalemate", "Insufficient material", "Max plies", "Other"], "Draw reasons (cumulative rate)"),
         (["white_gradient_norm", "black_gradient_norm"], ["White", "Black"], "Gradient norm"),
         (["unique_position_ratio"], ["Unique position ratio"], "Position diversity"),
+        ([f"{color}_{part}_mean_ms" for part in ("action_prepare", "action_inference", "action_select")
+          for color in ("white", "black")],
+         [f"{color.title()} {part.replace('action_', '')}" for part in
+          ("action_prepare", "action_inference", "action_select") for color in ("white", "black")],
+         "Algorithm timing: action (mean ms)"),
+        ([f"{color}_{part}_mean_ms" for part in
+          ("mcts_select_traverse", "mcts_position_encode", "mcts_network_inference", "mcts_expand", "mcts_backup")
+          for color in ("white", "black")],
+         [f"{color.title()} {part.replace('mcts_', '')}" for part in
+          ("mcts_select_traverse", "mcts_position_encode", "mcts_network_inference", "mcts_expand", "mcts_backup")
+          for color in ("white", "black")],
+         "Algorithm timing: AlphaZero MCTS (mean ms)"),
+        ([f"{color}_{part}_mean_ms" for part in ("episode_prepare", "replay_sample", "batch_prepare")
+          for color in ("white", "black")],
+         [f"{color.title()} {part}" for part in ("episode_prepare", "replay_sample", "batch_prepare")
+          for color in ("white", "black")],
+         "Algorithm timing: data preparation (mean ms)"),
+        ([f"{color}_{part}_mean_ms" for part in ("train_forward", "target_forward", "loss_compute")
+          for color in ("white", "black")],
+         [f"{color.title()} {part}" for part in ("train_forward", "target_forward", "loss_compute")
+          for color in ("white", "black")],
+         "Algorithm timing: model and loss (mean ms)"),
+        ([f"{color}_{part}_mean_ms" for part in
+          ("backward", "optimizer_step", "strategy_observe", "strategy_train")
+          for color in ("white", "black")],
+         [f"{color.title()} {part}" for part in
+          ("backward", "optimizer_step", "strategy_observe", "strategy_train")
+          for color in ("white", "black")],
+         "Algorithm timing: update and strategy (mean ms)"),
     ]
 
     if not df.empty:
@@ -64,6 +93,8 @@ def save_training_plot(log_path, output_path=None, title=None):
         ax.set_title(panel_title)
         ax.set_xlabel("Time (minutes)")
         ax.set_ylabel("")
+    for ax in axes[len(panels):]:
+        ax.set_visible(False)
 
     fig.suptitle(title, fontsize=13, y=0.995, wrap=True)
     fig.tight_layout(rect=(0, 0, 1, 0.975))

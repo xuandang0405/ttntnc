@@ -43,23 +43,26 @@ class DQNAgent(BaseAgent):
 
     @torch.no_grad()
     def act_batch(self, game_ids, boards):
-        maps, mask = self.legal_batch(boards)
-        states = self.encode_boards(boards)
-        q, _ = self.net(states.to(self.device))
-        q = q.masked_fill(~torch.from_numpy(mask).to(self.device), float("-inf"))
-        greedy = q.argmax(dim=1).cpu().numpy()
-        st = states.numpy().astype(np.float16)
-        eps = self.epsilon
-        moves = []
-        for i, (g, board) in enumerate(zip(game_ids, boards)):
-            keys = list(maps[i].keys())
-            a = random.choice(keys) if random.random() < eps else int(greedy[i])
-            ep = self.eps.setdefault(g, {"s": [], "a": [], "legal": [], "bal": []})
-            ep["s"].append(st[i])
-            ep["a"].append(a)
-            ep["legal"].append(np.array(keys, dtype=np.int64))
-            ep["bal"].append(material_balance(board, self.color))
-            moves.append(maps[i][a])
+        with self._profile("action_prepare"):
+            maps, mask = self.legal_batch(boards)
+            states = self.encode_boards(boards)
+        with self._profile("action_inference"):
+            q, _ = self.net(states.to(self.device))
+        with self._profile("action_select"):
+            q = q.masked_fill(~torch.from_numpy(mask).to(self.device), float("-inf"))
+            greedy = q.argmax(dim=1).cpu().numpy()
+            st = states.numpy().astype(np.float16)
+            eps = self.epsilon
+            moves = []
+            for i, (g, board) in enumerate(zip(game_ids, boards)):
+                keys = list(maps[i].keys())
+                a = random.choice(keys) if random.random() < eps else int(greedy[i])
+                ep = self.eps.setdefault(g, {"s": [], "a": [], "legal": [], "bal": []})
+                ep["s"].append(st[i])
+                ep["a"].append(a)
+                ep["legal"].append(np.array(keys, dtype=np.int64))
+                ep["bal"].append(material_balance(board, self.color))
+                moves.append(maps[i][a])
         self.act_steps += len(boards)
         return moves
  
@@ -67,41 +70,47 @@ class DQNAgent(BaseAgent):
         ep = self.eps.pop(game_id, None)
         if not ep or not ep["a"]:
             return
-        rewards = self._rewards(ep["bal"], final_balance, terminal)
-        n = len(ep["a"])
-        empty = np.zeros_like(ep["s"][0])
-        for t in range(n):                       # (s_t, a_t, r_t, s_{t+1}) - next state is our next turn
-            last = t == n - 1
-            item = (ep["s"][t], ep["a"][t], float(rewards[t]),
-                    empty if last else ep["s"][t + 1],
-                    np.zeros(0, dtype=np.int64) if last else ep["legal"][t + 1],
-                    last, ep["legal"][t])
-            if len(self.replay) < DQN_BUFFER:
-                self.replay.append(item)
-            else:
-                self.replay[self.replay_pos] = item
-                self.replay_pos = (self.replay_pos + 1) % DQN_BUFFER
+        with self._profile("episode_prepare"):
+            rewards = self._rewards(ep["bal"], final_balance, terminal)
+            n = len(ep["a"])
+            empty = np.zeros_like(ep["s"][0])
+            for t in range(n):                       # (s_t, a_t, r_t, s_{t+1}) - next state is our next turn
+                last = t == n - 1
+                item = (ep["s"][t], ep["a"][t], float(rewards[t]),
+                        empty if last else ep["s"][t + 1],
+                        np.zeros(0, dtype=np.int64) if last else ep["legal"][t + 1],
+                        last, ep["legal"][t])
+                if len(self.replay) < DQN_BUFFER:
+                    self.replay.append(item)
+                else:
+                    self.replay[self.replay_pos] = item
+                    self.replay_pos = (self.replay_pos + 1) % DQN_BUFFER
         if len(self.replay) >= DQN_WARMUP:
             for _ in range(max(1, n // DQN_TRAIN_EVERY)):
                 self.update()
  
     def update(self):
         dev = self.device
-        batch = random.sample(self.replay, min(DQN_BATCH, len(self.replay)))
-        s = torch.from_numpy(np.stack([t[0] for t in batch])).float().to(dev)
-        a = torch.tensor([t[1] for t in batch], dtype=torch.long, device=dev)
-        r = torch.tensor([t[2] for t in batch], dtype=torch.float32, device=dev)
-        s2 = torch.from_numpy(np.stack([t[3] for t in batch])).float().to(dev)
-        done = torch.tensor([float(t[5]) for t in batch], dtype=torch.float32, device=dev)
-        mask2 = torch.from_numpy(self.mask_from_legal([t[4] for t in batch])).to(dev)
-        mask1 = torch.from_numpy(self.mask_from_legal([t[6] for t in batch])).to(dev)
+        with self._profile("replay_sample"):
+            batch = random.sample(self.replay, min(DQN_BATCH, len(self.replay)))
+        with self._profile("batch_prepare"):
+            s = torch.from_numpy(np.stack([t[0] for t in batch])).float().to(dev)
+            a = torch.tensor([t[1] for t in batch], dtype=torch.long, device=dev)
+            r = torch.tensor([t[2] for t in batch], dtype=torch.float32, device=dev)
+            s2 = torch.from_numpy(np.stack([t[3] for t in batch])).float().to(dev)
+            done = torch.tensor([float(t[5]) for t in batch], dtype=torch.float32, device=dev)
+            mask2 = torch.from_numpy(self.mask_from_legal([t[4] for t in batch])).to(dev)
+            mask1 = torch.from_numpy(self.mask_from_legal([t[6] for t in batch])).to(dev)
  
-        q_all, _ = self.net(s)
-        q = q_all.gather(1, a[:, None]).squeeze(1)
-        with torch.no_grad():
-            best = self.net(s2)[0].masked_fill(~mask2, float("-inf")).argmax(dim=1, keepdim=True)
-            target = r + GAMMA * (1.0 - done) * self.target(s2)[0].gather(1, best).squeeze(1)
-        loss = F.smooth_l1_loss(q, target)
+        with self._profile("train_forward"):
+            q_all, _ = self.net(s)
+            q = q_all.gather(1, a[:, None]).squeeze(1)
+        with self._profile("target_forward"):
+            with torch.no_grad():
+                best = self.net(s2)[0].masked_fill(~mask2, float("-inf")).argmax(dim=1, keepdim=True)
+                target = r + GAMMA * (1.0 - done) * self.target(s2)[0].gather(1, best).squeeze(1)
+        with self._profile("loss_compute"):
+            loss = F.smooth_l1_loss(q, target)
         grad_norm, update_norm = self._apply(loss)
  
         with torch.no_grad():                    # diagnostics: how peaked is softmax(Q / T) over legal moves

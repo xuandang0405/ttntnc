@@ -1,4 +1,6 @@
+from contextlib import contextmanager
 import os
+import time
  
 import numpy as np
 import torch
@@ -111,13 +113,27 @@ class BaseAgent:
                 "pos": sum(r > 0 for r in rewards), "neg": sum(r < 0 for r in rewards)})
         return rewards
  
+    @contextmanager
+    def _profile(self, part):
+        started = time.perf_counter()
+        try:
+            yield
+        finally:
+            self._record_profile_time(part, time.perf_counter() - started)
+
+    def _record_profile_time(self, part, elapsed_seconds):
+        if self.metrics is not None:
+            self.metrics.record_timing(self.name, part, elapsed_seconds)
+
     def _apply(self, loss):
-        before = parameters_to_vector(self.net.parameters()).detach().clone()
-        self.opt.zero_grad()
-        loss.backward()
-        grad_norm = float(nn.utils.clip_grad_norm_(self.net.parameters(), MAX_GRAD_NORM))
-        self.opt.step()
-        update_norm = float((parameters_to_vector(self.net.parameters()).detach() - before).norm())
+        with self._profile("backward"):
+            before = parameters_to_vector(self.net.parameters()).detach().clone()
+            self.opt.zero_grad()
+            loss.backward()
+            grad_norm = float(nn.utils.clip_grad_norm_(self.net.parameters(), MAX_GRAD_NORM))
+        with self._profile("optimizer_step"):
+            self.opt.step()
+            update_norm = float((parameters_to_vector(self.net.parameters()).detach() - before).norm())
         return grad_norm, update_norm
  
     def _record(self, actor_loss, critic_loss, total_loss, entropy, adv, ret, val, grad_norm, update_norm):

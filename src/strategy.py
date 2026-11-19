@@ -58,13 +58,14 @@ class StrategyLearner:
         # Record a move made by this agent's OPPONENT (call before the move is pushed).
         if not STRATEGY_ENABLED:
             return
-        legal = legal_moves_map(board, mover_color)
-        idx = move_to_index(move, mover_color)
-        if idx not in legal:                                  # e.g. an under-promotion
-            return
-        state = encode(board, mover_color).numpy().astype(np.float16)[0]
-        self.unseen.append((state, idx, np.fromiter(legal.keys(), dtype=np.int64), game_phase(board)))
-        self.samples_seen += 1
+        with self.agent._profile("strategy_observe"):
+            legal = legal_moves_map(board, mover_color)
+            idx = move_to_index(move, mover_color)
+            if idx not in legal:                                  # e.g. an under-promotion
+                return
+            state = encode(board, mover_color).numpy().astype(np.float16)[0]
+            self.unseen.append((state, idx, np.fromiter(legal.keys(), dtype=np.int64), game_phase(board)))
+            self.samples_seen += 1
 
     def _store(self, item):
         if len(self.replay) < STRATEGY_BUFFER:
@@ -86,6 +87,10 @@ class StrategyLearner:
         # Call after every finished game; trains every STRATEGY_TRAIN_EVERY_GAMES calls.
         if not STRATEGY_ENABLED:
             return
+        with self.agent._profile("strategy_train"):
+            self._train()
+
+    def _train(self):
         self._games += 1
         if self._games < STRATEGY_TRAIN_EVERY_GAMES:
             return
@@ -103,8 +108,10 @@ class StrategyLearner:
     @torch.no_grad()
     def _evaluate(self, items):
         # Accuracy on moves the model has not trained on yet (an honest estimate).
-        s, a, m, ph = self._collate(items)
-        opp, phase = self.agent.net.forward_aux(s)
+        with self.agent._profile("batch_prepare"):
+            s, a, m, ph = self._collate(items)
+        with self.agent._profile("train_forward"):
+            opp, phase = self.agent.net.forward_aux(s)
         top3 = opp.masked_fill(~m, float("-inf")).topk(3, dim=1).indices
         stats = {"opp_top1": float((top3[:, 0] == a).float().mean()),
                  "opp_top3": float((top3 == a[:, None]).any(dim=1).float().mean()),
@@ -113,11 +120,15 @@ class StrategyLearner:
             self.agent.metrics.record_strategy(self.agent.name, stats)
 
     def _step(self, items):
-        s, a, m, ph = self._collate(items)
-        opp, phase = self.agent.net.forward_aux(s)
-        opp_loss = F.cross_entropy(opp.masked_fill(~m, float("-inf")), a)
-        phase_loss = F.cross_entropy(phase, ph)
-        self.agent._apply(opp_loss + STRATEGY_PHASE_WEIGHT * phase_loss)
+        with self.agent._profile("batch_prepare"):
+            s, a, m, ph = self._collate(items)
+        with self.agent._profile("train_forward"):
+            opp, phase = self.agent.net.forward_aux(s)
+        with self.agent._profile("loss_compute"):
+            opp_loss = F.cross_entropy(opp.masked_fill(~m, float("-inf")), a)
+            phase_loss = F.cross_entropy(phase, ph)
+            loss = opp_loss + STRATEGY_PHASE_WEIGHT * phase_loss
+        self.agent._apply(loss)
         self.train_steps += 1
         if self.agent.metrics:
             self.agent.metrics.record_strategy(self.agent.name, {"opp_loss": float(opp_loss),

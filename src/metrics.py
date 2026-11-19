@@ -1,3 +1,4 @@
+import math
 import statistics
 import time
 from collections import Counter, deque
@@ -13,6 +14,14 @@ STRATEGY_KEYS = ("opp_top1", "opp_top3", "phase_accuracy", "opp_loss", "phase_lo
 OPT_KEYS = ("actor_loss", "critic_loss", "total_loss", "policy_entropy", "mean_advantage",
             "std_advantage", "mean_return", "mean_value", "value_explained_variance",
             "gradient_norm", "gradient_clip_fraction", "weight_update_norm")
+PROFILE_PARTS = (
+    "action_prepare", "action_inference", "action_select",
+    "mcts_select_traverse", "mcts_position_encode", "mcts_network_inference",
+    "mcts_expand", "mcts_backup",
+    "episode_prepare", "replay_sample", "batch_prepare", "train_forward",
+    "target_forward", "loss_compute", "backward", "optimizer_step",
+    "strategy_observe", "strategy_train",
+)
 
 
 # per-game analysis
@@ -96,6 +105,7 @@ def _r(x, nd=4):
  
 class TrainingMetrics:
     RATE_WINDOW_S = 30.0
+    PROFILE_WINDOW = 256
  
     def __init__(self, game_window=100, update_window=50):
         self.t0 = time.time()
@@ -106,6 +116,7 @@ class TrainingMetrics:
         self.episodes = deque(maxlen=game_window * 2)  # per-episode reward records (both agents)
         self.updates = {"White": deque(maxlen=update_window), "Black": deque(maxlen=update_window)}
         self.update_counts = {"White": 0, "Black": 0}
+        self.timings = {}
         self.strategy = {"White": deque(maxlen=50), "Black": deque(maxlen=50)}   # opponent-model stats
         self.by_kind = {k: {"games": 0, "White": 0, "Black": 0, "Draw": 0, "plies": 0} for k in KINDS}
         self._cache, self._cache_t = None, 0.0
@@ -151,6 +162,15 @@ class TrainingMetrics:
     def record_update(self, name, stats):
         self.updates[name].append(stats)
         self.update_counts[name] += 1
+
+    def record_timing(self, name, part, elapsed_seconds):
+        elapsed_seconds = float(elapsed_seconds)
+        if not math.isfinite(elapsed_seconds) or elapsed_seconds < 0:
+            raise ValueError("elapsed_seconds must be finite and non-negative")
+        history = self.timings.setdefault(name, {}).setdefault(
+            part, deque(maxlen=self.PROFILE_WINDOW)
+        )
+        history.append(elapsed_seconds * 1000.0)
 
     # reporting
     def _rates(self):
@@ -206,6 +226,19 @@ class TrainingMetrics:
             d["policy_update_count"] = self.update_counts[name]
             optimization[name] = d
 
+        timing_profile = {}
+        for name, parts in self.timings.items():
+            timing_profile[name] = {}
+            for part, history in parts.items():
+                ordered = sorted(history)
+                p95_index = min(len(ordered) - 1, math.ceil(0.95 * len(ordered)) - 1)
+                timing_profile[name][part] = {
+                    "calls": len(history),
+                    "total_ms": _r(sum(history), 3),
+                    "mean_ms": _r(_mean(history), 3),
+                    "p95_ms": _r(ordered[p95_index], 3),
+                }
+
         params = {a.name: sum(p.numel() for p in a.net.parameters()) for a in agents}
         trainable = {a.name: sum(p.numel() for p in a.net.parameters() if p.requires_grad)
                      for a in agents}
@@ -229,6 +262,7 @@ class TrainingMetrics:
                 "unique_position_ratio": _r(_mean(x["unique_ratio"] for x in g)),
                 "avg_unique_positions": _r(_mean(x["unique_positions"] for x in g), 2)},
             "optimization": optimization,
+            "timing_profile": timing_profile,
             "strategy": {name: self._strategy_summary(hist) for name, hist in self.strategy.items()},
             "curriculum": {k: {**v, "avg_plies": round(v["plies"] / v["games"], 1) if v["games"] else 0.0}
                            for k, v in self.by_kind.items()},

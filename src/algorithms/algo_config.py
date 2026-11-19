@@ -1,3 +1,5 @@
+import os
+
 # shared
 MAX_GRAD_NORM = 1.0
 ENTROPY_COEF = 0.01        # A2C / PPO entropy bonus (raise if policies collapse to one line)
@@ -30,3 +32,8 @@ AZ_BUFFER = 10000          # training positions kept
 AZ_BATCH = 32
 AZ_TRAIN_STEPS = 10        # gradient steps per update
 AZ_MIN_SAMPLES = 256       # positions needed before the first update
+
+_RUST_MCTS_SETTING = os.environ.get("CHESS_AI_RUST_MCTS", "0").strip().lower()
+if _RUST_MCTS_SETTING not in {"0", "1"}:
+    raise ValueError("CHESS_AI_RUST_MCTS must be set to '0' or '1'")
+AZ_USE_RUST_MCTS = _RUST_MCTS_SETTING == "1"

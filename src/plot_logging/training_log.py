@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 
 from config import LOG_INTERVAL_SECONDS
+from metrics import PROFILE_PARTS
 
 COLUMNS = [
     "time_seconds", "timestamp", "games", "plies", "updates",
@@ -20,7 +21,14 @@ COLUMNS = [
     "games_per_second", "plies_per_second", "cpu_percent", "gpu_utilization_percent",
     "draw_by_repetition_rate", "draw_by_fifty_moves_rate", "draw_by_stalemate_rate",
     "draw_by_insufficient_material_rate", "draw_by_max_plies_rate", "draw_by_other_rate",
+    "timing_profile",
 ]
+COLUMNS.extend(
+    f"{color}_{part}_{stat}"
+    for color in ("white", "black")
+    for part in PROFILE_PARTS
+    for stat in ("mean_ms", "p95_ms")
+)
 
 
 def _opt(snap, name, key):
@@ -58,6 +66,7 @@ class TrainingLog:
         throughput = snap.get("throughput", {})
         system = snap.get("system", {})
         draws = snap.get("draw_reasons", {})
+        timing_profile = snap.get("timing_profile", {})
         total_games = max(1, snap.get("throughput", {}).get("total_games", 0))
 
         record = {
@@ -85,11 +94,16 @@ class TrainingLog:
             "plies_per_second": throughput.get("plies_per_second"),
             "cpu_percent": system.get("cpu_percent"),
             "gpu_utilization_percent": system.get("gpu_utilization_percent"),
+            "timing_profile": timing_profile,
         }
         for color, name in (("white", "White"), ("black", "Black")):
             for metric in ("actor_loss", "critic_loss", "total_loss", "policy_entropy",
                            "value_explained_variance", "gradient_norm"):
                 record[f"{color}_{metric}"] = _opt(snap, name, metric)
+            for part in PROFILE_PARTS:
+                stats = timing_profile.get(name, {}).get(part, {})
+                for stat in ("mean_ms", "p95_ms"):
+                    record[f"{color}_{part}_{stat}"] = stats.get(stat)
 
         for reason in ("repetition", "fifty_moves", "stalemate", "insufficient_material", "max_plies", "other"):
             count = draws.get(f"draw_by_{reason}", 0)

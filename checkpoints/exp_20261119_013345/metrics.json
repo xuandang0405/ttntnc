@@ -1,0 +1,242 @@
+{
+  "experiment": "exp_20261119_013345",
+  "title": "exp_20261119_013345: So s\u00e1nh gi\u1eefa m\u00f4 h\u00ecnh Tr\u1eafng d\u00f9ng AlphaZero v\u00e0 m\u00f4 h\u00ecnh \u0110en d\u00f9ng DQN",
+  "started_at": "2026-11-19T01:33:45",
+  "saved_at": "2026-11-19T01:39:59",
+  "elapsed_seconds": 373.4,
+  "save_count": 3,
+  "resumed_from": {
+    "White": "D:/Python/AI/chess_ai/checkpoints/exp_20261118_232805/white_alphazero.pt",
+    "Black": "D:/Python/AI/chess_ai/checkpoints/exp_20261118_232805/black_dqn.pt"
+  },
+  "algorithms": {
+    "White": "alphazero",
+    "Black": "dqn"
+  },
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 2151.2,
+    "gpu_allocated_mb": 203.5,
+    "gpu_peak_mb": 316.0
+  },
+  "models": {
+    "White": {
+      "algorithm": "alphazero",
+      "file": "white_alphazero.pt",
+      "parameters": 5762382,
+      "trainable_parameters": 5762382,
+      "parameter_size_mb": 23.05,
+      "checkpoint_file_mb": 69.243,
+      "learning_rate": 0.0003,
+      "last_loss": 2.4501683712005615
+    },
+    "Black": {
+      "algorithm": "dqn",
+      "file": "black_dqn.pt",
+      "parameters": 5762382,
+      "trainable_parameters": 5762382,
+      "parameter_size_mb": 23.05,
+      "checkpoint_file_mb": 69.238,
+      "learning_rate": 0.0003,
+      "last_loss": 0.0
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "reward_shaping": 0.01,
+    "draw_reward": 0.0,
+    "max_plies": 300,
+    "parallel_games": 64,
+    "episodes_per_update": 4
+  },
+  "algorithm_hyperparameters": {
+    "White": {
+      "simulations": 32,
+      "play_simulations": 64,
+      "c_puct": 1.5,
+      "dirichlet_alpha": 0.3,
+      "noise_frac": 0.25,
+      "temp_plies": 30,
+      "buffer": 10000,
+      "batch": 32,
+      "train_steps": 10,
+      "episodes_per_update": 4,
+      "replay_dedup": true,
+      "eval_cache_capacity": 4096,
+      "mcts_tree_reuse": true,
+      "alpha_beta_enabled": false
+    },
+    "Black": {
+      "gamma": 0.99,
+      "buffer": 10000,
+      "batch": 64,
+      "warmup": 1000,
+      "target_sync": 500,
+      "train_every": 8,
+      "eps_start": 1.0,
+      "eps_end": 0.05,
+      "eps_decay_steps": 20000,
+      "prioritized_replay": true,
+      "per_alpha": 0.6,
+      "replay_dedup": true,
+      "alpha_beta_enabled": false
+    }
+  },
+  "training": {
+    "games_played": 26,
+    "wins": {
+      "White": 4,
+      "Black": 1,
+      "Draw": 21
+    },
+    "recent_window": 26,
+    "recent_rates": {
+      "White": 0.154,
+      "Black": 0.038,
+      "Draw": 0.808
+    },
+    "avg_game_length_plies": 57.0,
+    "last_result": "Draw (87 plies)"
+  },
+  "metrics": {
+    "throughput": {
+      "games_per_second": 0.0744,
+      "plies_per_second": 10.23,
+      "training_updates": 30,
+      "total_games": 26,
+      "total_plies": 5696,
+      "elapsed_seconds": 373.5
+    },
+    "draw_reasons": {
+      "draw_by_repetition": 21,
+      "draw_by_fifty_moves": 0,
+      "draw_by_stalemate": 0,
+      "draw_by_insufficient_material": 0,
+      "draw_by_max_plies": 0,
+      "draw_by_other": 0
+    },
+    "game_quality": {
+      "window_games": 26,
+      "repetition_rate": 0.0474,
+      "threefold_repetition_rate": 0.0,
+      "repeated_position_count": 2.58,
+      "repeated_move_count": 11.31,
+      "stagnation_rate": 0.6335,
+      "reversal_move_rate": 0.1842,
+      "unique_position_ratio": 0.9526,
+      "avg_unique_positions": 54.38
+    },
+    "optimization": {
+      "White": {
+        "actor_loss": 2.4982,
+        "critic_loss": 0.1128,
+        "total_loss": 2.611,
+        "policy_entropy": 2.5208,
+        "mean_advantage": 0.0119,
+        "std_advantage": 0.307,
+        "mean_return": 0.1134,
+        "mean_value": 0.1015,
+        "value_explained_variance": 0.4525,
+        "gradient_norm": 2.3867,
+        "gradient_clip_fraction": 1.0,
+        "weight_update_norm": 0.0613,
+        "policy_update_count": 30
+      },
+      "Black": {
+        "actor_loss": 0.0,
+        "critic_loss": 0.0,
+        "total_loss": 0.0,
+        "policy_entropy": 0.0,
+        "mean_advantage": 0.0,
+        "std_advantage": 0.0,
+        "mean_return": 0.0,
+        "mean_value": 0.0,
+        "value_explained_variance": 0.0,
+        "gradient_norm": 0.0,
+        "gradient_clip_fraction": 0.0,
+        "weight_update_norm": 0.0,
+        "policy_update_count": 0
+      }
+    },
+    "strategy": {
+      "White": {
+        "opp_top1": 0.0936,
+        "opp_top3": 0.248,
+        "phase_accuracy": 0.9622,
+        "opp_loss": 2.3093,
+        "phase_loss": 0.0736,
+        "tactical_acc": 1.0,
+        "tactical_loss": 0.1077
+      },
+      "Black": {
+        "opp_top1": 0.5429,
+        "opp_top3": 0.6766,
+        "phase_accuracy": 0.9603,
+        "opp_loss": 1.5573,
+        "phase_loss": 0.0464,
+        "tactical_acc": 1.0,
+        "tactical_loss": 0.1006
+      }
+    },
+    "curriculum": {
+      "opening": {
+        "games": 26,
+        "White": 4,
+        "Black": 1,
+        "Draw": 21,
+        "plies": 1481,
+        "avg_plies": 57.0
+      },
+      "middlegame": {
+        "games": 0,
+        "White": 0,
+        "Black": 0,
+        "Draw": 0,
+        "plies": 0,
+        "avg_plies": 0.0
+      },
+      "endgame": {
+        "games": 0,
+        "White": 0,
+        "Black": 0,
+        "Draw": 0,
+        "plies": 0,
+        "avg_plies": 0.0
+      }
+    },
+    "rewards": {
+      "window_episodes": 52,
+      "mean_episode_reward": -0.0258,
+      "mean_step_reward": -0.0009,
+      "terminal_reward_mean": -0.0258,
+      "material_reward_mean": -0.0,
+      "draw_reward_mean": 0.0,
+      "repetition_penalty_mean": -0.0258,
+      "reward_std": 0.472,
+      "positive_reward_ratio": 0.0756,
+      "negative_reward_ratio": 0.1067
+    },
+    "system": {
+      "cpu_percent": 14.6,
+      "process_cpu_percent": 108.6,
+      "gpu_utilization_percent": 7.0
+    },
+    "parameters": {
+      "White": 5762382,
+      "Black": 5762382,
+      "total": 11524764
+    },
+    "trainable_parameters": {
+      "White": 5762382,
+      "Black": 5762382,
+      "total": 11524764
+    }
+  }
+}

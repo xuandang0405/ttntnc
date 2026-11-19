@@ -98,6 +98,10 @@ src/
 │   ├── algo_dqn.py
 │   └── algo_alphazero.py
 │
+├── algorithms-rs/              # Rust MCTS backend optional cho AlphaZero
+│   ├── Cargo.toml
+│   └── src/
+│
 ├── normal_mode/
 │   ├── game.py                 # Tự đấu và huấn luyện tuần tự
 │   ├── train_scene.py          # Giao diện huấn luyện một ván
@@ -146,6 +150,22 @@ python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess
 ```
 
 Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn; ứng dụng có thể chạy bằng CPU.
+
+AlphaZero dùng MCTS Python mặc định. Để cài backend Rust tùy chọn, chạy từ thư mục crate:
+
+```bash
+cd src/algorithms-rs
+python -m pip install .
+```
+
+Sau đó bật biến môi trường trước khi khởi chạy để dùng Rust cho cây MCTS. Ví dụ trong PowerShell:
+
+```powershell
+$env:CHESS_AI_RUST_MCTS = "1"
+python src\main.py
+```
+
+Nếu không đặt biến này, Python backend hiện tại vẫn được dùng; khi yêu cầu Rust backend, extension phải được cài đặt.
 
 ---
 
@@ -222,7 +242,7 @@ Vẽ biểu đồ từ một log cụ thể:
 python src/plot_logging/plot_training.py checkpoints/exp_YYYYMMDD_HHMMSS/training_log.json
 ```
 
-Biểu đồ chứa win/draw rate, actor/critic loss, entropy, value explained variance, reward, repetition, độ dài ván, throughput, CPU/GPU utilization và nguyên nhân hòa.
+Biểu đồ chứa win/draw rate, actor/critic loss, entropy, value explained variance, reward, repetition, độ dài ván, throughput, CPU/GPU utilization, nguyên nhân hòa và thời gian từng giai đoạn của thuật toán. `training_log.json` lưu thời gian trung bình và p95 (ms) trong tối đa 256 lần gọi gần nhất cho từng giai đoạn: chọn nước đi, các bước MCTS, chuẩn bị episode/replay/batch, forward/loss/backward, optimizer và strategy. Đây là thời gian wall-clock; phép tính GPU không bị đồng bộ cưỡng bức nên không làm chậm huấn luyện.
 
 ---
 
