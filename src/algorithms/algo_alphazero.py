@@ -367,6 +367,7 @@ class AlphaZeroAgent(BaseAgent):
                 "episodes_per_update": self.episodes_per_update}
 
     def act_batch(self, game_ids, boards):
+        self.prefetch_balances(boards)      # Stockfish evaluations run while MCTS searches
         results = run_mcts(
             self.net, boards, AZ_SIMULATIONS, self.device, noise=True,
             profile=self._record_profile_time,
@@ -388,7 +389,7 @@ class AlphaZeroAgent(BaseAgent):
                 ep["s"].append(st[i])
                 ep["legal"].append(np.array(idxs, dtype=np.int64))
                 ep["pi"].append(probs.astype(np.float32))
-                ep["bal"].append(material_balance(board, self.color))
+                ep["bal"].append(self.balance_of(board))
                 moves.append(mmap[idxs[choice]])
         return moves
  

@@ -43,6 +43,7 @@ class DQNAgent(BaseAgent):
 
     @torch.no_grad()
     def act_batch(self, game_ids, boards):
+        self.prefetch_balances(boards)
         with self._profile("action_prepare"):
             maps, mask = self.legal_batch(boards)
             states = self.encode_boards(boards)
@@ -61,7 +62,7 @@ class DQNAgent(BaseAgent):
                 ep["s"].append(st[i])
                 ep["a"].append(a)
                 ep["legal"].append(np.array(keys, dtype=np.int64))
-                ep["bal"].append(material_balance(board, self.color))
+                ep["bal"].append(self.balance_of(board))
                 moves.append(maps[i][a])
         self.act_steps += len(boards)
         return moves

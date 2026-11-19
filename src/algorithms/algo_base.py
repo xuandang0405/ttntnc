@@ -9,8 +9,12 @@ from torch.nn.utils import parameters_to_vector
  
 from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
-from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_moves_map
+from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_moves_map, material_balance
 from model import PolicyValueNet
+try:
+    from stockfish.stockfish_coach import get_coach
+except ImportError:
+    from stockfish_coach import get_coach
 from strategy import StrategyLearner, lookahead_move
  
 
@@ -29,6 +33,7 @@ class BaseAgent:
         self.eps = {}            # game id -> in-progress episode
         self.buffer = []         # finished episodes waiting for an update
         self.strategy = StrategyLearner(self)   # opponent model + phase head (auxiliary learning)
+        self.coach = get_coach()                # Stockfish reward-shaping coach (None unless CHESS_AI_STOCKFISH_COACH=1)
  
     def act_batch(self, game_ids, boards):
         raise NotImplementedError
@@ -100,8 +105,24 @@ class BaseAgent:
         return moves[idx[i]]
  
     # rewards / metrics
+    # The shaping potential at each of our own decision points: material balance, or Stockfish's
+    # evaluation (in pawns) when the coach is on.
+    def balance_of(self, board):
+        if self.coach is not None:
+            return self.coach.potential(board, self.color)
+        return material_balance(board, self.color)
+
+    def prefetch_balances(self, boards):      # start the Stockfish evaluations early; they overlap with inference
+        if self.coach is not None:
+            self.coach.prefetch(boards)
+
+    def _final_balance(self, final_balance):
+        # A finished game has potential 0 (the terminal reward carries the result), which keeps
+        # potential-based shaping consistent; material mode keeps the old behaviour.
+        return 0.0 if self.coach is not None else final_balance
+
     def _rewards(self, bal, final_balance, terminal):
-        bals = list(bal) + [final_balance]
+        bals = list(bal) + [self._final_balance(final_balance)]
         rewards = [SHAPING * (bals[i + 1] - bals[i]) for i in range(len(bal))]
         material = sum(rewards)
         rewards[-1] += sum(terminal.values())

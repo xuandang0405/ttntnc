@@ -56,8 +56,9 @@ def training_stats(game):
  
  
 def base_hyperparameters():
+    from stockfish.stockfish_coach import coach_info
     return {"learning_rate": LR, "gamma": GAMMA, "reward_shaping": SHAPING,
-            "draw_reward": DRAW_REWARD, "max_plies": MAX_PLIES}
+            "draw_reward": DRAW_REWARD, "max_plies": MAX_PLIES, "stockfish_coach": coach_info()}
  
  
 # the experiment

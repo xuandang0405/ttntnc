@@ -1,3 +1,4 @@
+"""Parity and behaviour tests for the native Rust search (algorithms_rs.BatchSearch)."""
 import random
 import unittest
 from unittest.mock import patch
