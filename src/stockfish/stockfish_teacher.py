@@ -1,21 +1,11 @@
-"""Stockfish as a teacher: label positions, then pretrain a model on the labels.
-
-Labels for every position (all from the side to move's point of view, matching how the
-network sees the board):
-
-* soft policy   - softmax over the MultiPV centipawn scores, so near-equal moves share the
-                  probability mass instead of forcing a single "right" answer
-* move values   - the value of each candidate move (Q-targets for DQN)
-* value         - Stockfish's evaluation squashed to [-1, 1] (expected result)
-* phase         - opening / middlegame / endgame, for the strategy head
-"""
 import json
 import math
 import multiprocessing
-import multiprocessing.util
+import os
 import random
+import threading
 import time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import numpy as np
 import torch
@@ -40,7 +30,7 @@ def _softmax(cps, temp):
 
 def label_position(board, pool, nodes=TEACHER_NODES, multipv=TEACHER_MULTIPV,
                    temp_cp=TEACHER_POLICY_TEMP_CP):
-    """Stockfish labels for `board`, or None if the engine returned nothing."""
+    # Stockfish labels for `board`, or None if the engine returned nothing.
     lines = pool.analyse(board, nodes, multipv)
     if not lines:
         return None
@@ -58,7 +48,7 @@ def label_position(board, pool, nodes=TEACHER_NODES, multipv=TEACHER_MULTIPV,
 
 def choose_move(board, label, rng, move_temp_cp=TEACHER_MOVE_TEMP_CP,
                 random_prob=TEACHER_RANDOM_MOVE_PROB):
-    """Next move of a generated game: mostly Stockfish-like, sometimes random, for variety."""
+    # Next move of a generated game: mostly Stockfish-like, sometimes random, for variety. 
     if rng.random() < random_prob:
         return rng.choice(list(board.legal_moves))
     probs = _softmax([l.cp for l in label["lines"]], move_temp_cp)
@@ -73,9 +63,8 @@ def _pick(probs, rng):
             return i
     return len(probs) - 1
 
-
 class _Rows:
-    """Accumulates labelled positions."""
+    # Accumulates labelled positions.
 
     def __init__(self, multipv):
         self.k = multipv
@@ -109,17 +98,46 @@ class _Rows:
                 "phase": np.array(self.phase, dtype=np.int8), "cp": np.array(self.cp, dtype=np.float32)}
 
 
-# ------------------------------------------------------------------ generation (worker processes)
+# generation (worker processes)
 _WORKER = {}
+
+def _close_worker():
+    pid = os.getpid()
+    print(f"[WORKER {pid}] cleanup started", flush=True)
+    pool = _WORKER.pop("pool", None)
+    if pool is None:
+        print(f"[WORKER {pid}] no pool found", flush=True)
+        return
+
+    try:
+        print(f"[WORKER {pid}] closing StockfishPool...", flush=True)
+        pool.close()
+        print(f"[WORKER {pid}] StockfishPool closed", flush=True)
+    except BaseException as exc:
+        print(f"[WORKER {pid}] cleanup error: {exc!r}", flush=True)
+    finally:
+        print(f"[WORKER {pid}] cleanup completed", flush=True)
 
 
 def _init_worker(path, hash_mb):
     from stockfish.stockfish_engine import StockfishPool
-    torch.set_num_threads(1)
-    _WORKER["pool"] = StockfishPool(path, engines=1, threads=1, hash_mb=hash_mb)
-    # worker processes leave through os._exit, which skips atexit: close the engine explicitly
-    multiprocessing.util.Finalize(None, _WORKER["pool"].close, exitpriority=10)
 
+    pid = os.getpid()
+    print(f"[WORKER {pid}] initializing...", flush=True)
+    torch.set_num_threads(1)
+
+    pool = StockfishPool(
+        path,
+        engines=1,
+        threads=1,
+        hash_mb=hash_mb,
+    )
+    _WORKER["pool"] = pool
+
+    # ProcessPoolExecutor exits via threading._shutdown before os._exit, so close
+    # engine loop threads before Python waits for the worker's non-daemon threads.
+    threading._register_atexit(_close_worker)
+    print(f"[WORKER {pid}] initialized", flush=True)
 
 def _play_games(task):
     import curriculum
@@ -141,49 +159,139 @@ def _play_games(task):
 
 
 def generate_dataset(path, games, workers=2, nodes=TEACHER_NODES, multipv=TEACHER_MULTIPV,
-                     max_plies=TEACHER_MAX_PLIES, seed=0, stockfish_path=None, log=print):
-    """Play `games` curriculum-started games guided by Stockfish and label every position."""
+                     max_plies=TEACHER_MAX_PLIES, seed=0, stockfish_path=None, log=print,
+                     compress=True):
     from stockfish.stockfish_engine import find_stockfish
     from stockfish.stockfish_config import STOCKFISH_HASH_MB
+
+    games, workers = int(games), max(1, int(workers))
+    nodes, multipv, max_plies = int(nodes), int(multipv), int(max_plies)
+    if games < 1:
+        raise ValueError("games must be >= 1")
+    if nodes < 1 or multipv < 1 or max_plies < 1:
+        raise ValueError("nodes, multipv and max_plies must all be >= 1")
+
     exe = find_stockfish(stockfish_path)
+    workers = min(workers, games)
     chunk = max(1, min(25, math.ceil(games / (workers * 4))))
-    tasks, left, n = [], games, 0
+    tasks, left, task_id = [], games, 0
     while left > 0:
-        tasks.append((seed * 100_003 + n, min(chunk, left), nodes, multipv, max_plies))
-        left -= chunk
-        n += 1
-    parts, started, done = [], time.time(), 0
-    # `spawn` on every platform: forking after PyTorch has started its thread pool can deadlock.
-    with ProcessPoolExecutor(max_workers=workers, mp_context=multiprocessing.get_context("spawn"),
-                             initializer=_init_worker, initargs=(exe, STOCKFISH_HASH_MB)) as executor:
-        for part in executor.map(_play_games, tasks):
+        count = min(chunk, left)
+        tasks.append((seed * 100_003 + task_id, count, nodes, multipv, max_plies))
+        left -= count
+        task_id += 1
+
+    parts, positions = [], 0
+    started = time.time()
+    log(f"[GENERATE] games={games}, workers={workers}, chunks={len(tasks)}, "
+        f"nodes={nodes}, MultiPV={multipv}, max_plies={max_plies}")
+
+    executor = ProcessPoolExecutor(
+        max_workers=workers,
+        mp_context=multiprocessing.get_context("spawn"),
+        initializer=_init_worker,
+        initargs=(exe, STOCKFISH_HASH_MB),
+    )
+    futures = []
+    shutdown_started = False
+    try:
+        futures = [executor.submit(_play_games, task) for task in tasks]
+        for future in as_completed(futures):
+            part = future.result()
             parts.append(part)
-            done += 1
-            positions = sum(len(p["value"]) for p in parts)
-            log(f"  {done}/{len(tasks)} chunks, {positions} positions, {time.time() - started:.0f}s")
+            count = len(part["value"])
+            positions += count
+            log(f"[GENERATE] {len(parts)}/{len(tasks)} chunks; "
+                f"{positions:,} positions; {time.time() - started:.1f}s")
+
+        log("[WORKERS] all chunks returned; requesting worker shutdown...")
+        shutdown_started = True
+        _WORKER.clear()  # avoid double-close in the main process
+        executor.shutdown(wait=True, cancel_futures=True)
+
+        log(f"[WORKERS] shutdown complete in {time.time() - started:.1f}s")
+
+    except BaseException:
+        log("[WORKERS] generation failed; cancelling pending chunks")
+
+        for future in futures:
+            future.cancel()
+        if not shutdown_started:
+            executor.shutdown(wait=True, cancel_futures=True)
+        raise
+
+    log("[MERGE] allocating final arrays and copying chunk data...")
+    merge_started = time.time()
     data = merge(parts)
-    data["meta"] = json.dumps({"format": FORMAT, "games": games, "nodes": nodes, "multipv": multipv,
-                               "policy_temp_cp": TEACHER_POLICY_TEMP_CP, "engine": exe})
-    np.savez_compressed(path, **data)
+    log(f"[MERGE] complete: {len(data['value']):,} rows in "
+        f"{time.time() - merge_started:.1f}s")
+
+    data["meta"] = json.dumps({
+        "format": FORMAT, "games": games, "nodes": nodes, "multipv": multipv,
+        "max_plies": max_plies, "seed": seed, "workers": workers,
+        "policy_temp_cp": TEACHER_POLICY_TEMP_CP, "engine": exe,
+    })
+
+    output = os.path.abspath(path)
+    os.makedirs(os.path.dirname(output), exist_ok=True)
+    temp_path = output + ".tmp"
+    save_started = time.time()
+    log(f"[SAVE] writing {'compressed' if compress else 'uncompressed'} NPZ: {output}")
+    try:
+        # Pass a file handle so NumPy does not append an unexpected .npz suffix.
+        with open(temp_path, "wb") as stream:
+            if compress:
+                np.savez_compressed(stream, **data)
+            else:
+                np.savez(stream, **data)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temp_path, output)
+    except BaseException:
+        try:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+        except OSError:
+            pass
+        raise
+
+    size_mb = os.path.getsize(output) / (1024 * 1024)
+    log(f"[SAVE] complete: {size_mb:.1f} MiB in {time.time() - save_started:.1f}s")
+    log(f"[DONE] {len(data['value']):,} labelled positions; total {time.time() - started:.1f}s")
     return len(data["value"])
 
 
 def merge(parts):
-    parts = [p for p in parts if len(p["value"])]
+    # Merge worker arrays with one destination allocation per field.
+    parts = [part for part in parts if len(part["value"])]
     if not parts:
         raise RuntimeError("no positions were generated")
-    width = max(p["legal"].shape[1] for p in parts)
+
+    total = sum(len(part["value"]) for part in parts)
+    keys = tuple(parts[0].keys())
     out = {}
-    for key in parts[0]:
+    for key in keys:
         if key == "legal":
-            rows = []
-            for p in parts:
-                pad = np.full((len(p["legal"]), width), -1, dtype=np.int16)
-                pad[:, :p["legal"].shape[1]] = p["legal"]
-                rows.append(pad)
-            out[key] = np.concatenate(rows)
+            width = max(part[key].shape[1] for part in parts)
+            target = np.full((total, width), -1, dtype=np.int16)
+            offset = 0
+            for part in parts:
+                arr = part[key]
+                end = offset + len(arr)
+                target[offset:end, :arr.shape[1]] = arr
+                offset = end
         else:
-            out[key] = np.concatenate([p[key] for p in parts])
+            first = parts[0][key]
+            target = np.empty((total,) + first.shape[1:], dtype=first.dtype)
+            offset = 0
+            for part in parts:
+                arr = part[key]
+                if arr.shape[1:] != first.shape[1:]:
+                    raise ValueError(f"inconsistent shape for {key}: {arr.shape} vs {first.shape}")
+                end = offset + len(arr)
+                target[offset:end] = arr
+                offset = end
+        out[key] = target
     return out
 
 
@@ -241,7 +349,7 @@ def _q_loss(q, b):
 
 @torch.no_grad()
 def evaluate(agent, data, rows, batch=512):
-    """Agreement with Stockfish on positions the model was not trained on."""
+    # Agreement with Stockfish on positions the model was not trained on. 
     net, was_training = agent.net, agent.net.training
     net.eval()
     top1 = top3 = n = 0
@@ -271,7 +379,7 @@ def evaluate(agent, data, rows, batch=512):
 def pretrain(agent, data, epochs=TEACHER_EPOCHS, batch_size=TEACHER_BATCH, lr=None,
              policy_w=TEACHER_POLICY_W, value_w=TEACHER_VALUE_W, opp_w=TEACHER_OPP_W,
              phase_w=TEACHER_PHASE_W, holdout=TEACHER_HOLDOUT, seed=0, log=print):
-    """Supervised training of `agent.net` on Stockfish labels. Returns per-epoch metrics."""
+    # Supervised training of `agent.net` on Stockfish labels. Returns per-epoch metrics.
     train_rows, test_rows = data.split(holdout, seed)
     rng = np.random.default_rng(seed + 1)
     old_lr = agent.opt.param_groups[0]["lr"]

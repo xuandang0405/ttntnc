@@ -1,21 +1,19 @@
-"""Stockfish teacher: generate labelled positions, then pretrain a model on them.
-
-  python pretrain_stockfish.py generate --out data/sf.npz --games 400 --workers 4
-  python pretrain_stockfish.py train --data data/sf.npz --algorithm AlphaZero --color both
-
-The saved checkpoints (white_<algo>.pt / black_<algo>.pt) load in the app like any other
-model, and training can then continue with self-play (optionally with the Stockfish coach:
-CHESS_AI_STOCKFISH_COACH=1).
-"""
 import argparse
 import os
+import sys
 import time
+from pathlib import Path
 
 import chess
 import torch
 
+SRC_DIR = Path(__file__).resolve().parent.parent
+
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 from stockfish.stockfish_config import (TEACHER_BATCH, TEACHER_EPOCHS, TEACHER_MAX_PLIES, TEACHER_MULTIPV,
-                              TEACHER_NODES)
+                                        TEACHER_NODES)
 
 
 def cmd_generate(args):
@@ -23,7 +21,7 @@ def cmd_generate(args):
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     started = time.time()
     n = generate_dataset(args.out, args.games, args.workers, args.nodes, args.multipv,
-                         args.max_plies, args.seed, args.stockfish)
+                         args.max_plies, args.seed, args.stockfish, compress=not args.no_compress)
     print(f"saved {n} labelled positions -> {args.out}  ({time.time() - started:.0f}s)")
 
 
@@ -70,6 +68,8 @@ def main():
     g.add_argument("--max-plies", type=int, default=TEACHER_MAX_PLIES)
     g.add_argument("--seed", type=int, default=0)
     g.add_argument("--stockfish", help="path to the Stockfish executable (or set STOCKFISH_PATH)")
+    g.add_argument("--no-compress", action="store_true",
+                    help="write a larger uncompressed NPZ much faster (same load format)")
     g.set_defaults(func=cmd_generate)
 
     t = sub.add_parser("train", help="supervised pretraining on a labelled dataset")

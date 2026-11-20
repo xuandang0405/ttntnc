@@ -11,10 +11,7 @@ from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
 from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_moves_map, material_balance
 from model import PolicyValueNet
-try:
-    from stockfish.stockfish_coach import get_coach
-except ImportError:
-    from stockfish_coach import get_coach
+from stockfish.stockfish_coach import get_coach
 from strategy import StrategyLearner, lookahead_move
  
 

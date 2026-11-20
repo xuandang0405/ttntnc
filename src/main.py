@@ -38,7 +38,7 @@ def main():
         try:
             from stockfish.stockfish_coach import close_coach
         except ImportError:
-            from stockfish_coach import close_coach
+            pass
         try:
             close_coach()
         except Exception:

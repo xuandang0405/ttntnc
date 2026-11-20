@@ -1,7 +1,9 @@
 """Tests for the Stockfish teacher and coach. Skipped when no Stockfish executable is found."""
+import multiprocessing
 import os
 import random
 import tempfile
+import threading
 import unittest
 
 import chess
@@ -11,9 +13,10 @@ import torch
 from algorithms.algorithms import load_agent, make_agent
 from config import SHAPING
 from encoding import legal_moves_map, move_to_index
-from stockfish_coach import StockfishCoach
-from stockfish_engine import cp_to_value, find_stockfish, StockfishPool
-from stockfish_teacher import TeacherData, _Rows, evaluate, label_position, merge, pretrain
+from stockfish.stockfish_coach import StockfishCoach
+from stockfish.stockfish_engine import cp_to_value, find_stockfish, StockfishPool
+from stockfish.stockfish_teacher import (TeacherData, _Rows, evaluate, generate_dataset,
+                                         label_position, merge, pretrain)
 
 try:
     find_stockfish()
@@ -23,6 +26,24 @@ except FileNotFoundError:
 
 MATE_IN_ONE = "6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1"       # Ra8#
 CPU = torch.device("cpu")
+
+
+def _worker_exit_probe():
+    import stockfish.stockfish_engine as engine_module
+    from stockfish.stockfish_teacher import _init_worker
+
+    finished = threading.Event()
+
+    class Pool:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def close(self):
+            finished.set()
+
+    engine_module.StockfishPool = Pool
+    _init_worker(None, 1)
+    threading.Thread(target=finished.wait).start()
 
 
 def labelled_positions(pool, count, seed=0):
@@ -44,6 +65,18 @@ class ValueCurveTests(unittest.TestCase):
         self.assertEqual(values, sorted(values))
         self.assertAlmostEqual(cp_to_value(0), 0.0)
         self.assertTrue(all(-1.0 <= v <= 1.0 for v in values))
+
+
+class WorkerShutdownTests(unittest.TestCase):
+    def test_worker_closes_engine_before_joining_threads(self):
+        process = multiprocessing.get_context("spawn").Process(target=_worker_exit_probe)
+        process.start()
+        process.join(timeout=10)
+        if process.is_alive():
+            process.terminate()
+            process.join()
+            self.fail("worker did not close the engine before joining its threads")
+        self.assertEqual(process.exitcode, 0)
 
 
 @unittest.skipUnless(HAVE_STOCKFISH, "Stockfish executable not found (set STOCKFISH_PATH)")
@@ -78,6 +111,16 @@ class StockfishTests(unittest.TestCase):
         black = label_position(chess.Board(chess.Board(MATE_IN_ONE).mirror().fen()), self.pool, 1000, 1)
         self.assertGreater(white["value"], 0.99)
         self.assertGreater(black["value"], 0.99)
+
+    def test_generate_dataset_shuts_down_workers(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = os.path.join(folder, "teacher.npz")
+            count = generate_dataset(
+                path, games=1, workers=1, nodes=100, multipv=1, max_plies=1,
+                stockfish_path=self.pool.path, log=lambda *_: None,
+            )
+            self.assertGreater(count, 0)
+            self.assertTrue(os.path.isfile(path))
 
     def test_pretraining_learns_for_every_algorithm(self):
         data = labelled_positions(self.pool, 96)

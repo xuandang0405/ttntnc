@@ -7,15 +7,15 @@ downloaded or copied by the app.
 
 Run teacher commands from the repository root:
 ```powershell
-python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 400 --workers 8 --nodes 20000
-python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color white
-python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm DQN --color black
+python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 800 --workers 10 --nodes 25000
+python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color white --epochs 6 --lr 1e-3
+python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm DQN --color black --epochs 6 --lr 1e-3
 ```
 
 They can also be run after `cd src`:
 ```powershell
 cd src
-python -m stockfish.pretrain_stockfish generate --out ..\data\sf.npz --games 400 --workers 8 --nodes 20000
+python -m stockfish.pretrain_stockfish generate --out ..\data\sf.npz --games 800 --workers 10 --nodes 25000
 ```
 
 ## Teacher: pretrain from Stockfish labels

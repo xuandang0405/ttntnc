@@ -61,6 +61,13 @@ def get_coach():
         _coach = StockfishCoach(StockfishPool(engines=COACH_ENGINES))
     return _coach
 
+def close_coach():
+    global _coach
+    if _coach is not None:
+        _coach.pool.close()
+        _coach.pool.join()
+        _coach = None
+
 
 def coach_info():
     return _coach.info() if _coach is not None else {"enabled": False}
