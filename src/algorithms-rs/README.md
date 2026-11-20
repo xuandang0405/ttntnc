@@ -29,13 +29,13 @@ Nếu đã bật nhưng chưa cài đặt, chương trình sẽ báo lỗi rõ r
 search = algorithms_rs.BatchSearch(root_fens, move_lists, sims, c_puct,
                                    noise_frac, dirichlet_alpha, seed)
 while (batch := search.next_batch()) is not None:
-    states, legal = batch            # (N,104,8,8) float32, (N,L) int32 đệm bằng -1
+    states, legal = batch            # (N,56,8,8) float32, (N,L) int32 đệm bằng -1
     priors, values = evaluate(states, legal)   # softmax trên các nước hợp lệ, (N,L) / (N,)
     search.submit(priors, values)
 results = search.results()           # theo từng ván: (chỉ số nước đi, số lượt thăm, nước đi UCI)
 ```
 
-Mỗi ván được truyền vào dưới dạng FEN gốc kèm danh sách các nước đi UCI đã chơi kể từ đó, để Rust có thể dựng lại lịch sử 8 thế cờ và số lần lặp lại y hệt như `encoding.py`. Các thế cờ gốc đã kết thúc sẽ trả về kết quả rỗng.
+Mỗi ván được truyền vào dưới dạng FEN gốc kèm danh sách các nước đi UCI đã chơi kể từ đó, để Rust có thể dựng lại tối đa 4 thế cờ gần nhất và số lần lặp lại y hệt như `encoding.py`. Các thế cờ gốc đã kết thúc sẽ trả về kết quả rỗng.
 
 `algorithms/algo_alphazero.py::_evaluate_encoded` chỉ thu thập các logit của nước đi hợp lệ trước khi chạy softmax, nhờ đó loại bỏ luôn phép masked softmax rộng 20480 phần tử.
 

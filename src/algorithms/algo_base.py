@@ -184,7 +184,7 @@ class BaseAgent:
             missing, unexpected = self.net.load_state_dict(ck["net"], strict=False)
         except RuntimeError as exc:
             raise ValueError(
-                "Checkpoint uses an incompatible network/encoding. The new 104-plane "
+                "Checkpoint uses an incompatible network/encoding. The new 56-plane "
                 "Residual CNN and 20,480-action policy require fresh training; old "
                 "weights cannot be loaded directly."
             ) from exc
