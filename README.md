@@ -14,6 +14,12 @@ Mã nguồn hiện tại nằm trong `src/`. Các agent dùng cùng mạng polic
 - opponent policy
 - opening/middlegame/endgame phase
 
+## Showcase
+
+| Chơi cờ | Huấn luyện |
+|---|---|
+| ![Giao diện chơi cờ](assets/showcase/image1.png) | ![Giao diện huấn luyện](assets/showcase/image2.png) |
+
 ## Tính năng
 
 ### Chơi cờ
@@ -237,14 +243,21 @@ Tải tệp thực thi native/UCI của Stockfish, sau đó cấu hình:
 $env:STOCKFISH_PATH = "C:\path\stockfish.exe"
 ```
 
-Có thể bỏ biến này nếu `stockfish` đã nằm trong `PATH`.
+Có thể bỏ biến này nếu `stockfish.exe` đã nằm trong `src\stockfish` hoặc `stockfish` đã nằm trong `PATH`. Ứng dụng không tự tải hoặc sao chép binary Stockfish.
 
 Tạo dữ liệu và tiền huấn luyện từ thư mục gốc:
 
 ```powershell
-python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 800 --workers 10 --nodes 25000
+python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 2500 --workers 10 --nodes 50000
 python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color white --epochs 6 --lr 1e-3
 python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm DQN --color black --epochs 6 --lr 1e-3
+```
+
+Sau khi tạo dữ liệu, kiểm tra ranh giới tập holdout:
+
+```powershell
+python src\stockfish\pretrain_stockfish.py inspect --data data\sf.npz --holdout 0.1 --seed 0
+python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color both --epochs 6 --holdout 0.1 --seed 0
 ```
 
 Hoặc chạy huấn luyện với Stockfish làm nguồn reward:
