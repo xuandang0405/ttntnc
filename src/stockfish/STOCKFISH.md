@@ -1,43 +1,34 @@
-# Stockfish teacher and coach
+# Giáo viên và Huấn luyện viên Stockfish (Stockfish Teacher and Coach)
 
-Needs a Stockfish executable (https://stockfishchess.org/download/):
-`$env:STOCKFISH_PATH = "C:\path\stockfish.exe"` (or put it on PATH).
-The executable must be native and runnable in UCI mode. Stockfish binaries are not
-downloaded or copied by the app.
+Cần một tệp thực thi Stockfish (tải tại https://stockfishchess.org/download/):
+`$env:STOCKFISH_PATH = "C:\path\stockfish.exe"` (hoặc thêm đường dẫn vào biến môi trường `PATH`).
+Tệp thực thi phải là bản native và chạy được ở chế độ UCI. Ứng dụng không tự tải hoặc sao chép các tệp nhị phân Stockfish.
 
-Run teacher commands from the repository root:
+Chạy các lệnh của teacher từ thư mục gốc của repository:
 ```powershell
 python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 800 --workers 10 --nodes 25000
 python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color white --epochs 6 --lr 1e-3
 python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm DQN --color black --epochs 6 --lr 1e-3
 ```
 
-They can also be run after `cd src`:
+Cũng có thể chạy sau khi chuyển vào thư mục `src` (`cd src`):
 ```powershell
 cd src
 python -m stockfish.pretrain_stockfish generate --out ..\data\sf.npz --games 800 --workers 10 --nodes 25000
 ```
 
-## Teacher: pretrain from Stockfish labels
-Checkpoints (`white_alphazero.pt`, ...) load in the app like any other model.
-`--init file.pt` continues an existing checkpoint (one colour at a time).
-Use tens of thousands of positions or more: in a small test the value head learned
-quickly, but move agreement needs much more data. DQN is trained by Q-value regression
-on Stockfish's candidate moves plus a bound on all other legal moves.
+## Teacher: Tiền huấn luyện (Pretrain) từ nhãn của Stockfish
+Các checkpoint (`white_alphazero.pt`, ...) được tải vào ứng dụng giống như mọi mô hình khác.
+Tham số `--init file.pt` dùng để tiếp tục huấn luyện từ một checkpoint có sẵn (thực hiện từng màu quân một).
+Hãy dùng hàng chục nghìn thế cờ trở lên: trong một thử nghiệm nhỏ, đầu ra giá trị (value head) học khá nhanh, nhưng độ khớp nước đi (move agreement) đòi hỏi nhiều dữ liệu hơn đáng kể. DQN được huấn luyện bằng phương pháp hồi quy giá trị Q trên các nước đi ứng viên của Stockfish, kết hợp với một cận (bound) áp dụng cho tất cả các nước đi hợp lệ còn lại.
 
-## Coach: Stockfish evaluation as the reward-shaping potential
-`$env:CHESS_AI_STOCKFISH_COACH = "1"` before starting the app. Material balance is replaced by
-Stockfish's evaluation (pawns, clipped to +-10) at each of the agent's decision points; a finished
-game has potential 0. Tune with `CHESS_AI_STOCKFISH_COACH_NODES` (default 2000).
+## Coach: Đánh giá của Stockfish làm thế năng tạo thưởng (Reward-shaping potential)
+Thiết lập `$env:CHESS_AI_STOCKFISH_COACH = "1"` trước khi khởi động ứng dụng. Cân bằng vật chất (material balance) sẽ được thay thế bằng điểm đánh giá của Stockfish (tính theo đơn vị tốt/pawns, giới hạn trong khoảng $\pm 10$) tại mỗi thời điểm ra quyết định của tác tử (agent); một ván cờ đã kết thúc có thế năng bằng $0$. Có thể tinh chỉnh độ sâu tìm kiếm bằng biến `CHESS_AI_STOCKFISH_COACH_NODES` (mặc định là `2000`).
 
-## Process lifecycle
-Every pool waits for running analyses and closes its UCI engine processes during
-`close()` or context-manager exit. The app closes the shared coach in a `finally` block
-when Pygame exits, and every pool also registers an `atexit` fallback. Teacher worker
-processes close their pool explicitly.
+## Vòng đời tiến trình (Process lifecycle)
+Mỗi pool đều chờ các tác vụ phân tích đang chạy hoàn tất và đóng các tiến trình engine UCI khi gọi `close()` hoặc khi thoát khỏi context manager. Ứng dụng sẽ đóng coach dùng chung trong khối `finally` lúc Pygame thoát, đồng thời mỗi pool cũng đăng ký cơ chế dự phòng `atexit`. Các tiến trình worker của teacher tự đóng pool của chúng một cách tường minh.
 
-If a process still appears in Task Manager after an abnormal termination, close it from Task
-Manager; normal app, script, and worker exits should not leave one alive.
+Nếu tiến trình vẫn còn xuất hiện trong Task Manager sau một lần kết thúc bất thường, hãy đóng nó thủ công từ Task Manager; các lần thoát bình thường của ứng dụng, script và worker sẽ không để tiến trình chạy ngầm sót lại.
 
-Settings: `stockfish_config.py`. Tests: `python -m unittest tests.test_stockfish_pipeline`
-(skipped when Stockfish is not found).
+* **Cấu hình:** `stockfish_config.py`
+* **Kiểm thử:** `python -m unittest tests.test_stockfish_pipeline` (sẽ tự động bỏ qua nếu không tìm thấy Stockfish).
