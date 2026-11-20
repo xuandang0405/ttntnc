@@ -1,20 +1,18 @@
 # Cờ Vua Học Tăng Cường
 
-Ứng dụng Cờ Vua bằng Pygame kết hợp luật cờ vua, huấn luyện tự đấu và nhiều thuật toán Reinforcement Learning:
+Ứng dụng cờ vua Pygame kết hợp giao diện chơi cờ, huấn luyện tự đối kháng và nhiều thuật toán reinforcement learning:
 
 - **A2C** - Advantage Actor-Critic
 - **PPO** - Proximal Policy Optimization
-- **DQN** - Double Deep Q-Network
-- **AlphaZero** - mạng policy/value kết hợp Monte Carlo Tree Search
+- **DQN** - Deep Q-Network
+- **AlphaZero** - policy/value network kết hợp Monte Carlo Tree Search
 
-Mã nguồn chính nằm trong thư mục `src/`. Mạng nơ-ron dùng phiên bản tác tử duy nhất cho cả hai phe, có đầu dự đoán:
+Mã nguồn hiện tại nằm trong `src/`. Các agent dùng cùng mạng policy/value cho cả hai phe và có các đầu dự đoán:
 
-- policy cho các nước đi
+- policy cho các nước đi hợp lệ
 - value cho trạng thái bàn cờ
 - opponent policy
 - opening/middlegame/endgame phase
-
----
 
 ## Tính năng
 
@@ -23,117 +21,82 @@ Mã nguồn chính nằm trong thư mục `src/`. Mạng nơ-ron dùng phiên b�
 - Người vs Người
 - Người vs AI
 - AI vs AI
-- Tải mô hình `.pt` bằng hộp thoại chọn tệp
-- Chơi bằng người ngẫu nhiên khi không chọn mô hình
-- Hai kiểu chọn nước đi:
-  - **Sampling**: lấy nước đi theo xác suất
-  - **Greedy**: luôn chọn nước đi được đánh giá cao nhất
-- **Opponent-aware lookahead**: dự đoán một số nước đáp trả có khả năng cao của đối thủ
+- Tải checkpoint `.pt`
+- Chơi với người chơi ngẫu nhiên khi không chọn mô hình
+- Chọn nước đi theo xác suất (**Sampling**) hoặc theo điểm cao nhất (**Greedy**)
+- **Opponent-aware lookahead** để dự đoán các nước đáp trả có khả năng cao
 
 ### Huấn luyện
 
-- Huấn luyện một ván dùng chế độ tự đấu tuần tự
+- Huấn luyện từng ván một
 - Huấn luyện nhiều ván song song
-- 128 bàn cờ song song mặc định
-- Hỗ trợ mở đầu ngẫu nhiên, trung cuộc và tàn cuộc theo curriculum
-- Tiếp tục huấn luyện từ checkpoint cũ hoặc huấn luyện mô hình mới
-- Tự lưu checkpoint và chỉ số huấn luyện định kỳ
-- Kiểm tra kỹ năng mate-in-one, tránh chiếu hết, bắt quân tự do và chuyển đổi tàn cuộc
-- Ghi log và vẽ biểu đồ reward, loss, entropy, win/draw rate, throughput và draw reason
-- AlphaZero có thể chạy MCTS bằng native Rust để chuyển luật cờ, mã hóa trạng thái và cây tìm kiếm khỏi Python
+- 128 bàn cờ mặc định trong chế độ song song
+- Curriculum cho opening, middlegame và endgame
+- Tiếp tục huấn luyện từ checkpoint hoặc bắt đầu mô hình mới
+- Tự lưu checkpoint và chỉ số huấn luyện
+- Kiểm tra mate-in-one, tránh chiếu hết, bắt quân tự do và chuyển đổi tàn cuộc
+- Ghi log và vẽ reward, loss, entropy, win/draw rate và throughput
+- AlphaZero có thể dùng native Rust MCTS thay cho MCTS Python
 
----
+### Teacher và Coach với Stockfish
 
-## Kiến trúc hiện tại
+- Tạo dữ liệu tiền huấn luyện từ nước đi và đánh giá của Stockfish
+- Tiền huấn luyện mạng AlphaZero hoặc DQN từ dữ liệu đã tạo
+- Dùng đánh giá Stockfish làm reward-shaping trong quá trình huấn luyện
 
-Phiên bản mạng và checkpoint hiện tại là **v3**.
+## Kiến trúc mạng hiện tại
+
+Các giá trị mặc định được lấy trực tiếp từ `src/encoding.py` và `src/model.py`.
 
 | Thành phần | Giá trị |
 |---|---|
-| Lịch sử trạng thái | 8 bàn cờ |
-| Mặt nơ-ron bàn cờ | 12 mặt quân cờ cho mỗi lịch sử |
+| Lịch sử trạng thái | 3 thế cờ |
+| 12 mặt quân cờ cho mỗi lịch sử | 36 mặt |
 | Mặt metadata | 8 mặt |
-| Kích thước đầu vào | `104 x 8 x 8` |
-| Không gian hành động | `20,480` |
-| Residual blocks | 6 |
-| Channels | 64 |
+| Kích thước tensor đầu vào | `44 x 8 x 8` |
+| Không gian hành động | 16.384 |
+| Residual blocks mặc định | 4 |
+| Channels mặc định | 32 |
 | Kiến trúc | Policy/Value Residual CNN |
-| Ván tối đa mặc định | 600 nửa nước |
+| Ván tối đa mặc định | 300 nửa nước |
 
 Không gian hành động gồm:
 
-- `64 x 64 = 4,096` cặp ô đi - ô đến
-- 3 × `4,096` mặt hành động phong hậu, xe, tượng
-- 1 × `4,096` mặt hành động phong mã
+- `64 x 64 = 4.096` cặp ô đi - ô đến
+- 3 x `4.096` mặt phong hậu, xe, tượng
+- 1 x `4.096` mặt phong mã
 
-Toàn bộ trạng thái trong MCTS được sao chép kèm lịch sử nước đi để giữ repetition, halfmove clock và fullmove number. Dữ liệu replay được lưu dưới dạng `float16` và chuyển sang `float32` khi huấn luyện.
+Mỗi phe được lưu dưới dạng checkpoint riêng với tên `white_<thuật toán>.pt` hoặc `black_<thuật toán>.pt`.
 
-> **Không tương thích checkpoint cũ:** checkpoint v1/v2 không thể nạp trực tiếp vào kiến trúc v3 vì số channel đầu vào và kích thước policy đều đã thay đổi. Hãy bắt đầu một phiên huấn luyện mới thay vì tải checkpoint cũ như checkpoint tương thích.
-
----
+> Checkpoint chỉ tương thích khi metadata checkpoint và kiến trúc mạng khớp với mã nguồn hiện tại. Nếu checkpoint cũ không thể nạp, hãy bắt đầu một lần huấn luyện mới.
 
 ## Cấu trúc thư mục
 
 ```text
 src/
-├── main.py                     # Khởi chạy Pygame
-├── config.py                   # Cửa sổ, màu sắc, reward và giới hạn ván
-├── menu_scene.py               # Chọn chế độ, thuật toán và checkpoint
-├── play_scene.py               # Luồng chơi người/người hoặc người/AI
-├── match.py                    # Quản lý một trận đấu
+├── main.py                     # Điểm khởi chạy Pygame
+├── menu_scene.py               # Chọn chế độ và cấu hình mô hình
+├── play_scene.py               # Chế độ chơi
+├── match.py                    # Quản lý trận đấu
 ├── players.py                  # Human, random và model players
-├── checkpoints.py              # Tạo experiment, lưu metrics và checkpoint
-├── encoding.py                 # Tensor trạng thái 104 x 8 x 8 và action mapping
+├── encoding.py                 # Tensor bàn cờ 44 x 8 x 8 và action mapping
 ├── model.py                    # Residual policy/value network
-├── metrics.py                  # Thống kê ván, reward và kết quả huấn luyện
-├── curriculum.py               # Opening, middlegame và endgame positions
-├── strategy.py                 # Dự đoán đối thủ và opponent-aware lookahead
-├── strategy_config.py          # Tham số strategy và curriculum
-├── skill_eval.py               # Bộ kiểm tra kỹ năng cờ
-│
-├── algorithms/
-│   ├── algorithms.py           # Factory và nạp checkpoint theo thuật toán
-│   ├── algo_base.py            # Hành vi chung của tác tử
-│   ├── algo_a2c.py
-│   ├── algo_ppo.py
-│   ├── algo_dqn.py
-│   └── algo_alphazero.py
-│
-├── algorithms-rs/              # Rust MCTS backend optional cho AlphaZero
-│   ├── Cargo.toml
-│   ├── pyproject.toml
-│   ├── README.md
-│   └── src/
-│
-├── normal_mode/
-│   ├── game.py                 # Tự đấu và huấn luyện tuần tự
-│   ├── train_scene.py          # Giao diện huấn luyện một ván
-│   └── renderer.py             # Bàn cờ và panel Pygame
-│
-├── concurrent_mode/
-│   ├── concurrent_config.py    # Số ván, thiết bị và chu kỳ cập nhật
-│   ├── concurrent_game.py      # Tự đấu và huấn luyện nhiều ván
-│   ├── concurrent_train_scene.py
-│   └── concurrent_renderer.py
-│
-└── plot_logging/
-    ├── training_log.py          # Ghi training_log.json
-    └── plot_training.py         # Vẽ biểu đồ huấn luyện
+├── strategy.py                 # Opponent model và lookahead
+├── curriculum.py               # Opening/middlegame/endgame
+├── skill_eval.py               # Kiểm tra kỹ năng
+├── checkpoints.py              # Lưu checkpoint và metrics
+├── metrics.py                  # Thống kê huấn luyện
+├── algorithms/                 # A2C, PPO, DQN và AlphaZero
+├── algorithms-rs/              # Native Rust MCTS
+├── normal_mode/                # Huấn luyện một ván
+├── concurrent_mode/            # Huấn luyện song song
+├── plot_logging/               # Ghi log và vẽ biểu đồ
+├── stockfish/                  # Teacher và Coach với Stockfish
+└── tests/                      # Unit test
 
-assets/
-└── chess_pieces/                # Hình quân cờ PNG
-
-checkpoints/
-└── exp_YYYYMMDD_HHMMSS/
-    ├── white_<algo>.pt
-    ├── black_<algo>.pt
-    ├── metrics.json
-    └── training_log.json
+assets/chess_pieces/            # Hình quân cờ PNG
+checkpoints/                    # Checkpoint và metrics theo từng experiment
 ```
-
-`src2/` là bản sao/thư mục tích hợp thử nghiệm và không phải đường chạy chính của README. Hãy dùng `src/` cho phiên bản hiện tại.
-
----
 
 ## Yêu cầu
 
@@ -142,27 +105,121 @@ checkpoints/
 - PyTorch
 - NumPy
 - python-chess
-- Matplotlib, pandas, seaborn để vẽ biểu đồ
+- Matplotlib, pandas, seaborn
+- Stockfish chỉ cần khi sử dụng teacher/coach
+- Rust/Cargo và maturin chỉ cần khi build native MCTS
 
-Tạo môi trường và cài thư viện:
+Tạo môi trường ảo và cài các thư viện Python:
 
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess
 ```
 
-Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn; ứng dụng có thể chạy bằng CPU.
+Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn.
 
-AlphaZero có thể dùng MCTS native trong Rust. Hai backend Rust được hỗ trợ:
+## Chạy ứng dụng
 
-| Biến môi trường | Backend |
+Luôn chạy từ thư mục gốc của repository:
+
+```powershell
+python src\main.py
+```
+
+Ứng dụng có thể chạy bằng CPU hoặc GPU; PyTorch sẽ tự chọn CUDA khi thiết bị tương thích khả dụng.
+
+## Điều khiển
+
+### Menu
+
+1. Chọn một trong năm chế độ ở thanh nút phía trên.
+2. Nhấp chuột trái vào các hàng để chuyển tùy chọn hoặc chọn checkpoint.
+3. Nhấp chuột phải vào hàng mô hình để quay lại lựa chọn trước hoặc bỏ mô hình đã chọn.
+4. Nhấn **BẮT ĐẦU** hoặc `Enter`.
+5. Nhấn `Esc` để thoát.
+
+Trong các chế độ chơi:
+
+- Nhấp một quân cờ, sau đó nhấp ô được làm sáng để đi quân.
+
+Trong các chế độ huấn luyện:
+
+- `Space`: tạm dừng/tiếp tục
+- `F`: bật/tắt chế độ huấn luyện nhanh
+- `Up` / `Down`: điều chỉnh độ trễ
+- `S`: lưu checkpoint
+- `L`: tải checkpoint
+- `R`: đặt lại thống kê
+- `M`: bật/tắt panel metrics
+- `Esc`: lưu checkpoint và quay lại menu
+
+## Huấn luyện và checkpoint
+
+Mở:
+
+- `Huấn luyện: 1 ván`
+- `Huấn luyện: 128 ván`
+
+Sau đó chọn checkpoint ở các hàng **Tệp mô hình Trắng** hoặc **Tệp mô hình Đen**:
+
+- Nhấp trái: chọn checkpoint `.pt`
+- Nhấp phải: bỏ checkpoint và khởi tạo mô hình mới
+
+Thuật toán tương ứng được đọc từ metadata checkpoint. Checkpoint mới được lưu tại:
+
+```text
+checkpoints/exp_YYYYMMDD_HHMMSS/
+├── white_<algorithm>.pt
+├── black_<algorithm>.pt
+├── metrics.json
+└── training_log.json
+```
+
+Ứng dụng cũng tự lưu định kỳ và lưu checkpoint trước khi thoát màn hình huấn luyện bằng `Esc`.
+
+## Xem kết quả huấn luyện
+
+Vẽ biểu đồ từ log mới nhất:
+
+```powershell
+python src\plot_logging\plot_training.py
+```
+
+Hoặc chỉ định một log cụ thể:
+
+```powershell
+python src\plot_logging\plot_training.py checkpoints\exp_YYYYMMDD_HHMMSS\training_log.json
+```
+
+`training_log.json` lưu loss, reward, entropy, win/draw rate, repetition, độ dài ván, throughput, nguyên nhân hòa và timing từng giai đoạn. `metrics.json` lưu các thống kê tổng hợp của experiment.
+
+## Native Rust MCTS cho AlphaZero
+
+Từ thư mục `src/algorithms-rs`:
+
+```powershell
+pip install maturin
+python -m pip install .
+```
+
+Sau đó bật native search:
+
+```powershell
+$env:CHESS_AI_RUST_SEARCH = "1"
+python src\main.py
+```
+
+Backend tùy chọn:
+
+| Biến môi trường | Hành vi |
 |---|---|
-| `CHESS_AI_RUST_SEARCH=1` | `BatchSearch` native: Rust xử lý luật cờ, mã hóa thế cờ, cây tìm kiếm, chọn nhánh và backup |
-| `CHESS_AI_RUST_MCTS=1` | Backend cây Rust cũ: chỉ một số bước PUCT/expand/backup chạy trong Rust |
+| `CHESS_AI_RUST_SEARCH=1` | Rust xử lý luật cờ, mã hóa, cây tìm kiếm, chọn nhánh và backup |
+| `CHESS_AI_RUST_MCTS=1` | Backend cây Rust cũ; chỉ PUCT/expand/backup chạy trong Rust |
 
-Hai biến này mặc định là `1` trong cấu hình hiện tại. Để dùng MCTS thuần Python,
-đặt cả hai biến thành `0`:
+Nếu biến được bật nhưng extension chưa được cài, chương trình sẽ báo lỗi rõ ràng thay vì im lặng chuyển sang Python.
+
+Để chạy hoàn toàn bằng MCTS Python:
 
 ```powershell
 $env:CHESS_AI_RUST_SEARCH = "0"
@@ -170,120 +227,52 @@ $env:CHESS_AI_RUST_MCTS = "0"
 python src\main.py
 ```
 
-Để cài extension Rust, chạy từ thư mục crate:
+Chi tiết backend và test parity nằm trong [src/algorithms-rs/README.md](src/algorithms-rs/README.md).
 
-```bash
-cd src/algorithms-rs
-pip install maturin
-python -m pip install .
-```
+## Stockfish Teacher và Coach
 
-Sau đó khởi chạy với native search mặc định:
+Tải tệp thực thi native/UCI của Stockfish, sau đó cấu hình:
 
 ```powershell
+$env:STOCKFISH_PATH = "C:\path\stockfish.exe"
+```
+
+Có thể bỏ biến này nếu `stockfish` đã nằm trong `PATH`.
+
+Tạo dữ liệu và tiền huấn luyện từ thư mục gốc:
+
+```powershell
+python src\stockfish\pretrain_stockfish.py generate --out data\sf.npz --games 800 --workers 10 --nodes 25000
+python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm AlphaZero --color white --epochs 6 --lr 1e-3
+python src\stockfish\pretrain_stockfish.py train --data data\sf.npz --algorithm DQN --color black --epochs 6 --lr 1e-3
+```
+
+Hoặc chạy huấn luyện với Stockfish làm nguồn reward:
+
+```powershell
+$env:CHESS_AI_STOCKFISH_COACH = "1"
+$env:CHESS_AI_STOCKFISH_COACH_NODES = "2000"
 python src\main.py
 ```
 
-Nếu đặt `CHESS_AI_RUST_SEARCH=1` hoặc `CHESS_AI_RUST_MCTS=1` nhưng extension
-chưa được cài, ứng dụng sẽ báo lỗi rõ ràng thay vì tự động chuyển sang Python.
-Backend native lấy seed nhiễu và seed RNG của NumPy; thứ tự nước đi có thể khác
-nhưng visit counts và action parity được kiểm tra theo tập test của Rust.
-
----
-
-## Chạy ứng dụng
-
-Luôn chạy từ thư mục gốc của repository để Pygame có thể tìm đúng thư mục `assets/`:
-
-```bash
-python src/main.py
-```
-
-Hoặc:
-
-```bash
-cd src
-python main.py
-```
-
-> Lưu ý: thư mục làm việc hợp lệ cho ứng dụng là repository root. Khi chạy lệnh dưới đây, vị trí hiện tại phải là thư mục gốc của dự án.
-
----
-
-## Điều khiển trong menu
-
-1. Chọn một trong 5 chế độ ở thanh nút phía trên.
-2. Cấu hình các hàng tùy chọn bằng chuột:
-   - **Nhấp trái**: chuyển sang lựa chọn tiếp theo hoặc mở hộp thoại mô hình.
-   - **Nhấp phải**: quay lại lựa chọn trước hoặc xóa mô hình đã chọn.
-3. Nhấn **BẮT ĐẦU** hoặc `Enter`.
-4. Nhấn `Esc` để thoát.
-
-Trong chế độ chơi và huấn luyện:
-
-- Nhấp quân cờ, sau đó nhấp ô được làm sáng để đi quân.
-- Trong màn hình huấn luyện:
-  - `Space`: tạm dừng/tiếp tục
-  - `F`: bật/tắt chế độ huấn luyện nhanh
-  - `Up` / `Down`: chỉnh độ trễ
-  - `S`: lưu checkpoint
-  - `L`: tải checkpoint
-  - `R`: đặt lại thống kê
-  - `M`: bật/tắt panel metrics
-  - `Esc`: quay lại menu
-
----
-
-## Tải và tiếp tục huấn luyện
-
-Mở menu `Huấn luyện: 1 ván` hoặc `Huấn luyện: 128 ván`, sau đó chọn tệp ở hàng **Tệp mô hình Trắng** hoặc **Tệp mô hình Đen**.
-
-- Nhấp trái vào hàng tệp: chọn checkpoint `.pt`
-- Nhấp phải vào hàng tệp: bỏ checkpoint và huấn luyện mô hình mới
-- Thuật toán tương ứng được đọc tự động từ metadata checkpoint
-
-Checkpoint mới được lưu trong `checkpoints/exp_<thời gian>/` và tự lưu lại sau khoảng 120 giây. Khi thoát màn hình huấn luyện bằng `Esc`, ứng dụng cũng lưu checkpoint trước khi chuyển scene.
-
-Nếu chọn checkpoint cho một phe, phe còn lại có thể được khởi tạo với thuật toán đã chọn hoặc huấn luyện từ đầu tùy cấu hình tại menu.
-
----
-
-## Xem kết quả huấn luyện
-
-Các chỉ số được lưu trong `metrics.json` và `training_log.json`.
-
-Vẽ biểu đồ từ checkpoint mới nhất:
-
-```bash
-python src/plot_logging/plot_training.py
-```
-
-Vẽ biểu đồ từ một log cụ thể:
-
-```bash
-python src/plot_logging/plot_training.py checkpoints/exp_YYYYMMDD_HHMMSS/training_log.json
-```
-
-Biểu đồ chứa win/draw rate, actor/critic loss, entropy, value explained variance, reward, repetition, độ dài ván, throughput, CPU/GPU utilization, nguyên nhân hòa và thời gian từng giai đoạn của thuật toán. `training_log.json` lưu thời gian trung bình và p95 (ms) trong tối đa 256 lần gọi gần nhất cho từng giai đoạn: chọn nước đi, các bước MCTS, chuẩn bị episode/replay/batch, forward/loss/backward, optimizer và strategy. Đây là thời gian wall-clock; phép tính GPU không bị đồng bộ cưỡng bức nên không làm chậm huấn luyện.
-
----
+Chi tiết nằm trong [src/stockfish/STOCKFISH.md](src/stockfish/STOCKFISH.md).
 
 ## Kiểm tra mã nguồn
 
-Test import các module theo cấu trúc chạy của ứng dụng, nên chạy từ thư mục `src`:
+Chạy các test Python:
 
-```bash
+```powershell
 cd src
 python -m compileall -q .
 python -m unittest discover -s tests -v
 ```
 
-Nếu đã build extension Rust, cũng chạy test parity cho native search:
+Kiểm tra native Rust nếu đã build extension:
 
-```bash
-cd src/algorithms-rs
+```powershell
+cd src\algorithms-rs
 cargo test
 
-cd ../
+cd ..
 python -m unittest tests.test_rust_search
 ```
