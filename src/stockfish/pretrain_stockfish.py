@@ -12,8 +12,8 @@ SRC_DIR = Path(__file__).resolve().parent.parent
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from stockfish.stockfish_config import (TEACHER_BATCH, TEACHER_EPOCHS, TEACHER_MAX_PLIES, TEACHER_MULTIPV,
-                                        TEACHER_NODES)
+from stockfish.stockfish_config import (TEACHER_BATCH, TEACHER_EPOCHS, TEACHER_HOLDOUT, TEACHER_MAX_PLIES,
+                                        TEACHER_MULTIPV, TEACHER_NODES)
 
 
 def cmd_generate(args):
@@ -40,7 +40,7 @@ def cmd_train(args):
              else make_agent(args.algorithm, colors[0], device))
     if args.init:
         print(f"continuing from {args.init} ({first.label})")
-    pretrain(first, data, args.epochs, args.batch, args.lr)
+    pretrain(first, data, args.epochs, args.batch, args.lr, holdout=args.holdout, seed=args.seed)
 
     out = args.out or os.path.join("checkpoints", time.strftime("stockfish_pretrain_%Y%m%d_%H%M%S"))
     paths = [first.save(out)]
@@ -53,6 +53,20 @@ def cmd_train(args):
         paths.append(other.save(out))
     for p in paths:
         print("saved", p)
+
+
+def cmd_inspect(args):
+    import numpy as np
+    from stockfish.stockfish_teacher import TeacherData
+    data = TeacherData.load(args.data)
+    train, test = data.split(args.holdout, args.seed)
+    sizes = np.bincount(np.unique(data.game_ids, return_inverse=True)[1])
+    print(f"{data.n:,} positions in {len(sizes)} games ({data.game_source} game ids); "
+          f"positions per game: min {sizes.min()}, median {int(np.median(sizes))}, max {sizes.max()}")
+    print(f"split: {data.describe_split()}")
+    if len(test):
+        assert not set(data.game_ids[train]) & set(data.game_ids[test]), "a game appears on both sides"
+        print("check passed: no game appears in both the training and the held-out set")
 
 
 def main():
@@ -81,8 +95,17 @@ def main():
     t.add_argument("--batch", type=int, default=TEACHER_BATCH)
     t.add_argument("--lr", type=float, default=None, help="learning rate for this run (default: agent's)")
     t.add_argument("--device", default="auto")
+    t.add_argument("--holdout", type=float, default=TEACHER_HOLDOUT,
+                   help="fraction of GAMES kept out for testing (default %(default)s); 0 disables")
+    t.add_argument("--seed", type=int, default=0, help="seed of the game split and batch order")
     t.add_argument("--out", help="output directory (default checkpoints/stockfish_pretrain_<time>)")
     t.set_defaults(func=cmd_train)
+
+    i = sub.add_parser("inspect", help="report games and the leakage-free split of a dataset")
+    i.add_argument("--data", required=True)
+    i.add_argument("--holdout", type=float, default=TEACHER_HOLDOUT)
+    i.add_argument("--seed", type=int, default=0)
+    i.set_defaults(func=cmd_inspect)
 
     args = ap.parse_args()
     args.func(args)

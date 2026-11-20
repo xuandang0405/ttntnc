@@ -10,6 +10,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 import numpy as np
 import torch
 import torch.nn.functional as F
+from sklearn.model_selection import GroupShuffleSplit
 
 from encoding import ACTION_SIZE, encode, legal_moves_map, move_to_index
 from stockfish.stockfish_config import (TEACHER_BATCH, TEACHER_EPOCHS, TEACHER_HOLDOUT, TEACHER_MAX_PLIES,
@@ -18,7 +19,7 @@ from stockfish.stockfish_config import (TEACHER_BATCH, TEACHER_EPOCHS, TEACHER_H
                               TEACHER_RANDOM_MOVE_PROB, TEACHER_VALUE_W)
 from strategy import game_phase
 
-FORMAT = 1
+FORMAT = 2        # 2: every row carries the id of the game it came from
 
 
 # labelling
@@ -69,9 +70,9 @@ class _Rows:
     def __init__(self, multipv):
         self.k = multipv
         self.states, self.legal, self.idx, self.p, self.q = [], [], [], [], []
-        self.value, self.phase, self.cp = [], [], []
+        self.value, self.phase, self.cp, self.game = [], [], [], []
 
-    def add(self, board, label):
+    def add(self, board, label, game=0):
         color = board.turn
         self.states.append(encode(board, color)[0].numpy().astype(np.float16))
         self.legal.append(np.fromiter(legal_moves_map(board, color).keys(), dtype=np.int16))
@@ -82,6 +83,7 @@ class _Rows:
         self.value.append(label["value"])
         self.phase.append(game_phase(board))
         self.cp.append(label["cp"])
+        self.game.append(game)
 
     def __len__(self):
         return len(self.states)
@@ -95,7 +97,8 @@ class _Rows:
                 "legal": legal, "pol_idx": np.array(self.idx, dtype=np.int16),
                 "pol_p": np.array(self.p, dtype=np.float32), "pol_q": np.array(self.q, dtype=np.float32),
                 "value": np.array(self.value, dtype=np.float32),
-                "phase": np.array(self.phase, dtype=np.int8), "cp": np.array(self.cp, dtype=np.float32)}
+                "phase": np.array(self.phase, dtype=np.int8), "cp": np.array(self.cp, dtype=np.float32),
+                "game": np.array(self.game, dtype=np.int32)}
 
 
 # generation (worker processes)
@@ -141,9 +144,9 @@ def _init_worker(path, hash_mb):
 
 def _play_games(task):
     import curriculum
-    seed, games, nodes, multipv, max_plies = task
+    seed, games, nodes, multipv, max_plies, first_game = task
     rng, rows, pool = random.Random(seed), _Rows(multipv), _WORKER["pool"]
-    for _ in range(games):
+    for game in range(first_game, first_game + games):
         kind, board = curriculum.new_start(rng=rng)
         board = board.copy(stack=True)
         limit = min(max_plies, curriculum.max_plies(kind))
@@ -153,7 +156,7 @@ def _play_games(task):
             label = label_position(board, pool, nodes, multipv)
             if label is None:
                 break
-            rows.add(board, label)
+            rows.add(board, label, game)
             board.push(choose_move(board, label, rng))
     return rows.arrays()
 
@@ -177,7 +180,8 @@ def generate_dataset(path, games, workers=2, nodes=TEACHER_NODES, multipv=TEACHE
     tasks, left, task_id = [], games, 0
     while left > 0:
         count = min(chunk, left)
-        tasks.append((seed * 100_003 + task_id, count, nodes, multipv, max_plies))
+        # the last field numbers this chunk's games, so game ids are unique across the whole dataset
+        tasks.append((seed * 100_003 + task_id, count, nodes, multipv, max_plies, games - left))
         left -= count
         task_id += 1
 
@@ -296,6 +300,26 @@ def merge(parts):
 
 
 # dataset
+def infer_game_ids(states, chunk=20_000):
+    n = len(states)
+    same = np.zeros(max(n - 1, 0), dtype=bool)
+    for lo in range(0, n - 1, chunk):
+        hi = min(lo + chunk, n - 1)
+        cur = states[lo:hi, 24:36]
+        swapped = np.concatenate([cur[:, 6:], cur[:, :6]], axis=1)[:, :, ::-1, :]
+        same[lo:hi] = (swapped == states[lo + 1:hi + 1, 12:24]).reshape(hi - lo, -1).all(axis=1)
+    return np.concatenate([[0], np.cumsum(~same)]).astype(np.int64)[:n]
+
+
+def position_keys(states):
+    """One hash per row for 'is this the same position?' (piece placement, side to move's view, castling)."""
+    n = len(states)
+    board = (states[:, 24:36].reshape(n, -1) > 0.5).astype(np.uint8)
+    castling = (states[:, 36:40, 0, 0] > 0.5).astype(np.uint8)
+    packed = np.packbits(np.concatenate([board, castling], axis=1), axis=1)
+    return np.fromiter((hash(row.tobytes()) for row in packed), dtype=np.int64, count=n)
+
+
 class TeacherData:
     def __init__(self, arrays):
         self.a = arrays
@@ -306,10 +330,46 @@ class TeacherData:
         with np.load(path, allow_pickle=False) as z:
             return cls({k: z[k] for k in z.files if k != "meta"})
 
+    @property
+    def game_ids(self):
+        if getattr(self, "_game_ids", None) is None:
+            recorded = "game" in self.a
+            self._game_ids = self.a["game"].astype(np.int64) if recorded else infer_game_ids(self.a["states"])
+            self.game_source = "recorded" if recorded else "inferred"
+        return self._game_ids
+
+    @property
+    def position_keys(self):
+        if getattr(self, "_position_keys", None) is None:
+            self._position_keys = position_keys(self.a["states"])
+        return self._position_keys
+
     def split(self, holdout=TEACHER_HOLDOUT, seed=0):
-        order = np.random.default_rng(seed).permutation(self.n)
-        cut = max(1, int(self.n * holdout)) if self.n > 10 else 0
-        return order[cut:], order[:cut]
+        groups = self.game_ids
+        n_games = int(np.unique(groups).size)
+        self.split_info = {"games": n_games, "source": self.game_source, "removed": 0,
+                           "train": self.n, "test": 0}
+        if holdout <= 0 or n_games < 2 or self.n <= 10:
+            return np.arange(self.n), np.arange(0)
+        splitter = GroupShuffleSplit(n_splits=1, test_size=holdout, random_state=seed)
+        train, test = next(splitter.split(np.zeros(self.n), groups=groups))
+        keys = self.position_keys
+        leaked = np.isin(keys[train], keys[test])
+        train = train[~leaked]
+        self.split_info.update({"train": len(train), "test": len(test), "removed": int(leaked.sum()),
+                                "train_games": int(np.unique(groups[train]).size),
+                                "test_games": int(np.unique(groups[test]).size)})
+        return train, test
+
+    def describe_split(self):
+        i = getattr(self, "split_info", None)
+        if not i:
+            return "no split computed"
+        if not i["test"]:
+            return f"no held-out set ({i['games']} games, {i['source']} ids)"
+        return (f"{i['train']:,} train positions / {i['test']:,} held-out positions "
+                f"from {i['train_games']} / {i['test_games']} separate games ({i['source']} game ids); "
+                f"{i['removed']:,} training positions removed because they also occur in the held-out games")
 
     def batch(self, rows, device):
         a, n = self.a, len(rows)
@@ -381,6 +441,7 @@ def pretrain(agent, data, epochs=TEACHER_EPOCHS, batch_size=TEACHER_BATCH, lr=No
              phase_w=TEACHER_PHASE_W, holdout=TEACHER_HOLDOUT, seed=0, log=print):
     # Supervised training of `agent.net` on Stockfish labels. Returns per-epoch metrics.
     train_rows, test_rows = data.split(holdout, seed)
+    log(f"split: {data.describe_split()}")
     rng = np.random.default_rng(seed + 1)
     old_lr = agent.opt.param_groups[0]["lr"]
     if lr is not None:
