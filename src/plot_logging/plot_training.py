@@ -11,11 +11,18 @@ import seaborn as sns
 
 
 def save_training_plot(log_path, output_path=None, title=None):
-    with open(log_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    df = pd.DataFrame(data.get("records", []))
+    if os.path.splitext(log_path)[1].lower() == ".csv":
+        df = pd.read_csv(log_path)
+        if title is None and not df.empty and "title" in df:
+            title = df["title"].iloc[0]
+        if title is None:
+            title = os.path.basename(os.path.dirname(log_path))
+    else:
+        with open(log_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        df = pd.DataFrame(data.get("records", []))
+        title = title or data.get("title") or data.get("experiment", "Training")
     output_path = output_path or os.path.splitext(log_path)[0] + ".jpg"
-    title = title or data.get("title") or data.get("experiment", "Training")
 
     sns.set_theme(style="darkgrid")
     fig, axes = plt.subplots(7, 3, figsize=(19, 29), sharex=True)
@@ -109,9 +116,12 @@ def main():
     if len(sys.argv) > 1:
         path = sys.argv[1]
     else:
-        logs = sorted(glob.glob(os.path.join("checkpoints", "exp_*", "training_log.json")))
+        logs = sorted(
+            glob.glob(os.path.join("checkpoints", "exp_*", "training_log.csv"))
+            + glob.glob(os.path.join("checkpoints", "exp_*", "training_log.json"))
+        )
         if not logs:
-            sys.exit("No training_log.json found - train and save first.")
+            sys.exit("No training_log.csv found - train and save first.")
         path = logs[-1]
     save_training_plot(path)
 

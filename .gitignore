@@ -1,6 +1,7 @@
 *.pt
 *.zip
 training_log.json
+training_log.csv
 *.docx
 *.pptx
 target/

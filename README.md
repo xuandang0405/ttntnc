@@ -179,7 +179,7 @@ checkpoints/exp_YYYYMMDD_HHMMSS/
 ├── white_<algorithm>.pt
 ├── black_<algorithm>.pt
 ├── metrics.json
-└── training_log.json
+└── training_log.csv
 ```
 
 Ứng dụng cũng tự lưu định kỳ và lưu checkpoint trước khi thoát màn hình huấn luyện bằng `Esc`.
@@ -195,10 +195,10 @@ python src\plot_logging\plot_training.py
 Hoặc chỉ định một log cụ thể:
 
 ```powershell
-python src\plot_logging\plot_training.py checkpoints\exp_YYYYMMDD_HHMMSS\training_log.json
+python src\plot_logging\plot_training.py checkpoints\exp_YYYYMMDD_HHMMSS\training_log.csv
 ```
 
-`training_log.json` lưu loss, reward, entropy, win/draw rate, repetition, độ dài ván, throughput, nguyên nhân hòa và timing từng giai đoạn. `metrics.json` lưu các thống kê tổng hợp của experiment.
+`training_log.csv` lưu loss, reward, entropy, win/draw rate, repetition, độ dài ván, throughput, nguyên nhân hòa và timing từng giai đoạn. `metrics.json` lưu các thống kê tổng hợp của experiment.
 
 ## Native Rust MCTS cho AlphaZero
 

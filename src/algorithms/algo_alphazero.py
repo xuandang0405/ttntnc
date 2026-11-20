@@ -12,7 +12,7 @@ from algorithms.algo_config import (AZ_BATCH, AZ_BUFFER, AZ_C_PUCT, AZ_DIRICHLET
                          AZ_PLAY_SIMULATIONS, AZ_SIMULATIONS, AZ_TEMP_PLIES, AZ_TRAIN_STEPS, AZ_USE_RUST_MCTS,
                          AZ_USE_RUST_SEARCH)
 from config import LR
-from encoding import ACTION_SIZE, encode, legal_moves_map, material_balance
+from encoding import ACTION_SIZE, INPUT_CHANNELS, encode, legal_moves_map, material_balance
 
 try:
     import algorithms_rs
@@ -111,6 +111,14 @@ def _evaluate_encoded(net, states, legal, device, timings):
     logits of legal actions are gathered and soft-maxed, so no 20480-wide
     masked softmax is needed. Returns priors (N, L) float32 and values (N,).
     """
+    if states.ndim != 4 or states.shape[1:] != (INPUT_CHANNELS, 8, 8):
+        raise RuntimeError(
+            f"Native search returned encoded states with shape {states.shape}; "
+            f"expected (N, {INPUT_CHANNELS}, 8, 8). The algorithms_rs extension "
+            "may be stale; rebuild it from src/algorithms-rs with the active "
+            "environment's `python -m pip install .`."
+        )
+
     started = time.perf_counter()
     x = torch.from_numpy(states).to(device)
     idx = torch.from_numpy(legal).to(device).long()

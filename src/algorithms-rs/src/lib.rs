@@ -132,7 +132,7 @@ enum Phase {
 /// ```text
 /// search = BatchSearch(root_fens, move_lists, sims, c_puct, noise_frac, alpha, seed)
 /// while (batch := search.next_batch()) is not None:
-///     states, legal = batch            # (N,44,8,8) f32, (N,L) i32 padded with -1
+///     states, legal = batch            # (N,104,8,8) f32, (N,L) i32 padded with -1
 ///     priors, values = network(states, legal)
 ///     search.submit(priors, values)    # (N,L) f32 softmax over legal, (N,) f32
 /// results = search.results()
@@ -328,7 +328,7 @@ impl PyBatchSearch {
 }
 
 /// Debug/test helper: encode one position exactly as the search does.
-/// Returns `(planes[44,8,8], legal action indices in generation order, uci moves)`.
+/// Returns `(planes[104,8,8], legal action indices in generation order, uci moves)`.
 #[pyfunction]
 #[allow(clippy::type_complexity)]
 fn encode_position<'py>(

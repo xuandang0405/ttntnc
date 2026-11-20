@@ -19,7 +19,8 @@ QUIT_TIMEOUT = 5.0
 
 
 def find_stockfish(path=None):
-    candidates = (path, os.environ.get("STOCKFISH_PATH"), STOCKFISH_PATH)
+    bundled_path = os.path.join(os.path.dirname(__file__), "stockfish.exe")
+    candidates = (path, os.environ.get("STOCKFISH_PATH"), STOCKFISH_PATH, bundled_path)
     for candidate in candidates:
         if not candidate:
             continue
@@ -30,10 +31,10 @@ def find_stockfish(path=None):
         found = shutil.which(name)
         if found:
             return os.path.abspath(found)
+
     raise FileNotFoundError(
-        "Stockfish executable not found. Download it from https://stockfishchess.org/download/ and "
-        "set STOCKFISH_PATH to the .exe (PowerShell: $env:STOCKFISH_PATH = 'C:\\path\\stockfish.exe')."
-        "or copy the excecutable to the current directory (/src/stockfish)."
+        f"Stockfish executable not found. Place a valid Stockfish binary at {bundled_path!r}, "
+        "set STOCKFISH_PATH to its full path, then copy the executable to /src/stockfish."
     )
 
 

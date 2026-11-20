@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 import sys
 import time
@@ -40,7 +41,9 @@ def cmd_train(args):
              else make_agent(args.algorithm, colors[0], device))
     if args.init:
         print(f"continuing from {args.init} ({first.label})")
-    pretrain(first, data, args.epochs, args.batch, args.lr, holdout=args.holdout, seed=args.seed)
+    started = time.time()
+    history = pretrain(first, data, args.epochs, args.batch, args.lr, holdout=args.holdout, seed=args.seed)
+    train_seconds = time.time() - started
 
     out = args.out or os.path.join("checkpoints", time.strftime("stockfish_pretrain_%Y%m%d_%H%M%S"))
     paths = [first.save(out)]
@@ -53,6 +56,29 @@ def cmd_train(args):
         paths.append(other.save(out))
     for p in paths:
         print("saved", p)
+
+    stats = {
+        "created": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "algorithm": args.algorithm,
+        "agent": first.label,
+        "colors": args.color,
+        "init": args.init,
+        "data": args.data,
+        "device": str(device),
+        "positions": int(data.n),
+        "split": getattr(data, "split_info", None),
+        "hyperparameters": {"epochs": args.epochs, "batch": args.batch, "lr": args.lr,
+                            "holdout": args.holdout, "seed": args.seed},
+        "train_seconds": round(train_seconds, 1),
+        "final": history[-1] if history else None,
+        "history": history,
+        "checkpoints": [os.path.basename(p) for p in paths],
+    }
+    for folder in dict.fromkeys(os.path.dirname(os.path.abspath(p)) for p in paths):
+        stats_path = os.path.join(folder, "stats.json")     # next to the .pt file(s)
+        with open(stats_path, "w", encoding="utf-8") as f:
+            json.dump(stats, f, indent=2, default=lambda o: o.item() if hasattr(o, "item") else str(o))
+        print("saved", stats_path)
 
 
 def cmd_inspect(args):

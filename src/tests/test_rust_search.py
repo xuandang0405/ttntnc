@@ -13,7 +13,7 @@ except ImportError:
     algorithms_rs = None
 
 from algorithms import algo_alphazero
-from encoding import ACTION_SIZE, encode, legal_moves_map
+from encoding import ACTION_SIZE, INPUT_CHANNELS, encode, legal_moves_map
 
 HAS_SEARCH = algorithms_rs is not None and hasattr(algorithms_rs, "BatchSearch")
 
@@ -43,6 +43,17 @@ def random_boards(count, seed):
         if b.outcome(claim_draw=True) is None:
             boards.append(b)
     return boards
+
+
+class NativeEncoderCompatibilityTests(unittest.TestCase):
+    def test_rejects_stale_native_encoder_channel_count(self):
+        states = np.zeros((1, 44, 8, 8), dtype=np.float32)
+        legal = np.zeros((1, 1), dtype=np.int32)
+
+        with self.assertRaisesRegex(RuntimeError, f"expected \\(N, {INPUT_CHANNELS}, 8, 8\\)"):
+            algo_alphazero._evaluate_encoded(
+                None, states, legal, torch.device("cpu"), {}
+            )
 
 
 @unittest.skipIf(not HAS_SEARCH, "Rust BatchSearch extension is not installed")

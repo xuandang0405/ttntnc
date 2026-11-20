@@ -1,8 +1,8 @@
 import chess
 
 MAX_PLIES = 300         
-GAMMA = 0.99             
-LR = 3e-4                
+GAMMA = 0.995            
+LR = 1e-4                
 SHAPING = 0.01         
 DRAW_REWARD = 0.0  
 CKPT_DIR = "checkpoints"

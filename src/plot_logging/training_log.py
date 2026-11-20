@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import time
@@ -116,16 +117,21 @@ class TrainingLog:
         title = (f"{experiment.id}: So sánh giữa mô hình Trắng dùng "
                  f"{algorithms.get('White', 'Unknown')} và mô hình Đen dùng "
                  f"{algorithms.get('Black', 'Unknown')}")
-        data = {
+        metadata = {
             "experiment": experiment.id,
             "title": title,
-            "algorithm": algorithm,
+            "algorithm": json.dumps(algorithm, ensure_ascii=False),
             "resumed_from": experiment.resumed_from,
             "started_at": datetime.fromtimestamp(self.started).isoformat(timespec="seconds"),
             "interval_seconds": self.interval,
-            "columns": COLUMNS,
-            "records": self.records,
         }
-        with open(path + ".tmp", "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+        fieldnames = [*metadata, *COLUMNS]
+        with open(path + ".tmp", "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for record in self.records:
+                row = {**metadata, **record}
+                if record.get("timing_profile") is not None:
+                    row["timing_profile"] = json.dumps(record["timing_profile"], ensure_ascii=False)
+                writer.writerow(row)
         os.replace(path + ".tmp", path)

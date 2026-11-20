@@ -1,10 +1,13 @@
 """Tests for the Stockfish teacher and coach. Skipped when no Stockfish executable is found."""
+import json
 import multiprocessing
 import os
 import random
 import tempfile
 import threading
 import unittest
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 import chess
 import numpy as np
@@ -17,6 +20,7 @@ from stockfish.stockfish_coach import StockfishCoach
 from stockfish.stockfish_engine import cp_to_value, find_stockfish, StockfishPool
 from stockfish.stockfish_teacher import (TeacherData, _Rows, evaluate, generate_dataset,
                                          label_position, merge, pretrain)
+from stockfish.pretrain_stockfish import cmd_train
 
 try:
     find_stockfish()
@@ -65,6 +69,62 @@ class ValueCurveTests(unittest.TestCase):
         self.assertEqual(values, sorted(values))
         self.assertAlmostEqual(cp_to_value(0), 0.0)
         self.assertTrue(all(-1.0 <= v <= 1.0 for v in values))
+
+
+class StockfishCheckpointStatsTests(unittest.TestCase):
+    def test_train_writes_stats_next_to_checkpoint(self):
+        history = [{"epoch": 1, "train_loss": 0.25, "top1": 0.5}]
+        with tempfile.TemporaryDirectory() as folder:
+            checkpoint_dir = os.path.join(folder, "checkpoint")
+            agent = Mock()
+            agent.algorithm = "a2c"
+            agent.opt.param_groups = [{"lr": 0.001}]
+            agent.save.side_effect = lambda directory: (
+                os.makedirs(directory, exist_ok=True) or os.path.join(directory, "white_a2c.pt"))
+            args = SimpleNamespace(
+                device="cpu", color="white", init=None, algorithm="A2C", data="teacher.npz",
+                epochs=1, batch=32, lr=0.001, holdout=0.1, seed=7, out=checkpoint_dir,
+            )
+            data = Mock(n=128)
+            data.split_info = {"train": 120, "test": 8}
+            with patch("algorithms.algorithms.make_agent", return_value=agent), \
+                    patch("stockfish.stockfish_teacher.TeacherData.load", return_value=data), \
+                    patch("stockfish.stockfish_teacher.pretrain", return_value=history):
+                cmd_train(args)
+
+            with open(os.path.join(checkpoint_dir, "stats.json"), encoding="utf-8") as f:
+                stats = json.load(f)
+            self.assertEqual(stats["source"], "stockfish")
+            self.assertEqual(stats["history"], history)
+            self.assertEqual(stats["positions"], 128)
+            self.assertEqual(stats["split"], data.split_info)
+            agent.save.assert_called_once_with(checkpoint_dir)
+
+
+class FindStockfishTests(unittest.TestCase):
+    def test_discovers_executable_in_stockfish_package_directory(self):
+        import stockfish.stockfish_engine as engine_module
+
+        with tempfile.TemporaryDirectory() as folder:
+            executable = os.path.join(folder, "stockfish.exe")
+            with open(executable, "wb"):
+                pass
+            with patch.object(engine_module, "__file__", os.path.join(folder, "stockfish_engine.py")), \
+                 patch.object(engine_module, "STOCKFISH_PATH", ""), \
+                 patch.dict(os.environ, {"STOCKFISH_PATH": ""}), \
+                 patch.object(engine_module.shutil, "which", return_value=None):
+                self.assertEqual(find_stockfish(), os.path.abspath(executable))
+
+    def test_missing_executable_error_includes_bundled_path(self):
+        import stockfish.stockfish_engine as engine_module
+
+        with tempfile.TemporaryDirectory() as folder:
+            with patch.object(engine_module, "__file__", os.path.join(folder, "stockfish_engine.py")), \
+                 patch.object(engine_module, "STOCKFISH_PATH", ""), \
+                 patch.dict(os.environ, {"STOCKFISH_PATH": ""}), \
+                 patch.object(engine_module.shutil, "which", return_value=None):
+                with self.assertRaisesRegex(FileNotFoundError, "Place a valid Stockfish binary at"):
+                    find_stockfish()
 
 
 class WorkerShutdownTests(unittest.TestCase):

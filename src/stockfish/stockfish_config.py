@@ -5,7 +5,7 @@ STOCKFISH_PATH = os.environ.get("STOCKFISH_PATH", "")
 STOCKFISH_HASH_MB = 16
 
 # coach: Stockfish evaluation as the reward-shaping potential 
-_coach = os.environ.get("CHESS_AI_STOCKFISH_COACH", "0").strip().lower()
+_coach = os.environ.get("CHESS_AI_STOCKFISH_COACH", "1").strip().lower()
 if _coach not in {"0", "1"}:
     raise ValueError("CHESS_AI_STOCKFISH_COACH must be set to '0' or '1'")
 COACH_ENABLED = _coach == "1"

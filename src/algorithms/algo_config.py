@@ -1,45 +1,63 @@
+
 import os
 
-# shared
+# Shared
 MAX_GRAD_NORM = 1.0
-ENTROPY_COEF = 0.01        # A2C / PPO entropy bonus (raise if policies collapse to one line)
+ENTROPY_COEF = 0.015
 
 # PPO
 PPO_CLIP = 0.2
-PPO_EPOCHS = 4             # passes over the collected games per update
+PPO_EPOCHS = 6
 PPO_MINIBATCH = 256
 GAE_LAMBDA = 0.95
 
-# DQN (double DQN with a replay buffer and a target network)
-DQN_BUFFER = 10000         # replay transitions kept
-DQN_BATCH = 64
-DQN_WARMUP = 1000          # transitions collected before learning starts
-DQN_TARGET_SYNC = 500      # gradient steps between target-network copies
-DQN_TRAIN_EVERY = 8        # one gradient step per this many new transitions
-DQN_EPS_START = 1.0        # epsilon-greedy exploration, decayed linearly
+# DQN
+DQN_BUFFER = 50000
+DQN_BATCH = 128
+DQN_WARMUP = 3000
+DQN_TARGET_SYNC = 1000
+DQN_TRAIN_EVERY = 4
+
+DQN_EPS_START = 1.0
 DQN_EPS_END = 0.05
-DQN_EPS_DECAY_STEPS = 20000
-DQN_PLAY_TEMPERATURE = 0.1  # "Sampled" style at play time samples softmax(Q / T)
+DQN_EPS_DECAY_STEPS = 100000
 
-# AlphaZero (MCTS + policy/value network)
-AZ_SIMULATIONS = 32        # MCTS simulations per move during self-play
-AZ_PLAY_SIMULATIONS = 64   # ... when a human / other agent plays against the model
+DQN_PLAY_TEMPERATURE = 0.1
+
+# AlphaZero
+AZ_SIMULATIONS = 128
+AZ_PLAY_SIMULATIONS = 256
 AZ_C_PUCT = 1.5
-AZ_DIRICHLET_ALPHA = 0.3   # root exploration noise (self-play only)
-AZ_NOISE_FRAC = 0.25
-AZ_TEMP_PLIES = 30         # sample moves by visit count for this many plies, then pick the best
-AZ_BUFFER = 10000          # training positions kept
-AZ_BATCH = 32
-AZ_TRAIN_STEPS = 10        # gradient steps per update
-AZ_MIN_SAMPLES = 256       # positions needed before the first update
 
-_RUST_MCTS_SETTING = os.environ.get("CHESS_AI_RUST_MCTS", "1").strip().lower()
+AZ_DIRICHLET_ALPHA = 0.3
+AZ_NOISE_FRAC = 0.25
+AZ_TEMP_PLIES = 30
+
+AZ_BUFFER = 50000
+AZ_BATCH = 64
+AZ_TRAIN_STEPS = 20
+AZ_MIN_SAMPLES = 512
+
+# Rust MCTS
+_RUST_MCTS_SETTING = os.environ.get(
+    "CHESS_AI_RUST_MCTS", "1"
+).strip().lower()
+
 if _RUST_MCTS_SETTING not in {"0", "1"}:
-    raise ValueError("CHESS_AI_RUST_MCTS must be set to '0' or '1'")
+    raise ValueError(
+        "CHESS_AI_RUST_MCTS must be set to '0' or '1'"
+    )
+
 AZ_USE_RUST_MCTS = _RUST_MCTS_SETTING == "1"
 
-# Full native search (chess rules + encoding + MCTS in Rust; Python only runs the network).
-_RUST_SEARCH_SETTING = os.environ.get("CHESS_AI_RUST_SEARCH", "1").strip().lower()
+# Full native search
+_RUST_SEARCH_SETTING = os.environ.get(
+    "CHESS_AI_RUST_SEARCH", "1"
+).strip().lower()
+
 if _RUST_SEARCH_SETTING not in {"0", "1"}:
-    raise ValueError("CHESS_AI_RUST_SEARCH must be set to '0' or '1'")
+    raise ValueError(
+        "CHESS_AI_RUST_SEARCH must be set to '0' or '1'"
+    )
+
 AZ_USE_RUST_SEARCH = _RUST_SEARCH_SETTING == "1"

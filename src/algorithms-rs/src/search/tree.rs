@@ -7,7 +7,7 @@ use rand_distr::{Distribution, Gamma};
 use shakmaty::uci::UciMove;
 use shakmaty::{Board, CastlingMode, Chess, Move, Position};
 
-use super::encode::{encode_into, move_to_index, STATE_LEN};
+use super::encode::{encode_into, move_to_index, HISTORY_LENGTH, STATE_LEN};
 use super::rules::{position_key, terminal_value};
 
 const TERM_UNKNOWN: i8 = 2;
@@ -41,7 +41,7 @@ impl Node {
 /// Game history before the search root.
 pub struct Game {
     pub root: Chess,
-    /// Up to two positions before the root, oldest first.
+    /// Up to `HISTORY_LENGTH - 1` positions before the root, oldest first.
     pub prior_boards: Vec<Board>,
     /// Zobrist keys of every position from the game start up to and including the root.
     pub keys: Vec<u64>,
@@ -64,7 +64,7 @@ impl Game {
         }
         // `boards` holds every position; the root is the last one.
         let n = boards.len();
-        let prior_boards = boards[n.saturating_sub(3)..n - 1].to_vec();
+        let prior_boards = boards[n.saturating_sub(HISTORY_LENGTH)..n - 1].to_vec();
         // Rebuild the root as the position after all moves (`pos`).
         Ok(Game {
             root: pos,
@@ -156,8 +156,8 @@ impl Tree {
             recent.push(pos.board().clone());
             ext_keys.push(position_key(&pos));
         }
-        if recent.len() > 3 {
-            recent.drain(..recent.len() - 3);
+        if recent.len() > HISTORY_LENGTH {
+            recent.drain(..recent.len() - HISTORY_LENGTH);
         }
 
         // Keys since the last zeroing move (window of `halfmoves + 1` positions).

@@ -119,5 +119,5 @@ class Experiment:
         os.replace(out + ".tmp", out)
  
         game.log.maybe_record(game, force=True) 
-        game.log.save(os.path.join(self.dir, "training_log.json"), self, {"algorithms": algorithms})
+        game.log.save(os.path.join(self.dir, "training_log.csv"), self, {"algorithms": algorithms})
         return metrics

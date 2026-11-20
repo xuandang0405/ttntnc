@@ -3,7 +3,7 @@
 use shakmaty::uci::UciMove;
 use shakmaty::{Board, CastlingSide, Chess, Color, EnPassantMode, Move, Piece, Position, Role};
 
-pub const HISTORY_LENGTH: usize = 3;
+pub const HISTORY_LENGTH: usize = 4;
 pub const PIECE_PLANES: usize = 12;
 pub const META_PLANES: usize = 8;
 pub const CHANNELS: usize = HISTORY_LENGTH * PIECE_PLANES + META_PLANES;

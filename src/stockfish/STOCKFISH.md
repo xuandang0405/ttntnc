@@ -1,7 +1,7 @@
 # Giáo viên và Huấn luyện viên Stockfish (Stockfish Teacher and Coach)
 
 Cần một tệp thực thi Stockfish (tải tại https://stockfishchess.org/download/):
-`$env:STOCKFISH_PATH = "C:\path\stockfish.exe"` (hoặc thêm tệp stockfish.exe vào src/stockfish).
+`$env:STOCKFISH_PATH = "<your path to Stockfish executable>` và copy tệp thực thi vào trong `/src/stockfish`.
 Tệp thực thi phải là bản native và chạy được ở chế độ UCI. Ứng dụng không tự tải hoặc sao chép các tệp nhị phân Stockfish.
 
 Chạy các lệnh của teacher từ thư mục gốc của repository:
@@ -24,6 +24,7 @@ python -m stockfish.pretrain_stockfish generate --out ..\data\sf.npz --games 800
 Các checkpoint (`white_alphazero.pt`, ...) được tải vào ứng dụng giống như mọi mô hình khác.
 Tham số `--init file.pt` dùng để tiếp tục huấn luyện từ một checkpoint có sẵn (thực hiện từng màu quân một).
 Hãy dùng hàng chục nghìn thế cờ trở lên: trong một thử nghiệm nhỏ, đầu ra giá trị (value head) học khá nhanh, nhưng độ khớp nước đi (move agreement) đòi hỏi nhiều dữ liệu hơn đáng kể. DQN được huấn luyện bằng phương pháp hồi quy giá trị Q trên các nước đi ứng viên của Stockfish, kết hợp với một cận (bound) áp dụng cho tất cả các nước đi hợp lệ còn lại.
+Mỗi lần lệnh `train` lưu checkpoint, thư mục chứa các tệp `.pt` cũng nhận một `stats.json` với thống kê từng epoch, cấu hình huấn luyện và thông tin tập dữ liệu.
 
 ## Coach: Đánh giá của Stockfish làm thế năng tạo thưởng (Reward-shaping potential)
 
