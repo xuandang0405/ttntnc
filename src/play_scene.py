@@ -1,4 +1,6 @@
 """Playing a game: human vs human, human vs model, or model vs model."""
+import os
+
 import chess
 import pygame
 
@@ -6,6 +8,7 @@ from config import AI_MOVE_DELAY, BG, MAX_AI_PLIES, BOARD_PX
 from match import Match
 from players import make_player
 from normal_mode.renderer import draw_board, draw_play_panel, px_to_sq
+from plot_logging.game_record import GameResultRecorder
 from scene import Scene
 from ui import GameOverPopup, Button
 
@@ -17,6 +20,9 @@ class PlayScene(Scene):
         super().__init__(fonts)
         self.specs, self.greedy, self.lookahead = (white_spec, black_spec), greedy, lookahead
         self.ai_delay = AI_MOVE_DELAY
+        self.recording = False
+        self.result_recorder = None
+        self.record_status = ""
         self.new_match()
 
     def new_match(self):
@@ -24,10 +30,12 @@ class PlayScene(Scene):
         black = make_player(self.specs[1], chess.BLACK, self.greedy, self.lookahead)
         humans = [p.is_human for p in (white, black)]
         self.match = Match(white, black, max_plies=None if any(humans) else MAX_AI_PLIES)
+        self.recording_allowed = sum(humans) < 2
         self.flipped = humans == [False, True]       # human plays Black -> Black at the bottom
         self.selected, self.targets = None, ()
         self.promotion = None       
         self.popup = None
+        self.recorded_current_game = False
         self.last_ai_move = pygame.time.get_ticks()
 
     def handle_promotion(self, e):
@@ -43,6 +51,9 @@ class PlayScene(Scene):
 
     # input
     def handle_event(self, e):
+        if e.type == pygame.KEYDOWN and e.key in (pygame.K_r, pygame.K_x, pygame.K_s):
+            self.handle_recording_key(e.key)
+            return
         if self.popup:
             action = self.popup.handle_event(e)
             if action == "rematch":
@@ -91,7 +102,65 @@ class PlayScene(Scene):
         self.match.push(move)
         self.last_ai_move = pygame.time.get_ticks()
         if self.match.result:
-            self.popup = self.make_popup()
+            if self.recording and self.result_recorder:
+                self.record_current_result()
+                self.start_next_recorded_game()
+            else:
+                self.popup = self.make_popup()
+
+    def start_next_recorded_game(self):
+        white = make_player(self.specs[0], chess.WHITE, self.greedy, self.lookahead)
+        black = make_player(self.specs[1], chess.BLACK, self.greedy, self.lookahead)
+        humans = [p.is_human for p in (white, black)]
+        self.match = Match(white, black, max_plies=None if any(humans) else MAX_AI_PLIES)
+        self.selected, self.targets = None, ()
+        self.promotion = None
+        self.popup = None
+        self.recorded_current_game = False
+        self.last_ai_move = pygame.time.get_ticks()
+
+    def handle_recording_key(self, key):
+        if not self.recording_allowed:
+            return
+        if key == pygame.K_r:
+            if self.result_recorder is None:
+                humans = self.match.humans()
+                mode = "human_vs_ai" if humans else "ai_vs_ai"
+                self.result_recorder = GameResultRecorder(
+                    mode, self.match.white.name, self.match.black.name)
+            self.recording = True
+            self.record_status = "Đang ghi kết quả (R ghi, X dừng, S lưu)"
+            if self.match.result:
+                self.record_current_result()
+                self.start_next_recorded_game()
+        elif key == pygame.K_x:
+            if self.recording:
+                self.recording = False
+                if self.save_results():
+                    self.record_status = "Đã dừng ghi; kết quả đã lưu vẫn được giữ lại"
+        elif key == pygame.K_s:
+            if self.result_recorder:
+                self.save_results()
+            else:
+                self.record_status = "Chưa có dữ liệu ghi để lưu"
+
+    def record_current_result(self):
+        if self.recorded_current_game or not self.result_recorder or not self.match.result:
+            return
+        self.result_recorder.record_result(self.match.result)
+        self.recorded_current_game = True
+        self.save_results()
+
+    def save_results(self):
+        try:
+            self.result_recorder.save()
+        except OSError as ex:
+            self.record_status = f"Lỗi lưu kết quả: {ex}"
+            print(f"Không thể lưu kết quả ván đấu: {ex}")
+            return False
+        else:
+            self.record_status = f"Đã lưu: {os.path.basename(self.result_recorder.path)}"
+            return True
 
     def go_menu(self):
         from menu_scene import MenuScene   # local import avoids a circular dependency
@@ -111,6 +180,12 @@ class PlayScene(Scene):
 
     # loop
     def update(self):
+        if self.recording and self.result_recorder:
+            try:
+                if self.result_recorder.save_if_due():
+                    self.record_status = f"Đã tự lưu: {os.path.basename(self.result_recorder.path)}"
+            except OSError as ex:
+                self.record_status = f"Lỗi lưu kết quả: {ex}"
         if self.popup:
             return
         player = self.match.current_player()
@@ -124,6 +199,8 @@ class PlayScene(Scene):
         draw_board(screen, self.fonts, self.match.board, self.match.last_move,
                    self.flipped, self.selected, self.targets)
         hints = ["ESC: về menu"]
+        if self.recording_allowed:
+            hints.append(self.record_status or "R ghi kết quả   X dừng   S lưu")
         if self.match.humans():
             hints.insert(0, "Chọn quân cờ, sau đó chọn ô màu xanh")
         if len(self.match.humans()) < 2:
@@ -139,3 +216,7 @@ class PlayScene(Scene):
                 button.draw(screen, self.fonts["main"])
         if self.popup:
             self.popup.draw(screen, self.fonts)
+
+    def on_exit(self):
+        if self.result_recorder and self.result_recorder.games:
+            self.save_results()

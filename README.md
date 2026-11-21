@@ -31,6 +31,13 @@ Mã nguồn hiện tại nằm trong `src/`. Các agent dùng cùng mạng polic
 - Chơi với người chơi ngẫu nhiên khi không chọn mô hình
 - Chọn nước đi theo xác suất (**Sampling**) hoặc theo điểm cao nhất (**Greedy**)
 - **Opponent-aware lookahead** để dự đoán các nước đáp trả có khả năng cao
+- Ghi kết quả Người vs AI / AI vs AI: nhấn `R` để bắt đầu, `X` để dừng (không xóa kết quả đã ghi), `S` để lưu; kết quả được lưu sau mỗi ván và tự lưu mỗi 2 phút vào `checkpoints/game_records/`
+- Vẽ biểu đồ kết quả từ JSON:
+
+  ```powershell
+  python src\plot_logging\record_plot.py
+  python src\plot_logging\record_plot.py checkpoints\game_records\game_results_YYYYMMDD_HHMMSS_ffffff.json
+  ```
 
 ### Huấn luyện
 
