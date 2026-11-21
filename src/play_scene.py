@@ -10,7 +10,7 @@ from players import make_player
 from normal_mode.renderer import draw_board, draw_play_panel, px_to_sq
 from plot_logging.game_record import GameResultRecorder
 from scene import Scene
-from ui import GameOverPopup, Button
+from ui import GameModePopup, GameOverPopup, Button
 
 GREEN, RED, GREY = (90, 200, 120), (230, 90, 90), (190, 190, 200)
 PROMOTION_CHOICES = [(chess.QUEEN, "Queen"), (chess.ROOK, "Rook"), (chess.BISHOP, "Bishop"), (chess.KNIGHT, "Knight")]
@@ -23,6 +23,7 @@ class PlayScene(Scene):
         self.recording = False
         self.result_recorder = None
         self.record_status = ""
+        self.recording_popup = None
         self.new_match()
 
     def new_match(self):
@@ -51,8 +52,24 @@ class PlayScene(Scene):
 
     # input
     def handle_event(self, e):
+        if self.recording_popup:
+            action = self.recording_popup.handle_event(e)
+            if action == "single":
+                self.recording_popup = None
+                self.handle_recording_key(pygame.K_r)
+            elif action == "multiple":
+                self.recording_popup = None
+                from concurrent_mode.concurrent_test_scene import ConcurrentAITestScene
+                self.next = ConcurrentAITestScene(
+                    self.fonts, self.specs[0], self.specs[1], self.greedy, self.lookahead)
+            elif action == "cancel":
+                self.recording_popup = None
+            return
         if e.type == pygame.KEYDOWN and e.key in (pygame.K_r, pygame.K_x, pygame.K_s):
-            self.handle_recording_key(e.key)
+            if e.key == pygame.K_r and self.recording_allowed and not self.match.humans():
+                self.recording_popup = GameModePopup()
+            else:
+                self.handle_recording_key(e.key)
             return
         if self.popup:
             action = self.popup.handle_event(e)
@@ -116,6 +133,8 @@ class PlayScene(Scene):
         self.selected, self.targets = None, ()
         self.promotion = None
         self.popup = None
+        self.recording_popup = None
+        self.recording_popup = None
         self.recorded_current_game = False
         self.last_ai_move = pygame.time.get_ticks()
 
@@ -200,7 +219,9 @@ class PlayScene(Scene):
                    self.flipped, self.selected, self.targets)
         hints = ["ESC: về menu"]
         if self.recording_allowed:
-            hints.append(self.record_status or "R ghi kết quả   X dừng   S lưu")
+            default_record_hint = ("R chọn chế độ đấu AI" if not self.match.humans()
+                                   else "R ghi kết quả   X dừng   S lưu")
+            hints.append(self.record_status or default_record_hint)
         if self.match.humans():
             hints.insert(0, "Chọn quân cờ, sau đó chọn ô màu xanh")
         if len(self.match.humans()) < 2:
@@ -216,6 +237,8 @@ class PlayScene(Scene):
                 button.draw(screen, self.fonts["main"])
         if self.popup:
             self.popup.draw(screen, self.fonts)
+        if self.recording_popup:
+            self.recording_popup.draw(screen, self.fonts)
 
     def on_exit(self):
         if self.result_recorder and self.result_recorder.games:

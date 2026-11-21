@@ -1,4 +1,5 @@
 import math
+import weakref
 
 import chess
 import pygame
@@ -8,6 +9,7 @@ from normal_mode.renderer import _panel, get_texture
 
 _scaled = {} 
 _fonts = {}   
+_board_surfaces = weakref.WeakKeyDictionary()
 
 
 def _texture(piece, size):
@@ -76,7 +78,17 @@ def draw_games_grid(screen, fonts, slots):
     for i, slot in enumerate(slots):
         r, c = divmod(i, cols)
         origin = (x_off + c * cell + pad, y_off + r * cell + pad)
-        draw_small_board(screen, slot.board, slot.last_move, origin, size, fonts, coords=size >= 300)
+        board = slot.board
+        signature = (size, len(board.move_stack), slot.last_move, board.turn, board.is_check())
+        cached = _board_surfaces.get(slot)
+        if cached is None or cached[0] != signature:
+            surface = pygame.Surface((size, size))
+            draw_small_board(
+                surface, board, slot.last_move, (0, 0), size, fonts, coords=size >= 300)
+            _board_surfaces[slot] = (signature, surface)
+        else:
+            surface = cached[1]
+        screen.blit(surface, origin)
         pygame.draw.rect(screen, (15, 15, 18), (*origin, size, size), 2)
 
 

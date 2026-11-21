@@ -1,0 +1,1944 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "AlphaZero (white_alphazero.pt)",
+    "black": "Random mover"
+  },
+  "started_at": "2026-11-21T16:12:10",
+  "updated_at": "2026-11-21T16:15:09",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 100,
+      "losses": 0,
+      "draws": 28
+    },
+    "black": {
+      "wins": 0,
+      "losses": 100,
+      "draws": 28
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-21T16:12:17",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-21T16:12:23",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-21T16:12:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-21T16:12:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-21T16:12:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-21T16:12:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-21T16:12:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-21T16:12:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-21T16:12:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-21T16:12:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-21T16:12:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-21T16:12:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-21T16:12:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-21T16:12:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-21T16:12:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-21T16:12:41",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-21T16:12:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-21T16:12:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-21T16:12:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-21T16:12:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-21T16:12:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-21T16:12:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-21T16:12:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-21T16:12:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-21T16:12:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-21T16:12:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-21T16:12:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-21T16:12:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-21T16:12:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-21T16:12:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-21T16:12:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-21T16:12:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-21T16:12:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-21T16:12:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-21T16:12:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-21T16:12:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-21T16:12:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-21T16:12:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-21T16:12:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-21T16:12:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-21T16:12:57",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-21T16:12:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-21T16:13:00",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-21T16:13:00",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-21T16:13:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-21T16:13:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-21T16:13:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-21T16:13:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-21T16:13:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-21T16:13:04",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-21T16:13:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-21T16:13:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-21T16:13:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-21T16:13:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-21T16:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-21T16:13:11",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-21T16:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-21T16:13:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-21T16:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-21T16:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-21T16:13:17",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-21T16:13:18",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-21T16:13:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-21T16:13:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-21T16:13:20",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-21T16:13:20",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-21T16:13:20",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-21T16:13:20",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-21T16:13:22",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-21T16:13:22",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-21T16:13:22",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-21T16:13:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-21T16:13:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-21T16:13:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-21T16:13:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-21T16:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-21T16:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-21T16:13:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-21T16:13:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-21T16:13:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-21T16:13:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-21T16:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-21T16:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-21T16:13:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-21T16:13:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-21T16:13:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-21T16:13:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-21T16:13:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-21T16:13:36",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-21T16:13:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-21T16:13:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-21T16:13:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-21T16:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-21T16:13:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-21T16:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-21T16:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-21T16:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-21T16:13:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-21T16:13:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-21T16:13:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-21T16:13:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-21T16:13:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-21T16:13:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-21T16:13:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-21T16:13:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-21T16:13:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-21T16:14:00",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-21T16:14:04",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-21T16:14:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-21T16:14:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-21T16:14:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-21T16:14:10",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-21T16:14:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-21T16:14:15",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-21T16:14:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-21T16:14:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    }
+  ]
+}

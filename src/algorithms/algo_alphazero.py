@@ -451,13 +451,29 @@ class AlphaZeroAgent(BaseAgent):
                          grad_norm, update_norm)
 
     def select_move(self, board, greedy=False):
-        idxs, visits, mmap = run_mcts(self.net, [board], AZ_PLAY_SIMULATIONS, self.device, noise=False)[0]
-        if not idxs:
-            raise RuntimeError("Cannot select a move from a terminal chess position")
-        if greedy:
-            choice = int(np.argmax(visits))
-        else:
-            total = float(visits.sum())
-            probs = visits / total if total > 0 else np.full(len(visits), 1.0 / len(visits))
-            choice = int(np.random.choice(len(idxs), p=probs))
-        return mmap[idxs[choice]]
+        return self.select_moves([board], greedy)[0]
+
+    @torch.inference_mode()
+    def select_moves(self, boards, greedy=False):
+        if not boards:
+            return []
+
+        was_training = self.net.training
+        self.net.eval()
+        try:
+            results = run_mcts(
+                self.net, boards, AZ_PLAY_SIMULATIONS, self.device, noise=False)
+            selected = []
+            for idxs, visits, mmap in results:
+                if not idxs:
+                    raise RuntimeError("Cannot select a move from a terminal chess position")
+                if greedy:
+                    choice = int(np.argmax(visits))
+                else:
+                    total = float(visits.sum())
+                    probs = visits / total if total > 0 else np.full(len(visits), 1.0 / len(visits))
+                    choice = int(np.random.choice(len(idxs), p=probs))
+                selected.append(mmap[idxs[choice]])
+            return selected
+        finally:
+            self.net.train(was_training)

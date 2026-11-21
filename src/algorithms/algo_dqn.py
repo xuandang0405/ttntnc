@@ -7,21 +7,44 @@ import torch.nn.functional as F
 
 from algorithms.algo_base import BaseAgent
 from algorithms.algo_config import (DQN_BATCH, DQN_BUFFER, DQN_EPS_DECAY_STEPS, DQN_EPS_END, DQN_EPS_START,
-                         DQN_PLAY_TEMPERATURE, DQN_TARGET_SYNC, DQN_TRAIN_EVERY, DQN_WARMUP)
+                         DQN_PLAY_TEMPERATURE, DQN_TARGET_SYNC, DQN_TRAIN_EVERY, DQN_WARMUP, USE_RUST_RL)
 from config import GAMMA
-from encoding import legal_moves_map, encode, material_balance
+from encoding import ACTION_SIZE, INPUT_CHANNELS, legal_moves_map, encode, material_balance
 
 
 class DQNAgent(BaseAgent):
     algorithm = "dqn"
     label = "DQN"
+    play_temperature = DQN_PLAY_TEMPERATURE
  
     def __init__(self, color, name, device, episodes_per_update=1):
         super().__init__(color, name, device, episodes_per_update)
         self.target = copy.deepcopy(self.net)
         self.replay, self.replay_pos = [], 0
-        self.act_steps = 0          # moves chosen so far (drives epsilon)
+        self._act_steps = 0         # moves chosen so far (drives epsilon); lives in Rust when `core` is set
         self.n_updates = 0          # gradient steps taken
+        self.core = None
+        if USE_RUST_RL:             # replay buffer, epsilon-greedy and minibatch assembly run natively
+            self.core = self.native_core(
+                "DqnCore", self.state_dim(), ACTION_SIZE, DQN_BUFFER, DQN_BATCH, DQN_WARMUP, DQN_TRAIN_EVERY,
+                DQN_EPS_START, DQN_EPS_END, float(DQN_EPS_DECAY_STEPS),
+                int(np.random.randint(0, 2 ** 62, dtype=np.int64)))
+
+    @property
+    def act_steps(self):
+        return self.core.act_steps if self.core is not None else self._act_steps
+
+    @act_steps.setter
+    def act_steps(self, value):
+        if self.core is not None:
+            self.core.act_steps = int(value)
+        else:
+            self._act_steps = int(value)
+
+    def reset_episode(self):
+        super().reset_episode()
+        if self.core is not None:
+            self.core.clear_episodes()
  
     def hyperparameters(self):
         return {"gamma": GAMMA, "buffer": DQN_BUFFER, "batch": DQN_BATCH, "warmup": DQN_WARMUP,
@@ -43,6 +66,8 @@ class DQNAgent(BaseAgent):
 
     @torch.no_grad()
     def act_batch(self, game_ids, boards):
+        if self.core is not None:
+            return self._act_batch_native(game_ids, boards)
         self.prefetch_balances(boards)
         with self._profile("action_prepare"):
             maps, mask = self.legal_batch(boards)
@@ -67,7 +92,37 @@ class DQNAgent(BaseAgent):
         self.act_steps += len(boards)
         return moves
  
+    def _act_batch_native(self, game_ids, boards):
+        self.prefetch_balances(boards)
+        with self._profile("action_prepare"):
+            maps = [legal_moves_map(b, self.color) for b in boards]
+            legal = self.legal_padded([list(m) for m in maps])
+            states = self.encode_boards(boards)
+        with self._profile("action_inference"):
+            q, _ = self.net(states.to(self.device))
+            q = self.gather_legal(q, legal)             # only legal Q-values cross to the CPU
+        with self._profile("action_select"):
+            ids = [int(g) for g in game_ids]
+            actions = self.core.act(ids, self.flat_states(states), q, legal)
+            moves = []
+            for i, (g, board) in enumerate(zip(ids, boards)):
+                self.eps.setdefault(g, {"bal": []})["bal"].append(self.balance_of(board))
+                moves.append(maps[i][int(actions[i])])
+        return moves
+
+    def _finish_native(self, game_id, final_balance, terminal):
+        ep = self.eps.pop(game_id, None)
+        if not ep or not ep["bal"]:
+            return
+        with self._profile("episode_prepare"):
+            rewards = self._rewards(ep["bal"], final_balance, terminal)
+            due = self.core.finish_episode(int(game_id), [float(r) for r in rewards])
+        for _ in range(due):                     # 0 until the buffer reaches DQN_WARMUP
+            self.update()
+
     def finish_episode(self, game_id, final_balance, terminal):
+        if self.core is not None:
+            return self._finish_native(game_id, final_balance, terminal)
         ep = self.eps.pop(game_id, None)
         if not ep or not ep["a"]:
             return
@@ -92,17 +147,28 @@ class DQNAgent(BaseAgent):
  
     def update(self):
         dev = self.device
-        with self._profile("replay_sample"):
-            batch = random.sample(self.replay, min(DQN_BATCH, len(self.replay)))
-        with self._profile("batch_prepare"):
-            s = torch.from_numpy(np.stack([t[0] for t in batch])).float().to(dev)
-            a = torch.tensor([t[1] for t in batch], dtype=torch.long, device=dev)
-            r = torch.tensor([t[2] for t in batch], dtype=torch.float32, device=dev)
-            s2 = torch.from_numpy(np.stack([t[3] for t in batch])).float().to(dev)
-            done = torch.tensor([float(t[5]) for t in batch], dtype=torch.float32, device=dev)
-            mask2 = torch.from_numpy(self.mask_from_legal([t[4] for t in batch])).to(dev)
-            mask1 = torch.from_numpy(self.mask_from_legal([t[6] for t in batch])).to(dev)
- 
+        if self.core is not None:
+            with self._profile("replay_sample"):
+                arrays = self.core.sample()
+            with self._profile("batch_prepare"):
+                s, a, r, s2, done, mask2, mask1 = (torch.from_numpy(x).to(dev) for x in arrays)
+                s = s.view(-1, INPUT_CHANNELS, 8, 8)
+                s2 = s2.view(-1, INPUT_CHANNELS, 8, 8)
+                a = a.long()
+        else:
+            with self._profile("replay_sample"):
+                batch = random.sample(self.replay, min(DQN_BATCH, len(self.replay)))
+            with self._profile("batch_prepare"):
+                s = torch.from_numpy(np.stack([t[0] for t in batch])).float().to(dev)
+                a = torch.tensor([t[1] for t in batch], dtype=torch.long, device=dev)
+                r = torch.tensor([t[2] for t in batch], dtype=torch.float32, device=dev)
+                s2 = torch.from_numpy(np.stack([t[3] for t in batch])).float().to(dev)
+                done = torch.tensor([float(t[5]) for t in batch], dtype=torch.float32, device=dev)
+                mask2 = torch.from_numpy(self.mask_from_legal([t[4] for t in batch])).to(dev)
+                mask1 = torch.from_numpy(self.mask_from_legal([t[6] for t in batch])).to(dev)
+        self._train_step(s, a, r, s2, done, mask2, mask1)
+
+    def _train_step(self, s, a, r, s2, done, mask2, mask1):
         with self._profile("train_forward"):
             q_all, _ = self.net(s)
             q = q_all.gather(1, a[:, None]).squeeze(1)

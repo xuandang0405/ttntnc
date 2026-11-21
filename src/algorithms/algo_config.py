@@ -61,3 +61,15 @@ if _RUST_SEARCH_SETTING not in {"0", "1"}:
     )
 
 AZ_USE_RUST_SEARCH = _RUST_SEARCH_SETTING == "1"
+
+# Native DQN / PPO / A2C (replay, rollouts, GAE, sampling, masks in Rust)
+_RUST_RL_SETTING = os.environ.get(
+    "CHESS_AI_RUST_RL", "1"
+).strip().lower()
+
+if _RUST_RL_SETTING not in {"0", "1"}:
+    raise ValueError(
+        "CHESS_AI_RUST_RL must be set to '0' or '1'"
+    )
+
+USE_RUST_RL = _RUST_RL_SETTING == "1"
