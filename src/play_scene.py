@@ -224,6 +224,9 @@ class PlayScene(Scene):
             hints.append(self.record_status or default_record_hint)
         if self.match.humans():
             hints.insert(0, "Chọn quân cờ, sau đó chọn ô màu xanh")
+        if self.result_recorder:
+            hints.insert(0, f"Elo Trắng {self.result_recorder.ratings['white']:.0f} / "
+                             f"Đen {self.result_recorder.ratings['black']:.0f}")
         if len(self.match.humans()) < 2:
             hints.insert(0, f"UP/DOWN: AI delay ({self.ai_delay} ms)")
         draw_play_panel(screen, self.fonts, self.match, hints)

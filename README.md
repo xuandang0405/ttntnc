@@ -31,7 +31,7 @@ Mã nguồn hiện tại nằm trong `src/`. Các agent dùng cùng mạng polic
 - Chơi với người chơi ngẫu nhiên khi không chọn mô hình
 - Chọn nước đi theo xác suất (**Sampling**) hoặc theo điểm cao nhất (**Greedy**)
 - **Opponent-aware lookahead** để dự đoán các nước đáp trả có khả năng cao
-- Ghi kết quả Người vs AI: nhấn `R` để bắt đầu, `X` để dừng (không xóa kết quả đã ghi), `S` để lưu; kết quả tự lưu mỗi 2 phút vào `checkpoints/game_records/`. Với AI vs AI, nhấn `R` để chọn đấu một ván hoặc kiểm thử `NUM_GAMES` ván đồng thời; kết quả được lưu sau mỗi ván.
+- Ghi kết quả Người vs AI: nhấn `R` để bắt đầu, `X` để dừng (không xóa kết quả đã ghi), `S` để lưu; kết quả tự lưu mỗi 2 phút vào `checkpoints/game_records/`. Với AI vs AI, nhấn `R` để chọn đấu một ván hoặc kiểm thử `NUM_GAMES` ván đồng thời; kết quả được lưu sau mỗi ván. Các ván được ghi sẽ cập nhật Elo từ 1200 (K=32), hiển thị trong giao diện và lưu cùng dữ liệu kết quả.
 - Vẽ biểu đồ kết quả từ JSON:
 
   ```powershell
@@ -48,7 +48,7 @@ Mã nguồn hiện tại nằm trong `src/`. Các agent dùng cùng mạng polic
 - Tiếp tục huấn luyện từ checkpoint hoặc bắt đầu mô hình mới
 - Tự lưu checkpoint và chỉ số huấn luyện
 - Kiểm tra mate-in-one, tránh chiếu hết, bắt quân tự do và chuyển đổi tàn cuộc
-- Ghi log và vẽ reward, loss, entropy, win/draw rate và throughput
+- Ghi log và vẽ reward, loss, entropy, win/draw rate, Elo và throughput
 - AlphaZero có thể dùng native Rust MCTS thay cho MCTS Python
 
 ### Teacher và Coach với Stockfish

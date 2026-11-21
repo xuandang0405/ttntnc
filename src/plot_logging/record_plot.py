@@ -20,7 +20,7 @@ def save_record_plot(record_path, output_path=None):
     x = range(len(sides))
     width = 0.23
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, (ax, elo_ax) = plt.subplots(1, 2, figsize=(13, 5))
     for i, (outcome, color) in enumerate(zip(outcomes, colors)):
         values = [totals.get(side, {}).get(outcome, 0) for side in sides]
         ax.bar([position + (i - 1) * width for position in x], values,
@@ -31,6 +31,23 @@ def save_record_plot(record_path, output_path=None):
     ax.set_title(f"Game results — {data.get('mode', 'Unknown mode')}")
     ax.legend()
     ax.grid(axis="y", alpha=0.25)
+    game_numbers = []
+    white_elo = []
+    black_elo = []
+    for game in data.get("games", []):
+        ratings = game.get("elo", {})
+        if "white" in ratings and "black" in ratings:
+            game_numbers.append(game.get("game", len(game_numbers) + 1))
+            white_elo.append(ratings["white"])
+            black_elo.append(ratings["black"])
+    if game_numbers:
+        elo_ax.plot(game_numbers, white_elo, label="White")
+        elo_ax.plot(game_numbers, black_elo, label="Black")
+        elo_ax.legend()
+    elo_ax.set_xlabel("Game")
+    elo_ax.set_ylabel("Elo rating")
+    elo_ax.set_title("Elo progression")
+    elo_ax.grid(alpha=0.25)
     fig.tight_layout()
 
     output_path = output_path or os.path.splitext(record_path)[0] + "_plot.png"

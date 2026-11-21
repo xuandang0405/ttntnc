@@ -102,6 +102,7 @@ def draw_concurrent_panel(screen, fonts, game, paused, fast, delay):
     line(f"Nửa nước TB đang chơi: {avg_live:.0f}")
     line(f"Tổng số ván đã đấu: {game.games}")
     line(f"Kết quả gần nhất: {game.last_result}", dy=30)
+    line(f"Elo: Trắng {game.elo['White']:.0f}  Đen {game.elo['Black']:.0f}", dy=30)
 
     n = max(1, len(game.recent))
     line("Tổng kết", color=(160, 200, 255))

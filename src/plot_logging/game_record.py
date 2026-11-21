@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 
 from config import CKPT_DIR
+from plot_logging.elo import INITIAL_ELO, update_elo
 
 SAVE_INTERVAL_SECONDS = 120
 
@@ -22,6 +23,7 @@ class GameResultRecorder:
             side: {"wins": 0, "losses": 0, "draws": 0}
             for side in ("white", "black")
         }
+        self.ratings = {"white": INITIAL_ELO, "black": INITIAL_ELO}
         self._last_saved = time.monotonic()
 
     def record_result(self, result):
@@ -46,12 +48,16 @@ class GameResultRecorder:
                 "result": player_result,
             }
 
+        score_white = 0.5 if outcome == "draw" else 1.0 if winner == "White" else 0.0
+        self.ratings["white"], self.ratings["black"] = update_elo(
+            self.ratings["white"], self.ratings["black"], score_white)
         self.games.append({
             "game": len(self.games) + 1,
             "completed_at": datetime.now().isoformat(timespec="seconds"),
             "outcome": outcome,
             "winner": winner,
             "reason": result.reason,
+            "elo": {side: round(rating, 2) for side, rating in self.ratings.items()},
             **per_game,
         })
 
@@ -72,6 +78,7 @@ class GameResultRecorder:
                 "games": len(self.games),
                 "white": self.stats["white"],
                 "black": self.stats["black"],
+                "elo": {side: round(rating, 2) for side, rating in self.ratings.items()},
             },
             "games": self.games,
         }

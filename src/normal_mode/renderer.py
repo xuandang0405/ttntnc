@@ -166,6 +166,7 @@ def draw_train_panel(screen, fonts, game, paused, fast, delay):
     line(f"Lượt: {turn}   Nửa nước: {len(game.board.move_stack)}")
     line(f"Số ván đã đấu: {game.games}")
     line(f"Kết quả gần nhất: {game.last_result}", dy=30)
+    line(f"Elo: Trắng {game.elo['White']:.0f}   Đen {game.elo['Black']:.0f}", dy=30)
 
     n = max(1, len(game.recent))
     line("Tổng kết", color=(160, 200, 255))

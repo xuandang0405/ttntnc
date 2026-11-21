@@ -35,6 +35,9 @@ class GameResultRecorderTests(unittest.TestCase):
             self.assertEqual(data["games"][0]["outcome"], "white_win")
             self.assertEqual(data["games"][1]["outcome"], "draw")
             self.assertEqual(data["games"][2]["outcome"], "black_win")
+            self.assertEqual(data["games"][0]["elo"], {"white": 1216.0, "black": 1184.0})
+            self.assertEqual(data["totals"]["elo"], data["games"][-1]["elo"])
+            self.assertAlmostEqual(sum(data["totals"]["elo"].values()), 2400.0)
 
             plot_path = save_record_plot(path)
             self.assertTrue(os.path.isfile(plot_path))

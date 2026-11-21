@@ -116,6 +116,8 @@ class ConcurrentAITestScene(Scene):
         line(f"Trắng thắng: {self.recorder.stats['white']['wins']}")
         line(f"Đen thắng: {self.recorder.stats['black']['wins']}")
         line(f"Hòa: {self.recorder.stats['white']['draws']}")
+        line(f"Elo Trắng: {self.recorder.ratings['white']:.0f}")
+        line(f"Elo Đen: {self.recorder.ratings['black']:.0f}")
         if self.paused:
             line("ĐÃ TẠM DỪNG", color=(255, 200, 90))
         if self.status:
