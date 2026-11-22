@@ -52,6 +52,7 @@ def training_stats(game):
                          for k in ("White", "Black", "Draw")},
         "avg_game_length_plies": round(sum(game.recent_len) / n, 1) if n else 0.0,
         "last_result": game.last_result,
+        "elo": dict(game.elo),
     }
  
  

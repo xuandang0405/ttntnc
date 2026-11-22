@@ -122,7 +122,7 @@ class MenuScene(Scene):
  
     def start(self):
         pick = lambda k: CHOICES[k][self.sel[k]]
-        spec = lambda name: f"file:{self.paths[name]}" if self.paths.get(name) else "Người chơi ngẫu nhiên"
+        spec = lambda name: f"file:{self.paths[name]}" if self.paths.get(name) else "Random mover"
 
         try:
             if self.mode == 3:

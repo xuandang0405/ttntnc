@@ -12,6 +12,9 @@ class Player:
     def choose_move(self, board):
         raise NotImplementedError
  
+    def choose_moves(self, boards):
+        return [self.choose_move(board) for board in boards]
+
  
 class HumanPlayer(Player):
     is_human = True
@@ -38,6 +41,11 @@ class ModelPlayer(Player):
     def choose_move(self, board):
         return self.agent.choose_move(board, self.greedy, self.lookahead)
  
+    def choose_moves(self, boards):
+        if self.lookahead and self.agent.supports_lookahead():
+            return [self.choose_move(board) for board in boards]
+        return self.agent.select_moves(boards, self.greedy)
+
  
 def make_player(spec, color, greedy=False, lookahead=False):
     if spec == "Human":

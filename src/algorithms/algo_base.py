@@ -13,11 +13,17 @@ from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_
 from model import PolicyValueNet
 from stockfish.stockfish_coach import get_coach
 from strategy import StrategyLearner, lookahead_move
+
+try:
+    import algorithms_rs
+except ImportError:
+    algorithms_rs = None
  
 
 class BaseAgent:
     algorithm = "base"    # lower-case key used in file names, e.g. white_ppo.pt
     label = "Base"        # name shown in the UI
+    play_temperature = 1.0
  
     def __init__(self, color, name, device, episodes_per_update=1):
         self.color, self.name, self.device = color, name, device
@@ -42,6 +48,37 @@ class BaseAgent:
     def select_move(self, board, greedy=False):
         raise NotImplementedError
  
+    @torch.inference_mode()
+    def select_moves(self, boards, greedy=False):
+        if not boards:
+            return []
+
+        was_training = self.net.training
+        self.net.eval()
+        try:
+            maps = [legal_moves_map(board, self.color) for board in boards]
+            states = self.encode_boards(boards).to(self.device)
+            logits, _ = self.net(states)
+            legal_indices = [list(moves) for moves in maps]
+            max_legal = max(map(len, legal_indices))
+            indices = torch.zeros(
+                (len(boards), max_legal), dtype=torch.long, device=self.device)
+            valid = torch.zeros_like(indices, dtype=torch.bool)
+            for row, actions in enumerate(legal_indices):
+                indices[row, :len(actions)] = torch.tensor(
+                    actions, dtype=torch.long, device=self.device)
+                valid[row, :len(actions)] = True
+            logits = logits.gather(1, indices).masked_fill(~valid, float("-inf"))
+            if greedy:
+                selections = logits.argmax(dim=1)
+            else:
+                selections = torch.distributions.Categorical(
+                    logits=logits / self.play_temperature).sample()
+            return [moves[legal_indices[i][selection]]
+                    for i, (moves, selection) in enumerate(zip(maps, selections.tolist()))]
+        finally:
+            self.net.train(was_training)
+
     def hyperparameters(self):
         return {}
  
@@ -70,6 +107,34 @@ class BaseAgent:
     def learn(self, final_balance, terminal):
         self.finish_episode(0, final_balance, terminal)
  
+    # native (Rust) policy / replay cores
+    def native_core(self, name, *args):
+        if algorithms_rs is None or not hasattr(algorithms_rs, name):
+            raise RuntimeError(
+                f"Rust RL was requested, but the algorithms_rs extension with {name} is not installed. "
+                "Build it with `python -m pip install .` from src/algorithms-rs, or set CHESS_AI_RUST_RL=0.")
+        return getattr(algorithms_rs, name)(*args)
+
+    @staticmethod
+    def legal_padded(legal_lists):
+        out = np.full((len(legal_lists), max(map(len, legal_lists))), -1, dtype=np.int32)
+        for i, legal in enumerate(legal_lists):
+            out[i, :len(legal)] = legal
+        return out
+
+    @staticmethod
+    def gather_legal(scores, legal):
+        idx = torch.from_numpy(legal).to(scores.device).long().clamp_(min=0)
+        return np.ascontiguousarray(scores.gather(1, idx).float().cpu().numpy())
+
+    @staticmethod
+    def flat_states(states):
+        return np.ascontiguousarray(states.numpy(), dtype=np.float32).reshape(len(states), -1)
+
+    @staticmethod
+    def state_dim():
+        return INPUT_CHANNELS * 8 * 8
+
     # batching helpers
     def encode_boards(self, boards):
         return torch.cat([encode(b, self.color) for b in boards])

@@ -1,5 +1,6 @@
 import pygame
 from config import H, TEXT, W
+from concurrent_mode.concurrent_config import NUM_GAMES
 
 class Button:
     def __init__(self, rect, text, base=(70, 90, 140), hover=(95, 120, 180), active=(60, 150, 100)):
@@ -51,4 +52,41 @@ class GameOverPopup:
                 return "rematch"
             if e.key == pygame.K_ESCAPE:
                 return "menu"
+        return None
+
+
+class GameModePopup:
+    def __init__(self):
+        self.box = pygame.Rect(0, 0, 520, 270)
+        self.box.center = (W // 2, H // 2)
+        b = self.box
+        self.single = Button((b.x + 30, b.y + 150, 220, 52), "Một ván")
+        self.multiple = Button((b.right - 250, b.y + 150, 220, 52), f"{NUM_GAMES} ván song song")
+        self.dim = pygame.Surface((W, H), pygame.SRCALPHA)
+        self.dim.fill((0, 0, 0, 190))
+
+    def draw(self, screen, fonts):
+        screen.blit(self.dim, (0, 0))
+        pygame.draw.rect(screen, (44, 44, 52), self.box, border_radius=14)
+        pygame.draw.rect(screen, (100, 160, 220), self.box, 3, border_radius=14)
+        title = fonts["big"].render("Chế độ đấu AI", True, TEXT)
+        screen.blit(title, title.get_rect(center=(self.box.centerx, self.box.y + 60)))
+        subtitle = fonts["main"].render("Chọn một ván hoặc chạy nhiều ván đồng thời", True, TEXT)
+        screen.blit(subtitle, subtitle.get_rect(center=(self.box.centerx, self.box.y + 108)))
+        self.single.draw(screen, fonts["main"])
+        self.multiple.draw(screen, fonts["main"])
+
+    def handle_event(self, e):
+        if e.type == pygame.MOUSEBUTTONDOWN and e.button == 1:
+            if self.single.hit(e.pos):
+                return "single"
+            if self.multiple.hit(e.pos):
+                return "multiple"
+        elif e.type == pygame.KEYDOWN:
+            if e.key in (pygame.K_1, pygame.K_KP1):
+                return "single"
+            if e.key in (pygame.K_2, pygame.K_KP2):
+                return "multiple"
+            if e.key == pygame.K_ESCAPE:
+                return "cancel"
         return None

@@ -9,7 +9,7 @@ from metrics import PROFILE_PARTS
 
 COLUMNS = [
     "time_seconds", "timestamp", "games", "plies", "updates",
-    "white_win_rate", "black_win_rate", "draw_rate",
+    "white_win_rate", "black_win_rate", "draw_rate", "white_elo", "black_elo",
     "white_actor_loss", "black_actor_loss", "white_critic_loss", "black_critic_loss",
     "white_total_loss", "black_total_loss",
     "white_policy_entropy", "black_policy_entropy",
@@ -79,6 +79,8 @@ class TrainingLog:
             "white_win_rate": rate("White"),
             "black_win_rate": rate("Black"),
             "draw_rate": rate("Draw"),
+            "white_elo": game.elo["White"],
+            "black_elo": game.elo["Black"],
             "repetition_rate": quality.get("repetition_rate"),
             "threefold_repetition_rate": quality.get("threefold_repetition_rate"),
             "reversal_move_rate": quality.get("reversal_move_rate"),

@@ -1,6 +1,6 @@
 # Giáo viên và Huấn luyện viên Stockfish (Stockfish Teacher and Coach)
 
-Cần một tệp thực thi Stockfish (tải tại https://stockfishchess.org/download/):
+Cần một tệp thực thi Stockfish (tải tại https://stockfishchess.org/download/), đặt biến môi trường 
 `$env:STOCKFISH_PATH = "<your path to Stockfish executable>` và copy tệp thực thi vào trong `/src/stockfish`.
 Tệp thực thi phải là bản native và chạy được ở chế độ UCI. Ứng dụng không tự tải hoặc sao chép các tệp nhị phân Stockfish.
 

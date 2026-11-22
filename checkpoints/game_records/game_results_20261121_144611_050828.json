@@ -1,0 +1,1944 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "DQN (white_dqn.pt) + lookahead",
+    "black": "Random mover"
+  },
+  "started_at": "2026-11-21T14:46:11",
+  "updated_at": "2026-11-21T15:24:01",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 39,
+      "losses": 7,
+      "draws": 82
+    },
+    "black": {
+      "wins": 7,
+      "losses": 39,
+      "draws": 82
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-21T14:47:12",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-21T14:48:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-21T14:48:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-21T14:48:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-21T14:48:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-21T14:48:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-21T14:48:56",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-21T14:49:02",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-21T14:49:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-21T14:49:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-21T14:49:30",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-21T14:50:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-21T14:50:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-21T14:50:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-21T14:50:22",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-21T14:50:43",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-21T14:50:57",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-21T14:51:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-21T14:51:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-21T14:52:25",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-21T14:52:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-21T14:52:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-21T14:53:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-21T14:53:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-21T14:53:20",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "loss"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "win"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-21T14:53:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-21T14:53:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-21T14:53:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-21T14:53:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-21T14:54:22",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-21T14:54:22",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-21T14:54:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-21T14:54:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-21T14:55:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-21T14:55:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-21T14:55:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-21T14:56:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-21T14:56:41",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-21T14:56:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-21T14:58:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-21T14:58:15",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-21T14:58:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-21T14:58:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-21T14:59:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-21T14:59:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-21T14:59:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-21T14:59:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-21T15:00:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-21T15:00:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-21T15:00:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-21T15:01:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-21T15:02:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-21T15:03:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-21T15:03:23",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-21T15:03:23",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-21T15:03:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-21T15:04:18",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-21T15:04:18",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-21T15:04:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-21T15:04:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-21T15:04:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-21T15:04:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "white": {
+        "name": "DQN (white_dqn.pt) + lookahead",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    }
+  ]
+}

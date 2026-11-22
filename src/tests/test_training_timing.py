@@ -103,12 +103,15 @@ class TrainingTimingTests(unittest.TestCase):
             recent=[],
             recent_len=[],
             games=0,
+            elo={"White": 1200.0, "Black": 1200.0},
         )
         log = TrainingLog(time.time(), interval=LOG_INTERVAL_SECONDS)
 
         log.maybe_record(game, force=True)
 
         record = log.records[0]
+        self.assertEqual(record["white_elo"], 1200.0)
+        self.assertEqual(record["black_elo"], 1200.0)
         self.assertEqual(record["white_action_prepare_mean_ms"], 2.0)
         self.assertEqual(record["white_action_prepare_p95_ms"], 3.0)
         self.assertEqual(record["timing_profile"]["White"]["action_prepare"]["calls"], 2)

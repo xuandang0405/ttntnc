@@ -30,6 +30,7 @@ def save_training_plot(log_path, output_path=None, title=None):
 
     panels = [
         (["white_win_rate", "black_win_rate", "draw_rate"], ["White win", "Black win", "Draw"], "Win / draw rate (recent window)"),
+        (["white_elo", "black_elo"], ["White", "Black"], "Elo rating"),
         (["white_actor_loss", "black_actor_loss"], ["White", "Black"], "Actor loss"),
         (["white_critic_loss", "black_critic_loss"], ["White", "Black"], "Critic loss"),
         (["white_total_loss", "black_total_loss"], ["White", "Black"], "Total loss"),

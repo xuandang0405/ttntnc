@@ -17,6 +17,7 @@ pip install maturin
 python -m pip install .          # chạy từ src/algorithms-rs; build ở chế độ release
 cargo test                        # unit test phía Rust (cây cũ)
 python -m unittest tests.test_rust_search   # test đối chiếu độ tương đồng với python-chess / Python MCTS
+python -m unittest tests.test_rust_rl
 ```
 
 Bật tính năng bằng `CHESS_AI_RUST_SEARCH=1` (PowerShell: `$env:CHESS_AI_RUST_SEARCH = "1"`).
@@ -58,3 +59,13 @@ Khác biệt có chủ đích:
 - `src/search/tree.rs` – cây tìm kiếm theo từng ván và giao thức nút lá
 - `src/lib.rs` – các binding PyO3 (`BatchSearch`, `MctsTree`, `encode_position`, `terminal_status`)
 - `src/alphazero/` – các thành phần gốc của arena, giữ nguyên
+
+## DQN / PPO / A2C native (`CHESS_AI_RUST_RL=1`)
+
+Cùng triết lý với `BatchSearch`: torch giữ phần mạng nơ-ron (forward/backward), Rust giữ mọi thứ còn lại — chọn hành động trên các nước hợp lệ, ghi nhận từng ván, replay buffer, return/GAE, chuẩn hóa advantage, chia minibatch và dựng mặt nạ nước đi hợp lệ.
+
+| Lớp Rust | Thay cho (Python) | Việc chạy bằng Rust |
+|---|---|---|
+| `DqnCore` | `DQNAgent.replay`, epsilon-greedy, `random.sample` | vòng đệm replay (state lưu f16, chia sẻ `s`/`s'` bằng `Arc`), epsilon theo `act_steps`, argmax trên nước hợp lệ, lấy mẫu minibatch + mặt nạ `mask1`/`mask2`, lịch số bước huấn luyện |
+| `PpoCore` | `PPOAgent.buffer` | lấy mẫu + log-prob trên nước hợp lệ, GAE, chuẩn hóa advantage (độ lệch chuẩn không chệch như `torch.std`), xáo trộn epoch, minibatch + mặt nạ |
+| `A2cCore` | `A2CAgent.buffer` | lấy mẫu trên nước hợp lệ, return chiết khấu, ghép lô + mặt nạ |

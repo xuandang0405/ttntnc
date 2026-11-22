@@ -13,3 +13,6 @@ __pycache__/
 .venv/
 *.exe
 data/
+*.pgn
+*.tar
+*.tar.bz2

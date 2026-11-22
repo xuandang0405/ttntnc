@@ -18,7 +18,13 @@ def _color_name(color):
 
  
 def make_agent(algorithm, color, device, episodes_per_update=1):
-    return ALGORITHMS[algorithm](color, _color_name(color), device, episodes_per_update)
+    cls = ALGORITHMS.get(algorithm) if isinstance(algorithm, str) else None
+    if cls is None and isinstance(algorithm, str):
+        cls = _BY_KEY.get(algorithm.lower())
+    if cls is None:
+        expected = ", ".join(ALGORITHM_NAMES)
+        raise ValueError(f"unknown algorithm {algorithm!r}; expected one of {expected}")
+    return cls(color, _color_name(color), device, episodes_per_update)
 
  
 def _read(path):

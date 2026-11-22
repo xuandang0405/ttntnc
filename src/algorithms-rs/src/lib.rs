@@ -7,6 +7,8 @@
 
 pub mod alphazero;
 pub mod search;
+pub mod rl; 
+mod rl_py;
 
 use numpy::{PyArray1, PyArray2, PyArray3, PyArray4, PyArrayMethods, PyReadonlyArray1, PyReadonlyArray2, PyUntypedArrayMethods};
 use pyo3::exceptions::{PyIndexError, PyRuntimeError, PyValueError};
@@ -380,5 +382,6 @@ fn algorithms_rs(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyBatchSearch>()?;
     module.add_function(wrap_pyfunction!(encode_position, module)?)?;
     module.add_function(wrap_pyfunction!(terminal_status, module)?)?;
+    rl_py::register(module)?;
     Ok(())
 }

@@ -9,6 +9,7 @@ from checkpoints import Experiment
 from concurrent_mode.concurrent_config import EPISODES_PER_UPDATE, NUM_GAMES, USE_CUDA
 from encoding import material_balance
 from metrics import TrainingMetrics, summarize_game
+from plot_logging.elo import INITIAL_ELO, update_elo
 from skill_eval import run_skill_evaluation
 from plot_logging.training_log import TrainingLog
  
@@ -46,6 +47,7 @@ class ConcurrentSelfPlay:
         self.recent = deque(maxlen=100)
         self.recent_len = deque(maxlen=100)
         self.history = []                     # (white_rate, black_rate, draw_rate, avg_len)
+        self.elo = {"White": INITIAL_ELO, "Black": INITIAL_ELO}
         self.last_result = "-"
         self.metrics = TrainingMetrics()
         self.white.metrics = self.metrics
@@ -79,6 +81,9 @@ class ConcurrentSelfPlay:
         self.white.strategy.train()
         self.black.strategy.train()
  
+        score = 0.5 if label == "Draw" else 1.0 if label == "White" else 0.0
+        self.elo["White"], self.elo["Black"] = update_elo(
+            self.elo["White"], self.elo["Black"], score)
         plies = len(board.move_stack)
         self.games += 1
         self.unsaved_games += 1
