@@ -113,6 +113,7 @@ src/
 ├── concurrent_mode/            # Huấn luyện song song
 ├── plot_logging/               # Ghi log và vẽ biểu đồ
 ├── stockfish/                  # Teacher và Coach với Stockfish
+├── pretraining/                # Broadcast pre-training và export checkpoint
 └── tests/                      # Unit test
 
 assets/chess_pieces/            # Hình quân cờ PNG
@@ -126,6 +127,7 @@ checkpoints/                    # Checkpoint và metrics theo từng experiment
 - PyTorch
 - NumPy
 - python-chess
+- zstandard
 - Matplotlib, pandas, seaborn
 - Stockfish chỉ cần khi sử dụng teacher/coach
 - Rust/Cargo và maturin chỉ cần khi build native MCTS
@@ -135,7 +137,7 @@ Tạo môi trường ảo và cài các thư viện Python:
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess
+python -m pip install pygame torch numpy matplotlib pandas seaborn python-chess zstandard
 ```
 
 Nếu máy có NVIDIA GPU, cài PyTorch với build CUDA phù hợp để tăng tốc huấn luyện. GPU là tùy chọn.
@@ -284,6 +286,118 @@ python src\main.py
 ```
 
 Chi tiết nằm trong [src/stockfish/STOCKFISH.md](src/stockfish/STOCKFISH.md).
+
+## Broadcast Pre-training Pipeline
+
+Pipeline tiền huấn luyện mới tại `src/pretraining` huấn luyện một `PolicyValueNet` chung trên dữ liệu broadcast của Lichess. Mô hình học cả Policy (nước đi được chơi) và Value (kết quả ván cờ kết hợp đánh giá Stockfish), sau đó được xuất thành checkpoint tương thích với AlphaZero, DQN, PPO và A2C.
+
+Luồng tiền huấn luyện gồm:
+
+```text
+Lichess Broadcast PGN
+  -> download
+  -> prepare / lọc Elo và chia shard
+  -> gán nhãn Stockfish hoặc Eval Join
+  -> train PolicyValueNet
+  -> export checkpoint theo thuật toán và màu quân
+```
+
+Cài thư viện bổ sung và chạy pipeline từ thư mục `src/pretraining`:
+
+```powershell
+cd src\pretraining
+python -m pip install python-chess zstandard numpy torch
+```
+
+### 1. Tải dữ liệu
+
+Tải các tệp broadcast theo tháng hoặc theo khoảng tháng:
+
+```powershell
+python -m pretrain.download --months 2026-01 --out data\raw
+python -m pretrain.download --from 2026-01 --to 2026-03 --out data\raw
+```
+
+### 2. Chuẩn bị shard
+
+Lọc Elo, độ dài ván, nước đi không hợp lệ, ván ngắn, biến thể không chuẩn và dữ liệu trùng lặp:
+
+```powershell
+python -m pretrain.prepare data\raw\lichess_db_broadcast_2026-01.pgn.zst `
+  --out data\shards `
+  --min-elo 2000
+```
+
+### 3. Gán nhãn
+
+Chạy Stockfish cho các vị trí trong shard:
+
+```powershell
+python -m pretrain.stockfish_label data\shards `
+  --out data\labeled `
+  --engine C:\path\stockfish.exe `
+  --nodes 5000 `
+  --every 4 `
+  --workers 8
+```
+
+Hoặc dùng dữ liệu đánh giá có sẵn từ Lichess thay cho phân tích Stockfish:
+
+```powershell
+python -m pretrain.eval_join data\shards `
+  --evals data\lichess_db_eval.jsonl.zst `
+  --out data\labeled
+```
+
+### 4. Tiền huấn luyện
+
+```powershell
+python -m pretrain.train `
+  --shards data\labeled `
+  --out runs\pre1 `
+  --epochs 4 `
+  --batch 512 `
+  --workers 6 `
+  --policy-min-elo 2300 `
+  --sf-value-weight 0.7 `
+  --w-sf 0.3
+```
+
+Giá trị `--sf-value-weight` kết hợp kết quả thực của ván và đánh giá Stockfish cho Value target. Pipeline tự chọn CPU hoặc CUDA, lưu `last.pt` và checkpoint tốt nhất `best.pt`, đồng thời chia Train/Validation theo giải đấu để giảm rò rỉ dữ liệu.
+
+### 5. Xuất checkpoint
+
+```powershell
+python -m pretrain.export `
+  --ckpt runs\pre1\best.pt `
+  --out models `
+  --algorithms alphazero dqn ppo a2c
+```
+
+Mỗi thuật toán được xuất thành checkpoint riêng cho cả hai màu quân:
+
+```text
+src/pretraining/models/
+├── white_alphazero.pt
+├── black_alphazero.pt
+├── white_dqn.pt
+├── black_dqn.pt
+├── white_ppo.pt
+├── black_ppo.pt
+├── white_a2c.pt
+└── black_a2c.pt
+```
+
+Các checkpoint này có thể chọn trong giao diện huấn luyện để tiếp tục huấn luyện bằng thuật toán tương ứng.
+
+Chạy unit test pipeline bằng dữ liệu tổng hợp:
+
+```powershell
+cd src\pretraining
+python -m unittest tests.test_pretrain -v
+```
+
+Chi tiết kỹ thuật nằm trong [src/pretraining/README.md](src/pretraining/README.md).
 
 ## Kiểm tra mã nguồn
 

@@ -117,6 +117,13 @@ class Pipeline(unittest.TestCase):
                   "--workers", "0", "--val-pct", "20", "--warmup", "5", "--eval-every", "20", "--log-every", "10",
                   "--lr", "2e-3", "--val-batches", "4", "--max-steps", "60")
         self.assertIn("[val]", log)
+        with open(os.path.join(out, "stats.json"), encoding="utf-8") as f:
+            stats = json.load(f)
+        self.assertEqual(stats["status"], "completed")
+        self.assertEqual(stats["total_steps"], 60)
+        self.assertTrue(any(entry["type"] == "train" for entry in stats["history"]))
+        self.assertEqual(stats["history"][-1]["type"], "validation")
+        self.assertEqual(stats["history"][-1]["step"], 60)
         first = [float(l.split("pol ")[1].split()[0]) for l in log.splitlines() if l.startswith("step 10/")][0]
         last = [float(l.split("pol ")[1].split()[0]) for l in log.splitlines() if l.startswith("step 60/")][0]
         self.assertLess(last, first)                                    # policy loss goes down
@@ -128,6 +135,38 @@ class Pipeline(unittest.TestCase):
 
 
 class Units(unittest.TestCase):
+    def test_train_writes_stats(self):
+        from pretrain.common import ShardWriter
+
+        tmp = tempfile.mkdtemp()
+        try:
+            shards, out = os.path.join(tmp, "shards"), os.path.join(tmp, "run")
+            events = {
+                split: next(f"event-{i}" for i in range(1000) if split_of(f"event-{i}", 20) == split)
+                for split in ("train", "val")
+            }
+            writer = ShardWriter(shards, 10)
+            for split, event in events.items():
+                writer.add({
+                    "id": event, "event": event, "round": "1", "white": "a", "black": "b",
+                    "w_elo": 2500, "b_elo": 2500, "result": 1.0,
+                    "moves": "e2e4 e7e5 g1f3 b8c6",
+                })
+            writer.close()
+
+            run("pretrain.train", "--shards", shards, "--out", out, "--epochs", "1",
+                "--batch", "2", "--workers", "0", "--val-pct", "20", "--warmup", "1",
+                "--eval-every", "1", "--log-every", "1", "--max-steps", "2", "--val-batches", "1")
+            with open(os.path.join(out, "stats.json"), encoding="utf-8") as f:
+                stats = json.load(f)
+
+            self.assertEqual(stats["status"], "completed")
+            self.assertEqual(stats["positions_seen"], 4)
+            self.assertEqual([entry["step"] for entry in stats["history"] if entry["type"] == "validation"], [1, 2])
+            self.assertEqual(stats["history"][-1]["step"], 2)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
     def test_load_project_uses_main_project_by_default(self):
         from pretrain.project import load_project
         proj = load_project(demo=False)

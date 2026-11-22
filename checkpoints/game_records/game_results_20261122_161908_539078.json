@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "AlphaZero (white_alphazero.pt)",
+    "black": "Random mover"
+  },
+  "started_at": "2026-11-22T16:19:08",
+  "updated_at": "2026-11-22T16:44:58",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 117,
+      "losses": 0,
+      "draws": 11
+    },
+    "black": {
+      "wins": 0,
+      "losses": 117,
+      "draws": 11
+    },
+    "elo": {
+      "white": 1371.28,
+      "black": 1028.72
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-22T16:19:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-22T16:19:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1230.53,
+        "black": 1169.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-22T16:19:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1243.75,
+        "black": 1156.25
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-22T16:19:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1255.8,
+        "black": 1144.2
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-22T16:19:18",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1266.83,
+        "black": 1133.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-22T16:19:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1276.96,
+        "black": 1123.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-22T16:19:23",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1286.3,
+        "black": 1113.7
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-22T16:19:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1294.95,
+        "black": 1105.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-22T16:19:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1302.98,
+        "black": 1097.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-22T16:19:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1310.47,
+        "black": 1089.53
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-22T16:19:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1317.48,
+        "black": 1082.52
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-22T16:19:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1324.05,
+        "black": 1075.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-22T16:19:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1330.24,
+        "black": 1069.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-22T16:19:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1336.08,
+        "black": 1063.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-22T16:19:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1341.61,
+        "black": 1058.39
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-22T16:19:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1346.85,
+        "black": 1053.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-22T16:19:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1351.83,
+        "black": 1048.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-22T16:19:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1356.58,
+        "black": 1043.42
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-22T16:19:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1361.11,
+        "black": 1038.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-22T16:19:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1365.44,
+        "black": 1034.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-22T16:19:35",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1369.58,
+        "black": 1030.42
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-22T16:19:35",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1373.56,
+        "black": 1026.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-22T16:19:36",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1377.38,
+        "black": 1022.62
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-22T16:19:36",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1381.05,
+        "black": 1018.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-22T16:19:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1384.59,
+        "black": 1015.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-22T16:19:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1388.01,
+        "black": 1011.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-22T16:19:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1391.3,
+        "black": 1008.7
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-22T16:19:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1394.49,
+        "black": 1005.51
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-22T16:19:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1397.57,
+        "black": 1002.43
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-22T16:19:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1400.55,
+        "black": 999.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-22T16:19:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1403.45,
+        "black": 996.55
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-22T16:19:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1406.25,
+        "black": 993.75
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-22T16:19:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1408.98,
+        "black": 991.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-22T16:19:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1411.62,
+        "black": 988.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-22T16:19:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1414.2,
+        "black": 985.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-22T16:19:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1416.7,
+        "black": 983.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-22T16:19:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1419.14,
+        "black": 980.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1421.52,
+        "black": 978.48
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1423.83,
+        "black": 976.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1426.09,
+        "black": 973.91
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1428.3,
+        "black": 971.7
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1430.46,
+        "black": 969.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-22T16:19:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1432.56,
+        "black": 967.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-22T16:19:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1434.62,
+        "black": 965.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-22T16:19:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1436.63,
+        "black": 963.37
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1438.6,
+        "black": 961.4
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1440.53,
+        "black": 959.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1442.42,
+        "black": 957.58
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1444.27,
+        "black": 955.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1446.08,
+        "black": 953.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-22T16:19:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1447.86,
+        "black": 952.14
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-22T16:19:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1449.6,
+        "black": 950.4
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-22T16:19:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1451.31,
+        "black": 948.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-22T16:19:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1452.99,
+        "black": 947.01
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-22T16:19:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1454.64,
+        "black": 945.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-22T16:19:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1456.26,
+        "black": 943.74
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-22T16:19:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1457.85,
+        "black": 942.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-22T16:19:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1459.42,
+        "black": 940.58
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-22T16:19:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1460.95,
+        "black": 939.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-22T16:19:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1462.47,
+        "black": 937.53
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-22T16:19:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1463.95,
+        "black": 936.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-22T16:19:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1465.41,
+        "black": 934.59
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-22T16:19:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1466.85,
+        "black": 933.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-22T16:19:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1468.27,
+        "black": 931.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-22T16:19:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1469.66,
+        "black": 930.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-22T16:19:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1471.04,
+        "black": 928.96
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-22T16:19:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1472.39,
+        "black": 927.61
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-22T16:19:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1473.72,
+        "black": 926.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-22T16:19:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1475.04,
+        "black": 924.96
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-22T16:19:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1476.33,
+        "black": 923.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-22T16:19:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1477.61,
+        "black": 922.39
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-22T16:19:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1478.86,
+        "black": 921.14
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-22T16:19:57",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1480.11,
+        "black": 919.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-22T16:19:57",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1481.33,
+        "black": 918.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-22T16:19:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1482.54,
+        "black": 917.46
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-22T16:19:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1483.73,
+        "black": 916.27
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-22T16:19:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1484.9,
+        "black": 915.1
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-22T16:20:00",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1486.06,
+        "black": 913.94
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1487.21,
+        "black": 912.79
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1488.34,
+        "black": 911.66
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1489.46,
+        "black": 910.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1490.56,
+        "black": 909.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1491.65,
+        "black": 908.35
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-22T16:20:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1492.73,
+        "black": 907.27
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-22T16:20:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1493.79,
+        "black": 906.21
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-22T16:20:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1494.84,
+        "black": 905.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-22T16:20:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1495.88,
+        "black": 904.12
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-22T16:20:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1496.91,
+        "black": 903.09
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-22T16:20:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1497.92,
+        "black": 902.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-22T16:20:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1498.93,
+        "black": 901.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-22T16:20:09",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1499.92,
+        "black": 900.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-22T16:20:09",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1500.9,
+        "black": 899.1
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-22T16:20:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1501.87,
+        "black": 898.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-22T16:20:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1502.83,
+        "black": 897.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-22T16:20:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1503.78,
+        "black": 896.22
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-22T16:20:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1504.72,
+        "black": 895.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-22T16:20:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1505.65,
+        "black": 894.35
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-22T16:20:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1506.57,
+        "black": 893.43
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-22T16:20:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1507.49,
+        "black": 892.51
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-22T16:20:17",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1508.39,
+        "black": 891.61
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-22T16:20:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1493.28,
+        "black": 906.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-22T16:20:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1494.34,
+        "black": 905.66
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-22T16:20:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1495.38,
+        "black": 904.62
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-22T16:20:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1496.42,
+        "black": 903.58
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-22T16:20:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1497.44,
+        "black": 902.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-22T16:20:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1498.45,
+        "black": 901.55
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-22T16:20:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1499.44,
+        "black": 900.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-22T16:20:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1500.43,
+        "black": 899.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-22T16:20:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1501.41,
+        "black": 898.59
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-22T16:20:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1502.37,
+        "black": 897.63
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-22T16:20:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1503.33,
+        "black": 896.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-22T16:20:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1504.27,
+        "black": 895.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-22T16:20:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1505.21,
+        "black": 894.79
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-22T16:20:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1490.13,
+        "black": 909.87
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-22T16:20:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1475.23,
+        "black": 924.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-22T16:20:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1476.52,
+        "black": 923.48
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-22T16:20:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1477.79,
+        "black": 922.21
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-22T16:20:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1479.05,
+        "black": 920.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-22T16:21:01",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1480.29,
+        "black": 919.71
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-22T16:21:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1465.51,
+        "black": 934.49
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-22T16:21:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1466.95,
+        "black": 933.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1452.36,
+        "black": 947.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1438.02,
+        "black": 961.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1423.96,
+        "black": 976.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1410.22,
+        "black": 989.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1396.83,
+        "black": 1003.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1383.84,
+        "black": 1016.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-22T16:21:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1371.28,
+        "black": 1028.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "Random mover",
+        "result": "draw"
+      }
+    }
+  ]
+}

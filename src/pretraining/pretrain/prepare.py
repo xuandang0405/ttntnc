@@ -9,6 +9,7 @@ from collections import Counter
 import chess
 import chess.pgn
 import zstandard as zstd
+from pathlib import Path
 
 from .common import MATE_CP, RESULTS, ShardWriter
 
@@ -17,7 +18,7 @@ _ZERO_CASTLE = re.compile(r"(?<![\w/-])0-0(-0)?(?![\w-])")
 
 
 class _CastlingFixer:
-    
+
     def __init__(self, handle):
         self.handle = handle
 
@@ -87,10 +88,47 @@ def convert(game: chess.pgn.Game, a: argparse.Namespace) -> tuple[dict | None, s
         rec["sf"] = {"cp": cps, "best": [None] * n, "src": "pgn"}
     return rec, "ok"
 
+def expand_inputs(inputs: list[str]) -> list[str]:
+    files = []
+    seen = set()
+
+    for raw in inputs:
+        path = Path(raw)
+
+        if not path.exists():
+            raise FileNotFoundError(f"Input does not exist: {path}")
+
+        if path.is_dir():
+            candidates = sorted(
+                p for p in path.rglob("*")
+                if p.is_file()
+                and p.name.lower().endswith((".pgn", ".pgn.zst"))
+            )
+        elif path.is_file():
+            if not path.name.lower().endswith((".pgn", ".pgn.zst")):
+                raise ValueError(f"Unsupported input file: {path}")
+
+            candidates = [path]
+        else:
+            raise ValueError(f"Invalid input path: {path}")
+
+        for candidate in candidates:
+            resolved = str(candidate.resolve())
+
+            if resolved not in seen:
+                seen.add(resolved)
+                files.append(resolved)
+
+    if not files:
+        raise FileNotFoundError(
+            "No .pgn or .pgn.zst files found in the supplied inputs."
+        )
+
+    return files
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("inputs", nargs="+", help=".pgn or .pgn.zst files")
+    ap.add_argument("inputs", nargs="+", help=".pgn/.pgn.zst files or directories containing PGN files")
     ap.add_argument("--out", default="data/shards")
     ap.add_argument("--min-elo", type=int, default=2000, help="both players; unrated (missing) counts as 0")
     ap.add_argument("--min-plies", type=int, default=20)
@@ -99,26 +137,63 @@ def main() -> None:
     ap.add_argument("--games-per-shard", type=int, default=1000)
     a = ap.parse_args()
 
-    writer, stats, seen = ShardWriter(a.out, a.games_per_shard), Counter(), set()
-    for path in a.inputs:
-        stream = open_pgn(path)
-        while (game := chess.pgn.read_game(stream)) is not None:
-            stats["read"] += 1
-            rec, why = convert(game, a)
-            if rec is not None:
-                key = hashlib.sha1(f"{rec['white']}|{rec['black']}|{rec['moves']}".encode()).digest()
-                if key in seen:                       # the same game relayed twice by different broadcasts
-                    rec, why = None, "duplicate"
-                else:
-                    seen.add(key)
-            stats[why] += 1
-            if rec is not None:
-                writer.add(rec)
-    manifest = writer.close({"filters": {k: v for k, v in vars(a).items() if k not in ("inputs", "out")},
-                             "stats": dict(stats), "inputs": a.inputs})
-    print(f"read {stats['read']} games -> kept {manifest['games']} ({manifest['plies']} plies)")
-    print("rejected:", {k: v for k, v in stats.items() if k not in ("read", "ok")})
+    # Expand files and directories.
+    try:
+        input_files = expand_inputs(a.inputs)
+    except (FileNotFoundError, ValueError) as exc:
+        ap.error(str(exc))
 
+    print(f"Found {len(input_files)} PGN file(s):")
+
+    for path in input_files:
+        print(f"  - {path}")
+
+    writer, stats, seen = (ShardWriter(a.out, a.games_per_shard), Counter(), set())
+
+    for file_idx, path in enumerate(input_files, start=1):
+        print(f"\n[{file_idx}/{len(input_files)}] " 
+              f"Processing: {path}")
+        stream = open_pgn(path)
+        try:
+            while (game := chess.pgn.read_game(stream)) is not None:
+                stats["read"] += 1
+                rec, why = convert(game, a)
+                if rec is not None:
+                    key = hashlib.sha1(
+                        f"{rec['white']}|"
+                        f"{rec['black']}|"
+                        f"{rec['moves']}".encode()
+                    ).digest()
+                    if key in seen:
+                        rec, why = None, "duplicate"
+                    else:
+                        seen.add(key)
+                stats[why] += 1
+                if rec is not None:
+                    writer.add(rec)
+        finally:
+            stream.handle.close()
+
+    manifest = writer.close({
+        "filters": {
+            k: v for k, v in vars(a).items() if k not in ("inputs", "out")
+        },
+        "stats": dict(stats),
+        "inputs": input_files
+    })
+
+    print(
+        f"\nCompleted: read {stats['read']} games "
+        f"-> kept {manifest['games']} games "
+        f"({manifest['plies']} plies)"
+    )
+
+    print(
+        "Rejected:",
+        {
+            k: v for k, v in stats.items() if k not in ("read", "ok")
+        }
+    )
 
 if __name__ == "__main__":
     main()

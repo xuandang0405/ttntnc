@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "DQN (white_dqn.pt)",
+    "black": "DQN (black_dqn.pt)"
+  },
+  "started_at": "2026-11-22T16:14:53",
+  "updated_at": "2026-11-22T16:17:38",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 9,
+      "losses": 5,
+      "draws": 114
+    },
+    "black": {
+      "wins": 5,
+      "losses": 9,
+      "draws": 114
+    },
+    "elo": {
+      "white": 1200.0,
+      "black": 1200.0
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-22T16:14:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-22T16:15:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.53,
+        "black": 1185.47
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-22T16:15:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1229.2,
+        "black": 1170.8
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-22T16:15:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1226.53,
+        "black": 1173.47
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-22T16:15:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1224.11,
+        "black": 1175.89
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-22T16:15:10",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1237.9,
+        "black": 1162.1
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-22T16:15:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1250.46,
+        "black": 1149.54
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-22T16:15:23",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1229.94,
+        "black": 1170.06
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-22T16:15:32",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1227.21,
+        "black": 1172.79
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-22T16:15:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1224.73,
+        "black": 1175.27
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-22T16:15:37",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1206.46,
+        "black": 1193.54
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-22T16:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1205.87,
+        "black": 1194.13
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-22T16:15:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1205.33,
+        "black": 1194.67
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-22T16:15:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1220.84,
+        "black": 1179.16
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-22T16:15:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1234.93,
+        "black": 1165.07
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-22T16:15:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1247.75,
+        "black": 1152.25
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-22T16:15:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1243.46,
+        "black": 1156.54
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-22T16:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1239.54,
+        "black": 1160.46
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-22T16:15:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1235.96,
+        "black": 1164.04
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-22T16:15:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1232.7,
+        "black": 1167.3
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-22T16:15:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1229.72,
+        "black": 1170.28
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-22T16:16:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1227.01,
+        "black": 1172.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-22T16:16:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1224.54,
+        "black": 1175.46
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-22T16:16:04",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1222.3,
+        "black": 1177.7
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-22T16:16:06",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1204.25,
+        "black": 1195.75
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-22T16:16:06",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1187.86,
+        "black": 1212.14
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-22T16:16:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1188.98,
+        "black": 1211.02
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-22T16:16:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1205.99,
+        "black": 1194.01
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-22T16:16:08",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1189.44,
+        "black": 1210.56
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-22T16:16:13",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1190.41,
+        "black": 1209.59
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-22T16:16:13",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1191.29,
+        "black": 1208.71
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-22T16:16:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1208.09,
+        "black": 1191.91
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-22T16:16:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1207.35,
+        "black": 1192.65
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-22T16:16:20",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1206.67,
+        "black": 1193.33
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-22T16:16:23",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1206.06,
+        "black": 1193.94
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-22T16:16:25",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1205.5,
+        "black": 1194.5
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-22T16:16:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.99,
+        "black": 1195.01
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-22T16:16:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1204.53,
+        "black": 1195.47
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-22T16:16:29",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1204.12,
+        "black": 1195.88
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-22T16:16:31",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1203.74,
+        "black": 1196.26
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-22T16:16:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.39,
+        "black": 1196.61
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-22T16:16:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1203.08,
+        "black": 1196.92
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-22T16:16:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1202.8,
+        "black": 1197.2
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-22T16:16:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1202.54,
+        "black": 1197.46
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-22T16:16:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1202.31,
+        "black": 1197.69
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-22T16:16:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1202.09,
+        "black": 1197.91
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-22T16:16:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1201.9,
+        "black": 1198.1
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1201.73,
+        "black": 1198.27
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1201.57,
+        "black": 1198.43
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1201.42,
+        "black": 1198.58
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1201.29,
+        "black": 1198.71
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1201.17,
+        "black": 1198.83
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1201.06,
+        "black": 1198.94
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.97,
+        "black": 1199.03
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.88,
+        "black": 1199.12
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.8,
+        "black": 1199.2
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.72,
+        "black": 1199.28
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.66,
+        "black": 1199.34
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.6,
+        "black": 1199.4
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.54,
+        "black": 1199.46
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.49,
+        "black": 1199.51
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.45,
+        "black": 1199.55
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.41,
+        "black": 1199.59
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.37,
+        "black": 1199.63
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.33,
+        "black": 1199.67
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.3,
+        "black": 1199.7
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.28,
+        "black": 1199.72
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.25,
+        "black": 1199.75
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.23,
+        "black": 1199.77
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.21,
+        "black": 1199.79
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.19,
+        "black": 1199.81
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.17,
+        "black": 1199.83
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.15,
+        "black": 1199.85
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.14,
+        "black": 1199.86
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.13,
+        "black": 1199.87
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.12,
+        "black": 1199.88
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.1,
+        "black": 1199.9
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.1,
+        "black": 1199.9
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.09,
+        "black": 1199.91
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.08,
+        "black": 1199.92
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.07,
+        "black": 1199.93
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.06,
+        "black": 1199.94
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.06,
+        "black": 1199.94
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.05,
+        "black": 1199.95
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.05,
+        "black": 1199.95
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.04,
+        "black": 1199.96
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.04,
+        "black": 1199.96
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.04,
+        "black": 1199.96
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.03,
+        "black": 1199.97
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.03,
+        "black": 1199.97
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.03,
+        "black": 1199.97
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.02,
+        "black": 1199.98
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.01,
+        "black": 1199.99
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-22T16:16:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "DQN (white_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    }
+  ]
+}

@@ -1,11 +1,7 @@
-"""Supervised pre-training: policy (played move and/or Stockfish best move) + value (game result blended with
-Stockfish evaluation).
-
-    python -m pretrain.train --shards data/labeled --out runs/pre1 --epochs 4 --batch 512 --workers 6
-"""
 from __future__ import annotations
 
 import argparse
+import json
 import math
 import os
 import time
@@ -119,6 +115,29 @@ def main() -> None:
                                                       collate_fn=collate, pin_memory=device == "cuda")
     amp = device == "cuda"
     step, best, t0, seen = 0, float("inf"), time.time(), 0
+    stats_path = os.path.join(args.out, "stats.json")
+    stats = {
+        "created": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "status": "running",
+        "algorithm": "pretrain",
+        "device": device,
+        "args": vars(args),
+        "train_positions": n_train,
+        "steps_per_epoch": steps_per_epoch,
+        "total_steps": total,
+        "history": [],
+    }
+
+    def write_stats():
+        stats["train_seconds"] = round(time.time() - t0, 1)
+        stats["positions_seen"] = seen
+        stats["skipped_samples"] = train_ds.skipped
+        tmp_path = stats_path + ".tmp"
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(stats, f, indent=2)
+        os.replace(tmp_path, stats_path)
+
+    write_stats()
 
     def save(name, metrics):
         torch.save({"format": 3, "algorithm": "pretrain", "name": "pretrain",
@@ -140,20 +159,45 @@ def main() -> None:
             opt.step()
             step, seen = step + 1, seen + len(batch["target"])
             if step % args.log_every == 0:
+                stats["history"].append({
+                    "type": "train",
+                    "step": step,
+                    "epoch": epoch + 1,
+                    "loss": loss.item(),
+                    "pol": m["pol"].item(),
+                    "pol_sf": m["pol_sf"].item(),
+                    "val": m["val"].item(),
+                    "lr": lr_at(step),
+                    "positions_per_second": seen / (time.time() - t0),
+                })
+                write_stats()
                 print(f"step {step}/{total} loss {loss.item():.4f} pol {m['pol'].item():.3f} val {m['val'].item():.4f} "
                       f"lr {lr_at(step):.2e} {seen / (time.time() - t0):.0f} pos/s", flush=True)
             if step % args.eval_every == 0 or step >= total:
                 metrics = evaluate(net, mkloader(val_ds, 0), device, args, args.val_batches)
                 score = metrics["pol"] + metrics["val"]
                 print(f"[val] step {step}: " + " ".join(f"{k} {v:.4f}" for k, v in metrics.items()), flush=True)
+                stats["history"].append({
+                    "type": "validation",
+                    "step": step,
+                    "epoch": epoch + 1,
+                    **metrics,
+                    "score": score,
+                })
                 save("last.pt", metrics)
                 if score < best:
                     best = score
                     save("best.pt", metrics)
+                    stats["best_validation"] = {"step": step, "score": score}
+                stats["final_validation"] = metrics
+                stats["checkpoints"] = ["last.pt", "best.pt"]
+                write_stats()
             if step >= total:
                 break
         if step >= total:
             break
+    stats["status"] = "completed"
+    write_stats()
     print(f"done in {time.time() - t0:.0f}s; best val (pol+val) {best:.4f}; skipped samples: {train_ds.skipped}")
 
 

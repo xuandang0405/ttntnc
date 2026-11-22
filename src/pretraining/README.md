@@ -6,45 +6,13 @@
 
 Pipeline hỗ trợ tùy chọn sử dụng Stockfish hoặc dữ liệu đánh giá có sẵn từ Lichess để bổ sung nhãn cho các vị trí cờ. Sau khi hoàn thành tiền huấn luyện, mô hình được xuất thành các checkpoint tương thích với những agent hiện có, cho phép tiếp tục huấn luyện bằng các thuật toán khác nhau.
 
-### 1.1. Mục tiêu
+**Mục tiêu:**
 
 - Khai thác dữ liệu ván cờ broadcast có chất lượng cao.
 - Lọc và chuẩn hóa dữ liệu trước khi huấn luyện.
 - Bổ sung nhãn Policy và Value bằng Stockfish hoặc Lichess Evaluation Database.
 - Huấn luyện chung Policy và Value trong một mô hình `PolicyValueNet`.
 - Xuất checkpoint tương thích với các thuật toán AlphaZero, DQN, PPO và A2C.
-
-### 1.2. Kiến trúc tổng quan
-
-Pipeline gồm năm giai đoạn chính:
-
-```text
-       DOWNLOAD
-           |
-           v
-        PREPARE
-           |
-           v
-    +------+------+
-    |             |
-    v             v
- STOCKFISH      EVAL JOIN
-  LABEL
-    |             |
-    +------+------+
-           |
-           v
-         TRAIN
-           |
-           v
-         EXPORT
-           |
-           v
-  ALGORITHM-SPECIFIC
-     CHECKPOINTS
-```
-
-Trong đó, `STOCKFISH LABEL` và `EVAL JOIN` là hai phương thức bổ sung nhãn có thể lựa chọn thay thế cho nhau.
 
 ---
 
@@ -129,15 +97,6 @@ python -m pretrain.prepare \
 
 Sau khi lọc, dữ liệu được chia thành các shard để thuận tiện cho việc xử lý song song.
 
-**Đầu ra:**
-
-```text
-data/
-└── shards/
-    ├── ...
-    └── ...
-```
-
 ### Bước 3. Gán nhãn dữ liệu
 
 Có hai phương thức gán nhãn. Chọn một trong hai phương thức tùy theo nguồn tài nguyên và dữ liệu hiện có.
@@ -186,14 +145,6 @@ python -m pretrain.eval_join \
 
 Phương thức này phù hợp khi muốn tiết kiệm tài nguyên tính toán và tận dụng dữ liệu đánh giá có sẵn.
 
-**Đầu ra chung của bước 3:**
-
-```text
-data/
-└── labeled/
-    └── ...
-```
-
 ### Bước 4. Huấn luyện PolicyValueNet
 
 Sử dụng dữ liệu đã gán nhãn để tiền huấn luyện mô hình `PolicyValueNet`.
@@ -202,7 +153,7 @@ Sử dụng dữ liệu đã gán nhãn để tiền huấn luyện mô hình `P
 python -m pretrain.train \
     --shards data/labeled \
     --out runs/pre1 \
-    --epochs 4 \
+    --epochs 5 \
     --batch 512 \
     --workers 6 \
     --policy-min-elo 2300 \
@@ -222,6 +173,8 @@ python -m pretrain.train \
 | `--policy-min-elo` | 2300 | Ngưỡng Elo tối thiểu cho dữ liệu Policy |
 | `--sf-value-weight` | 0.7 | Trọng số thành phần SF Value |
 | `--w-sf` | 0.3 | Trọng số giám sát từ Stockfish |
+
+Thư mục `--out` lưu `best.pt`, `last.pt` và `stats.json`. Tệp `stats.json` được cập nhật trong quá trình huấn luyện, ghi lại cấu hình, trạng thái, thời gian, các chỉ số train/validation theo step và validation tốt nhất.
 
 #### 4.2. Mục tiêu huấn luyện
 
@@ -324,77 +277,8 @@ Do tài liệu nguồn không mô tả rõ quy ước POV trong dữ liệu đan
 
 Việc thống nhất POV là cần thiết để tránh gán nhãn Value sai chiều cho quân Trắng và quân Đen.
 
----
 
-## 5. Cấu trúc thư mục đầu ra
-
-Cấu trúc tổng quát của pipeline:
-
-```text
-project/
-├── pretrain/
-│   ├── download.py
-│   ├── prepare.py
-│   ├── stockfish_label.py
-│   ├── eval_join.py
-│   ├── train.py
-│   └── export.py
-│
-├── data/
-│   ├── raw/
-│   ├── shards/
-│   └── labeled/
-│
-├── runs/
-│   └── pre1/
-│       └── best.pt
-│
-└── models/
-    ├── ...
-    └── ...
-```
-
----
-
-## 6. Quy trình sử dụng checkpoint
-
-Checkpoint sau khi export có thể được sử dụng để khởi tạo các agent tương ứng.
-
-Luồng tổng thể:
-
-```text
-Lichess Broadcast Games
-          |
-          v
-    Data Preparation
-          |
-          v
-   Stockfish / Lichess
-     Evaluation Labels
-          |
-          v
-    PolicyValueNet
-      Pre-training
-          |
-          v
-    Checkpoint Export
-          |
-    +-----+-----+-----+
-    |     |     |     |
-    v     v     v     v
-   AZ    DQN   PPO   A2C
-    |     |     |     |
-    +-----+-----+-----+
-          |
-          v
-    Further Training
-```
-
-Quá trình tiền huấn luyện cung cấp kiến thức ban đầu về lựa chọn nước đi và đánh giá vị trí. Các agent sau đó có thể tiếp tục được huấn luyện bằng thuật toán tương ứng để phát triển năng lực chơi cờ.
-
----
-
-## 7. Tóm tắt
+## 5. Tóm tắt
 
 Broadcast Pre-training Pipeline cung cấp một quy trình thống nhất để chuyển đổi dữ liệu ván cờ broadcast thành dữ liệu huấn luyện cho mô hình `PolicyValueNet`.
 
