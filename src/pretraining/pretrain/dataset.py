@@ -1,8 +1,3 @@
-"""Streaming position dataset built from game shards.
-
-Games are replayed on a single running board (so the project's `encode` sees real move history), several games
-are interleaved and a shuffle buffer decorrelates consecutive plies. No encoded tensor is ever stored on disk.
-"""
 from __future__ import annotations
 
 import random

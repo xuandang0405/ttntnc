@@ -1,8 +1,3 @@
-"""Load the encoding and network implementation used by the pre-training pipeline.
-
-The main project is the default.  The bundled demo modules are opt-in smoke-test
-components and must not affect normal training.
-"""
 from __future__ import annotations
 
 import importlib

@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "DQN (black_dqn.pt)",
+    "black": "PPO (white_ppo.pt)"
+  },
+  "started_at": "2026-11-25T22:52:15",
+  "updated_at": "2026-11-25T22:53:02",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 35,
+      "losses": 5,
+      "draws": 88
+    },
+    "black": {
+      "wins": 5,
+      "losses": 35,
+      "draws": 88
+    },
+    "elo": {
+      "white": 1188.93,
+      "black": 1211.07
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-25T22:52:24",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-25T22:52:25",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.53,
+        "black": 1185.47
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-25T22:52:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1213.2,
+        "black": 1186.8
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-25T22:52:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1227.98,
+        "black": 1172.02
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-25T22:52:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1241.43,
+        "black": 1158.57
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-25T22:52:32",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1253.68,
+        "black": 1146.32
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-25T22:52:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1264.89,
+        "black": 1135.11
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-25T22:52:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1275.18,
+        "black": 1124.82
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-25T22:52:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1284.65,
+        "black": 1115.35
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-25T22:52:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1277.42,
+        "black": 1122.58
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-25T22:52:35",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1286.73,
+        "black": 1113.27
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-25T22:52:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1279.34,
+        "black": 1120.66
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-25T22:52:36",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1256.5,
+        "black": 1143.5
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-25T22:52:36",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1267.48,
+        "black": 1132.52
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-25T22:52:36",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1277.56,
+        "black": 1122.44
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1270.85,
+        "black": 1129.15
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1280.67,
+        "black": 1119.33
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1273.73,
+        "black": 1126.27
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1283.32,
+        "black": 1116.68
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1276.18,
+        "black": 1123.82
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1269.58,
+        "black": 1130.42
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1279.5,
+        "black": 1120.5
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-25T22:52:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1288.65,
+        "black": 1111.35
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-25T22:52:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1281.12,
+        "black": 1118.88
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-25T22:52:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1274.15,
+        "black": 1125.85
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-25T22:52:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1267.71,
+        "black": 1132.29
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-25T22:52:38",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1245.77,
+        "black": 1154.23
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-25T22:52:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1257.65,
+        "black": 1142.35
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-25T22:52:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1268.53,
+        "black": 1131.47
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1278.52,
+        "black": 1121.48
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1287.75,
+        "black": 1112.25
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1280.29,
+        "black": 1119.71
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1289.38,
+        "black": 1110.62
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1281.8,
+        "black": 1118.2
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1290.78,
+        "black": 1109.22
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-25T22:52:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1283.11,
+        "black": 1116.89
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-25T22:52:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1291.99,
+        "black": 1108.01
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-25T22:52:42",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1284.23,
+        "black": 1115.77
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-25T22:52:42",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1277.02,
+        "black": 1122.98
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-25T22:52:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1270.36,
+        "black": 1129.64
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-25T22:52:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1264.21,
+        "black": 1135.79
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-25T22:52:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1258.55,
+        "black": 1141.45
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-25T22:52:43",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1237.36,
+        "black": 1162.64
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-25T22:52:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1249.97,
+        "black": 1150.03
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-25T22:52:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1261.49,
+        "black": 1138.51
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-25T22:52:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1256.05,
+        "black": 1143.95
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-25T22:52:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1267.06,
+        "black": 1132.94
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-25T22:52:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1261.17,
+        "black": 1138.83
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-25T22:52:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1255.76,
+        "black": 1144.24
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-25T22:52:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1250.79,
+        "black": 1149.21
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-25T22:52:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1246.25,
+        "black": 1153.75
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-25T22:52:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1242.08,
+        "black": 1157.92
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-25T22:52:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1254.28,
+        "black": 1145.72
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-25T22:52:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1249.44,
+        "black": 1150.56
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-25T22:52:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1245.0,
+        "black": 1155.0
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-25T22:52:46",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1224.95,
+        "black": 1175.05
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-25T22:52:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1238.67,
+        "black": 1161.33
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-25T22:52:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1251.16,
+        "black": 1148.84
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-25T22:52:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1246.58,
+        "black": 1153.42
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-25T22:52:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1258.39,
+        "black": 1141.61
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-25T22:52:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1269.21,
+        "black": 1130.79
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-25T22:52:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1263.15,
+        "black": 1136.85
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1257.58,
+        "black": 1142.42
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1268.46,
+        "black": 1131.54
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1262.46,
+        "black": 1137.54
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1256.95,
+        "black": 1143.05
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1251.88,
+        "black": 1148.12
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-25T22:52:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1247.24,
+        "black": 1152.76
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-25T22:52:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1242.99,
+        "black": 1157.01
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-25T22:52:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1255.11,
+        "black": 1144.89
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-25T22:52:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1250.2,
+        "black": 1149.8
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-25T22:52:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1245.7,
+        "black": 1154.3
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1241.59,
+        "black": 1158.41
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1237.83,
+        "black": 1162.17
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1234.4,
+        "black": 1165.6
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1231.27,
+        "black": 1168.73
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1244.42,
+        "black": 1155.58
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-25T22:52:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1240.42,
+        "black": 1159.58
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-25T22:52:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1236.76,
+        "black": 1163.24
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-25T22:52:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1233.42,
+        "black": 1166.58
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-25T22:52:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1230.38,
+        "black": 1169.62
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-25T22:52:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1227.61,
+        "black": 1172.39
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-25T22:52:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1225.09,
+        "black": 1174.91
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-25T22:52:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1222.8,
+        "black": 1177.2
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-25T22:52:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1220.71,
+        "black": 1179.29
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-25T22:52:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1234.81,
+        "black": 1165.19
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1231.65,
+        "black": 1168.35
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1228.76,
+        "black": 1171.24
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1226.14,
+        "black": 1173.86
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1223.75,
+        "black": 1176.25
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1221.57,
+        "black": 1178.43
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1219.6,
+        "black": 1180.4
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1217.8,
+        "black": 1182.2
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1216.17,
+        "black": 1183.83
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.68,
+        "black": 1185.32
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-25T22:52:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1229.33,
+        "black": 1170.67
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-25T22:52:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1226.66,
+        "black": 1173.34
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-25T22:52:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1224.22,
+        "black": 1175.78
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-25T22:52:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1222.0,
+        "black": 1178.0
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-25T22:52:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1219.99,
+        "black": 1180.01
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1218.16,
+        "black": 1181.84
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1216.49,
+        "black": 1183.51
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.97,
+        "black": 1185.03
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1213.6,
+        "black": 1186.4
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1212.35,
+        "black": 1187.65
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1211.21,
+        "black": 1188.79
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1226.18,
+        "black": 1173.82
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1223.79,
+        "black": 1176.21
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1221.61,
+        "black": 1178.39
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1219.63,
+        "black": 1180.37
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-25T22:52:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1217.83,
+        "black": 1182.17
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-25T22:52:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1216.19,
+        "black": 1183.81
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-25T22:52:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.71,
+        "black": 1185.29
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-25T22:52:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1213.36,
+        "black": 1186.64
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-25T22:52:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1212.13,
+        "black": 1187.87
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1211.01,
+        "black": 1188.99
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1210.0,
+        "black": 1190.0
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1209.08,
+        "black": 1190.92
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.24,
+        "black": 1191.76
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1207.49,
+        "black": 1192.51
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1206.8,
+        "black": 1193.2
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1206.17,
+        "black": 1193.83
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-25T22:52:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1205.6,
+        "black": 1194.4
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-25T22:52:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1205.09,
+        "black": 1194.91
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-25T22:52:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1204.62,
+        "black": 1195.38
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-25T22:52:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Fifty moves",
+      "elo": {
+        "white": 1204.19,
+        "black": 1195.81
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-25T22:52:59",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1187.81,
+        "black": 1212.19
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-25T22:53:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1188.93,
+        "black": 1211.07
+      },
+      "white": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      }
+    }
+  ]
+}

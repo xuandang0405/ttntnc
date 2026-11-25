@@ -19,8 +19,8 @@ device = torch.device("cuda" if USE_CUDA and torch.cuda.is_available() else "cpu
  
 class Slot:
 
-    def __init__(self):
-        self.kind, self.board = curriculum.new_start()
+    def __init__(self, match_number):
+        self.kind, self.board = curriculum.new_start(match_number=match_number)
         self.max_plies = curriculum.max_plies(self.kind)
         self.last_move = None
 
@@ -32,7 +32,8 @@ class ConcurrentSelfPlay:
         self.device_name = str(device)
         self.white = build_agent(white_cfg, chess.WHITE, device, EPISODES_PER_UPDATE)
         self.black = build_agent(black_cfg, chess.BLACK, device, EPISODES_PER_UPDATE)
-        self.slots = [Slot() for _ in range(k)]
+        self.slots = [Slot(match_number) for match_number in range(1, k + 1)]
+        self.next_match_number = k + 1
         self.experiment = Experiment()
         loaded = {n: c["path"] for n, c in (("White", white_cfg), ("Black", black_cfg)) if c.get("path")}
         self.experiment.resumed_from = loaded or None
@@ -94,7 +95,8 @@ class ConcurrentSelfPlay:
         n = len(self.recent)
         self.history.append((self.recent.count("White") / n, self.recent.count("Black") / n,
                              self.recent.count("Draw") / n, sum(self.recent_len) / n))
-        self.slots[i] = Slot()
+        self.slots[i] = Slot(self.next_match_number)
+        self.next_match_number += 1
  
     def metrics_snapshot(self, max_age=0.0):
         return self.metrics.snapshot((self.white, self.black), max_age)
