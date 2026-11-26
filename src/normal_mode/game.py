@@ -43,7 +43,7 @@ class SelfPlay:
         self.black.metrics = self.metrics
  
     def new_game(self):
-        self.kind, self.board = curriculum.new_start()      # opening / middlegame / endgame start
+        self.kind, self.board = curriculum.new_start(match_number=self.games + 1)
         self.max_plies = curriculum.max_plies(self.kind)
         self.last_move = None
         self.white.reset_episode()

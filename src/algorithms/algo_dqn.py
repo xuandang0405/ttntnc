@@ -1,9 +1,15 @@
 import copy
 import random
 
+import chess
 import numpy as np
 import torch
 import torch.nn.functional as F
+
+try:
+    import algorithms_rs
+except ImportError:
+    algorithms_rs = None
 
 from algorithms.algo_base import BaseAgent
 from algorithms.algo_config import (DQN_BATCH, DQN_BUFFER, DQN_EPS_DECAY_STEPS, DQN_EPS_END, DQN_EPS_START,
@@ -95,9 +101,25 @@ class DQNAgent(BaseAgent):
     def _act_batch_native(self, game_ids, boards):
         self.prefetch_balances(boards)
         with self._profile("action_prepare"):
-            maps = [legal_moves_map(b, self.color) for b in boards]
-            legal = self.legal_padded([list(m) for m in maps])
-            states = self.encode_boards(boards)
+            prepare_batch = getattr(algorithms_rs, "prepare_dqn_batch", None)
+            if prepare_batch is None:
+                maps = [legal_moves_map(b, self.color) for b in boards]
+                legal = self.legal_padded([list(m) for m in maps])
+                states = self.encode_boards(boards)
+            else:
+                root_fens = [board.root().fen() for board in boards]
+                move_lists = [[move.uci() for move in board.move_stack] for board in boards]
+                state_array, legal, move_ucis = prepare_batch(
+                    root_fens, move_lists, self.color == chess.WHITE)
+                states = torch.from_numpy(state_array).view(
+                    len(boards), INPUT_CHANNELS, 8, 8)
+                maps = [
+                    {
+                        int(action): chess.Move.from_uci(uci)
+                        for action, uci in zip(row[row >= 0], ucis)
+                    }
+                    for row, ucis in zip(legal, move_ucis)
+                ]
         with self._profile("action_inference"):
             q, _ = self.net(states.to(self.device))
             q = self.gather_legal(q, legal)             # only legal Q-values cross to the CPU

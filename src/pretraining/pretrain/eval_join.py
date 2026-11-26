@@ -1,12 +1,3 @@
-"""Attach Stockfish evaluations from lichess_db_eval.jsonl.zst (417M positions) to prepared shards.
-
-    python -m pretrain.eval_join data/shards --evals data/lichess_db_eval.jsonl.zst --out data/labeled
-
-One streaming pass over the eval file; only lines whose FEN key matches one of our positions are parsed.
-Coverage is high in openings/early middlegames and thins out later. The eval file does not document whether
-`cp` is white- or side-to-move-relative, so this script *measures* it: it correlates cp with material balance
-and prints the verdict (override with --pov white|stm).
-"""
 from __future__ import annotations
 
 import argparse

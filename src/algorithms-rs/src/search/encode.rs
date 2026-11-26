@@ -65,9 +65,19 @@ pub fn move_to_index(m: &Move, color: Color) -> usize {
 /// current one (at most `HISTORY_LENGTH` are used). `repetitions` is how many
 /// times the current position has occurred in the game, counting itself.
 pub fn encode_into(out: &mut [f32], boards: &[&Board], pos: &Chess, repetitions: usize) {
+    encode_into_for_color(out, boards, pos, repetitions, pos.turn());
+}
+
+/// Fill planes using an explicit perspective, as used by the DQN actor.
+pub fn encode_into_for_color(
+    out: &mut [f32],
+    boards: &[&Board],
+    pos: &Chess,
+    repetitions: usize,
+    color: Color,
+) {
     debug_assert_eq!(out.len(), STATE_LEN);
     out.fill(0.0);
-    let color = pos.turn();
     let boards = if boards.len() > HISTORY_LENGTH {
         &boards[boards.len() - HISTORY_LENGTH..]
     } else {

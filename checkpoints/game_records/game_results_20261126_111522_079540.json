@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "PPO (white_ppo.pt)",
+    "black": "A2C (black_a2c.pt)"
+  },
+  "started_at": "2026-11-26T11:15:22",
+  "updated_at": "2026-11-26T11:16:06",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 14,
+      "losses": 1,
+      "draws": 113
+    },
+    "black": {
+      "wins": 1,
+      "losses": 14,
+      "draws": 113
+    },
+    "elo": {
+      "white": 1212.34,
+      "black": 1187.66
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-26T11:15:24",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.0,
+        "black": 1200.0
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-26T11:15:29",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1184.0,
+        "black": 1216.0
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-26T11:15:29",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1185.47,
+        "black": 1214.53
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-26T11:15:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1186.8,
+        "black": 1213.2
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-26T11:15:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1188.02,
+        "black": 1211.98
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-26T11:15:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1189.12,
+        "black": 1210.88
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-26T11:15:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1206.12,
+        "black": 1193.88
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-26T11:15:31",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1205.56,
+        "black": 1194.44
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-26T11:15:32",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1205.05,
+        "black": 1194.95
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-26T11:15:32",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.58,
+        "black": 1195.42
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-26T11:15:32",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.16,
+        "black": 1195.84
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-26T11:15:33",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.78,
+        "black": 1196.22
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-26T11:15:33",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.43,
+        "black": 1196.57
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-26T11:15:33",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.11,
+        "black": 1196.89
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-26T11:15:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1202.83,
+        "black": 1197.17
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-26T11:15:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1202.57,
+        "black": 1197.43
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-26T11:15:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1202.33,
+        "black": 1197.67
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-26T11:15:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1202.11,
+        "black": 1197.89
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-26T11:15:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.92,
+        "black": 1198.08
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-26T11:15:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.74,
+        "black": 1198.26
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-26T11:15:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.58,
+        "black": 1198.42
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-26T11:15:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.44,
+        "black": 1198.56
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-26T11:15:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.3,
+        "black": 1198.7
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-26T11:15:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.18,
+        "black": 1198.82
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-26T11:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1201.08,
+        "black": 1198.92
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-26T11:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.98,
+        "black": 1199.02
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-26T11:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.89,
+        "black": 1199.11
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-26T11:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.8,
+        "black": 1199.2
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-26T11:15:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.73,
+        "black": 1199.27
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-26T11:15:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.66,
+        "black": 1199.34
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-26T11:15:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.6,
+        "black": 1199.4
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-26T11:15:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.55,
+        "black": 1199.45
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-26T11:15:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.5,
+        "black": 1199.5
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-26T11:15:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.45,
+        "black": 1199.55
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-26T11:15:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.41,
+        "black": 1199.59
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-26T11:15:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.37,
+        "black": 1199.63
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-26T11:15:41",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.34,
+        "black": 1199.66
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-26T11:15:41",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.31,
+        "black": 1199.69
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-26T11:15:41",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1200.28,
+        "black": 1199.72
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-26T11:15:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.25,
+        "black": 1183.75
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-26T11:15:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.76,
+        "black": 1185.24
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-26T11:15:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1213.4,
+        "black": 1186.6
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-26T11:15:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1212.17,
+        "black": 1187.83
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-26T11:15:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1211.05,
+        "black": 1188.95
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-26T11:15:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1210.04,
+        "black": 1189.96
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1209.11,
+        "black": 1190.89
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.27,
+        "black": 1191.73
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1223.51,
+        "black": 1176.49
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1221.36,
+        "black": 1178.64
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1219.4,
+        "black": 1180.6
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1217.62,
+        "black": 1182.38
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-26T11:15:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1216.01,
+        "black": 1183.99
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-26T11:15:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1230.54,
+        "black": 1169.46
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-26T11:15:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1227.75,
+        "black": 1172.25
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-26T11:15:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1225.22,
+        "black": 1174.78
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-26T11:15:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1222.91,
+        "black": 1177.09
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-26T11:15:45",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1236.81,
+        "black": 1163.19
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1233.47,
+        "black": 1166.53
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1230.43,
+        "black": 1169.57
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1227.65,
+        "black": 1172.35
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1241.13,
+        "black": 1158.87
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1237.41,
+        "black": 1162.59
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1234.02,
+        "black": 1165.98
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1230.92,
+        "black": 1169.08
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-26T11:15:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1228.1,
+        "black": 1171.9
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1225.54,
+        "black": 1174.46
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1223.2,
+        "black": 1176.8
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1221.08,
+        "black": 1178.92
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1219.15,
+        "black": 1180.85
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1217.39,
+        "black": 1182.61
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-26T11:15:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1215.79,
+        "black": 1184.21
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-26T11:15:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.34,
+        "black": 1185.66
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-26T11:15:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1213.02,
+        "black": 1186.98
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-26T11:15:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1211.83,
+        "black": 1188.17
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-26T11:15:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1210.74,
+        "black": 1189.26
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-26T11:15:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1209.75,
+        "black": 1190.25
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-26T11:15:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.85,
+        "black": 1191.15
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-26T11:15:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.04,
+        "black": 1191.96
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-26T11:15:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1223.3,
+        "black": 1176.7
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-26T11:15:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1221.17,
+        "black": 1178.83
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-26T11:15:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1219.23,
+        "black": 1180.77
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-26T11:15:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1217.46,
+        "black": 1182.54
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1215.86,
+        "black": 1184.14
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1214.4,
+        "black": 1185.6
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1213.08,
+        "black": 1186.92
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1211.88,
+        "black": 1188.12
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1226.79,
+        "black": 1173.21
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-26T11:15:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1224.34,
+        "black": 1175.66
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1222.11,
+        "black": 1177.89
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1220.08,
+        "black": 1179.92
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1218.24,
+        "black": 1181.76
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1216.57,
+        "black": 1183.43
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1231.05,
+        "black": 1168.95
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-26T11:15:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1228.22,
+        "black": 1171.78
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-26T11:15:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1225.64,
+        "black": 1174.36
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-26T11:15:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1223.3,
+        "black": 1176.7
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-26T11:15:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1221.16,
+        "black": 1178.84
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-26T11:15:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1219.22,
+        "black": 1180.78
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-26T11:15:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1217.46,
+        "black": 1182.54
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-26T11:15:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1231.86,
+        "black": 1168.14
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-26T11:15:55",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1244.96,
+        "black": 1155.04
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-26T11:15:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1240.91,
+        "black": 1159.09
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-26T11:15:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1237.21,
+        "black": 1162.79
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-26T11:15:56",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1249.83,
+        "black": 1150.17
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-26T11:15:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1245.36,
+        "black": 1154.64
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-26T11:15:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1241.28,
+        "black": 1158.72
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-26T11:15:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1237.55,
+        "black": 1162.45
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-26T11:15:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1234.14,
+        "black": 1165.86
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-26T11:15:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1231.04,
+        "black": 1168.96
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-26T11:15:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1228.21,
+        "black": 1171.79
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-26T11:15:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1225.63,
+        "black": 1174.37
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-26T11:15:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1239.29,
+        "black": 1160.71
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-26T11:15:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1251.73,
+        "black": 1148.27
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-26T11:15:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1247.1,
+        "black": 1152.9
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-26T11:15:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1242.87,
+        "black": 1157.13
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-26T11:15:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1239.0,
+        "black": 1161.0
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-26T11:15:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1235.46,
+        "black": 1164.54
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-26T11:15:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1232.24,
+        "black": 1167.76
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-26T11:15:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1229.31,
+        "black": 1170.69
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-26T11:15:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1226.63,
+        "black": 1173.37
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-26T11:15:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1224.2,
+        "black": 1175.8
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-26T11:16:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1221.98,
+        "black": 1178.02
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-26T11:16:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1219.97,
+        "black": 1180.03
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-26T11:16:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1218.14,
+        "black": 1181.86
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-26T11:16:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1216.47,
+        "black": 1183.53
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-26T11:16:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1214.96,
+        "black": 1185.04
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-26T11:16:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1213.59,
+        "black": 1186.41
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-26T11:16:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1212.34,
+        "black": 1187.66
+      },
+      "white": {
+        "name": "PPO (white_ppo.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    }
+  ]
+}

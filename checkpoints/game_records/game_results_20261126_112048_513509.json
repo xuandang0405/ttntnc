@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "AlphaZero (white_alphazero.pt)",
+    "black": "PPO (black_ppo.pt)"
+  },
+  "started_at": "2026-11-26T11:20:48",
+  "updated_at": "2026-11-26T11:24:23",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 8,
+      "losses": 29,
+      "draws": 91
+    },
+    "black": {
+      "wins": 29,
+      "losses": 8,
+      "draws": 91
+    },
+    "elo": {
+      "white": 1188.87,
+      "black": 1211.13
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-26T11:20:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-26T11:21:03",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1230.53,
+        "black": 1169.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-26T11:21:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1243.75,
+        "black": 1156.25
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-26T11:21:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1255.8,
+        "black": 1144.2
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-26T11:21:15",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1234.83,
+        "black": 1165.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-26T11:21:17",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1215.67,
+        "black": 1184.33
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-26T11:21:18",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.23,
+        "black": 1185.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-26T11:21:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1228.92,
+        "black": 1171.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-26T11:21:26",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1210.28,
+        "black": 1189.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-26T11:21:28",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1225.33,
+        "black": 1174.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-26T11:21:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1239.02,
+        "black": 1160.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-26T11:21:33",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1219.48,
+        "black": 1180.52
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-26T11:21:33",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1201.7,
+        "black": 1198.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-26T11:21:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1201.54,
+        "black": 1198.46
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-26T11:21:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1201.4,
+        "black": 1198.6
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-26T11:21:38",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1185.27,
+        "black": 1214.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-26T11:21:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1186.62,
+        "black": 1213.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-26T11:21:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1187.85,
+        "black": 1212.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-26T11:21:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1188.97,
+        "black": 1211.03
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-26T11:21:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1189.98,
+        "black": 1210.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-26T11:21:45",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1190.91,
+        "black": 1209.09
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-26T11:21:46",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1175.74,
+        "black": 1224.26
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-26T11:21:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1177.96,
+        "black": 1222.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-26T11:21:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1179.98,
+        "black": 1220.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-26T11:21:48",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1165.82,
+        "black": 1234.18
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-26T11:21:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1168.93,
+        "black": 1231.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-26T11:21:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1171.76,
+        "black": 1228.24
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-26T11:21:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1174.34,
+        "black": 1225.66
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-26T11:21:52",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1160.68,
+        "black": 1239.32
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-26T11:21:53",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1148.24,
+        "black": 1251.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-26T11:21:54",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1136.87,
+        "black": 1263.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-26T11:21:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1142.44,
+        "black": 1257.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-26T11:21:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1147.56,
+        "black": 1252.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-26T11:21:58",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1136.25,
+        "black": 1263.75
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-26T11:21:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1141.87,
+        "black": 1258.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-26T11:21:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1147.03,
+        "black": 1252.97
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-26T11:21:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1151.77,
+        "black": 1248.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-26T11:21:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1156.1,
+        "black": 1243.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-26T11:21:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1176.06,
+        "black": 1223.94
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-26T11:21:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1178.25,
+        "black": 1221.75
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-26T11:22:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1180.24,
+        "black": 1219.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-26T11:22:01",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1166.05,
+        "black": 1233.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-26T11:22:02",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1169.14,
+        "black": 1230.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-26T11:22:02",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1171.95,
+        "black": 1228.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-26T11:22:02",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1158.51,
+        "black": 1241.49
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-26T11:22:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1162.26,
+        "black": 1237.74
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-26T11:22:03",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1149.69,
+        "black": 1250.31
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-26T11:22:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1154.19,
+        "black": 1245.81
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1142.32,
+        "black": 1257.68
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1147.44,
+        "black": 1252.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1152.14,
+        "black": 1247.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1156.44,
+        "black": 1243.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1160.37,
+        "black": 1239.63
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-26T11:22:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1163.96,
+        "black": 1236.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-26T11:22:07",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1167.23,
+        "black": 1232.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-26T11:22:07",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1154.22,
+        "black": 1245.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-26T11:22:07",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1158.34,
+        "black": 1241.66
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-26T11:22:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1162.1,
+        "black": 1237.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-26T11:22:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1165.54,
+        "black": 1234.46
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-26T11:22:09",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1152.67,
+        "black": 1247.33
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-26T11:22:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1156.93,
+        "black": 1243.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-26T11:22:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1160.81,
+        "black": 1239.19
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-26T11:22:10",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1164.36,
+        "black": 1235.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-26T11:22:10",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1167.6,
+        "black": 1232.4
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-26T11:22:10",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1170.55,
+        "black": 1229.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-26T11:22:11",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1157.24,
+        "black": 1242.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-26T11:22:11",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1161.1,
+        "black": 1238.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-26T11:22:11",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1164.62,
+        "black": 1235.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-26T11:22:12",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1167.84,
+        "black": 1232.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-26T11:22:12",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1170.77,
+        "black": 1229.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-26T11:22:12",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1173.43,
+        "black": 1226.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-26T11:22:12",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1175.86,
+        "black": 1224.14
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-26T11:22:14",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1178.07,
+        "black": 1221.93
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-26T11:22:14",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1180.08,
+        "black": 1219.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-26T11:22:14",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1165.91,
+        "black": 1234.09
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-26T11:22:14",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1169.01,
+        "black": 1230.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-26T11:22:15",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1171.83,
+        "black": 1228.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-26T11:22:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1174.4,
+        "black": 1225.6
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-26T11:22:19",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1176.74,
+        "black": 1223.26
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-26T11:22:20",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1162.87,
+        "black": 1237.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-26T11:22:21",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1150.24,
+        "black": 1249.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-26T11:22:25",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1154.7,
+        "black": 1245.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-26T11:22:26",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1158.78,
+        "black": 1241.22
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-26T11:22:28",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1146.51,
+        "black": 1253.49
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-26T11:22:33",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1151.29,
+        "black": 1248.71
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-26T11:22:33",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1155.66,
+        "black": 1244.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-26T11:22:34",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1143.66,
+        "black": 1256.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-26T11:22:34",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1132.67,
+        "black": 1267.33
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-26T11:22:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1138.58,
+        "black": 1261.42
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-26T11:22:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1144.01,
+        "black": 1255.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-26T11:22:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1149.0,
+        "black": 1251.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-26T11:22:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1153.56,
+        "black": 1246.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-26T11:22:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1157.74,
+        "black": 1242.26
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-26T11:22:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1161.56,
+        "black": 1238.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-26T11:22:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1165.04,
+        "black": 1234.96
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-26T11:22:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1168.22,
+        "black": 1231.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-26T11:22:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1171.11,
+        "black": 1228.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-26T11:22:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1173.75,
+        "black": 1226.25
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-26T11:22:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1176.15,
+        "black": 1223.85
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-26T11:22:41",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1178.33,
+        "black": 1221.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-26T11:22:41",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1180.32,
+        "black": 1219.68
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-26T11:22:42",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1166.12,
+        "black": 1233.88
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-26T11:22:45",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1153.2,
+        "black": 1246.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-26T11:22:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1157.41,
+        "black": 1242.59
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-26T11:22:49",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1145.26,
+        "black": 1254.74
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-26T11:22:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1150.14,
+        "black": 1249.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-26T11:22:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1154.61,
+        "black": 1245.39
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-26T11:22:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1158.7,
+        "black": 1241.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-26T11:22:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1162.43,
+        "black": 1237.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-26T11:22:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1165.84,
+        "black": 1234.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-26T11:22:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1168.95,
+        "black": 1231.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-26T11:22:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1171.78,
+        "black": 1228.22
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-26T11:22:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1174.35,
+        "black": 1225.65
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-26T11:22:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1176.7,
+        "black": 1223.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-26T11:22:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1178.83,
+        "black": 1221.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-26T11:23:00",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1164.77,
+        "black": 1235.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-26T11:23:03",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1167.97,
+        "black": 1232.03
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-26T11:23:05",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1170.89,
+        "black": 1229.11
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-26T11:23:12",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1173.55,
+        "black": 1226.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1175.96,
+        "black": 1224.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1178.16,
+        "black": 1221.84
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1180.16,
+        "black": 1219.84
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1181.98,
+        "black": 1218.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1183.64,
+        "black": 1216.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1185.14,
+        "black": 1214.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1186.5,
+        "black": 1213.5
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1187.75,
+        "black": 1212.25
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-26T11:23:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Move limit reached",
+      "elo": {
+        "white": 1188.87,
+        "black": 1211.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "PPO (black_ppo.pt)",
+        "result": "draw"
+      }
+    }
+  ]
+}

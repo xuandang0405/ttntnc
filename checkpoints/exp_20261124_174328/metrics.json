@@ -1,0 +1,401 @@
+{
+  "experiment": "exp_20261124_174328",
+  "title": "exp_20261124_174328: So s\u00e1nh gi\u1eefa m\u00f4 h\u00ecnh Tr\u1eafng d\u00f9ng DQN v\u00e0 m\u00f4 h\u00ecnh \u0110en d\u00f9ng DQN",
+  "started_at": "2026-11-24T17:43:28",
+  "saved_at": "2026-11-25T00:29:26",
+  "elapsed_seconds": 24357.9,
+  "save_count": 200,
+  "resumed_from": {
+    "White": "D:/Python/AI/chess_ai/src/pretraining/models3/white_dqn.pt",
+    "Black": "D:/Python/AI/chess_ai/src/pretraining/models3/black_dqn.pt"
+  },
+  "algorithms": {
+    "White": "dqn",
+    "Black": "dqn"
+  },
+  "system": {
+    "python": "3.10.18",
+    "torch": "2.5.1+cu121",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "memory": {
+    "process_mb": 1775.3,
+    "gpu_allocated_mb": 211.3,
+    "gpu_peak_mb": 324.1
+  },
+  "models": {
+    "White": {
+      "algorithm": "dqn",
+      "file": "white_dqn.pt",
+      "parameters": 5383278,
+      "trainable_parameters": 5383278,
+      "parameter_size_mb": 21.533,
+      "checkpoint_file_mb": 64.665,
+      "learning_rate": 0.0001,
+      "last_loss": 0.003670864040032029
+    },
+    "Black": {
+      "algorithm": "dqn",
+      "file": "black_dqn.pt",
+      "parameters": 5383278,
+      "trainable_parameters": 5383278,
+      "parameter_size_mb": 21.533,
+      "checkpoint_file_mb": 64.665,
+      "learning_rate": 0.0001,
+      "last_loss": 0.0023826132528483868
+    }
+  },
+  "hyperparameters": {
+    "learning_rate": 0.0001,
+    "gamma": 0.995,
+    "reward_shaping": 0.01,
+    "draw_reward": 0.0,
+    "max_plies": 300,
+    "stockfish_coach": {
+      "enabled": true,
+      "nodes": 2000,
+      "eval_clip_pawns": 10.0,
+      "engines": 4
+    },
+    "parallel_games": 128,
+    "episodes_per_update": 4
+  },
+  "algorithm_hyperparameters": {
+    "White": {
+      "gamma": 0.995,
+      "buffer": 50000,
+      "batch": 128,
+      "warmup": 3000,
+      "target_sync": 1000,
+      "train_every": 4,
+      "eps_start": 1.0,
+      "eps_end": 0.05,
+      "eps_decay_steps": 100000
+    },
+    "Black": {
+      "gamma": 0.995,
+      "buffer": 50000,
+      "batch": 128,
+      "warmup": 3000,
+      "target_sync": 1000,
+      "train_every": 4,
+      "eps_start": 1.0,
+      "eps_end": 0.05,
+      "eps_decay_steps": 100000
+    }
+  },
+  "training": {
+    "games_played": 11323,
+    "wins": {
+      "White": 921,
+      "Black": 880,
+      "Draw": 9522
+    },
+    "recent_window": 100,
+    "recent_rates": {
+      "White": 0.13,
+      "Black": 0.11,
+      "Draw": 0.76
+    },
+    "avg_game_length_plies": 160.8,
+    "last_result": "Draw (28 plies)",
+    "elo": {
+      "White": 1215.2574769509195,
+      "Black": 1184.7425230490805
+    }
+  },
+  "metrics": {
+    "throughput": {
+      "games_per_second": 0.3373,
+      "plies_per_second": 49.66,
+      "training_updates": 376922,
+      "total_games": 11323,
+      "total_plies": 1561600,
+      "elapsed_seconds": 24357.9
+    },
+    "draw_reasons": {
+      "draw_by_repetition": 5139,
+      "draw_by_fifty_moves": 184,
+      "draw_by_stalemate": 662,
+      "draw_by_insufficient_material": 1622,
+      "draw_by_max_plies": 1915,
+      "draw_by_other": 0
+    },
+    "game_quality": {
+      "window_games": 100,
+      "repetition_rate": 0.0209,
+      "threefold_repetition_rate": 0.0,
+      "repeated_position_count": 2.19,
+      "repeated_move_count": 33.44,
+      "stagnation_rate": 0.7934,
+      "reversal_move_rate": 0.1118,
+      "unique_position_ratio": 0.9805,
+      "avg_unique_positions": 158.63
+    },
+    "optimization": {
+      "White": {
+        "actor_loss": 0.0,
+        "critic_loss": 0.0043,
+        "total_loss": 0.0043,
+        "policy_entropy": 3.0853,
+        "mean_advantage": -0.0009,
+        "std_advantage": 0.087,
+        "mean_return": 0.8746,
+        "mean_value": 0.8755,
+        "value_explained_variance": 0.9653,
+        "gradient_norm": 0.0334,
+        "gradient_clip_fraction": 0.0,
+        "weight_update_norm": 0.0092,
+        "policy_update_count": 188434
+      },
+      "Black": {
+        "actor_loss": 0.0,
+        "critic_loss": 0.0033,
+        "total_loss": 0.0033,
+        "policy_entropy": 3.1007,
+        "mean_advantage": 0.0,
+        "std_advantage": 0.0763,
+        "mean_return": 0.7773,
+        "mean_value": 0.7773,
+        "value_explained_variance": 0.9609,
+        "gradient_norm": 0.0334,
+        "gradient_clip_fraction": 0.0,
+        "weight_update_norm": 0.0086,
+        "policy_update_count": 188488
+      }
+    },
+    "timing_profile": {
+      "White": {
+        "action_prepare": {
+          "calls": 256,
+          "total_ms": 93771.23,
+          "mean_ms": 366.294,
+          "p95_ms": 564.007
+        },
+        "action_inference": {
+          "calls": 256,
+          "total_ms": 4487.606,
+          "mean_ms": 17.53,
+          "p95_ms": 86.702
+        },
+        "action_select": {
+          "calls": 256,
+          "total_ms": 1292.663,
+          "mean_ms": 5.049,
+          "p95_ms": 6.493
+        },
+        "strategy_observe": {
+          "calls": 256,
+          "total_ms": 570.303,
+          "mean_ms": 2.228,
+          "p95_ms": 4.266
+        },
+        "episode_prepare": {
+          "calls": 256,
+          "total_ms": 30.552,
+          "mean_ms": 0.119,
+          "p95_ms": 0.198
+        },
+        "strategy_train": {
+          "calls": 256,
+          "total_ms": 9858.976,
+          "mean_ms": 38.512,
+          "p95_ms": 89.081
+        },
+        "batch_prepare": {
+          "calls": 256,
+          "total_ms": 720.637,
+          "mean_ms": 2.815,
+          "p95_ms": 3.613
+        },
+        "train_forward": {
+          "calls": 256,
+          "total_ms": 915.141,
+          "mean_ms": 3.575,
+          "p95_ms": 5.147
+        },
+        "loss_compute": {
+          "calls": 256,
+          "total_ms": 30.763,
+          "mean_ms": 0.12,
+          "p95_ms": 0.25
+        },
+        "backward": {
+          "calls": 256,
+          "total_ms": 1326.515,
+          "mean_ms": 5.182,
+          "p95_ms": 6.94
+        },
+        "optimizer_step": {
+          "calls": 256,
+          "total_ms": 664.408,
+          "mean_ms": 2.595,
+          "p95_ms": 3.411
+        },
+        "replay_sample": {
+          "calls": 256,
+          "total_ms": 482.632,
+          "mean_ms": 1.885,
+          "p95_ms": 2.195
+        },
+        "target_forward": {
+          "calls": 256,
+          "total_ms": 1496.006,
+          "mean_ms": 5.844,
+          "p95_ms": 8.494
+        }
+      },
+      "Black": {
+        "strategy_observe": {
+          "calls": 256,
+          "total_ms": 571.351,
+          "mean_ms": 2.232,
+          "p95_ms": 4.234
+        },
+        "action_prepare": {
+          "calls": 256,
+          "total_ms": 97518.111,
+          "mean_ms": 380.93,
+          "p95_ms": 593.435
+        },
+        "action_inference": {
+          "calls": 256,
+          "total_ms": 4295.085,
+          "mean_ms": 16.778,
+          "p95_ms": 83.677
+        },
+        "action_select": {
+          "calls": 256,
+          "total_ms": 1278.241,
+          "mean_ms": 4.993,
+          "p95_ms": 6.021
+        },
+        "episode_prepare": {
+          "calls": 256,
+          "total_ms": 31.124,
+          "mean_ms": 0.122,
+          "p95_ms": 0.221
+        },
+        "strategy_train": {
+          "calls": 256,
+          "total_ms": 9771.771,
+          "mean_ms": 38.171,
+          "p95_ms": 86.055
+        },
+        "batch_prepare": {
+          "calls": 256,
+          "total_ms": 731.665,
+          "mean_ms": 2.858,
+          "p95_ms": 3.961
+        },
+        "train_forward": {
+          "calls": 256,
+          "total_ms": 910.151,
+          "mean_ms": 3.555,
+          "p95_ms": 5.212
+        },
+        "loss_compute": {
+          "calls": 256,
+          "total_ms": 30.615,
+          "mean_ms": 0.12,
+          "p95_ms": 0.23
+        },
+        "backward": {
+          "calls": 256,
+          "total_ms": 1242.675,
+          "mean_ms": 4.854,
+          "p95_ms": 7.105
+        },
+        "optimizer_step": {
+          "calls": 256,
+          "total_ms": 655.681,
+          "mean_ms": 2.561,
+          "p95_ms": 3.347
+        },
+        "replay_sample": {
+          "calls": 256,
+          "total_ms": 490.263,
+          "mean_ms": 1.915,
+          "p95_ms": 2.391
+        },
+        "target_forward": {
+          "calls": 256,
+          "total_ms": 1545.061,
+          "mean_ms": 6.035,
+          "p95_ms": 8.669
+        }
+      }
+    },
+    "strategy": {
+      "White": {
+        "opp_top1": 0.2022,
+        "opp_top3": 0.4361,
+        "phase_accuracy": 0.9739,
+        "opp_loss": 2.5283,
+        "phase_loss": 0.0514
+      },
+      "Black": {
+        "opp_top1": 0.2526,
+        "opp_top3": 0.4623,
+        "phase_accuracy": 0.9623,
+        "opp_loss": 2.496,
+        "phase_loss": 0.0659
+      }
+    },
+    "curriculum": {
+      "opening": {
+        "games": 5564,
+        "White": 639,
+        "Black": 594,
+        "Draw": 4331,
+        "plies": 1017328,
+        "avg_plies": 182.8
+      },
+      "middlegame": {
+        "games": 2322,
+        "White": 250,
+        "Black": 252,
+        "Draw": 1820,
+        "plies": 430785,
+        "avg_plies": 185.5
+      },
+      "endgame": {
+        "games": 3437,
+        "White": 32,
+        "Black": 34,
+        "Draw": 3371,
+        "plies": 164767,
+        "avg_plies": 47.9
+      }
+    },
+    "rewards": {
+      "window_episodes": 200,
+      "mean_episode_reward": -0.0318,
+      "mean_step_reward": -0.0004,
+      "terminal_reward_mean": -0.0219,
+      "material_reward_mean": -0.0099,
+      "draw_reward_mean": 0.0,
+      "repetition_penalty_mean": -0.0219,
+      "reward_std": 0.4894,
+      "positive_reward_ratio": 0.3805,
+      "negative_reward_ratio": 0.3713
+    },
+    "system": {
+      "cpu_percent": 9.1,
+      "process_cpu_percent": 98.1,
+      "gpu_utilization_percent": 5.0
+    },
+    "parameters": {
+      "White": 5383278,
+      "Black": 5383278,
+      "total": 10766556
+    },
+    "trainable_parameters": {
+      "White": 5383278,
+      "Black": 5383278,
+      "total": 10766556
+    }
+  }
+}

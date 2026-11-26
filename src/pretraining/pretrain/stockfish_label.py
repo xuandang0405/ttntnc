@@ -1,12 +1,3 @@
-"""Label positions of prepared shards with Stockfish (value + best move), multi-process.
-
-    python -m pretrain.stockfish_label data/shards --out data/labeled --engine /usr/games/stockfish \
-        --nodes 5000 --every 4 --workers 8
-
-Adds/overwrites `sf` = {cp, best, src:"stockfish"}: for every `every`-th position p, cp[p] is the score
-(centipawns, side-to-move POV; mate clamped to +-10000) and best[p] the engine's best move (UCI).
-Fixed `nodes` (not time) keeps labels reproducible regardless of machine load.
-"""
 from __future__ import annotations
 
 import argparse

@@ -40,7 +40,7 @@ class ConcurrentTrainScene(Scene):
         elif e.key == pygame.K_s:
             g.save_models()
         elif e.key == pygame.K_l:
-            if g.load_models():
+            if g.load_model():
                 print("Loaded.")
         elif e.key == pygame.K_r:
             g.stats_reset()

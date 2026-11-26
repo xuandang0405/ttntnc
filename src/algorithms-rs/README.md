@@ -62,10 +62,11 @@ Khác biệt có chủ đích:
 
 ## DQN / PPO / A2C native (`CHESS_AI_RUST_RL=1`)
 
-Cùng triết lý với `BatchSearch`: torch giữ phần mạng nơ-ron (forward/backward), Rust giữ mọi thứ còn lại — chọn hành động trên các nước hợp lệ, ghi nhận từng ván, replay buffer, return/GAE, chuẩn hóa advantage, chia minibatch và dựng mặt nạ nước đi hợp lệ.
+Cùng triết lý với `BatchSearch`: torch giữ phần mạng nơ-ron (forward/backward), Rust xử lý dữ liệu và logic RL. Với DQN, `prepare_dqn_batch(root_fens, move_lists, white)` mã hóa trạng thái và sinh nước hợp lệ trong một lần gọi; sau đó `DqnCore` chọn hành động, ghi nhận ván, quản lý replay buffer và dựng minibatch. Các đường Python vẫn được giữ làm fallback khi binding mới chưa có.
 
 | Lớp Rust | Thay cho (Python) | Việc chạy bằng Rust |
 |---|---|---|
+| `prepare_dqn_batch` | `legal_moves_map`, `encode_boards` | mã hóa lịch sử bàn cờ theo góc nhìn của agent, tạo chỉ số nước hợp lệ và UCI để ánh xạ lại sang `chess.Move` |
 | `DqnCore` | `DQNAgent.replay`, epsilon-greedy, `random.sample` | vòng đệm replay (state lưu f16, chia sẻ `s`/`s'` bằng `Arc`), epsilon theo `act_steps`, argmax trên nước hợp lệ, lấy mẫu minibatch + mặt nạ `mask1`/`mask2`, lịch số bước huấn luyện |
 | `PpoCore` | `PPOAgent.buffer` | lấy mẫu + log-prob trên nước hợp lệ, GAE, chuẩn hóa advantage (độ lệch chuẩn không chệch như `torch.std`), xáo trộn epoch, minibatch + mặt nạ |
 | `A2cCore` | `A2CAgent.buffer` | lấy mẫu trên nước hợp lệ, return chiết khấu, ghép lô + mặt nạ |

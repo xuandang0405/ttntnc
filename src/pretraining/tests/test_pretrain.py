@@ -5,10 +5,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 
 import chess
 import numpy as np
 import torch
+import torch.nn.functional as F
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -17,6 +19,7 @@ os.environ["PRETRAIN_DEMO"] = "1"
 
 from pretrain.common import cp_to_value, list_shards, read_jsonl_zst, split_of
 from pretrain.dataset import PositionStream, collate
+from pretrain.train import losses
 from make_synthetic import make_pgn
 
 SF = shutil.which("stockfish") or "/usr/games/stockfish"
@@ -135,6 +138,72 @@ class Pipeline(unittest.TestCase):
 
 
 class Units(unittest.TestCase):
+    def test_dqn_pretraining_regresses_played_action_q_to_return(self):
+        class FixedNet(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.logits = torch.nn.Parameter(torch.tensor([[0.5, -0.5, 1.0]]))
+                self.value = torch.nn.Parameter(torch.tensor([0.0]))
+
+            def forward(self, states):
+                return self.logits.expand(len(states), -1), self.value.expand(len(states))
+
+        net = FixedNet()
+        batch = {
+            "state": torch.zeros((1, 1)),
+            "legal": torch.tensor([[0, 1, 2]], dtype=torch.int16),
+            "target": torch.tensor([1]),
+            "sf_target": torch.tensor([-1]),
+            "pol_w": torch.tensor([0.0]),
+            "value": torch.tensor([0.75]),
+            "q_target": torch.tensor([-0.75]),
+            "z": torch.tensor([-1.0]),
+        }
+        args = SimpleNamespace(algorithm="dqn", w_played=10.0, w_sf=3.0, w_value=5.0, w_dqn_q=1.0)
+
+        loss, metrics = losses(net, batch, "cpu", args)
+
+        expected = F.smooth_l1_loss(torch.tensor(-0.5), torch.tensor(-0.75))
+        torch.testing.assert_close(metrics["dqn_q"], expected)
+        torch.testing.assert_close(loss, expected)
+        loss.backward()
+        self.assertNotEqual(float(net.logits.grad[0, 1]), 0.0)
+        self.assertIsNone(net.value.grad)
+
+    def test_dataset_q_targets_are_discounted_returns_from_each_side(self):
+        from pretrain.common import ShardWriter
+        from pretrain.project import load_project
+
+        tmp = tempfile.mkdtemp()
+        try:
+            proj = load_project(demo=False)
+            from config import GAMMA, SHAPING
+
+            shards = os.path.join(tmp, "shards")
+            writer = ShardWriter(shards, 10)
+            rec = {
+                "id": "game", "event": "event", "round": "1", "white": "a", "black": "b",
+                "w_elo": 2600, "b_elo": 2600, "result": 1.0,
+                "moves": "e2e4 e7e5 g1f3 b8c6",
+            }
+            writer.add(rec)
+            writer.close()
+
+            stream = PositionStream(shards, "train", demo=False, policy_min_elo=3000)
+            samples = list(stream._game_samples(rec, proj))
+
+            self.assertEqual([sample["z"] for sample in samples], [1.0, -1.0, 1.0, -1.0])
+            self.assertEqual([sample["q_target"] for sample in samples], [GAMMA, -GAMMA, 1.0, -1.0])
+            self.assertTrue(all(sample["pol_w"] == 0.0 for sample in samples))
+            self.assertIn("q_target", collate(samples))
+
+            rec["moves"] = "e2e4 d7d5 e4d5"
+            samples = list(stream._game_samples(rec, proj))
+            self.assertEqual([sample["q_target"] for sample in samples],
+                             [GAMMA * (1 + SHAPING), -1 - SHAPING, 1 + SHAPING])
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
     def test_train_writes_stats(self):
         from pretrain.common import ShardWriter
 
@@ -156,13 +225,16 @@ class Units(unittest.TestCase):
 
             run("pretrain.train", "--shards", shards, "--out", out, "--epochs", "1",
                 "--batch", "2", "--workers", "0", "--val-pct", "20", "--warmup", "1",
-                "--eval-every", "1", "--log-every", "1", "--max-steps", "2", "--val-batches", "1")
+                "--eval-every", "1", "--log-every", "1", "--max-steps", "2", "--val-batches", "1",
+                "--algorithm", "dqn")
             with open(os.path.join(out, "stats.json"), encoding="utf-8") as f:
                 stats = json.load(f)
 
             self.assertEqual(stats["status"], "completed")
+            self.assertEqual(stats["target_algorithm"], "dqn")
             self.assertEqual(stats["positions_seen"], 4)
             self.assertEqual([entry["step"] for entry in stats["history"] if entry["type"] == "validation"], [1, 2])
+            self.assertTrue(all("dqn_q" in entry for entry in stats["history"] if entry["type"] == "validation"))
             self.assertEqual(stats["history"][-1]["step"], 2)
         finally:
             shutil.rmtree(tmp, ignore_errors=True)

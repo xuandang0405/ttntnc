@@ -1,8 +1,3 @@
-"""Download monthly Lichess broadcast dumps: lichess_db_broadcast_YYYY-MM.pgn.zst
-
-    python -m pretrain.download --months 2026-01 --out data/raw
-    python -m pretrain.download --from 2024-01 --to 2026-01 --out data/raw
-"""
 from __future__ import annotations
 
 import argparse

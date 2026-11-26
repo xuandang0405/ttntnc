@@ -16,7 +16,6 @@ from .common import MATE_CP, RESULTS, ShardWriter
 
 _ZERO_CASTLE = re.compile(r"(?<![\w/-])0-0(-0)?(?![\w-])")
 
-
 class _CastlingFixer:
 
     def __init__(self, handle):

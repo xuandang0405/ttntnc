@@ -75,7 +75,7 @@ Các giá trị mặc định được lấy trực tiếp từ `src/encoding.py
 | 12 mặt quân cờ cho mỗi lịch sử | 48 mặt |
 | Mặt metadata | 8 mặt |
 | Kích thước tensor đầu vào | `56 x 8 x 8` |
-| Không gian hành động | 16.384 |
+| Không gian hành động | 20.480 |
 | Residual blocks mặc định | 4 |
 | Channels mặc định | 32 |
 | Kiến trúc | Policy/Value Residual CNN |

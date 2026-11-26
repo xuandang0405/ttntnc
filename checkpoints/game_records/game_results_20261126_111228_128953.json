@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "AlphaZero (white_alphazero.pt)",
+    "black": "DQN (black_dqn.pt)"
+  },
+  "started_at": "2026-11-26T11:12:28",
+  "updated_at": "2026-11-26T11:14:19",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 122,
+      "losses": 2,
+      "draws": 4
+    },
+    "black": {
+      "wins": 2,
+      "losses": 122,
+      "draws": 4
+    },
+    "elo": {
+      "white": 1462.69,
+      "black": 937.31
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-26T11:12:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-26T11:12:41",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1198.53,
+        "black": 1201.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-26T11:12:43",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1214.67,
+        "black": 1185.33
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-26T11:12:48",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1229.32,
+        "black": 1170.68
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-26T11:12:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1242.64,
+        "black": 1157.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-26T11:12:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1254.79,
+        "black": 1145.21
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-26T11:12:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1265.91,
+        "black": 1134.09
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-26T11:12:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1276.11,
+        "black": 1123.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-26T11:12:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1285.52,
+        "black": 1114.48
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-26T11:12:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1294.22,
+        "black": 1105.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-26T11:12:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1302.31,
+        "black": 1097.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-26T11:12:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1309.84,
+        "black": 1090.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-26T11:12:54",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1316.89,
+        "black": 1083.11
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-26T11:12:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1323.5,
+        "black": 1076.5
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-26T11:12:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1329.72,
+        "black": 1070.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-26T11:12:59",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1335.59,
+        "black": 1064.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-26T11:13:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1341.14,
+        "black": 1058.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-26T11:13:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1346.4,
+        "black": 1053.6
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-26T11:13:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1351.41,
+        "black": 1048.59
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-26T11:13:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1356.17,
+        "black": 1043.83
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-26T11:13:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1360.72,
+        "black": 1039.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-26T11:13:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1365.07,
+        "black": 1034.93
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-26T11:13:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1369.23,
+        "black": 1030.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-26T11:13:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1373.22,
+        "black": 1026.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-26T11:13:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1377.05,
+        "black": 1022.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-26T11:13:06",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1380.74,
+        "black": 1019.26
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-26T11:13:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1384.29,
+        "black": 1015.71
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-26T11:13:07",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1387.72,
+        "black": 1012.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-26T11:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1391.02,
+        "black": 1008.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-26T11:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1394.21,
+        "black": 1005.79
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-26T11:13:08",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1397.31,
+        "black": 1002.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-26T11:13:10",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1400.3,
+        "black": 999.7
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-26T11:13:10",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1403.2,
+        "black": 996.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-26T11:13:11",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1406.01,
+        "black": 993.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-26T11:13:11",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1408.74,
+        "black": 991.26
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-26T11:13:11",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1411.4,
+        "black": 988.6
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-26T11:13:11",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1413.98,
+        "black": 986.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-26T11:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1416.49,
+        "black": 983.51
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-26T11:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1418.93,
+        "black": 981.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-26T11:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1421.31,
+        "black": 978.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-26T11:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1423.63,
+        "black": 976.37
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-26T11:13:12",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1425.9,
+        "black": 974.1
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-26T11:13:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1428.11,
+        "black": 971.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-26T11:13:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1430.27,
+        "black": 969.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-26T11:13:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1432.38,
+        "black": 967.62
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-26T11:13:13",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1434.44,
+        "black": 965.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-26T11:13:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1436.46,
+        "black": 963.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-26T11:13:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1438.43,
+        "black": 961.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-26T11:13:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1440.36,
+        "black": 959.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-26T11:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1442.26,
+        "black": 957.74
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-26T11:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1444.11,
+        "black": 955.89
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-26T11:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1445.93,
+        "black": 954.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-26T11:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1447.71,
+        "black": 952.29
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-26T11:13:15",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1449.45,
+        "black": 950.55
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-26T11:13:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1451.17,
+        "black": 948.83
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-26T11:13:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1452.85,
+        "black": 947.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-26T11:13:16",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1454.5,
+        "black": 945.5
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-26T11:13:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1440.12,
+        "black": 959.88
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-26T11:13:17",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1442.02,
+        "black": 957.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-26T11:13:18",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1443.88,
+        "black": 956.12
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-26T11:13:18",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1445.7,
+        "black": 954.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-26T11:13:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1447.48,
+        "black": 952.52
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-26T11:13:19",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1449.23,
+        "black": 950.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-26T11:13:20",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1450.95,
+        "black": 949.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-26T11:13:20",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1452.64,
+        "black": 947.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-26T11:13:20",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1454.29,
+        "black": 945.71
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-26T11:13:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1455.92,
+        "black": 944.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-26T11:13:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1457.52,
+        "black": 942.48
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-26T11:13:21",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1459.09,
+        "black": 940.91
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-26T11:13:22",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1460.63,
+        "black": 939.37
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-26T11:13:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1462.15,
+        "black": 937.85
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-26T11:13:25",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1463.64,
+        "black": 936.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-26T11:13:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1465.1,
+        "black": 934.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-26T11:13:26",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1466.55,
+        "black": 933.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-26T11:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1467.97,
+        "black": 932.03
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-26T11:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1469.37,
+        "black": 930.63
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-26T11:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1470.75,
+        "black": 929.25
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-26T11:13:27",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1472.1,
+        "black": 927.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1473.44,
+        "black": 926.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1474.76,
+        "black": 925.24
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1476.06,
+        "black": 923.94
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1461.34,
+        "black": 938.66
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1462.84,
+        "black": 937.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1464.32,
+        "black": 935.68
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-26T11:13:29",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1465.78,
+        "black": 934.22
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-26T11:13:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1467.21,
+        "black": 932.79
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-26T11:13:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1468.62,
+        "black": 931.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-26T11:13:30",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1470.01,
+        "black": 929.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-26T11:13:31",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1471.38,
+        "black": 928.62
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-26T11:13:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1472.73,
+        "black": 927.27
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-26T11:13:33",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1474.06,
+        "black": 925.94
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-26T11:13:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1475.36,
+        "black": 924.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-26T11:13:34",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1476.65,
+        "black": 923.35
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-26T11:13:35",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1477.92,
+        "black": 922.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-26T11:13:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1479.18,
+        "black": 920.82
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-26T11:13:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1480.41,
+        "black": 919.59
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-26T11:13:37",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1481.63,
+        "black": 918.37
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-26T11:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1482.84,
+        "black": 917.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-26T11:13:40",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1484.02,
+        "black": 915.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-26T11:13:41",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1453.2,
+        "black": 946.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-26T11:13:41",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1454.84,
+        "black": 945.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-26T11:13:41",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1456.46,
+        "black": 943.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-26T11:13:41",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1458.05,
+        "black": 941.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-26T11:13:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1459.61,
+        "black": 940.39
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-26T11:13:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1461.14,
+        "black": 938.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-26T11:13:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1462.65,
+        "black": 937.35
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-26T11:13:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1464.13,
+        "black": 935.87
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-26T11:13:42",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1465.59,
+        "black": 934.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-26T11:13:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1467.03,
+        "black": 932.97
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-26T11:13:44",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1452.44,
+        "black": 947.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-26T11:13:44",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1454.1,
+        "black": 945.9
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-26T11:13:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1455.73,
+        "black": 944.27
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-26T11:13:46",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1457.33,
+        "black": 942.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-26T11:13:47",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1458.9,
+        "black": 941.1
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-26T11:13:49",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1460.45,
+        "black": 939.55
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-26T11:13:50",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1461.97,
+        "black": 938.03
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-26T11:13:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1463.46,
+        "black": 936.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-26T11:13:52",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1464.93,
+        "black": 935.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-26T11:13:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1466.38,
+        "black": 933.62
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-26T11:13:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1467.8,
+        "black": 932.2
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-26T11:13:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1469.2,
+        "black": 930.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-26T11:13:53",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1470.59,
+        "black": 929.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-26T11:13:58",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1471.94,
+        "black": 928.06
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-26T11:14:04",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1473.28,
+        "black": 926.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-26T11:14:05",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1474.6,
+        "black": 925.4
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-26T11:14:10",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1475.9,
+        "black": 924.1
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-26T11:14:14",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Insufficient material",
+      "elo": {
+        "white": 1461.19,
+        "black": 938.81
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-26T11:14:14",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1462.69,
+        "black": 937.31
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "DQN (black_dqn.pt)",
+        "result": "loss"
+      }
+    }
+  ]
+}
