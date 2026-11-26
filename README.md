@@ -215,6 +215,12 @@ Hoặc chỉ định một log cụ thể:
 python src\plot_logging\plot_training.py checkpoints\exp_YYYYMMDD_HHMMSS\training_log.csv
 ```
 
+Tạo biểu đồ cho tất cả file CSV trong các experiment:
+
+```powershell
+python src\plot_logging\generate_all_plot.py
+```
+
 `training_log.csv` lưu loss, reward, entropy, win/draw rate, Elo, repetition, độ dài ván, throughput, nguyên nhân hòa và timing từng giai đoạn. Biểu đồ huấn luyện có đường Elo Trắng/Đen theo thời gian. `metrics.json` lưu các thống kê tổng hợp của experiment, bao gồm Elo hiện tại của hai bên.
 
 ## Native Rust MCTS cho AlphaZero

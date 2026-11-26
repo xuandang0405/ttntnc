@@ -4,12 +4,40 @@ import os
 import tempfile
 import unittest
 from types import SimpleNamespace
+from unittest.mock import patch
 
+from plot_logging import generate_all_plot
 from plot_logging.plot_training import save_training_plot
 from plot_logging.training_log import TrainingLog
 
 
 class TrainingLogTests(unittest.TestCase):
+    def test_generate_all_plots_handles_csvs_in_valid_experiment_folders(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            checkpoint_dir = os.path.join(temp_dir, "checkpoints")
+            experiment_dir = os.path.join(checkpoint_dir, "exp_20260101_123456")
+            invalid_experiment_dir = os.path.join(checkpoint_dir, "exp_test")
+            os.makedirs(experiment_dir)
+            os.makedirs(invalid_experiment_dir)
+            csv_paths = [
+                os.path.join(experiment_dir, "training_log.csv"),
+                os.path.join(experiment_dir, "other.csv"),
+                os.path.join(invalid_experiment_dir, "ignored.csv"),
+            ]
+            for path in csv_paths:
+                with open(path, "w", encoding="utf-8"):
+                    pass
+
+            with patch.object(generate_all_plot, "save_training_plot") as save_plot:
+                output_paths = generate_all_plot.generate_all_plots(checkpoint_dir)
+
+        expected_paths = [
+            os.path.join(experiment_dir, "other.jpg"),
+            os.path.join(experiment_dir, "training_log.jpg"),
+        ]
+        self.assertEqual(output_paths, expected_paths)
+        self.assertEqual(save_plot.call_count, 2)
+
     def test_save_writes_csv_rows_with_metadata_and_flat_metrics(self):
         log = TrainingLog(started=0, interval=5)
         log.records.append({
