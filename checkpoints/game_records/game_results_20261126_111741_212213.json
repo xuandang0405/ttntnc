@@ -1,0 +1,2460 @@
+{
+  "mode": "ai_vs_ai",
+  "players": {
+    "white": "AlphaZero (white_alphazero.pt)",
+    "black": "A2C (black_a2c.pt)"
+  },
+  "started_at": "2026-11-26T11:17:41",
+  "updated_at": "2026-11-26T11:20:01",
+  "totals": {
+    "games": 128,
+    "white": {
+      "wins": 7,
+      "losses": 10,
+      "draws": 111
+    },
+    "black": {
+      "wins": 10,
+      "losses": 7,
+      "draws": 111
+    },
+    "elo": {
+      "white": 1212.94,
+      "black": 1187.06
+    }
+  },
+  "games": [
+    {
+      "game": 1,
+      "completed_at": "2026-11-26T11:18:02",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1216.0,
+        "black": 1184.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 2,
+      "completed_at": "2026-11-26T11:18:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.53,
+        "black": 1185.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 3,
+      "completed_at": "2026-11-26T11:18:17",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1229.2,
+        "black": 1170.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 4,
+      "completed_at": "2026-11-26T11:18:17",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1210.53,
+        "black": 1189.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 5,
+      "completed_at": "2026-11-26T11:18:19",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1209.56,
+        "black": 1190.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 6,
+      "completed_at": "2026-11-26T11:18:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.68,
+        "black": 1191.32
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 7,
+      "completed_at": "2026-11-26T11:18:21",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1191.88,
+        "black": 1208.12
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 8,
+      "completed_at": "2026-11-26T11:18:22",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1192.63,
+        "black": 1207.37
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 9,
+      "completed_at": "2026-11-26T11:18:22",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1193.31,
+        "black": 1206.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 10,
+      "completed_at": "2026-11-26T11:18:23",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1177.92,
+        "black": 1222.08
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 11,
+      "completed_at": "2026-11-26T11:18:23",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1179.95,
+        "black": 1220.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 12,
+      "completed_at": "2026-11-26T11:18:26",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1181.79,
+        "black": 1218.21
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 13,
+      "completed_at": "2026-11-26T11:18:26",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1183.46,
+        "black": 1216.54
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 14,
+      "completed_at": "2026-11-26T11:18:27",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1184.98,
+        "black": 1215.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 15,
+      "completed_at": "2026-11-26T11:18:28",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1186.36,
+        "black": 1213.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 16,
+      "completed_at": "2026-11-26T11:18:28",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1171.61,
+        "black": 1228.39
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 17,
+      "completed_at": "2026-11-26T11:18:29",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1174.2,
+        "black": 1225.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 18,
+      "completed_at": "2026-11-26T11:18:29",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1176.56,
+        "black": 1223.44
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 19,
+      "completed_at": "2026-11-26T11:18:30",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1178.71,
+        "black": 1221.29
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 20,
+      "completed_at": "2026-11-26T11:18:33",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1164.66,
+        "black": 1235.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 21,
+      "completed_at": "2026-11-26T11:18:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1167.87,
+        "black": 1232.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 22,
+      "completed_at": "2026-11-26T11:18:34",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1154.8,
+        "black": 1245.2
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 23,
+      "completed_at": "2026-11-26T11:18:34",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1158.87,
+        "black": 1241.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 24,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1178.59,
+        "black": 1221.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 25,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1180.55,
+        "black": 1219.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 26,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1182.33,
+        "black": 1217.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 27,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1183.95,
+        "black": 1216.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 28,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1185.43,
+        "black": 1214.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 29,
+      "completed_at": "2026-11-26T11:18:35",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1186.77,
+        "black": 1213.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 30,
+      "completed_at": "2026-11-26T11:18:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1187.98,
+        "black": 1212.02
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 31,
+      "completed_at": "2026-11-26T11:18:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1189.09,
+        "black": 1210.91
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 32,
+      "completed_at": "2026-11-26T11:18:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1190.09,
+        "black": 1209.91
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 33,
+      "completed_at": "2026-11-26T11:18:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1191.0,
+        "black": 1209.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 34,
+      "completed_at": "2026-11-26T11:18:36",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1191.83,
+        "black": 1208.17
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 35,
+      "completed_at": "2026-11-26T11:18:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1192.58,
+        "black": 1207.42
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 36,
+      "completed_at": "2026-11-26T11:18:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1193.27,
+        "black": 1206.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 37,
+      "completed_at": "2026-11-26T11:18:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1193.89,
+        "black": 1206.11
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 38,
+      "completed_at": "2026-11-26T11:18:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1194.45,
+        "black": 1205.55
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 39,
+      "completed_at": "2026-11-26T11:18:37",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1194.96,
+        "black": 1205.04
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 40,
+      "completed_at": "2026-11-26T11:18:38",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1211.42,
+        "black": 1188.58
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 41,
+      "completed_at": "2026-11-26T11:18:38",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1210.37,
+        "black": 1189.63
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 42,
+      "completed_at": "2026-11-26T11:18:39",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1209.42,
+        "black": 1190.58
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 43,
+      "completed_at": "2026-11-26T11:18:40",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.55,
+        "black": 1191.45
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 44,
+      "completed_at": "2026-11-26T11:18:42",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1207.77,
+        "black": 1192.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 45,
+      "completed_at": "2026-11-26T11:18:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1207.05,
+        "black": 1192.95
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 46,
+      "completed_at": "2026-11-26T11:18:43",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1190.4,
+        "black": 1209.6
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 47,
+      "completed_at": "2026-11-26T11:18:43",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1191.28,
+        "black": 1208.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 48,
+      "completed_at": "2026-11-26T11:18:44",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1176.09,
+        "black": 1223.91
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 49,
+      "completed_at": "2026-11-26T11:18:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1178.28,
+        "black": 1221.72
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 50,
+      "completed_at": "2026-11-26T11:18:46",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1180.27,
+        "black": 1219.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 51,
+      "completed_at": "2026-11-26T11:18:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1182.08,
+        "black": 1217.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 52,
+      "completed_at": "2026-11-26T11:18:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1183.72,
+        "black": 1216.28
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 53,
+      "completed_at": "2026-11-26T11:18:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1185.22,
+        "black": 1214.78
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 54,
+      "completed_at": "2026-11-26T11:18:47",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1186.57,
+        "black": 1213.43
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 55,
+      "completed_at": "2026-11-26T11:18:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1187.81,
+        "black": 1212.19
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 56,
+      "completed_at": "2026-11-26T11:18:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1188.93,
+        "black": 1211.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 57,
+      "completed_at": "2026-11-26T11:18:48",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1189.95,
+        "black": 1210.05
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 58,
+      "completed_at": "2026-11-26T11:18:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1190.87,
+        "black": 1209.13
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 59,
+      "completed_at": "2026-11-26T11:18:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1191.71,
+        "black": 1208.29
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 60,
+      "completed_at": "2026-11-26T11:18:49",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1192.48,
+        "black": 1207.52
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 61,
+      "completed_at": "2026-11-26T11:18:49",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1177.17,
+        "black": 1222.83
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 62,
+      "completed_at": "2026-11-26T11:18:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1179.26,
+        "black": 1220.74
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 63,
+      "completed_at": "2026-11-26T11:18:50",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1181.16,
+        "black": 1218.84
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 64,
+      "completed_at": "2026-11-26T11:18:51",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1198.89,
+        "black": 1201.11
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 65,
+      "completed_at": "2026-11-26T11:18:51",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.99,
+        "black": 1201.01
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 66,
+      "completed_at": "2026-11-26T11:18:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.08,
+        "black": 1200.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 67,
+      "completed_at": "2026-11-26T11:18:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.17,
+        "black": 1200.83
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 68,
+      "completed_at": "2026-11-26T11:18:52",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1199.24,
+        "black": 1200.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 69,
+      "completed_at": "2026-11-26T11:18:52",
+      "outcome": "black_win",
+      "winner": "Black",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1183.31,
+        "black": 1216.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "loss"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "win"
+      }
+    },
+    {
+      "game": 70,
+      "completed_at": "2026-11-26T11:18:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1184.85,
+        "black": 1215.15
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 71,
+      "completed_at": "2026-11-26T11:18:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1186.24,
+        "black": 1213.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 72,
+      "completed_at": "2026-11-26T11:18:53",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1187.5,
+        "black": 1212.5
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 73,
+      "completed_at": "2026-11-26T11:18:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1188.65,
+        "black": 1211.35
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 74,
+      "completed_at": "2026-11-26T11:18:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1189.7,
+        "black": 1210.3
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 75,
+      "completed_at": "2026-11-26T11:18:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1190.64,
+        "black": 1209.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 76,
+      "completed_at": "2026-11-26T11:18:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1191.5,
+        "black": 1208.5
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 77,
+      "completed_at": "2026-11-26T11:18:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1192.29,
+        "black": 1207.71
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 78,
+      "completed_at": "2026-11-26T11:18:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1193.0,
+        "black": 1207.0
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 79,
+      "completed_at": "2026-11-26T11:18:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1193.64,
+        "black": 1206.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 80,
+      "completed_at": "2026-11-26T11:18:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1194.23,
+        "black": 1205.77
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 81,
+      "completed_at": "2026-11-26T11:18:56",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1194.76,
+        "black": 1205.24
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 82,
+      "completed_at": "2026-11-26T11:18:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1195.24,
+        "black": 1204.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 83,
+      "completed_at": "2026-11-26T11:18:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1195.68,
+        "black": 1204.32
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 84,
+      "completed_at": "2026-11-26T11:18:57",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1196.08,
+        "black": 1203.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 85,
+      "completed_at": "2026-11-26T11:18:58",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1196.44,
+        "black": 1203.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 86,
+      "completed_at": "2026-11-26T11:18:59",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1196.77,
+        "black": 1203.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 87,
+      "completed_at": "2026-11-26T11:19:00",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1197.06,
+        "black": 1202.94
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 88,
+      "completed_at": "2026-11-26T11:19:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1197.33,
+        "black": 1202.67
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 89,
+      "completed_at": "2026-11-26T11:19:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1197.58,
+        "black": 1202.42
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 90,
+      "completed_at": "2026-11-26T11:19:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1197.8,
+        "black": 1202.2
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 91,
+      "completed_at": "2026-11-26T11:19:01",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.01,
+        "black": 1201.99
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 92,
+      "completed_at": "2026-11-26T11:19:02",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.19,
+        "black": 1201.81
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 93,
+      "completed_at": "2026-11-26T11:19:02",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.36,
+        "black": 1201.64
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 94,
+      "completed_at": "2026-11-26T11:19:02",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.51,
+        "black": 1201.49
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 95,
+      "completed_at": "2026-11-26T11:19:04",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.64,
+        "black": 1201.36
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 96,
+      "completed_at": "2026-11-26T11:19:05",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.77,
+        "black": 1201.23
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 97,
+      "completed_at": "2026-11-26T11:19:05",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.88,
+        "black": 1201.12
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 98,
+      "completed_at": "2026-11-26T11:19:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1198.99,
+        "black": 1201.01
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 99,
+      "completed_at": "2026-11-26T11:19:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1199.08,
+        "black": 1200.92
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 100,
+      "completed_at": "2026-11-26T11:19:06",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.16,
+        "black": 1200.84
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 101,
+      "completed_at": "2026-11-26T11:19:07",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.24,
+        "black": 1200.76
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 102,
+      "completed_at": "2026-11-26T11:19:07",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.31,
+        "black": 1200.69
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 103,
+      "completed_at": "2026-11-26T11:19:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.37,
+        "black": 1200.63
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 104,
+      "completed_at": "2026-11-26T11:19:08",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Stalemate",
+      "elo": {
+        "white": 1199.43,
+        "black": 1200.57
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 105,
+      "completed_at": "2026-11-26T11:19:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.48,
+        "black": 1200.52
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 106,
+      "completed_at": "2026-11-26T11:19:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1199.53,
+        "black": 1200.47
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 107,
+      "completed_at": "2026-11-26T11:19:09",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1215.57,
+        "black": 1184.43
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 108,
+      "completed_at": "2026-11-26T11:19:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.14,
+        "black": 1185.86
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 109,
+      "completed_at": "2026-11-26T11:19:09",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1212.84,
+        "black": 1187.16
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 110,
+      "completed_at": "2026-11-26T11:19:10",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1211.66,
+        "black": 1188.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 111,
+      "completed_at": "2026-11-26T11:19:11",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1210.59,
+        "black": 1189.41
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 112,
+      "completed_at": "2026-11-26T11:19:13",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1209.62,
+        "black": 1190.38
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 113,
+      "completed_at": "2026-11-26T11:19:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1208.73,
+        "black": 1191.27
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 114,
+      "completed_at": "2026-11-26T11:19:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1207.93,
+        "black": 1192.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 115,
+      "completed_at": "2026-11-26T11:19:16",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1207.2,
+        "black": 1192.8
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 116,
+      "completed_at": "2026-11-26T11:19:17",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1206.54,
+        "black": 1193.46
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 117,
+      "completed_at": "2026-11-26T11:19:18",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1205.93,
+        "black": 1194.07
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 118,
+      "completed_at": "2026-11-26T11:19:19",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1205.39,
+        "black": 1194.61
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 119,
+      "completed_at": "2026-11-26T11:19:20",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.89,
+        "black": 1195.11
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 120,
+      "completed_at": "2026-11-26T11:19:20",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.44,
+        "black": 1195.56
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 121,
+      "completed_at": "2026-11-26T11:19:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1204.03,
+        "black": 1195.97
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 122,
+      "completed_at": "2026-11-26T11:19:21",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.66,
+        "black": 1196.34
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 123,
+      "completed_at": "2026-11-26T11:19:31",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1203.32,
+        "black": 1196.68
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 124,
+      "completed_at": "2026-11-26T11:19:39",
+      "outcome": "white_win",
+      "winner": "White",
+      "reason": "Checkmate",
+      "elo": {
+        "white": 1219.02,
+        "black": 1180.98
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "win"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "loss"
+      }
+    },
+    {
+      "game": 125,
+      "completed_at": "2026-11-26T11:19:42",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1217.27,
+        "black": 1182.73
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 126,
+      "completed_at": "2026-11-26T11:19:54",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1215.69,
+        "black": 1184.31
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 127,
+      "completed_at": "2026-11-26T11:19:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1214.25,
+        "black": 1185.75
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    },
+    {
+      "game": 128,
+      "completed_at": "2026-11-26T11:19:55",
+      "outcome": "draw",
+      "winner": "Draw",
+      "reason": "Threefold repetition",
+      "elo": {
+        "white": 1212.94,
+        "black": 1187.06
+      },
+      "white": {
+        "name": "AlphaZero (white_alphazero.pt)",
+        "result": "draw"
+      },
+      "black": {
+        "name": "A2C (black_a2c.pt)",
+        "result": "draw"
+      }
+    }
+  ]
+}
