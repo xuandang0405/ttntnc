@@ -70,3 +70,13 @@ class PolicyValueNet(nn.Module):
         value_features = F.relu(self.value_fc1(self.value_conv(h).flatten(1)))
         opponent_policy = self.opp(self.opp_conv(h).flatten(1))
         return opponent_policy, self.phase(value_features)
+
+
+def load_policy_value_weights(net, weights):
+    try:
+        missing, unexpected = net.load_state_dict(weights, strict=False)
+    except RuntimeError as exc:
+        raise ValueError("Checkpoint không khớp kiến trúc mạng cờ vua hiện tại.") from exc
+    if unexpected or any(not key.startswith(("opp.", "phase.")) for key in missing):
+        raise ValueError("Checkpoint thiếu trọng số hoặc chứa tham số ngoài kiến trúc đã hỗ trợ.")
+    return missing

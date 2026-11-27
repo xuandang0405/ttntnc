@@ -7,6 +7,7 @@ from algorithms.algo_a2c import A2CAgent
 from algorithms.algo_alphazero import AlphaZeroAgent
 from algorithms.algo_dqn import DQNAgent
 from algorithms.algo_ppo import PPOAgent
+from algorithms.play_agent import PlayAgent, is_legacy_checkpoint
 
 ALGORITHMS = {"A2C": A2CAgent, "PPO": PPOAgent, "DQN": DQNAgent, "AlphaZero": AlphaZeroAgent}
 ALGORITHM_NAMES = list(ALGORITHMS)
@@ -28,25 +29,35 @@ def make_agent(algorithm, color, device, episodes_per_update=1):
 
  
 def _read(path):
-    ck = torch.load(path, map_location="cpu")
+    ck = torch.load(path, map_location="cpu", weights_only=True)
     if not isinstance(ck, dict) or "net" not in ck:
         raise ValueError("not a model checkpoint from this program")
     return ck
 
 
-def read_checkpoint_info(path):
-    ck = _read(path)
+def _checkpoint_class(ck):
     cls = _BY_KEY.get(ck.get("algorithm", "a2c"))
     if cls is None:
         raise ValueError(f"unknown algorithm {ck.get('algorithm')!r}")
-    return {"label": cls.label, "key": cls.algorithm}
+    return cls
+
+
+def read_checkpoint_info(path):
+    ck = _read(path)
+    cls = _checkpoint_class(ck)
+    return {"label": cls.label, "key": cls.algorithm, "legacy": is_legacy_checkpoint(ck)}
+
+
+def load_play_agent(path, device):
+    ck = _read(path)
+    return PlayAgent(ck, _checkpoint_class(ck), device)
 
 
 def load_agent(path, color, device, episodes_per_update=1):
     ck = _read(path)
-    cls = _BY_KEY.get(ck.get("algorithm", "a2c"))
-    if cls is None:
-        raise ValueError(f"unknown algorithm {ck.get('algorithm')!r}")
+    if is_legacy_checkpoint(ck):
+        raise ValueError("Checkpoint 16 kênh dùng được ở chế độ chơi. Huấn luyện cần checkpoint 56 kênh.")
+    cls = _checkpoint_class(ck)
     agent = cls(color, _color_name(color), device, episodes_per_update)
     agent.load_state(ck)
     agent.loaded_from = path

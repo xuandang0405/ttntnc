@@ -89,7 +89,7 @@ Không gian hành động gồm:
 
 Mỗi phe được lưu dưới dạng checkpoint riêng với tên `white_<thuật toán>.pt` hoặc `black_<thuật toán>.pt`.
 
-> Checkpoint chỉ tương thích khi metadata checkpoint và kiến trúc mạng khớp với mã nguồn hiện tại. Nếu checkpoint cũ không thể nạp, hãy bắt đầu một lần huấn luyện mới.
+> Chế độ chơi hỗ trợ checkpoint 56 kênh của phiên bản hiện tại và checkpoint 16 kênh (định dạng 2) từ chiến dịch đã tích hợp. Tiếp tục huấn luyện trong phiên bản hiện tại cần checkpoint 56 kênh.
 
 ## Cấu trúc thư mục
 
@@ -152,13 +152,21 @@ python src\main.py
 
 Ứng dụng có thể chạy bằng CPU hoặc GPU; PyTorch sẽ tự chọn CUDA khi thiết bị tương thích khả dụng.
 
+## Chơi bằng mô hình đã huấn luyện
+
+- **Người vs AI**. Chọn màu ở hàng **Bạn chơi**, mở **Đối thủ** và chọn mô hình. Game tự dùng checkpoint theo màu quân của AI.
+- **AI vs AI**. Mở hai hàng **Người chơi Trắng** và **Người chơi Đen** để chọn độc lập. Hai bên có thể dùng cùng thuật toán hoặc lấy mô hình từ hai nguồn khác nhau.
+- **Chọn nhanh** có A2C, PPO, DQN và AlphaZero từ các checkpoint `best` của chiến dịch. **Thí nghiệm** hiển thị từng thuật toán kèm mã lần chạy.
+- Sau khi clone repo, chép các tệp `white_<thuật_toán>.pt` và `black_<thuật_toán>.pt` vào thư mục tương ứng trong `checkpoints/play_models/`. Dùng tên `campaign_20261123_013617_951429` cho nhóm **Chọn nhanh** và tên `exp_YYYYMMDD_HHMMSS` cho mỗi lần chạy. Trong hộp chọn mô hình, bạn cũng có thể dùng **Chọn tệp .pt / .pth** để mở checkpoint từ thư mục khác.
+- Các chế độ chơi bằng checkpoint chạy trên CPU hoặc CUDA. AlphaZero của chiến dịch dùng MCTS Python tương thích với bộ mã hóa 16 kênh.
+
 ## Điều khiển
 
 ### Menu
 
 1. Chọn một trong năm chế độ ở thanh nút phía trên.
 2. Nhấp chuột trái vào các hàng để chuyển tùy chọn hoặc chọn checkpoint.
-3. Nhấp chuột phải vào hàng mô hình để quay lại lựa chọn trước hoặc bỏ mô hình đã chọn.
+3. Nhấp chuột phải để lùi tùy chọn hoặc bỏ mô hình đã chọn. Trong chế độ chơi, hàng mô hình sẽ trở về đối thủ ngẫu nhiên.
 4. Nhấn **BẮT ĐẦU** hoặc `Enter`.
 5. Nhấn `Esc` để thoát.
 

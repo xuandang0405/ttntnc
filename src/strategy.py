@@ -25,8 +25,8 @@ def game_phase(board):
     return 1
 
 
-def _mask(legal_lists):
-    mask = np.zeros((len(legal_lists), ACTION_SIZE), dtype=bool)
+def _mask(legal_lists, action_size=ACTION_SIZE):
+    mask = np.zeros((len(legal_lists), action_size), dtype=bool)
     for r, legal in enumerate(legal_lists):
         mask[r, legal] = True
     return mask
@@ -135,12 +135,12 @@ class StrategyLearner:
                                                                  "phase_loss": float(phase_loss)})
 
 @torch.no_grad()
-def lookahead_move(agent, board, greedy=False):
+def lookahead_move(agent, board, greedy=False, *, encode_position=encode, map_moves=legal_moves_map):
     dev, net = agent.device, agent.net
     color, opp = board.turn, not board.turn
-    moves = legal_moves_map(board, color)
+    moves = map_moves(board, color)
     idx = list(moves.keys())
-    logits, _ = net(encode(board, color).to(dev))
+    logits, _ = net(encode_position(board, color).to(dev))
     k = min(LOOKAHEAD_CANDIDATES, len(idx))
     cands = [moves[idx[i]] for i in logits[0, idx].topk(k).indices.tolist()]
 
@@ -154,9 +154,9 @@ def lookahead_move(agent, board, greedy=False):
     live = [n for n in range(len(cands)) if n not in value]
 
     if live:
-        opp_logits, _ = net.forward_aux(torch.cat([encode(after[n], opp) for n in live]).to(dev))
-        maps = [legal_moves_map(after[n], opp) for n in live]
-        mask = torch.from_numpy(_mask([list(mp.keys()) for mp in maps])).to(dev)
+        opp_logits, _ = net.forward_aux(torch.cat([encode_position(after[n], opp) for n in live]).to(dev))
+        maps = [map_moves(after[n], opp) for n in live]
+        mask = torch.from_numpy(_mask([list(mp.keys()) for mp in maps], opp_logits.shape[-1])).to(dev)
         probs = torch.softmax(opp_logits.masked_fill(~mask, float("-inf")), dim=-1).cpu().numpy()
 
         replies, owner, weight = [], [], []
@@ -180,7 +180,7 @@ def lookahead_move(agent, board, greedy=False):
             else:
                 to_eval.append(t)
         if to_eval:
-            _, v = net(torch.cat([encode(replies[t], color) for t in to_eval]).to(dev))
+            _, v = net(torch.cat([encode_position(replies[t], color) for t in to_eval]).to(dev))
             for t, x in zip(to_eval, v.cpu().tolist()):
                 vals[t] = x
         for n in live:

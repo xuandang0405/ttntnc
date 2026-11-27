@@ -1,4 +1,6 @@
 import os
+from textwrap import wrap
+
 import chess
 import pygame
 from pathlib import Path
@@ -136,8 +138,17 @@ def _panel(screen, fonts):
 def draw_play_panel(screen, fonts, match, hints):
     x0, st, line = _panel(screen, fonts)
     line("Cờ vua", "title", dy=36)
-    line(f"Trắng: {match.white.name}", color=(240, 240, 240))
-    line(f"Đen: {match.black.name}", color=(170, 190, 255), dy=32)
+    for name, color, spacing in (
+            (f"Trắng: {match.white.name}", (240, 240, 240), 24),
+            (f"Đen: {match.black.name}", (170, 190, 255), 32)):
+        if fonts["main"].size(name)[0] <= PANEL_W - 32:
+            line(name, "main", color=color, dy=spacing)
+        else:
+            columns = (PANEL_W - 32) // fonts["small"].size("M")[0]
+            first, *extra = wrap(name, width=columns)
+            line(first, "small", color=color, dy=15 if extra else spacing)
+            for index, text in enumerate(extra):
+                line(text, "small", color=color, dy=spacing if index == len(extra) - 1 else 15)
     turn = "Trắng" if match.board.turn == chess.WHITE else "Đen"
     if match.result:
         line("Kết thúc ván đấu", color=(255, 200, 90))
@@ -146,12 +157,13 @@ def draw_play_panel(screen, fonts, match, hints):
 
     st["y"] += 10
     line("Nước đi", color=(160, 200, 255), dy=26)
+    y = H - 18 * len(hints) - 12
+    visible_rows = max(1, min(14, (y - st["y"]) // 22))
     rows = [(i // 2 + 1, match.san[i], match.san[i + 1] if i + 1 < len(match.san) else "")
-            for i in range(0, len(match.san), 2)][-14:]
+            for i in range(0, len(match.san), 2)][-visible_rows:]
     
     for n, w, b in rows:
         line(f"{n:>3}.   {w:<8}{b}", "main", dy=22)
-    y = H - 18 * len(hints) - 12
     for t in hints:
         screen.blit(fonts["small"].render(t, True, (170, 170, 180)), (x0 + 16, y))
         y += 18

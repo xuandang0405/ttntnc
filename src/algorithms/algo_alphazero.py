@@ -28,23 +28,24 @@ class Node:
         self.children, self.moves = None, None      # idx -> Node, idx -> chess.Move
 
 @torch.no_grad()
-def _evaluate(net, boards, device, timings):
+def _evaluate(net, boards, device, timings, *, encode_position=encode,
+              map_moves=legal_moves_map, action_size=ACTION_SIZE):
     started = time.perf_counter()
-    states_list = [encode(b, b.turn) for b in boards]
+    states_list = [encode_position(b, b.turn) for b in boards]
     timings["mcts_encode_only"] = (
         timings.get("mcts_encode_only", 0.0)
         + time.perf_counter() - started
     )
 
     started = time.perf_counter()
-    maps = [legal_moves_map(b, b.turn) for b in boards]
+    maps = [map_moves(b, b.turn) for b in boards]
     timings["mcts_legal_map"] = (
         timings.get("mcts_legal_map", 0.0)
         + time.perf_counter() - started
     )
 
     started = time.perf_counter()
-    mask = np.zeros((len(boards), ACTION_SIZE), dtype=bool)
+    mask = np.zeros((len(boards), action_size), dtype=bool)
     for i, m in enumerate(maps):
         if m:
             mask[i, list(m.keys())] = True
@@ -177,33 +178,38 @@ def _run_native_search(net, boards, sims, device, noise, timings):
 
 
 @torch.no_grad()
-def run_mcts(net, boards, sims, device, noise, profile=None):
+def run_mcts(net, boards, sims, device, noise, profile=None, *,
+             evaluate=None, allow_python_fallback=False):
     timings = {}
     try:
-        return _run_mcts_impl(net, boards, sims, device, noise, timings)
+        return _run_mcts_impl(net, boards, sims, device, noise, timings,
+                              evaluate, allow_python_fallback)
     finally:
         if profile is not None:
             for part, elapsed in timings.items():
                 profile(part, elapsed)
 
 
-def _run_mcts_impl(net, boards, sims, device, noise, timings):
-    if AZ_USE_RUST_SEARCH:
-        if algorithms_rs is None or not hasattr(algorithms_rs, "BatchSearch"):
+def _run_mcts_impl(net, boards, sims, device, noise, timings, evaluate, allow_python_fallback):
+    if evaluate is None and AZ_USE_RUST_SEARCH:
+        if hasattr(algorithms_rs, "BatchSearch"):
+            return _run_native_search(net, boards, sims, device, noise, timings)
+        if not allow_python_fallback:
             raise RuntimeError(
                 "Rust search was requested, but the algorithms_rs extension with BatchSearch "
                 "is not installed. Build it with `python -m pip install .` from src/algorithms-rs."
             )
-        return _run_native_search(net, boards, sims, device, noise, timings)
-    if AZ_USE_RUST_MCTS:
-        if algorithms_rs is None:
+    if evaluate is None and AZ_USE_RUST_MCTS:
+        if hasattr(algorithms_rs, "MctsTree"):
+            return _run_rust_mcts(net, boards, sims, device, noise, timings)
+        if not allow_python_fallback:
             raise RuntimeError(
                 "Rust MCTS was requested, but the algorithms_rs extension is not installed. "
                 "Build it with `python -m pip install .` from src/algorithms-rs."
             )
-        return _run_rust_mcts(net, boards, sims, device, noise, timings)
 
     # Search every board in lock-step. Returns [(move indices, visit counts, idx->move)] per board.
+    evaluate = evaluate or _evaluate
     started = time.perf_counter()
     roots = [Node(1.0) for _ in boards]
     active = [i for i, board in enumerate(boards) if board.outcome(claim_draw=True) is None]
@@ -212,7 +218,7 @@ def _run_mcts_impl(net, boards, sims, device, noise, timings):
     )
     if not active:
         return [([], np.zeros(0, dtype=np.float64), {}) for _ in boards]
-    maps, probs, _ = _evaluate(net, [boards[i] for i in active], device, timings)
+    maps, probs, _ = evaluate(net, [boards[i] for i in active], device, timings)
     started = time.perf_counter()
     for i, m, p in zip(active, maps, probs):
         _expand(roots[i], m, p, AZ_NOISE_FRAC if noise else 0.0)
@@ -248,7 +254,7 @@ def _run_mcts_impl(net, boards, sims, device, noise, timings):
             + max(0.0, time.perf_counter() - started - backup_seconds)
         )
         if pending:
-            maps, probs, values = _evaluate(net, [b for _, _, b in pending], device, timings)
+            maps, probs, values = evaluate(net, [b for _, _, b in pending], device, timings)
             for (path, node, _), m, p, v in zip(pending, maps, probs, values):
                 expand_started = time.perf_counter()
                 _expand(node, m, p)
@@ -266,6 +272,21 @@ def _run_mcts_impl(net, boards, sims, device, noise, timings):
         idxs = list(root.children.keys()) if root.children else []
         out.append((idxs, np.array([root.children[i].visits for i in idxs], dtype=np.float64), root.moves or {}))
     return out
+
+
+def select_search_moves(results, greedy):
+    selected = []
+    for indices, visits, moves in results:
+        if not indices:
+            raise RuntimeError("Cannot select a move from a terminal chess position")
+        if greedy:
+            choice = int(np.argmax(visits))
+        else:
+            total = float(visits.sum())
+            probs = visits / total if total else np.full(len(visits), 1.0 / len(visits))
+            choice = int(np.random.choice(len(indices), p=probs))
+        selected.append(moves[indices[choice]])
+    return selected
 
 
 def _run_rust_mcts(net, boards, sims, device, noise, timings):
@@ -463,17 +484,6 @@ class AlphaZeroAgent(BaseAgent):
         try:
             results = run_mcts(
                 self.net, boards, AZ_PLAY_SIMULATIONS, self.device, noise=False)
-            selected = []
-            for idxs, visits, mmap in results:
-                if not idxs:
-                    raise RuntimeError("Cannot select a move from a terminal chess position")
-                if greedy:
-                    choice = int(np.argmax(visits))
-                else:
-                    total = float(visits.sum())
-                    probs = visits / total if total > 0 else np.full(len(visits), 1.0 / len(visits))
-                    choice = int(np.random.choice(len(idxs), p=probs))
-                selected.append(mmap[idxs[choice]])
-            return selected
+            return select_search_moves(results, greedy)
         finally:
             self.net.train(was_training)

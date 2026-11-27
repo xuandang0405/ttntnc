@@ -1,4 +1,5 @@
 """Playing a game: human vs human, human vs model, or model vs model."""
+from concurrent.futures import ThreadPoolExecutor
 import os
 
 import chess
@@ -6,7 +7,7 @@ import pygame
 
 from config import AI_MOVE_DELAY, BG, MAX_AI_PLIES, BOARD_PX
 from match import Match
-from players import make_player
+from players import ModelPlayer, make_player
 from normal_mode.renderer import draw_board, draw_play_panel, px_to_sq
 from plot_logging.game_record import GameResultRecorder
 from scene import Scene
@@ -24,6 +25,10 @@ class PlayScene(Scene):
         self.result_recorder = None
         self.record_status = ""
         self.recording_popup = None
+        self.menu = None
+        self.move_executor = None
+        self.move_future = None
+        self.ai_error = ""
         self.new_match()
 
     def new_match(self):
@@ -62,6 +67,7 @@ class PlayScene(Scene):
                 from concurrent_mode.concurrent_test_scene import ConcurrentAITestScene
                 self.next = ConcurrentAITestScene(
                     self.fonts, self.specs[0], self.specs[1], self.greedy, self.lookahead)
+                self.next.menu = self.menu
             elif action == "cancel":
                 self.recording_popup = None
             return
@@ -183,7 +189,11 @@ class PlayScene(Scene):
 
     def go_menu(self):
         from menu_scene import MenuScene   # local import avoids a circular dependency
-        self.next = MenuScene(self.fonts)
+        if self.menu is None:
+            self.next = MenuScene(self.fonts)
+        else:
+            self.menu.next = None
+            self.next = self.menu
 
     # result popup
     def make_popup(self):
@@ -205,13 +215,31 @@ class PlayScene(Scene):
                     self.record_status = f"Đã tự lưu: {os.path.basename(self.result_recorder.path)}"
             except OSError as ex:
                 self.record_status = f"Lỗi lưu kết quả: {ex}"
-        if self.popup:
+        if self.next is not None or self.popup or self.ai_error:
+            return
+        if self.move_future is not None:
+            if not self.move_future.done():
+                return
+            try:
+                move = self.move_future.result()
+            except Exception as exc:
+                self.ai_error = f"Lỗi nước đi AI: {exc}"
+            else:
+                self.play(move)
+            finally:
+                self.move_future = None
             return
         player = self.match.current_player()
         if player.is_human:
             return
         if pygame.time.get_ticks() - self.last_ai_move >= self.ai_delay:
-            self.play(player.choose_move(self.match.board))
+            if isinstance(player, ModelPlayer):
+                if self.move_executor is None:
+                    self.move_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="chess-play")
+                self.move_future = self.move_executor.submit(
+                    player.choose_move, self.match.board.copy(stack=True))
+            else:
+                self.play(player.choose_move(self.match.board))
 
     def draw(self, screen):
         screen.fill(BG)
@@ -229,6 +257,10 @@ class PlayScene(Scene):
                              f"Đen {self.result_recorder.ratings['black']:.0f}")
         if len(self.match.humans()) < 2:
             hints.insert(0, f"UP/DOWN: AI delay ({self.ai_delay} ms)")
+        if self.ai_error:
+            hints.insert(0, self.ai_error)
+        elif self.move_future is not None:
+            hints.insert(0, "AI đang tính nước đi…")
         draw_play_panel(screen, self.fonts, self.match, hints)
         if self.promotion:
             dim = pygame.Surface((BOARD_PX, BOARD_PX), pygame.SRCALPHA)
@@ -244,5 +276,7 @@ class PlayScene(Scene):
             self.recording_popup.draw(screen, self.fonts)
 
     def on_exit(self):
+        if self.move_executor is not None:
+            self.move_executor.shutdown(wait=False, cancel_futures=True)
         if self.result_recorder and self.result_recorder.games:
             self.save_results()

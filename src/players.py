@@ -1,8 +1,8 @@
-import os
 import random
  
-from algorithms.algorithms import load_agent
+from algorithms.algorithms import load_play_agent
 from model import device
+from model_presets import model_run_name
  
  
 class Player:
@@ -32,9 +32,9 @@ class ModelPlayer(Player):
  
     def __init__(self, color, path, greedy=False, lookahead=False):
         self.color, self.greedy = color, greedy
-        self.agent = load_agent(path, color, device)
+        self.agent = load_play_agent(path, device)
         self.lookahead = lookahead and self.agent.supports_lookahead()
-        self.name = f"{self.agent.label} ({os.path.basename(path)})"
+        self.name = f"{self.agent.label} ({model_run_name(path)})"
         if lookahead:
             self.name += " + lookahead" if self.lookahead else " (no lookahead)"
  

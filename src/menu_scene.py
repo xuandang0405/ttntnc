@@ -7,6 +7,8 @@ from concurrent_mode.concurrent_config import NUM_GAMES
 from concurrent_mode.concurrent_train_scene import ConcurrentTrainScene
 from config import BG, H, TEXT, W
 from file_dialog import pick_model_file
+from model_picker import ModelPicker
+from model_presets import find_model_presets
 from play_scene import PlayScene
 from scene import QUIT, Scene
 from normal_mode.train_scene import TrainScene
@@ -24,8 +26,8 @@ TRAIN_ROWS = [("cycle", "Thuật toán Trắng"), ("file", "Tệp mô hình Tr�
               ("cycle", "Thuật toán Đen"), ("file", "Tệp mô hình Đen")]
 ROWS = {
     0: [],
-    1: [("cycle", "Bạn chơi"), ("file", "Đối thủ"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
-    2: [("file", "Người chơi Trắng"), ("file", "Người chơi Đen"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
+    1: [("cycle", "Bạn chơi"), ("model", "Đối thủ"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
+    2: [("model", "Người chơi Trắng"), ("model", "Người chơi Đen"), ("cycle", "Kiểu AI Encoding"), ("cycle", "Đoán nước đi")],
     3: TRAIN_ROWS,
     4: TRAIN_ROWS,
 }
@@ -33,16 +35,16 @@ ROWS = {
 FILE_OF = {"Thuật toán Trắng": "Tệp mô hình Trắng", "Thuật toán Đen": "Tệp mô hình Đen"}
 DESCRIPTIONS = {
     0: "Hai người chơi chung một màn hình. Nhấp vào một quân cờ, sau đó nhấp vào ô được làm sáng.",
-    1: "Chơi với mô hình đã lưu (chọn tệp mô hình) hoặc người chơi ngẫu nhiên.",
-    2: "Xem hai mô hình đã lưu (hoặc người chơi ngẫu nhiên) đấu với nhau.",
+    1: "Chọn màu quân của bạn và mô hình đối thủ.",
+    2: "Chọn mô hình riêng cho Trắng và Đen.",
     3: "Huấn luyện các tác nhân Trắng và Đen bằng cách tự đấu, từng ván một.",
     4: f"Huấn luyện trên {NUM_GAMES} ván tự đấu chạy song song (sử dụng GPU nếu có).",
 }
 HINTS = {
-    1: "hàng tệp: nhấp chuột trái = chọn tệp mô hình, nhấp chuột phải = người chơi ngẫu nhiên",
-    2: "hàng tệp: nhấp chuột trái = chọn tệp mô hình, nhấp chuột phải = người chơi ngẫu nhiên",
-    3: "hàng tệp: nhấp chuột trái = tải mô hình đã lưu để tiếp tục huấn luyện, nhấp chuột phải = bắt đầu lại từ đầu",
-    4: "hàng tệp: nhấp chuột trái = tải mô hình đã lưu để tiếp tục huấn luyện, nhấp chuột phải = bắt đầu lại từ đầu",
+    1: "Bấm hàng đối thủ để mở danh sách mô hình. Chuột phải chọn lại người chơi ngẫu nhiên.",
+    2: "Bấm từng hàng để chọn mô hình. Chuột phải chọn lại người chơi ngẫu nhiên.",
+    3: "Bấm hàng tệp để tiếp tục huấn luyện. Chuột phải để chọn mô hình mới.",
+    4: "Bấm hàng tệp để tiếp tục huấn luyện. Chuột phải để chọn mô hình mới.",
 }
 
 class MenuScene(Scene):
@@ -52,6 +54,8 @@ class MenuScene(Scene):
         self.sel = {k: 0 for k in CHOICES}
         self.paths = {}      # tên hàng tệp -> đường dẫn mô hình đã chọn
         self.labels = {}     # đường dẫn mô hình -> nhãn thuật toán
+        self.presets = {}    # hàng thi đấu -> mô hình đã huấn luyện
+        self.model_picker = None
         self.error = ""
         self.start_btn = Button((W // 2 - 140, H - 100, 280, 52), "BẮT ĐẦU", (50, 130, 90), (70, 160, 110))
         bw = (W - 80) // len(MODES)
@@ -73,6 +77,8 @@ class MenuScene(Scene):
         path = self.paths.get(name)
         if path:
             return f"{os.path.basename(path)}  [{self.labels[path]}]"
+        if kind == "model" and name in self.presets:
+            return self.presets[name].title
         return "(mô hình mới - huấn luyện từ đầu)" if self.mode >= 3 else "Người chơi ngẫu nhiên"
  
     def pick(self, name):
@@ -84,13 +90,48 @@ class MenuScene(Scene):
             return
         try:
             info = read_checkpoint_info(path)
+            if self.mode >= 3 and info["legacy"]:
+                raise ValueError("Checkpoint 16 kênh dùng trong chế độ chơi. Huấn luyện cần checkpoint 56 kênh.")
         except Exception as ex:
             self.error = f"Không phải tệp mô hình hợp lệ: {ex}"
             return
         self.paths[name], self.labels[path], self.error = path, info["label"], ""
+        self.presets.pop(name, None)
+
+    def model_is_white(self, name):
+        if name == "Đối thủ":
+            return self.sel["Bạn chơi"] == 1
+        return name == "Người chơi Trắng"
+
+    def model_spec(self, name):
+        if name in self.paths:
+            return f"file:{self.paths[name]}"
+        preset = self.presets.get(name)
+        if preset is None:
+            return "Random mover"
+        checkpoint = preset.checkpoint(self.model_is_white(name))
+        if not checkpoint.is_file():
+            raise FileNotFoundError(f"Thiếu {preset.title} ({checkpoint.name}).")
+        return f"file:{checkpoint}"
  
     # đầu vào
     def handle_event(self, e):
+        if self.model_picker:
+            selection = self.model_picker.handle_event(e)
+            if selection is None:
+                return
+            name = self.model_picker.row
+            self.model_picker = None
+            if selection == "browse":
+                self.pick(name)
+            elif selection != "cancel":
+                self.paths.pop(name, None)
+                if selection == "random":
+                    self.presets.pop(name, None)
+                else:
+                    self.presets[name] = selection
+                self.error = ""
+            return
         if e.type == pygame.KEYDOWN:
             if e.key == pygame.K_RETURN:
                 self.start()
@@ -108,10 +149,15 @@ class MenuScene(Scene):
                     if not self.paths.get(FILE_OF.get(name)):       # tệp đã tải sẽ quyết định thuật toán
                         step = 1 if e.button == 1 else -1
                         self.sel[name] = (self.sel[name] + step) % len(CHOICES[name])
+                elif kind == "model" and e.button == 1:
+                    self.model_picker = ModelPicker(
+                        name, find_model_presets(), self.presets.get(name), self.model_is_white(name))
                 elif e.button == 1:
                     self.pick(name)
                 else:
                     self.paths.pop(name, None)
+                    self.presets.pop(name, None)
+                    self.error = ""
                 return
             if e.button == 1 and self.start_btn.hit(e.pos):
                 self.start()
@@ -121,9 +167,6 @@ class MenuScene(Scene):
                 "path": self.paths.get(f"Tệp mô hình {side}")}
  
     def start(self):
-        pick = lambda k: CHOICES[k][self.sel[k]]
-        spec = lambda name: f"file:{self.paths[name]}" if self.paths.get(name) else "Random mover"
-
         try:
             if self.mode == 3:
                 self.next = TrainScene(self.fonts, self.cfg("Trắng"), self.cfg("Đen"))
@@ -136,12 +179,13 @@ class MenuScene(Scene):
                 if self.mode == 0:
                     white, black = "Human", "Human"
                 elif self.mode == 1:
-                    white, black = (("Human", spec("Đối thủ"))
-                        if pick("Bạn chơi") == "Trắng" else (spec("Đối thủ"), "Human"))
+                    opponent = self.model_spec("Đối thủ")
+                    white, black = (opponent, "Human") if self.model_is_white("Đối thủ") else ("Human", opponent)
                 else:
-                    white = spec("Người chơi Trắng")
-                    black = spec("Người chơi Đen")
+                    white = self.model_spec("Người chơi Trắng")
+                    black = self.model_spec("Người chơi Đen")
                 self.next = PlayScene(self.fonts, white, black, greedy, lookahead)
+                self.next.menu = self
         except Exception as ex:
             self.next = None
             self.error = f"Không thể bắt đầu: {ex}"
@@ -158,15 +202,12 @@ class MenuScene(Scene):
         rows = self.row_buttons()
         for _, _, b in rows:
             b.draw(screen, self.fonts["main"])
-        if rows:
-            h = self.fonts["small"].render("nhấp chuột trái: tùy chọn tiếp theo / chọn tệp    nhấp chuột phải: trước đó / xóa",
-                                           True, (140, 140, 150))
-            screen.blit(h, h.get_rect(center=(W // 2, 196 + len(rows) * 56 + 8)))
-            if self.mode in HINTS:
-                h2 = self.fonts["small"].render(HINTS[self.mode], True, (140, 140, 150))
-                screen.blit(h2, h2.get_rect(center=(W // 2, 196 + len(rows) * 56 + 28)))
+        if self.mode in HINTS:
+            hint = self.fonts["small"].render(HINTS[self.mode], True, (160, 160, 170))
+            screen.blit(hint, hint.get_rect(center=(W // 2, 196 + len(rows) * 56 + 13)))
         self.start_btn.draw(screen, self.fonts["title"])
-        msg, color = (self.error, (240, 120, 120)) if self.error else \
-            ("Chọn mô hình thông qua hộp thoại.", (140, 140, 150))
-        m = self.fonts["small"].render(msg[:120], True, color)
-        screen.blit(m, m.get_rect(center=(W // 2, H - 24)))
+        if self.error:
+            message = self.fonts["small"].render(self.error[:140], True, (240, 120, 120))
+            screen.blit(message, message.get_rect(center=(W // 2, H - 24)))
+        if self.model_picker:
+            self.model_picker.draw(screen, self.fonts)

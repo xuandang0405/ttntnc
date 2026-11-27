@@ -10,7 +10,7 @@ from torch.nn.utils import parameters_to_vector
 from algorithms.algo_config import MAX_GRAD_NORM
 from config import LR, SHAPING
 from encoding import ACTION_SIZE, HISTORY_LENGTH, INPUT_CHANNELS, encode, legal_moves_map, material_balance
-from model import PolicyValueNet
+from model import PolicyValueNet, load_policy_value_weights
 from stockfish.stockfish_coach import get_coach
 from strategy import StrategyLearner, lookahead_move
 
@@ -18,7 +18,24 @@ try:
     import algorithms_rs
 except ImportError:
     algorithms_rs = None
- 
+
+
+def select_policy_moves(net, states, maps, temperature, greedy):
+    logits, _ = net(states)
+    legal_indices = [list(moves) for moves in maps]
+    max_legal = max(map(len, legal_indices))
+    indices = torch.zeros((len(maps), max_legal), dtype=torch.long, device=states.device)
+    valid = torch.zeros_like(indices, dtype=torch.bool)
+    for row, actions in enumerate(legal_indices):
+        indices[row, :len(actions)] = torch.tensor(actions, dtype=torch.long, device=states.device)
+        valid[row, :len(actions)] = True
+    logits = logits.gather(1, indices).masked_fill(~valid, float("-inf"))
+    if greedy:
+        selections = logits.argmax(dim=1)
+    else:
+        selections = torch.distributions.Categorical(logits=logits / temperature).sample()
+    return [moves[legal_indices[i][selection]]
+            for i, (moves, selection) in enumerate(zip(maps, selections.tolist()))]
 
 class BaseAgent:
     algorithm = "base"    # lower-case key used in file names, e.g. white_ppo.pt
@@ -58,24 +75,7 @@ class BaseAgent:
         try:
             maps = [legal_moves_map(board, self.color) for board in boards]
             states = self.encode_boards(boards).to(self.device)
-            logits, _ = self.net(states)
-            legal_indices = [list(moves) for moves in maps]
-            max_legal = max(map(len, legal_indices))
-            indices = torch.zeros(
-                (len(boards), max_legal), dtype=torch.long, device=self.device)
-            valid = torch.zeros_like(indices, dtype=torch.bool)
-            for row, actions in enumerate(legal_indices):
-                indices[row, :len(actions)] = torch.tensor(
-                    actions, dtype=torch.long, device=self.device)
-                valid[row, :len(actions)] = True
-            logits = logits.gather(1, indices).masked_fill(~valid, float("-inf"))
-            if greedy:
-                selections = logits.argmax(dim=1)
-            else:
-                selections = torch.distributions.Categorical(
-                    logits=logits / self.play_temperature).sample()
-            return [moves[legal_indices[i][selection]]
-                    for i, (moves, selection) in enumerate(zip(maps, selections.tolist()))]
+            return select_policy_moves(self.net, states, maps, self.play_temperature, greedy)
         finally:
             self.net.train(was_training)
 
@@ -245,16 +245,7 @@ class BaseAgent:
         return path
  
     def load_state(self, ck):
-        try:
-            missing, unexpected = self.net.load_state_dict(ck["net"], strict=False)
-        except RuntimeError as exc:
-            raise ValueError(
-                "Checkpoint uses an incompatible network/encoding. The new 56-plane "
-                "Residual CNN and 20,480-action policy require fresh training; old "
-                "weights cannot be loaded directly."
-            ) from exc
-        if unexpected or any(not k.startswith(("opp.", "phase.")) for k in missing):
-            raise ValueError("checkpoint does not match this network")   # (older files lack the strategy heads)
+        load_policy_value_weights(self.net, ck["net"])
         try:
             self.opt.load_state_dict(ck["opt"])
         except Exception:
